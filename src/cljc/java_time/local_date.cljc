@@ -1,171 +1,171 @@
-(ns cljc.java-time.local-date (:require [cljs.java-time.interop :as jti] #? (:cljs [java-time :refer [LocalDate]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time LocalDate])))
+(ns cljc.java-time.local-date (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [LocalDate]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time LocalDate])))
 
-(defn compare-to ([^java.time.LocalDate G__34184 G__34185] (.compareTo ^java.time.LocalDate G__34184 G__34185)))
+(defn compare-to ([^java.time.LocalDate G__35674 G__35675] (.compareTo ^java.time.LocalDate G__35674 G__35675)))
 
 
-(defn is-supported ([^java.time.LocalDate G__34186 G__34187] (.isSupported ^java.time.LocalDate G__34186 G__34187)))
+(defn is-supported ([^java.time.LocalDate G__35676 G__35677] (.isSupported ^java.time.LocalDate G__35676 G__35677)))
 
 
-(defn plus-years ^java.time.LocalDate ([^java.time.LocalDate G__34188 G__34189] (.plusYears ^java.time.LocalDate G__34188 G__34189)))
+(defn plus-years ^java.time.LocalDate ([^java.time.LocalDate G__35678 G__35679] (.plusYears ^java.time.LocalDate G__35678 G__35679)))
 
 
-(defn get-era ^java.time.chrono.Era ([^java.time.LocalDate G__34190] (jti/getter era ^java.time.LocalDate G__34190)))
+(defn get-era ^java.time.chrono.Era ([^java.time.LocalDate G__35680] (jti/getter era ^java.time.LocalDate G__35680)))
 
 
-(defn query ^java.lang.Object ([^java.time.LocalDate G__34191 ^java.time.temporal.TemporalQuery G__34192] (.query ^java.time.LocalDate G__34191 ^java.time.temporal.TemporalQuery G__34192)))
+(defn query ^java.lang.Object ([^java.time.LocalDate G__35681 ^java.time.temporal.TemporalQuery G__35682] (.query ^java.time.LocalDate G__35681 ^java.time.temporal.TemporalQuery G__35682)))
 
 
-(defn get-day-of-month ([^java.time.LocalDate G__34193] (jti/getter dayOfMonth ^java.time.LocalDate G__34193)))
+(defn get-day-of-month ([^java.time.LocalDate G__35683] (jti/getter dayOfMonth ^java.time.LocalDate G__35683)))
 
 
 
-(defn of ^java.time.LocalDate ([G__34195 G__34196 G__34197] (. java.time.LocalDate of G__34195 G__34196 G__34197)))
+(defn of ^java.time.LocalDate ([G__35685 G__35686 G__35687] (. java.time.LocalDate of G__35685 G__35686 G__35687)))
 
 
 
 
-(defn range ^java.time.temporal.ValueRange ([^java.time.LocalDate G__34198 ^java.time.temporal.TemporalField G__34199] (.range ^java.time.LocalDate G__34198 ^java.time.temporal.TemporalField G__34199)))
+(defn range ^java.time.temporal.ValueRange ([^java.time.LocalDate G__35688 ^java.time.temporal.TemporalField G__35689] (.range ^java.time.LocalDate G__35688 ^java.time.temporal.TemporalField G__35689)))
 
 
 
-(defn of-epoch-day ^java.time.LocalDate ([G__34201] (. java.time.LocalDate ofEpochDay G__34201)))
+(defn of-epoch-day ^java.time.LocalDate ([G__35691] (. java.time.LocalDate ofEpochDay G__35691)))
 
 
-(defn at-start-of-day ^java.time.ZonedDateTime ([^java.time.LocalDate G__34202 ^java.time.ZoneId G__34203] (.atStartOfDay ^java.time.LocalDate G__34202 ^java.time.ZoneId G__34203)) ([^java.time.LocalDate G__34204] (.atStartOfDay ^java.time.LocalDate G__34204)))
+(defn at-start-of-day ^java.time.ZonedDateTime ([^java.time.LocalDate G__35692 ^java.time.ZoneId G__35693] (.atStartOfDay ^java.time.LocalDate G__35692 ^java.time.ZoneId G__35693)) ([^java.time.LocalDate G__35694] (.atStartOfDay ^java.time.LocalDate G__35694)))
 
 
-(defn with-day-of-year ^java.time.LocalDate ([^java.time.LocalDate G__34205 G__34206] (.withDayOfYear ^java.time.LocalDate G__34205 G__34206)))
+(defn with-day-of-year ^java.time.LocalDate ([^java.time.LocalDate G__35695 G__35696] (.withDayOfYear ^java.time.LocalDate G__35695 G__35696)))
 
 
-(defn is-equal ([^java.time.LocalDate G__34207 ^java.time.chrono.ChronoLocalDate G__34208] (.isEqual ^java.time.LocalDate G__34207 ^java.time.chrono.ChronoLocalDate G__34208)))
+(defn is-equal ([^java.time.LocalDate G__35697 ^java.time.chrono.ChronoLocalDate G__35698] (.isEqual ^java.time.LocalDate G__35697 ^java.time.chrono.ChronoLocalDate G__35698)))
 
 
 
-(defn length-of-month ([^java.time.LocalDate G__34209] (.lengthOfMonth ^java.time.LocalDate G__34209)))
+(defn length-of-month ([^java.time.LocalDate G__35699] (.lengthOfMonth ^java.time.LocalDate G__35699)))
 
 
 
 
-(defn format ^java.lang.String ([^java.time.LocalDate G__34210 ^java.time.format.DateTimeFormatter G__34211] (.format ^java.time.LocalDate G__34210 ^java.time.format.DateTimeFormatter G__34211)))
+(defn format ^java.lang.String ([^java.time.LocalDate G__35700 ^java.time.format.DateTimeFormatter G__35701] (.format ^java.time.LocalDate G__35700 ^java.time.format.DateTimeFormatter G__35701)))
 
 
-(defn minus-months ^java.time.LocalDate ([^java.time.LocalDate G__34212 G__34213] (.minusMonths ^java.time.LocalDate G__34212 G__34213)))
+(defn minus-months ^java.time.LocalDate ([^java.time.LocalDate G__35702 G__35703] (.minusMonths ^java.time.LocalDate G__35702 G__35703)))
 
 
-(defn get ([^java.time.LocalDate G__34214 ^java.time.temporal.TemporalField G__34215] (.get ^java.time.LocalDate G__34214 ^java.time.temporal.TemporalField G__34215)))
+(defn get ([^java.time.LocalDate G__35704 ^java.time.temporal.TemporalField G__35705] (.get ^java.time.LocalDate G__35704 ^java.time.temporal.TemporalField G__35705)))
 
 
-(defn minus-weeks ^java.time.LocalDate ([^java.time.LocalDate G__34216 G__34217] (.minusWeeks ^java.time.LocalDate G__34216 G__34217)))
+(defn minus-weeks ^java.time.LocalDate ([^java.time.LocalDate G__35706 G__35707] (.minusWeeks ^java.time.LocalDate G__35706 G__35707)))
 
 
-(defn at-time ^java.time.OffsetDateTime ([^java.time.LocalDate G__34218 G__34219] (.atTime ^java.time.LocalDate G__34218 G__34219)) ([^java.time.LocalDate G__34220 G__34221 G__34222 G__34223 G__34224] (.atTime ^java.time.LocalDate G__34220 G__34221 G__34222 G__34223 G__34224)) ([^java.time.LocalDate G__34225 G__34226 G__34227 G__34228] (.atTime ^java.time.LocalDate G__34225 G__34226 G__34227 G__34228)) ([^java.time.LocalDate G__34229 G__34230 G__34231] (.atTime ^java.time.LocalDate G__34229 G__34230 G__34231)))
+(defn at-time ^java.time.OffsetDateTime ([^java.time.LocalDate G__35708 G__35709] (.atTime ^java.time.LocalDate G__35708 G__35709)) ([^java.time.LocalDate G__35710 G__35711 G__35712 G__35713 G__35714] (.atTime ^java.time.LocalDate G__35710 G__35711 G__35712 G__35713 G__35714)) ([^java.time.LocalDate G__35715 G__35716 G__35717 G__35718] (.atTime ^java.time.LocalDate G__35715 G__35716 G__35717 G__35718)) ([^java.time.LocalDate G__35719 G__35720 G__35721] (.atTime ^java.time.LocalDate G__35719 G__35720 G__35721)))
 
 
-(defn now ^java.time.LocalDate ([] (. java.time.LocalDate now)) ([G__34234] (. java.time.LocalDate now G__34234)))
+(defn now ^java.time.LocalDate ([] (. java.time.LocalDate now)) ([G__35724] (. java.time.LocalDate now G__35724)))
 
 
-(defn minus-years ^java.time.LocalDate ([^java.time.LocalDate G__34235 G__34236] (.minusYears ^java.time.LocalDate G__34235 G__34236)))
+(defn minus-years ^java.time.LocalDate ([^java.time.LocalDate G__35725 G__35726] (.minusYears ^java.time.LocalDate G__35725 G__35726)))
 
 
-(defn minus-days ^java.time.LocalDate ([^java.time.LocalDate G__34237 G__34238] (.minusDays ^java.time.LocalDate G__34237 G__34238)))
+(defn minus-days ^java.time.LocalDate ([^java.time.LocalDate G__35727 G__35728] (.minusDays ^java.time.LocalDate G__35727 G__35728)))
 
 
 
-(defn get-day-of-year ([^java.time.LocalDate G__34239] (jti/getter dayOfYear ^java.time.LocalDate G__34239)))
+(defn get-day-of-year ([^java.time.LocalDate G__35729] (jti/getter dayOfYear ^java.time.LocalDate G__35729)))
 
 
-(defn get-month ^java.time.Month ([^java.time.LocalDate G__34240] (jti/getter month ^java.time.LocalDate G__34240)))
+(defn get-month ^java.time.Month ([^java.time.LocalDate G__35730] (jti/getter month ^java.time.LocalDate G__35730)))
 
 
 
 
 
-(defn until ([^java.time.LocalDate G__34241 ^java.time.temporal.Temporal G__34242 ^java.time.temporal.TemporalUnit G__34243] (.until ^java.time.LocalDate G__34241 ^java.time.temporal.Temporal G__34242 ^java.time.temporal.TemporalUnit G__34243)) ([^java.time.LocalDate G__34244 G__34245] (.until ^java.time.LocalDate G__34244 G__34245)))
+(defn until ([^java.time.LocalDate G__35731 ^java.time.temporal.Temporal G__35732 ^java.time.temporal.TemporalUnit G__35733] (.until ^java.time.LocalDate G__35731 ^java.time.temporal.Temporal G__35732 ^java.time.temporal.TemporalUnit G__35733)) ([^java.time.LocalDate G__35734 G__35735] (.until ^java.time.LocalDate G__35734 G__35735)))
 
 
 
 
 
-(defn is-before ([^java.time.LocalDate G__34246 ^java.time.chrono.ChronoLocalDate G__34247] (.isBefore ^java.time.LocalDate G__34246 ^java.time.chrono.ChronoLocalDate G__34247)))
+(defn is-before ([^java.time.LocalDate G__35736 ^java.time.chrono.ChronoLocalDate G__35737] (.isBefore ^java.time.LocalDate G__35736 ^java.time.chrono.ChronoLocalDate G__35737)))
 
 
-(defn adjust-into ^java.time.temporal.Temporal ([^java.time.LocalDate G__34248 ^java.time.temporal.Temporal G__34249] (.adjustInto ^java.time.LocalDate G__34248 ^java.time.temporal.Temporal G__34249)))
+(defn adjust-into ^java.time.temporal.Temporal ([^java.time.LocalDate G__35738 ^java.time.temporal.Temporal G__35739] (.adjustInto ^java.time.LocalDate G__35738 ^java.time.temporal.Temporal G__35739)))
 
 
-(defn minus ^java.time.LocalDate ([^java.time.LocalDate G__34250 G__34251 G__34252] (.minus ^java.time.LocalDate G__34250 G__34251 G__34252)) ([^java.time.LocalDate G__34253 G__34254] (.minus ^java.time.LocalDate G__34253 G__34254)))
+(defn minus ^java.time.LocalDate ([^java.time.LocalDate G__35740 G__35741 G__35742] (.minus ^java.time.LocalDate G__35740 G__35741 G__35742)) ([^java.time.LocalDate G__35743 G__35744] (.minus ^java.time.LocalDate G__35743 G__35744)))
 
 
 
-(defn get-year ([^java.time.LocalDate G__34255] (jti/getter year ^java.time.LocalDate G__34255)))
+(defn get-year ([^java.time.LocalDate G__35745] (jti/getter year ^java.time.LocalDate G__35745)))
 
 
-(defn with-day-of-month ^java.time.LocalDate ([^java.time.LocalDate G__34256 G__34257] (.withDayOfMonth ^java.time.LocalDate G__34256 G__34257)))
+(defn with-day-of-month ^java.time.LocalDate ([^java.time.LocalDate G__35746 G__35747] (.withDayOfMonth ^java.time.LocalDate G__35746 G__35747)))
 
 
-(defn to-epoch-day ([^java.time.LocalDate G__34258] (.toEpochDay ^java.time.LocalDate G__34258)))
+(defn to-epoch-day ([^java.time.LocalDate G__35748] (.toEpochDay ^java.time.LocalDate G__35748)))
 
 
-(defn is-after ([^java.time.LocalDate G__34259 ^java.time.chrono.ChronoLocalDate G__34260] (.isAfter ^java.time.LocalDate G__34259 ^java.time.chrono.ChronoLocalDate G__34260)))
+(defn is-after ([^java.time.LocalDate G__35749 ^java.time.chrono.ChronoLocalDate G__35750] (.isAfter ^java.time.LocalDate G__35749 ^java.time.chrono.ChronoLocalDate G__35750)))
 
 
-(defn of-year-day ^java.time.LocalDate ([G__34262 G__34263] (. java.time.LocalDate ofYearDay G__34262 G__34263)))
+(defn of-year-day ^java.time.LocalDate ([G__35752 G__35753] (. java.time.LocalDate ofYearDay G__35752 G__35753)))
 
 
-(defn get-chronology ^java.time.chrono.Chronology ([^java.time.LocalDate G__34264] (jti/getter chronology ^java.time.LocalDate G__34264)))
+(defn get-chronology ^java.time.chrono.Chronology ([^java.time.LocalDate G__35754] (jti/getter chronology ^java.time.LocalDate G__35754)))
 
 
-(defn to-string ^java.lang.String ([^java.time.LocalDate G__34265] (.toString ^java.time.LocalDate G__34265)))
+(defn to-string ^java.lang.String ([^java.time.LocalDate G__35755] (.toString ^java.time.LocalDate G__35755)))
 
 
-(defn plus-months ^java.time.LocalDate ([^java.time.LocalDate G__34266 G__34267] (.plusMonths ^java.time.LocalDate G__34266 G__34267)))
+(defn plus-months ^java.time.LocalDate ([^java.time.LocalDate G__35756 G__35757] (.plusMonths ^java.time.LocalDate G__35756 G__35757)))
 
 
-(defn equals ([^java.time.LocalDate G__34268 ^java.lang.Object G__34269] (.equals ^java.time.LocalDate G__34268 ^java.lang.Object G__34269)))
+(defn equals ([^java.time.LocalDate G__35758 ^java.lang.Object G__35759] (.equals ^java.time.LocalDate G__35758 ^java.lang.Object G__35759)))
 
 
-(defn get-month-value ([^java.time.LocalDate G__34270] (jti/getter monthValue ^java.time.LocalDate G__34270)))
+(defn get-month-value ([^java.time.LocalDate G__35760] (jti/getter monthValue ^java.time.LocalDate G__35760)))
 
 
 
-(defn length-of-year ([^java.time.LocalDate G__34271] (.lengthOfYear ^java.time.LocalDate G__34271)))
+(defn length-of-year ([^java.time.LocalDate G__35761] (.lengthOfYear ^java.time.LocalDate G__35761)))
 
 
-(defn get-day-of-week ^java.time.DayOfWeek ([^java.time.LocalDate G__34272] (jti/getter dayOfWeek ^java.time.LocalDate G__34272)))
+(defn get-day-of-week ^java.time.DayOfWeek ([^java.time.LocalDate G__35762] (jti/getter dayOfWeek ^java.time.LocalDate G__35762)))
 
 
-(defn plus-days ^java.time.LocalDate ([^java.time.LocalDate G__34273 G__34274] (.plusDays ^java.time.LocalDate G__34273 G__34274)))
+(defn plus-days ^java.time.LocalDate ([^java.time.LocalDate G__35763 G__35764] (.plusDays ^java.time.LocalDate G__35763 G__35764)))
 
 
 
-(defn plus-weeks ^java.time.LocalDate ([^java.time.LocalDate G__34275 G__34276] (.plusWeeks ^java.time.LocalDate G__34275 G__34276)))
+(defn plus-weeks ^java.time.LocalDate ([^java.time.LocalDate G__35765 G__35766] (.plusWeeks ^java.time.LocalDate G__35765 G__35766)))
 
 
-(defn hash-code ([^java.time.LocalDate G__34277] (.hashCode ^java.time.LocalDate G__34277)))
+(defn hash-code ([^java.time.LocalDate G__35767] (.hashCode ^java.time.LocalDate G__35767)))
 
 
 
-(defn get-long ([^java.time.LocalDate G__34278 ^java.time.temporal.TemporalField G__34279] (jti/getter long ^java.time.LocalDate G__34278 ^java.time.temporal.TemporalField G__34279)))
+(defn get-long ([^java.time.LocalDate G__35768 ^java.time.temporal.TemporalField G__35769] (jti/getter long ^java.time.LocalDate G__35768 ^java.time.temporal.TemporalField G__35769)))
 
 
-(defn is-leap-year ([^java.time.LocalDate G__34280] (.isLeapYear ^java.time.LocalDate G__34280)))
+(defn is-leap-year ([^java.time.LocalDate G__35770] (.isLeapYear ^java.time.LocalDate G__35770)))
 
 
-(defn with ^java.time.chrono.ChronoLocalDate ([^java.time.LocalDate G__34281 G__34282] (.with ^java.time.LocalDate G__34281 G__34282)) ([^java.time.LocalDate G__34283 G__34284 G__34285] (.with ^java.time.LocalDate G__34283 G__34284 G__34285)))
+(defn with ^java.time.chrono.ChronoLocalDate ([^java.time.LocalDate G__35771 G__35772] (.with ^java.time.LocalDate G__35771 G__35772)) ([^java.time.LocalDate G__35773 G__35774 G__35775] (.with ^java.time.LocalDate G__35773 G__35774 G__35775)))
 
 
-(defn from ^java.time.LocalDate ([^java.time.temporal.TemporalAccessor G__34287] (. java.time.LocalDate from ^java.time.temporal.TemporalAccessor G__34287)))
+(defn from ^java.time.LocalDate ([^java.time.temporal.TemporalAccessor G__35777] (. java.time.LocalDate from ^java.time.temporal.TemporalAccessor G__35777)))
 
 
-(defn parse ^java.time.LocalDate ([^java.lang.CharSequence G__34289 ^java.time.format.DateTimeFormatter G__34290] (. java.time.LocalDate parse ^java.lang.CharSequence G__34289 ^java.time.format.DateTimeFormatter G__34290)) ([^java.lang.CharSequence G__34292] (. java.time.LocalDate parse ^java.lang.CharSequence G__34292)))
+(defn parse ^java.time.LocalDate ([^java.lang.CharSequence G__35779 ^java.time.format.DateTimeFormatter G__35780] (. java.time.LocalDate parse ^java.lang.CharSequence G__35779 ^java.time.format.DateTimeFormatter G__35780)) ([^java.lang.CharSequence G__35782] (. java.time.LocalDate parse ^java.lang.CharSequence G__35782)))
 
 
-(defn plus ^java.time.temporal.Temporal ([^java.time.LocalDate G__34293 G__34294 G__34295] (.plus ^java.time.LocalDate G__34293 G__34294 G__34295)) ([^java.time.LocalDate G__34296 G__34297] (.plus ^java.time.LocalDate G__34296 G__34297)))
+(defn plus ^java.time.temporal.Temporal ([^java.time.LocalDate G__35783 G__35784 G__35785] (.plus ^java.time.LocalDate G__35783 G__35784 G__35785)) ([^java.time.LocalDate G__35786 G__35787] (.plus ^java.time.LocalDate G__35786 G__35787)))
 
 
-(defn with-year ^java.time.LocalDate ([^java.time.LocalDate G__34298 G__34299] (.withYear ^java.time.LocalDate G__34298 G__34299)))
+(defn with-year ^java.time.LocalDate ([^java.time.LocalDate G__35788 G__35789] (.withYear ^java.time.LocalDate G__35788 G__35789)))
 
 
 
-(defn with-month ^java.time.LocalDate ([^java.time.LocalDate G__34300 G__34301] (.withMonth ^java.time.LocalDate G__34300 G__34301)))
+(defn with-month ^java.time.LocalDate ([^java.time.LocalDate G__35790 G__35791] (.withMonth ^java.time.LocalDate G__35790 G__35791)))
 
 
