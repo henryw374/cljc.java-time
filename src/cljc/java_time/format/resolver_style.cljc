@@ -1,4 +1,4 @@
-(ns cljc.java-time.format.resolver-style (:require [cljs.java-time.interop :as jti] #? (:cljs [cljs.java-time.format :refer [ResolverStyle]])) #? (:clj (:import [java.time.format ResolverStyle])))
+(ns cljc.java-time.format.resolver-style (:require [cljs.java-time.interop :as jti] #? (:cljs [java-time.format :refer [ResolverStyle]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time.format ResolverStyle])))
 
 
 
@@ -7,6 +7,6 @@
 
 
 
-(defn value-of ^java.time.format.ResolverStyle ([^java.lang.String G__27276] (. java.time.format.ResolverStyle valueOf ^java.lang.String G__27276)))
+(defn value-of ^java.time.format.ResolverStyle ([^java.lang.String G__35520] (. java.time.format.ResolverStyle valueOf ^java.lang.String G__35520)))
 
 

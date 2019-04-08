@@ -1,53 +1,53 @@
-(ns cljc.java-time.day-of-week (:require [cljs.java-time.interop :as jti] #? (:cljs [cljs.java-time :refer [DayOfWeek]])) #? (:clj (:import [java.time DayOfWeek])))
+(ns cljc.java-time.day-of-week (:require [cljs.java-time.interop :as jti] #? (:cljs [java-time :refer [DayOfWeek]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time DayOfWeek])))
 
-(defn is-supported ([^java.time.DayOfWeek G__26703 ^java.time.temporal.TemporalField G__26704] (.isSupported ^java.time.DayOfWeek G__26703 ^java.time.temporal.TemporalField G__26704)))
-
-
-
-(defn query ^java.lang.Object ([^java.time.DayOfWeek G__26705 ^java.time.temporal.TemporalQuery G__26706] (.query ^java.time.DayOfWeek G__26705 ^java.time.temporal.TemporalQuery G__26706)))
-
-
-(defn get-display-name ^java.lang.String ([^java.time.DayOfWeek G__26707 ^java.time.format.TextStyle G__26708 ^java.util.Locale G__26709] (jti/getter displayName ^java.time.DayOfWeek G__26707 ^java.time.format.TextStyle G__26708 ^java.util.Locale G__26709)))
-
-
-(defn of ^java.time.DayOfWeek ([G__26711] (. java.time.DayOfWeek of G__26711)))
-
-
-(defn range ^java.time.temporal.ValueRange ([^java.time.DayOfWeek G__26712 ^java.time.temporal.TemporalField G__26713] (.range ^java.time.DayOfWeek G__26712 ^java.time.temporal.TemporalField G__26713)))
+(defn is-supported ([^java.time.DayOfWeek G__34947 ^java.time.temporal.TemporalField G__34948] (.isSupported ^java.time.DayOfWeek G__34947 ^java.time.temporal.TemporalField G__34948)))
 
 
 
+(defn query ^java.lang.Object ([^java.time.DayOfWeek G__34949 ^java.time.temporal.TemporalQuery G__34950] (.query ^java.time.DayOfWeek G__34949 ^java.time.temporal.TemporalQuery G__34950)))
 
 
-(defn get ([^java.time.DayOfWeek G__26714 ^java.time.temporal.TemporalField G__26715] (.get ^java.time.DayOfWeek G__26714 ^java.time.temporal.TemporalField G__26715)))
+(defn get-display-name ^java.lang.String ([^java.time.DayOfWeek G__34951 ^java.time.format.TextStyle G__34952 ^java.util.Locale G__34953] (jti/getter displayName ^java.time.DayOfWeek G__34951 ^java.time.format.TextStyle G__34952 ^java.util.Locale G__34953)))
 
 
-(defn get-value ([^java.time.DayOfWeek G__26716] (jti/getter value ^java.time.DayOfWeek G__26716)))
+(defn of ^java.time.DayOfWeek ([G__34955] (. java.time.DayOfWeek of G__34955)))
+
+
+(defn range ^java.time.temporal.ValueRange ([^java.time.DayOfWeek G__34956 ^java.time.temporal.TemporalField G__34957] (.range ^java.time.DayOfWeek G__34956 ^java.time.temporal.TemporalField G__34957)))
 
 
 
 
-(defn adjust-into ^java.time.temporal.Temporal ([^java.time.DayOfWeek G__26717 ^java.time.temporal.Temporal G__26718] (.adjustInto ^java.time.DayOfWeek G__26717 ^java.time.temporal.Temporal G__26718)))
+
+(defn get ([^java.time.DayOfWeek G__34958 ^java.time.temporal.TemporalField G__34959] (.get ^java.time.DayOfWeek G__34958 ^java.time.temporal.TemporalField G__34959)))
 
 
-(defn minus ^java.time.DayOfWeek ([^java.time.DayOfWeek G__26719 G__26720] (.minus ^java.time.DayOfWeek G__26719 G__26720)))
-
-
-
-(defn value-of ^java.time.DayOfWeek ([^java.lang.String G__26722] (. java.time.DayOfWeek valueOf ^java.lang.String G__26722)))
+(defn get-value ([^java.time.DayOfWeek G__34960] (jti/getter value ^java.time.DayOfWeek G__34960)))
 
 
 
-(defn get-long ([^java.time.DayOfWeek G__26723 ^java.time.temporal.TemporalField G__26724] (jti/getter long ^java.time.DayOfWeek G__26723 ^java.time.temporal.TemporalField G__26724)))
+
+(defn adjust-into ^java.time.temporal.Temporal ([^java.time.DayOfWeek G__34961 ^java.time.temporal.Temporal G__34962] (.adjustInto ^java.time.DayOfWeek G__34961 ^java.time.temporal.Temporal G__34962)))
+
+
+(defn minus ^java.time.DayOfWeek ([^java.time.DayOfWeek G__34963 G__34964] (.minus ^java.time.DayOfWeek G__34963 G__34964)))
+
+
+
+(defn value-of ^java.time.DayOfWeek ([^java.lang.String G__34966] (. java.time.DayOfWeek valueOf ^java.lang.String G__34966)))
+
+
+
+(defn get-long ([^java.time.DayOfWeek G__34967 ^java.time.temporal.TemporalField G__34968] (jti/getter long ^java.time.DayOfWeek G__34967 ^java.time.temporal.TemporalField G__34968)))
 
 
 (defn values ^java.time.DayOfWeek<> ([] (. java.time.DayOfWeek values)))
 
 
-(defn from ^java.time.DayOfWeek ([^java.time.temporal.TemporalAccessor G__26727] (. java.time.DayOfWeek from ^java.time.temporal.TemporalAccessor G__26727)))
+(defn from ^java.time.DayOfWeek ([^java.time.temporal.TemporalAccessor G__34971] (. java.time.DayOfWeek from ^java.time.temporal.TemporalAccessor G__34971)))
 
 
 
-(defn plus ^java.time.DayOfWeek ([^java.time.DayOfWeek G__26728 G__26729] (.plus ^java.time.DayOfWeek G__26728 G__26729)))
+(defn plus ^java.time.DayOfWeek ([^java.time.DayOfWeek G__34972 G__34973] (.plus ^java.time.DayOfWeek G__34972 G__34973)))
 
 

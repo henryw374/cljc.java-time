@@ -1,119 +1,119 @@
-(ns cljc.java-time.year-month (:require [cljs.java-time.interop :as jti] #? (:cljs [cljs.java-time :refer [YearMonth]])) #? (:clj (:import [java.time YearMonth])))
+(ns cljc.java-time.year-month (:require [cljs.java-time.interop :as jti] #? (:cljs [java-time :refer [YearMonth]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time YearMonth])))
 
-(defn compare-to ([^java.time.YearMonth G__27029 G__27030] (.compareTo ^java.time.YearMonth G__27029 G__27030)))
+(defn compare-to ([^java.time.YearMonth G__35273 G__35274] (.compareTo ^java.time.YearMonth G__35273 G__35274)))
 
 
-(defn is-supported ([^java.time.YearMonth G__27031 G__27032] (.isSupported ^java.time.YearMonth G__27031 G__27032)))
+(defn is-supported ([^java.time.YearMonth G__35275 G__35276] (.isSupported ^java.time.YearMonth G__35275 G__35276)))
 
 
-(defn plus-years ^java.time.YearMonth ([^java.time.YearMonth G__27033 G__27034] (.plusYears ^java.time.YearMonth G__27033 G__27034)))
+(defn plus-years ^java.time.YearMonth ([^java.time.YearMonth G__35277 G__35278] (.plusYears ^java.time.YearMonth G__35277 G__35278)))
 
 
-(defn query ^java.lang.Object ([^java.time.YearMonth G__27035 ^java.time.temporal.TemporalQuery G__27036] (.query ^java.time.YearMonth G__27035 ^java.time.temporal.TemporalQuery G__27036)))
+(defn query ^java.lang.Object ([^java.time.YearMonth G__35279 ^java.time.temporal.TemporalQuery G__35280] (.query ^java.time.YearMonth G__35279 ^java.time.temporal.TemporalQuery G__35280)))
 
 
 
-(defn of ^java.time.YearMonth ([G__27038 G__27039] (. java.time.YearMonth of G__27038 G__27039)))
+(defn of ^java.time.YearMonth ([G__35282 G__35283] (. java.time.YearMonth of G__35282 G__35283)))
 
 
-(defn range ^java.time.temporal.ValueRange ([^java.time.YearMonth G__27040 ^java.time.temporal.TemporalField G__27041] (.range ^java.time.YearMonth G__27040 ^java.time.temporal.TemporalField G__27041)))
+(defn range ^java.time.temporal.ValueRange ([^java.time.YearMonth G__35284 ^java.time.temporal.TemporalField G__35285] (.range ^java.time.YearMonth G__35284 ^java.time.temporal.TemporalField G__35285)))
 
 
 
-(defn length-of-month ([^java.time.YearMonth G__27042] (.lengthOfMonth ^java.time.YearMonth G__27042)))
+(defn length-of-month ([^java.time.YearMonth G__35286] (.lengthOfMonth ^java.time.YearMonth G__35286)))
 
 
-(defn format ^java.lang.String ([^java.time.YearMonth G__27043 ^java.time.format.DateTimeFormatter G__27044] (.format ^java.time.YearMonth G__27043 ^java.time.format.DateTimeFormatter G__27044)))
+(defn format ^java.lang.String ([^java.time.YearMonth G__35287 ^java.time.format.DateTimeFormatter G__35288] (.format ^java.time.YearMonth G__35287 ^java.time.format.DateTimeFormatter G__35288)))
 
 
-(defn minus-months ^java.time.YearMonth ([^java.time.YearMonth G__27045 G__27046] (.minusMonths ^java.time.YearMonth G__27045 G__27046)))
+(defn minus-months ^java.time.YearMonth ([^java.time.YearMonth G__35289 G__35290] (.minusMonths ^java.time.YearMonth G__35289 G__35290)))
 
 
-(defn at-day ^java.time.LocalDate ([^java.time.YearMonth G__27047 G__27048] (.atDay ^java.time.YearMonth G__27047 G__27048)))
+(defn at-day ^java.time.LocalDate ([^java.time.YearMonth G__35291 G__35292] (.atDay ^java.time.YearMonth G__35291 G__35292)))
 
 
-(defn get ([^java.time.YearMonth G__27049 ^java.time.temporal.TemporalField G__27050] (.get ^java.time.YearMonth G__27049 ^java.time.temporal.TemporalField G__27050)))
+(defn get ([^java.time.YearMonth G__35293 ^java.time.temporal.TemporalField G__35294] (.get ^java.time.YearMonth G__35293 ^java.time.temporal.TemporalField G__35294)))
 
 
-(defn now ^java.time.YearMonth ([G__27052] (. java.time.YearMonth now G__27052)) ([] (. java.time.YearMonth now)))
+(defn now ^java.time.YearMonth ([G__35296] (. java.time.YearMonth now G__35296)) ([] (. java.time.YearMonth now)))
 
 
-(defn minus-years ^java.time.YearMonth ([^java.time.YearMonth G__27054 G__27055] (.minusYears ^java.time.YearMonth G__27054 G__27055)))
+(defn minus-years ^java.time.YearMonth ([^java.time.YearMonth G__35298 G__35299] (.minusYears ^java.time.YearMonth G__35298 G__35299)))
 
 
 
-(defn get-month ^java.time.Month ([^java.time.YearMonth G__27056] (jti/getter month ^java.time.YearMonth G__27056)))
+(defn get-month ^java.time.Month ([^java.time.YearMonth G__35300] (jti/getter month ^java.time.YearMonth G__35300)))
 
 
-(defn at-end-of-month ^java.time.LocalDate ([^java.time.YearMonth G__27057] (.atEndOfMonth ^java.time.YearMonth G__27057)))
+(defn at-end-of-month ^java.time.LocalDate ([^java.time.YearMonth G__35301] (.atEndOfMonth ^java.time.YearMonth G__35301)))
 
 
 
-(defn until ([^java.time.YearMonth G__27058 ^java.time.temporal.Temporal G__27059 ^java.time.temporal.TemporalUnit G__27060] (.until ^java.time.YearMonth G__27058 ^java.time.temporal.Temporal G__27059 ^java.time.temporal.TemporalUnit G__27060)))
+(defn until ([^java.time.YearMonth G__35302 ^java.time.temporal.Temporal G__35303 ^java.time.temporal.TemporalUnit G__35304] (.until ^java.time.YearMonth G__35302 ^java.time.temporal.Temporal G__35303 ^java.time.temporal.TemporalUnit G__35304)))
 
 
 
 
-(defn is-before ([^java.time.YearMonth G__27061 ^java.time.YearMonth G__27062] (.isBefore ^java.time.YearMonth G__27061 ^java.time.YearMonth G__27062)))
+(defn is-before ([^java.time.YearMonth G__35305 ^java.time.YearMonth G__35306] (.isBefore ^java.time.YearMonth G__35305 ^java.time.YearMonth G__35306)))
 
 
-(defn adjust-into ^java.time.temporal.Temporal ([^java.time.YearMonth G__27063 ^java.time.temporal.Temporal G__27064] (.adjustInto ^java.time.YearMonth G__27063 ^java.time.temporal.Temporal G__27064)))
+(defn adjust-into ^java.time.temporal.Temporal ([^java.time.YearMonth G__35307 ^java.time.temporal.Temporal G__35308] (.adjustInto ^java.time.YearMonth G__35307 ^java.time.temporal.Temporal G__35308)))
 
 
-(defn minus ^java.time.YearMonth ([^java.time.YearMonth G__27065 G__27066] (.minus ^java.time.YearMonth G__27065 G__27066)) ([^java.time.YearMonth G__27067 G__27068 G__27069] (.minus ^java.time.YearMonth G__27067 G__27068 G__27069)))
+(defn minus ^java.time.YearMonth ([^java.time.YearMonth G__35309 G__35310] (.minus ^java.time.YearMonth G__35309 G__35310)) ([^java.time.YearMonth G__35311 G__35312 G__35313] (.minus ^java.time.YearMonth G__35311 G__35312 G__35313)))
 
 
-(defn get-year ([^java.time.YearMonth G__27070] (jti/getter year ^java.time.YearMonth G__27070)))
+(defn get-year ([^java.time.YearMonth G__35314] (jti/getter year ^java.time.YearMonth G__35314)))
 
 
-(defn is-after ([^java.time.YearMonth G__27071 ^java.time.YearMonth G__27072] (.isAfter ^java.time.YearMonth G__27071 ^java.time.YearMonth G__27072)))
+(defn is-after ([^java.time.YearMonth G__35315 ^java.time.YearMonth G__35316] (.isAfter ^java.time.YearMonth G__35315 ^java.time.YearMonth G__35316)))
 
 
-(defn to-string ^java.lang.String ([^java.time.YearMonth G__27073] (.toString ^java.time.YearMonth G__27073)))
+(defn to-string ^java.lang.String ([^java.time.YearMonth G__35317] (.toString ^java.time.YearMonth G__35317)))
 
 
-(defn plus-months ^java.time.YearMonth ([^java.time.YearMonth G__27074 G__27075] (.plusMonths ^java.time.YearMonth G__27074 G__27075)))
+(defn plus-months ^java.time.YearMonth ([^java.time.YearMonth G__35318 G__35319] (.plusMonths ^java.time.YearMonth G__35318 G__35319)))
 
 
-(defn is-valid-day ([^java.time.YearMonth G__27076 G__27077] (.isValidDay ^java.time.YearMonth G__27076 G__27077)))
+(defn is-valid-day ([^java.time.YearMonth G__35320 G__35321] (.isValidDay ^java.time.YearMonth G__35320 G__35321)))
 
 
-(defn equals ([^java.time.YearMonth G__27078 ^java.lang.Object G__27079] (.equals ^java.time.YearMonth G__27078 ^java.lang.Object G__27079)))
+(defn equals ([^java.time.YearMonth G__35322 ^java.lang.Object G__35323] (.equals ^java.time.YearMonth G__35322 ^java.lang.Object G__35323)))
 
 
-(defn get-month-value ([^java.time.YearMonth G__27080] (jti/getter monthValue ^java.time.YearMonth G__27080)))
+(defn get-month-value ([^java.time.YearMonth G__35324] (jti/getter monthValue ^java.time.YearMonth G__35324)))
 
 
-(defn length-of-year ([^java.time.YearMonth G__27081] (.lengthOfYear ^java.time.YearMonth G__27081)))
+(defn length-of-year ([^java.time.YearMonth G__35325] (.lengthOfYear ^java.time.YearMonth G__35325)))
 
 
 
 
-(defn hash-code ([^java.time.YearMonth G__27082] (.hashCode ^java.time.YearMonth G__27082)))
+(defn hash-code ([^java.time.YearMonth G__35326] (.hashCode ^java.time.YearMonth G__35326)))
 
 
 
-(defn get-long ([^java.time.YearMonth G__27083 ^java.time.temporal.TemporalField G__27084] (jti/getter long ^java.time.YearMonth G__27083 ^java.time.temporal.TemporalField G__27084)))
+(defn get-long ([^java.time.YearMonth G__35327 ^java.time.temporal.TemporalField G__35328] (jti/getter long ^java.time.YearMonth G__35327 ^java.time.temporal.TemporalField G__35328)))
 
 
-(defn is-leap-year ([^java.time.YearMonth G__27085] (.isLeapYear ^java.time.YearMonth G__27085)))
+(defn is-leap-year ([^java.time.YearMonth G__35329] (.isLeapYear ^java.time.YearMonth G__35329)))
 
 
-(defn with ^java.time.temporal.Temporal ([^java.time.YearMonth G__27086 G__27087 G__27088] (.with ^java.time.YearMonth G__27086 G__27087 G__27088)) ([^java.time.YearMonth G__27089 G__27090] (.with ^java.time.YearMonth G__27089 G__27090)))
+(defn with ^java.time.temporal.Temporal ([^java.time.YearMonth G__35330 G__35331 G__35332] (.with ^java.time.YearMonth G__35330 G__35331 G__35332)) ([^java.time.YearMonth G__35333 G__35334] (.with ^java.time.YearMonth G__35333 G__35334)))
 
 
-(defn from ^java.time.YearMonth ([^java.time.temporal.TemporalAccessor G__27092] (. java.time.YearMonth from ^java.time.temporal.TemporalAccessor G__27092)))
+(defn from ^java.time.YearMonth ([^java.time.temporal.TemporalAccessor G__35336] (. java.time.YearMonth from ^java.time.temporal.TemporalAccessor G__35336)))
 
 
-(defn parse ^java.time.YearMonth ([^java.lang.CharSequence G__27094] (. java.time.YearMonth parse ^java.lang.CharSequence G__27094)) ([^java.lang.CharSequence G__27096 ^java.time.format.DateTimeFormatter G__27097] (. java.time.YearMonth parse ^java.lang.CharSequence G__27096 ^java.time.format.DateTimeFormatter G__27097)))
+(defn parse ^java.time.YearMonth ([^java.lang.CharSequence G__35338] (. java.time.YearMonth parse ^java.lang.CharSequence G__35338)) ([^java.lang.CharSequence G__35340 ^java.time.format.DateTimeFormatter G__35341] (. java.time.YearMonth parse ^java.lang.CharSequence G__35340 ^java.time.format.DateTimeFormatter G__35341)))
 
 
-(defn plus ^java.time.YearMonth ([^java.time.YearMonth G__27098 G__27099] (.plus ^java.time.YearMonth G__27098 G__27099)) ([^java.time.YearMonth G__27100 G__27101 G__27102] (.plus ^java.time.YearMonth G__27100 G__27101 G__27102)))
+(defn plus ^java.time.YearMonth ([^java.time.YearMonth G__35342 G__35343] (.plus ^java.time.YearMonth G__35342 G__35343)) ([^java.time.YearMonth G__35344 G__35345 G__35346] (.plus ^java.time.YearMonth G__35344 G__35345 G__35346)))
 
 
-(defn with-year ^java.time.YearMonth ([^java.time.YearMonth G__27103 G__27104] (.withYear ^java.time.YearMonth G__27103 G__27104)))
+(defn with-year ^java.time.YearMonth ([^java.time.YearMonth G__35347 G__35348] (.withYear ^java.time.YearMonth G__35347 G__35348)))
 
 
 
-(defn with-month ^java.time.YearMonth ([^java.time.YearMonth G__27105 G__27106] (.withMonth ^java.time.YearMonth G__27105 G__27106)))
+(defn with-month ^java.time.YearMonth ([^java.time.YearMonth G__35349 G__35350] (.withMonth ^java.time.YearMonth G__35349 G__35350)))
 

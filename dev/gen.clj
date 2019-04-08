@@ -7,6 +7,7 @@
              [clojure.java.io :as io])
    (:import [java.time Period
                        LocalDate
+                       LocalTime
                        LocalDateTime
                        ZonedDateTime
                        OffsetTime
@@ -32,7 +33,8 @@
      (list :require
        ['cljs.java-time.interop :as 'jti]
        (symbol "#?") (list
-                       :cljs [(symbol (str "cljs.java-time" (when sub-p (str "." sub-p)))) :refer [class-name]]))
+                       :cljs [(symbol (str "java-time" (when sub-p (str "." sub-p)))) :refer [class-name]]))
+     (list :refer-clojure :exclude ['get 'range 'format])
      (symbol "#?") (list
                             :clj
                             (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))))
