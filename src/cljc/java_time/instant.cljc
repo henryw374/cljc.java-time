@@ -1,116 +1,119 @@
 (ns cljc.java-time.instant (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [Instant]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time Instant])))
+(def min (. java.time.Instant -MIN))
+(def epoch (. java.time.Instant -EPOCH))
+(def max (. java.time.Instant -MAX))
 
-(defn compare-to ([^java.time.Instant G__36195 G__36196] (.compareTo ^java.time.Instant G__36195 G__36196)))
+(defn compare-to ([^java.time.Instant G__46831 G__46832] (.compareTo ^java.time.Instant G__46831 G__46832)))
 
 
-(defn is-supported ([^java.time.Instant G__36197 G__36198] (.isSupported ^java.time.Instant G__36197 G__36198)))
+(defn is-supported ([^java.time.Instant G__46833 G__46834] (.isSupported ^java.time.Instant G__46833 G__46834)))
 
 
-(defn query ^java.lang.Object ([^java.time.Instant G__36199 ^java.time.temporal.TemporalQuery G__36200] (.query ^java.time.Instant G__36199 ^java.time.temporal.TemporalQuery G__36200)))
+(defn query ^java.lang.Object ([^java.time.Instant G__46835 ^java.time.temporal.TemporalQuery G__46836] (.query ^java.time.Instant G__46835 ^java.time.temporal.TemporalQuery G__46836)))
 
 
 
 
-(defn minus-nanos ^java.time.Instant ([^java.time.Instant G__36201 G__36202] (.minusNanos ^java.time.Instant G__36201 G__36202)))
+(defn minus-nanos ^java.time.Instant ([^java.time.Instant G__46837 G__46838] (.minusNanos ^java.time.Instant G__46837 G__46838)))
 
 
-(defn range ^java.time.temporal.ValueRange ([^java.time.Instant G__36203 ^java.time.temporal.TemporalField G__36204] (.range ^java.time.Instant G__36203 ^java.time.temporal.TemporalField G__36204)))
+(defn range ^java.time.temporal.ValueRange ([^java.time.Instant G__46839 ^java.time.temporal.TemporalField G__46840] (.range ^java.time.Instant G__46839 ^java.time.temporal.TemporalField G__46840)))
 
 
-(defn to-epoch-milli ([^java.time.Instant G__36205] (.toEpochMilli ^java.time.Instant G__36205)))
+(defn to-epoch-milli ([^java.time.Instant G__46841] (.toEpochMilli ^java.time.Instant G__46841)))
 
 
-(defn of-epoch-second ^java.time.Instant ([G__36207] (. java.time.Instant ofEpochSecond G__36207)) ([G__36209 G__36210] (. java.time.Instant ofEpochSecond G__36209 G__36210)))
+(defn of-epoch-second ^java.time.Instant ([G__46843] (. java.time.Instant ofEpochSecond G__46843)) ([G__46845 G__46846] (. java.time.Instant ofEpochSecond G__46845 G__46846)))
 
 
 
-(defn get ([^java.time.Instant G__36211 ^java.time.temporal.TemporalField G__36212] (.get ^java.time.Instant G__36211 ^java.time.temporal.TemporalField G__36212)))
+(defn get ([^java.time.Instant G__46847 ^java.time.temporal.TemporalField G__46848] (.get ^java.time.Instant G__46847 ^java.time.temporal.TemporalField G__46848)))
 
 
-(defn truncated-to ^java.time.Instant ([^java.time.Instant G__36213 ^java.time.temporal.TemporalUnit G__36214] (.truncatedTo ^java.time.Instant G__36213 ^java.time.temporal.TemporalUnit G__36214)))
+(defn truncated-to ^java.time.Instant ([^java.time.Instant G__46849 ^java.time.temporal.TemporalUnit G__46850] (.truncatedTo ^java.time.Instant G__46849 ^java.time.temporal.TemporalUnit G__46850)))
 
 
-(defn minus-millis ^java.time.Instant ([^java.time.Instant G__36215 G__36216] (.minusMillis ^java.time.Instant G__36215 G__36216)))
+(defn minus-millis ^java.time.Instant ([^java.time.Instant G__46851 G__46852] (.minusMillis ^java.time.Instant G__46851 G__46852)))
 
 
-(defn minus-seconds ^java.time.Instant ([^java.time.Instant G__36217 G__36218] (.minusSeconds ^java.time.Instant G__36217 G__36218)))
+(defn minus-seconds ^java.time.Instant ([^java.time.Instant G__46853 G__46854] (.minusSeconds ^java.time.Instant G__46853 G__46854)))
 
 
-(defn now ^java.time.Instant ([^java.time.Clock G__36220] (. java.time.Instant now ^java.time.Clock G__36220)) ([] (. java.time.Instant now)))
+(defn now ^java.time.Instant ([^java.time.Clock G__46856] (. java.time.Instant now ^java.time.Clock G__46856)) ([] (. java.time.Instant now)))
 
 
 
 
-(defn of-epoch-milli ^java.time.Instant ([G__36223] (. java.time.Instant ofEpochMilli G__36223)))
+(defn of-epoch-milli ^java.time.Instant ([G__46859] (. java.time.Instant ofEpochMilli G__46859)))
 
 
 
-(defn plus-seconds ^java.time.Instant ([^java.time.Instant G__36224 G__36225] (.plusSeconds ^java.time.Instant G__36224 G__36225)))
+(defn plus-seconds ^java.time.Instant ([^java.time.Instant G__46860 G__46861] (.plusSeconds ^java.time.Instant G__46860 G__46861)))
 
 
 
 
-(defn until ([^java.time.Instant G__36226 ^java.time.temporal.Temporal G__36227 ^java.time.temporal.TemporalUnit G__36228] (.until ^java.time.Instant G__36226 ^java.time.temporal.Temporal G__36227 ^java.time.temporal.TemporalUnit G__36228)))
+(defn until ([^java.time.Instant G__46862 ^java.time.temporal.Temporal G__46863 ^java.time.temporal.TemporalUnit G__46864] (.until ^java.time.Instant G__46862 ^java.time.temporal.Temporal G__46863 ^java.time.temporal.TemporalUnit G__46864)))
 
 
 
-(defn at-offset ^java.time.OffsetDateTime ([^java.time.Instant G__36229 ^java.time.ZoneOffset G__36230] (.atOffset ^java.time.Instant G__36229 ^java.time.ZoneOffset G__36230)))
+(defn at-offset ^java.time.OffsetDateTime ([^java.time.Instant G__46865 ^java.time.ZoneOffset G__46866] (.atOffset ^java.time.Instant G__46865 ^java.time.ZoneOffset G__46866)))
 
 
 
-(defn is-before ([^java.time.Instant G__36231 ^java.time.Instant G__36232] (.isBefore ^java.time.Instant G__36231 ^java.time.Instant G__36232)))
+(defn is-before ([^java.time.Instant G__46867 ^java.time.Instant G__46868] (.isBefore ^java.time.Instant G__46867 ^java.time.Instant G__46868)))
 
 
-(defn adjust-into ^java.time.temporal.Temporal ([^java.time.Instant G__36233 ^java.time.temporal.Temporal G__36234] (.adjustInto ^java.time.Instant G__36233 ^java.time.temporal.Temporal G__36234)))
+(defn adjust-into ^java.time.temporal.Temporal ([^java.time.Instant G__46869 ^java.time.temporal.Temporal G__46870] (.adjustInto ^java.time.Instant G__46869 ^java.time.temporal.Temporal G__46870)))
 
 
-(defn minus ^java.time.Instant ([^java.time.Instant G__36235 G__36236 G__36237] (.minus ^java.time.Instant G__36235 G__36236 G__36237)) ([^java.time.Instant G__36238 G__36239] (.minus ^java.time.Instant G__36238 G__36239)))
+(defn minus ^java.time.Instant ([^java.time.Instant G__46871 G__46872 G__46873] (.minus ^java.time.Instant G__46871 G__46872 G__46873)) ([^java.time.Instant G__46874 G__46875] (.minus ^java.time.Instant G__46874 G__46875)))
 
 
-(defn plus-nanos ^java.time.Instant ([^java.time.Instant G__36240 G__36241] (.plusNanos ^java.time.Instant G__36240 G__36241)))
+(defn plus-nanos ^java.time.Instant ([^java.time.Instant G__46876 G__46877] (.plusNanos ^java.time.Instant G__46876 G__46877)))
 
 
-(defn get-nano ([^java.time.Instant G__36242] (jti/getter nano ^java.time.Instant G__36242)))
+(defn get-nano ([^java.time.Instant G__46878] (jti/getter nano ^java.time.Instant G__46878)))
 
 
-(defn is-after ([^java.time.Instant G__36243 ^java.time.Instant G__36244] (.isAfter ^java.time.Instant G__36243 ^java.time.Instant G__36244)))
+(defn is-after ([^java.time.Instant G__46879 ^java.time.Instant G__46880] (.isAfter ^java.time.Instant G__46879 ^java.time.Instant G__46880)))
 
 
-(defn to-string ^java.lang.String ([^java.time.Instant G__36245] (.toString ^java.time.Instant G__36245)))
+(defn to-string ^java.lang.String ([^java.time.Instant G__46881] (.toString ^java.time.Instant G__46881)))
 
 
 
-(defn equals ([^java.time.Instant G__36246 ^java.lang.Object G__36247] (.equals ^java.time.Instant G__36246 ^java.lang.Object G__36247)))
+(defn equals ([^java.time.Instant G__46882 ^java.lang.Object G__46883] (.equals ^java.time.Instant G__46882 ^java.lang.Object G__46883)))
 
 
-(defn plus-millis ^java.time.Instant ([^java.time.Instant G__36248 G__36249] (.plusMillis ^java.time.Instant G__36248 G__36249)))
+(defn plus-millis ^java.time.Instant ([^java.time.Instant G__46884 G__46885] (.plusMillis ^java.time.Instant G__46884 G__46885)))
 
 
-(defn at-zone ^java.time.ZonedDateTime ([^java.time.Instant G__36250 ^java.time.ZoneId G__36251] (.atZone ^java.time.Instant G__36250 ^java.time.ZoneId G__36251)))
+(defn at-zone ^java.time.ZonedDateTime ([^java.time.Instant G__46886 ^java.time.ZoneId G__46887] (.atZone ^java.time.Instant G__46886 ^java.time.ZoneId G__46887)))
 
 
 
-(defn hash-code ([^java.time.Instant G__36252] (.hashCode ^java.time.Instant G__36252)))
+(defn hash-code ([^java.time.Instant G__46888] (.hashCode ^java.time.Instant G__46888)))
 
 
 
-(defn get-long ([^java.time.Instant G__36253 ^java.time.temporal.TemporalField G__36254] (jti/getter long ^java.time.Instant G__36253 ^java.time.temporal.TemporalField G__36254)))
+(defn get-long ([^java.time.Instant G__46889 ^java.time.temporal.TemporalField G__46890] (.getLong ^java.time.Instant G__46889 ^java.time.temporal.TemporalField G__46890)))
 
 
 
 
-(defn with ^java.time.temporal.Temporal ([^java.time.Instant G__36255 G__36256] (.with ^java.time.Instant G__36255 G__36256)) ([^java.time.Instant G__36257 G__36258 G__36259] (.with ^java.time.Instant G__36257 G__36258 G__36259)))
+(defn with ^java.time.temporal.Temporal ([^java.time.Instant G__46891 G__46892] (.with ^java.time.Instant G__46891 G__46892)) ([^java.time.Instant G__46893 G__46894 G__46895] (.with ^java.time.Instant G__46893 G__46894 G__46895)))
 
 
-(defn from ^java.time.Instant ([^java.time.temporal.TemporalAccessor G__36261] (. java.time.Instant from ^java.time.temporal.TemporalAccessor G__36261)))
+(defn from ^java.time.Instant ([^java.time.temporal.TemporalAccessor G__46897] (. java.time.Instant from ^java.time.temporal.TemporalAccessor G__46897)))
 
 
-(defn get-epoch-second ([^java.time.Instant G__36262] (jti/getter epochSecond ^java.time.Instant G__36262)))
+(defn get-epoch-second ([^java.time.Instant G__46898] (jti/getter epochSecond ^java.time.Instant G__46898)))
 
 
-(defn parse ^java.time.Instant ([^java.lang.CharSequence G__36264] (. java.time.Instant parse ^java.lang.CharSequence G__36264)))
+(defn parse ^java.time.Instant ([^java.lang.CharSequence G__46900] (. java.time.Instant parse ^java.lang.CharSequence G__46900)))
 
 
-(defn plus ^java.time.temporal.Temporal ([^java.time.Instant G__36265 G__36266 G__36267] (.plus ^java.time.Instant G__36265 G__36266 G__36267)) ([^java.time.Instant G__36268 G__36269] (.plus ^java.time.Instant G__36268 G__36269)))
+(defn plus ^java.time.temporal.Temporal ([^java.time.Instant G__46901 G__46902 G__46903] (.plus ^java.time.Instant G__46901 G__46902 G__46903)) ([^java.time.Instant G__46904 G__46905] (.plus ^java.time.Instant G__46904 G__46905)))
 
 

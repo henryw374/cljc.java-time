@@ -40,7 +40,7 @@
                             (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))))
  
  (defn type-hint [x]
-   (let [x (str x)]
+   (let [x (string/replace (str x) "<>" "")]
      (when (or (clojure.string/includes? x ".")
              ;(#{"long" "double"} x)
              )
@@ -49,6 +49,13 @@
 (defn gen-for-class [c sub-p]
   (println (header (.getSimpleName c) (csk/->kebab-case (.getSimpleName c))
              sub-p))
+  (doseq [m (:members (rf/reflect c))]
+    (when (and (not (:return-type m)) (not-empty (set/intersection #{:public} (:flags m))))
+      (println
+        (list 'def (csk/->kebab-case (:name m))
+          (list '. c (symbol (str "-" (:name m))))))
+      )
+    )
   (doseq [ms (vals (group-by :name (:members (rf/reflect c))))]
     (let [[m]  ms
           ;group ms by paramter count - if >1 in  a group, just one, without any type hints
@@ -88,7 +95,9 @@
                         (concat
                           (if static?
                             (list '. c (:name m))
-                            (if (and (string/starts-with? (:name m) "get") (> (count (str (:name m))) 3))
+                            (if (and (string/starts-with? (:name m) "get") 
+                                  (not= "getLong" (str (:name m)))
+                                  (> (count (str (:name m))) 3))
                               (list 'jti/getter (let [[f & r] (subs (str (:name m)) 3)]
                                                   (symbol (apply str (string/lower-case f) r))))
                               (list (symbol (str "." (:name m)))))
@@ -104,8 +113,11 @@
  (comment 
    (def ms (:members (rf/reflect LocalDate)))
    (vals (group-by :name ms))
-   (def m (->> (:members (rf/reflect java.time.Year))
-               (m/find-first #(= "isLeap" (str (:name %))))))
+   (def m (->> (:members (rf/reflect java.time.format.DateTimeFormatter))
+               (m/find-first #(= "parseBest" (str (:name %))))
+               :parameter-types
+               last
+               type))
    (def c LocalDate)
    (csk/->kebab-case (.getSimpleName LocalDate))
    (gen-for-class LocalDate)

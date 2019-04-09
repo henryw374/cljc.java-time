@@ -1,13 +1,13 @@
 (ns cljc.java-time.temporal.temporal-adjusters (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [TemporalAdjusters]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time.temporal TemporalAdjusters])))
 
 
-(defn day-of-week-in-month ^java.time.temporal.TemporalAdjuster ([G__36854 ^java.time.DayOfWeek G__36855] (. java.time.temporal.TemporalAdjusters dayOfWeekInMonth G__36854 ^java.time.DayOfWeek G__36855)))
+(defn day-of-week-in-month ^java.time.temporal.TemporalAdjuster ([G__47490 ^java.time.DayOfWeek G__47491] (. java.time.temporal.TemporalAdjusters dayOfWeekInMonth G__47490 ^java.time.DayOfWeek G__47491)))
 
 
-(defn previous-or-same ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__36857] (. java.time.temporal.TemporalAdjusters previousOrSame ^java.time.DayOfWeek G__36857)))
+(defn previous-or-same ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__47493] (. java.time.temporal.TemporalAdjusters previousOrSame ^java.time.DayOfWeek G__47493)))
 
 
-(defn last-in-month ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__36859] (. java.time.temporal.TemporalAdjusters lastInMonth ^java.time.DayOfWeek G__36859)))
+(defn last-in-month ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__47495] (. java.time.temporal.TemporalAdjusters lastInMonth ^java.time.DayOfWeek G__47495)))
 
 
 (defn first-day-of-month ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters firstDayOfMonth)))
@@ -16,7 +16,7 @@
 (defn first-day-of-next-month ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters firstDayOfNextMonth)))
 
 
-(defn of-date-adjuster ^java.time.temporal.TemporalAdjuster ([^java.util.function.UnaryOperator G__36863] (. java.time.temporal.TemporalAdjusters ofDateAdjuster ^java.util.function.UnaryOperator G__36863)))
+(defn of-date-adjuster ^java.time.temporal.TemporalAdjuster ([^java.util.function.UnaryOperator G__47499] (. java.time.temporal.TemporalAdjusters ofDateAdjuster ^java.util.function.UnaryOperator G__47499)))
 
 
 
@@ -32,18 +32,18 @@
 (defn last-day-of-year ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters lastDayOfYear)))
 
 
-(defn first-in-month ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__36867] (. java.time.temporal.TemporalAdjusters firstInMonth ^java.time.DayOfWeek G__36867)))
+(defn first-in-month ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__47503] (. java.time.temporal.TemporalAdjusters firstInMonth ^java.time.DayOfWeek G__47503)))
 
 
 
 
-(defn next ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__36869] (. java.time.temporal.TemporalAdjusters next ^java.time.DayOfWeek G__36869)))
+(defn next ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__47505] (. java.time.temporal.TemporalAdjusters next ^java.time.DayOfWeek G__47505)))
 
 
-(defn next-or-same ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__36871] (. java.time.temporal.TemporalAdjusters nextOrSame ^java.time.DayOfWeek G__36871)))
+(defn next-or-same ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__47507] (. java.time.temporal.TemporalAdjusters nextOrSame ^java.time.DayOfWeek G__47507)))
 
 
-(defn previous ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__36873] (. java.time.temporal.TemporalAdjusters previous ^java.time.DayOfWeek G__36873)))
+(defn previous ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__47509] (. java.time.temporal.TemporalAdjusters previous ^java.time.DayOfWeek G__47509)))
 
 
 

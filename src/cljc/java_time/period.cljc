@@ -1,124 +1,125 @@
 (ns cljc.java-time.period (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [Period]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time Period])))
+(def zero (. java.time.Period -ZERO))
 
-(defn with-years ^java.time.Period ([^java.time.Period G__35611 G__35612] (.withYears ^java.time.Period G__35611 G__35612)))
+(defn with-years ^java.time.Period ([^java.time.Period G__46247 G__46248] (.withYears ^java.time.Period G__46247 G__46248)))
 
 
-(defn plus-years ^java.time.Period ([^java.time.Period G__35613 G__35614] (.plusYears ^java.time.Period G__35613 G__35614)))
+(defn plus-years ^java.time.Period ([^java.time.Period G__46249 G__46250] (.plusYears ^java.time.Period G__46249 G__46250)))
 
 
 
-(defn of-weeks ^java.time.Period ([G__35616] (. java.time.Period ofWeeks G__35616)))
+(defn of-weeks ^java.time.Period ([G__46252] (. java.time.Period ofWeeks G__46252)))
 
 
-(defn get-units ^java.util.List ([^java.time.Period G__35617] (jti/getter units ^java.time.Period G__35617)))
+(defn get-units ^java.util.List ([^java.time.Period G__46253] (jti/getter units ^java.time.Period G__46253)))
 
 
-(defn of ^java.time.Period ([G__35619 G__35620 G__35621] (. java.time.Period of G__35619 G__35620 G__35621)))
+(defn of ^java.time.Period ([G__46255 G__46256 G__46257] (. java.time.Period of G__46255 G__46256 G__46257)))
 
 
-(defn is-zero ([^java.time.Period G__35622] (.isZero ^java.time.Period G__35622)))
+(defn is-zero ([^java.time.Period G__46258] (.isZero ^java.time.Period G__46258)))
 
 
-(defn of-months ^java.time.Period ([G__35624] (. java.time.Period ofMonths G__35624)))
+(defn of-months ^java.time.Period ([G__46260] (. java.time.Period ofMonths G__46260)))
 
 
 
-(defn normalized ^java.time.chrono.ChronoPeriod ([^java.time.Period G__35625] (.normalized ^java.time.Period G__35625)))
+(defn normalized ^java.time.chrono.ChronoPeriod ([^java.time.Period G__46261] (.normalized ^java.time.Period G__46261)))
 
 
 
-(defn minus-months ^java.time.Period ([^java.time.Period G__35626 G__35627] (.minusMonths ^java.time.Period G__35626 G__35627)))
+(defn minus-months ^java.time.Period ([^java.time.Period G__46262 G__46263] (.minusMonths ^java.time.Period G__46262 G__46263)))
 
 
-(defn get-days ([^java.time.Period G__35628] (jti/getter days ^java.time.Period G__35628)))
+(defn get-days ([^java.time.Period G__46264] (jti/getter days ^java.time.Period G__46264)))
 
 
-(defn get ([^java.time.Period G__35629 ^java.time.temporal.TemporalUnit G__35630] (.get ^java.time.Period G__35629 ^java.time.temporal.TemporalUnit G__35630)))
+(defn get ([^java.time.Period G__46265 ^java.time.temporal.TemporalUnit G__46266] (.get ^java.time.Period G__46265 ^java.time.temporal.TemporalUnit G__46266)))
 
 
-(defn minus-years ^java.time.Period ([^java.time.Period G__35631 G__35632] (.minusYears ^java.time.Period G__35631 G__35632)))
+(defn minus-years ^java.time.Period ([^java.time.Period G__46267 G__46268] (.minusYears ^java.time.Period G__46267 G__46268)))
 
 
-(defn minus-days ^java.time.Period ([^java.time.Period G__35633 G__35634] (.minusDays ^java.time.Period G__35633 G__35634)))
+(defn minus-days ^java.time.Period ([^java.time.Period G__46269 G__46270] (.minusDays ^java.time.Period G__46269 G__46270)))
 
 
 
-(defn get-years ([^java.time.Period G__35635] (jti/getter years ^java.time.Period G__35635)))
+(defn get-years ([^java.time.Period G__46271] (jti/getter years ^java.time.Period G__46271)))
 
 
-(defn is-negative ([^java.time.Period G__35636] (.isNegative ^java.time.Period G__35636)))
+(defn is-negative ([^java.time.Period G__46272] (.isNegative ^java.time.Period G__46272)))
 
 
-(defn with-months ^java.time.Period ([^java.time.Period G__35637 G__35638] (.withMonths ^java.time.Period G__35637 G__35638)))
+(defn with-months ^java.time.Period ([^java.time.Period G__46273 G__46274] (.withMonths ^java.time.Period G__46273 G__46274)))
 
 
-(defn to-total-months ([^java.time.Period G__35639] (.toTotalMonths ^java.time.Period G__35639)))
+(defn to-total-months ([^java.time.Period G__46275] (.toTotalMonths ^java.time.Period G__46275)))
 
 
 
 
 
-(defn get-months ([^java.time.Period G__35640] (jti/getter months ^java.time.Period G__35640)))
+(defn get-months ([^java.time.Period G__46276] (jti/getter months ^java.time.Period G__46276)))
 
 
 
 
-(defn multiplied-by ^java.time.Period ([^java.time.Period G__35641 G__35642] (.multipliedBy ^java.time.Period G__35641 G__35642)))
+(defn multiplied-by ^java.time.Period ([^java.time.Period G__46277 G__46278] (.multipliedBy ^java.time.Period G__46277 G__46278)))
 
 
-(defn minus ^java.time.chrono.ChronoPeriod ([^java.time.Period G__35643 G__35644] (.minus ^java.time.Period G__35643 G__35644)))
+(defn minus ^java.time.chrono.ChronoPeriod ([^java.time.Period G__46279 G__46280] (.minus ^java.time.Period G__46279 G__46280)))
 
 
 
-(defn between ^java.time.Period ([^java.time.LocalDate G__35646 ^java.time.LocalDate G__35647] (. java.time.Period between ^java.time.LocalDate G__35646 ^java.time.LocalDate G__35647)))
+(defn between ^java.time.Period ([^java.time.LocalDate G__46282 ^java.time.LocalDate G__46283] (. java.time.Period between ^java.time.LocalDate G__46282 ^java.time.LocalDate G__46283)))
 
 
-(defn add-to ^java.time.temporal.Temporal ([^java.time.Period G__35648 ^java.time.temporal.Temporal G__35649] (.addTo ^java.time.Period G__35648 ^java.time.temporal.Temporal G__35649)))
+(defn add-to ^java.time.temporal.Temporal ([^java.time.Period G__46284 ^java.time.temporal.Temporal G__46285] (.addTo ^java.time.Period G__46284 ^java.time.temporal.Temporal G__46285)))
 
 
-(defn get-chronology ^java.time.chrono.IsoChronology ([^java.time.Period G__35650] (jti/getter chronology ^java.time.Period G__35650)))
+(defn get-chronology ^java.time.chrono.IsoChronology ([^java.time.Period G__46286] (jti/getter chronology ^java.time.Period G__46286)))
 
 
-(defn to-string ^java.lang.String ([^java.time.Period G__35651] (.toString ^java.time.Period G__35651)))
+(defn to-string ^java.lang.String ([^java.time.Period G__46287] (.toString ^java.time.Period G__46287)))
 
 
-(defn plus-months ^java.time.Period ([^java.time.Period G__35652 G__35653] (.plusMonths ^java.time.Period G__35652 G__35653)))
+(defn plus-months ^java.time.Period ([^java.time.Period G__46288 G__46289] (.plusMonths ^java.time.Period G__46288 G__46289)))
 
 
-(defn equals ([^java.time.Period G__35654 ^java.lang.Object G__35655] (.equals ^java.time.Period G__35654 ^java.lang.Object G__35655)))
+(defn equals ([^java.time.Period G__46290 ^java.lang.Object G__46291] (.equals ^java.time.Period G__46290 ^java.lang.Object G__46291)))
 
 
-(defn with-days ^java.time.Period ([^java.time.Period G__35656 G__35657] (.withDays ^java.time.Period G__35656 G__35657)))
+(defn with-days ^java.time.Period ([^java.time.Period G__46292 G__46293] (.withDays ^java.time.Period G__46292 G__46293)))
 
 
-(defn plus-days ^java.time.Period ([^java.time.Period G__35658 G__35659] (.plusDays ^java.time.Period G__35658 G__35659)))
+(defn plus-days ^java.time.Period ([^java.time.Period G__46294 G__46295] (.plusDays ^java.time.Period G__46294 G__46295)))
 
 
 
-(defn hash-code ([^java.time.Period G__35660] (.hashCode ^java.time.Period G__35660)))
+(defn hash-code ([^java.time.Period G__46296] (.hashCode ^java.time.Period G__46296)))
 
 
 
-(defn of-days ^java.time.Period ([G__35662] (. java.time.Period ofDays G__35662)))
+(defn of-days ^java.time.Period ([G__46298] (. java.time.Period ofDays G__46298)))
 
 
-(defn of-years ^java.time.Period ([G__35664] (. java.time.Period ofYears G__35664)))
+(defn of-years ^java.time.Period ([G__46300] (. java.time.Period ofYears G__46300)))
 
 
-(defn from ^java.time.Period ([^java.time.temporal.TemporalAmount G__35666] (. java.time.Period from ^java.time.temporal.TemporalAmount G__35666)))
+(defn from ^java.time.Period ([^java.time.temporal.TemporalAmount G__46302] (. java.time.Period from ^java.time.temporal.TemporalAmount G__46302)))
 
 
 
-(defn parse ^java.time.Period ([^java.lang.CharSequence G__35668] (. java.time.Period parse ^java.lang.CharSequence G__35668)))
+(defn parse ^java.time.Period ([^java.lang.CharSequence G__46304] (. java.time.Period parse ^java.lang.CharSequence G__46304)))
 
 
-(defn plus ^java.time.chrono.ChronoPeriod ([^java.time.Period G__35669 G__35670] (.plus ^java.time.Period G__35669 G__35670)))
+(defn plus ^java.time.chrono.ChronoPeriod ([^java.time.Period G__46305 G__46306] (.plus ^java.time.Period G__46305 G__46306)))
 
 
-(defn subtract-from ^java.time.temporal.Temporal ([^java.time.Period G__35671 ^java.time.temporal.Temporal G__35672] (.subtractFrom ^java.time.Period G__35671 ^java.time.temporal.Temporal G__35672)))
+(defn subtract-from ^java.time.temporal.Temporal ([^java.time.Period G__46307 ^java.time.temporal.Temporal G__46308] (.subtractFrom ^java.time.Period G__46307 ^java.time.temporal.Temporal G__46308)))
 
 
 
-(defn negated ^java.time.chrono.ChronoPeriod ([^java.time.Period G__35673] (.negated ^java.time.Period G__35673)))
+(defn negated ^java.time.chrono.ChronoPeriod ([^java.time.Period G__46309] (.negated ^java.time.Period G__46309)))
 
 
