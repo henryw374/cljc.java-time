@@ -1,6 +1,6 @@
-(defproject cljc.java-time "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+(defproject cljc.java-time "0.1.0"
+  :description "A Clojure(Script) library which provides the java.time api through kebab-case-named function vars."
+  :url "https://github.com/henryw374/cljc.java-time"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[cljs.java-time "0.1.8"]]
