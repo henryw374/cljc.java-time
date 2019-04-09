@@ -14,12 +14,14 @@
                        Instant
                        OffsetDateTime
                        ZoneId
+                       ZoneOffset
                        DayOfWeek
                        LocalTime
                        Month
                        Duration
                        Year
-                       YearMonth]
+                       YearMonth
+                       Clock ZoneOffset]
             [java.time.format DateTimeFormatter
                               ResolverStyle]
             [java.time.temporal TemporalAdjusters
@@ -34,7 +36,7 @@
        ['cljs.java-time.interop :as 'jti]
        (symbol "#?") (list
                        :cljs [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]]))
-     (list :refer-clojure :exclude ['get 'range 'format])
+     (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next])
      (symbol "#?") (list
                             :clj
                             (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))))
@@ -136,7 +138,9 @@
                 Month
                 Duration
                 Year
-                YearMonth]]
+                YearMonth
+                Clock
+                ZoneOffset]]
        (let [w (io/writer (str "./src/cljc/java_time/" (csk/->snake_case (.getSimpleName c)) ".cljc"))]
          (binding [*out* w]
            (gen-for-class c nil))))
@@ -155,6 +159,7 @@
            (gen-for-class c "format"))))
      )
 
+   ;todo - chrono and zone packages. needs cljs.java-time also
    
    (require '[clojure.tools.namespace.repl :as rep])
    (rep/refresh-all)

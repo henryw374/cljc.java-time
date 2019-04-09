@@ -1,4 +1,4 @@
-(ns cljc.java-time.temporal.chrono-unit (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [ChronoUnit]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time.temporal ChronoUnit])))
+(ns cljc.java-time.temporal.chrono-unit (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [ChronoUnit]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time.temporal ChronoUnit])))
 (def millis (. java.time.temporal.ChronoUnit -MILLIS))
 (def minutes (. java.time.temporal.ChronoUnit -MINUTES))
 (def micros (. java.time.temporal.ChronoUnit -MICROS))
@@ -16,22 +16,14 @@
 (def nanos (. java.time.temporal.ChronoUnit -NANOS))
 (def forever (. java.time.temporal.ChronoUnit -FOREVER))
 
-(defn is-time-based ([^java.time.temporal.ChronoUnit G__47539] (.isTimeBased ^java.time.temporal.ChronoUnit G__47539)))
+(defn is-time-based ([^java.time.temporal.ChronoUnit G__56673] (.isTimeBased ^java.time.temporal.ChronoUnit G__56673)))
 
 
 
-(defn is-date-based ([^java.time.temporal.ChronoUnit G__47540] (.isDateBased ^java.time.temporal.ChronoUnit G__47540)))
+(defn is-date-based ([^java.time.temporal.ChronoUnit G__56674] (.isDateBased ^java.time.temporal.ChronoUnit G__56674)))
 
 
-(defn is-duration-estimated ([^java.time.temporal.ChronoUnit G__47541] (.isDurationEstimated ^java.time.temporal.ChronoUnit G__47541)))
-
-
-
-
-
-
-
-(defn is-supported-by ([^java.time.temporal.ChronoUnit G__47542 ^java.time.temporal.Temporal G__47543] (.isSupportedBy ^java.time.temporal.ChronoUnit G__47542 ^java.time.temporal.Temporal G__47543)))
+(defn is-duration-estimated ([^java.time.temporal.ChronoUnit G__56675] (.isDurationEstimated ^java.time.temporal.ChronoUnit G__56675)))
 
 
 
@@ -39,22 +31,30 @@
 
 
 
-
-
-(defn between ([^java.time.temporal.ChronoUnit G__47544 ^java.time.temporal.Temporal G__47545 ^java.time.temporal.Temporal G__47546] (.between ^java.time.temporal.ChronoUnit G__47544 ^java.time.temporal.Temporal G__47545 ^java.time.temporal.Temporal G__47546)))
-
-
-(defn add-to ^java.time.temporal.Temporal ([^java.time.temporal.ChronoUnit G__47547 ^java.time.temporal.Temporal G__47548 G__47549] (.addTo ^java.time.temporal.ChronoUnit G__47547 ^java.time.temporal.Temporal G__47548 G__47549)))
-
-
-
-(defn to-string ^java.lang.String ([^java.time.temporal.ChronoUnit G__47550] (.toString ^java.time.temporal.ChronoUnit G__47550)))
+(defn is-supported-by ([^java.time.temporal.ChronoUnit G__56676 ^java.time.temporal.Temporal G__56677] (.isSupportedBy ^java.time.temporal.ChronoUnit G__56676 ^java.time.temporal.Temporal G__56677)))
 
 
 
 
 
-(defn value-of ^java.time.temporal.ChronoUnit ([^java.lang.String G__47552] (. java.time.temporal.ChronoUnit valueOf ^java.lang.String G__47552)))
+
+
+
+
+(defn between ([^java.time.temporal.ChronoUnit G__56678 ^java.time.temporal.Temporal G__56679 ^java.time.temporal.Temporal G__56680] (.between ^java.time.temporal.ChronoUnit G__56678 ^java.time.temporal.Temporal G__56679 ^java.time.temporal.Temporal G__56680)))
+
+
+(defn add-to ^java.time.temporal.Temporal ([^java.time.temporal.ChronoUnit G__56681 ^java.time.temporal.Temporal G__56682 G__56683] (.addTo ^java.time.temporal.ChronoUnit G__56681 ^java.time.temporal.Temporal G__56682 G__56683)))
+
+
+
+(defn to-string ^java.lang.String ([^java.time.temporal.ChronoUnit G__56684] (.toString ^java.time.temporal.ChronoUnit G__56684)))
+
+
+
+
+
+(defn value-of ^java.time.temporal.ChronoUnit ([^java.lang.String G__56686] (. java.time.temporal.ChronoUnit valueOf ^java.lang.String G__56686)))
 
 
 
@@ -63,5 +63,5 @@
 
 
 
-(defn get-duration ^java.time.Duration ([^java.time.temporal.ChronoUnit G__47554] (jti/getter duration ^java.time.temporal.ChronoUnit G__47554)))
+(defn get-duration ^java.time.Duration ([^java.time.temporal.ChronoUnit G__56688] (jti/getter duration ^java.time.temporal.ChronoUnit G__56688)))
 

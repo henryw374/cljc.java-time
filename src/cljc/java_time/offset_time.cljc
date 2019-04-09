@@ -1,149 +1,149 @@
-(ns cljc.java-time.offset-time (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [OffsetTime]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time OffsetTime])))
+(ns cljc.java-time.offset-time (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [OffsetTime]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time OffsetTime])))
 (def min (. java.time.OffsetTime -MIN))
 (def max (. java.time.OffsetTime -MAX))
 
-(defn compare-to ([^java.time.OffsetTime G__46727 G__46728] (.compareTo ^java.time.OffsetTime G__46727 G__46728)))
+(defn compare-to ([^java.time.OffsetTime G__55800 G__55801] (.compareTo ^java.time.OffsetTime G__55800 G__55801)))
 
 
-(defn is-supported ([^java.time.OffsetTime G__46729 G__46730] (.isSupported ^java.time.OffsetTime G__46729 G__46730)))
+(defn is-supported ([^java.time.OffsetTime G__55802 G__55803] (.isSupported ^java.time.OffsetTime G__55802 G__55803)))
 
 
-(defn query ^java.lang.Object ([^java.time.OffsetTime G__46731 ^java.time.temporal.TemporalQuery G__46732] (.query ^java.time.OffsetTime G__46731 ^java.time.temporal.TemporalQuery G__46732)))
+(defn query ^java.lang.Object ([^java.time.OffsetTime G__55804 ^java.time.temporal.TemporalQuery G__55805] (.query ^java.time.OffsetTime G__55804 ^java.time.temporal.TemporalQuery G__55805)))
 
 
-(defn with-second ^java.time.OffsetTime ([^java.time.OffsetTime G__46733 G__46734] (.withSecond ^java.time.OffsetTime G__46733 G__46734)))
+(defn with-second ^java.time.OffsetTime ([^java.time.OffsetTime G__55806 G__55807] (.withSecond ^java.time.OffsetTime G__55806 G__55807)))
 
 
-(defn get-second ([^java.time.OffsetTime G__46735] (jti/getter second ^java.time.OffsetTime G__46735)))
+(defn get-second ([^java.time.OffsetTime G__55808] (jti/getter second ^java.time.OffsetTime G__55808)))
 
 
-(defn of ^java.time.OffsetTime ([G__46737 G__46738 G__46739 G__46740 ^java.time.ZoneOffset G__46741] (. java.time.OffsetTime of G__46737 G__46738 G__46739 G__46740 ^java.time.ZoneOffset G__46741)) ([^java.time.LocalTime G__46743 ^java.time.ZoneOffset G__46744] (. java.time.OffsetTime of ^java.time.LocalTime G__46743 ^java.time.ZoneOffset G__46744)))
+(defn of ^java.time.OffsetTime ([G__55810 G__55811 G__55812 G__55813 ^java.time.ZoneOffset G__55814] (. java.time.OffsetTime of G__55810 G__55811 G__55812 G__55813 ^java.time.ZoneOffset G__55814)) ([^java.time.LocalTime G__55816 ^java.time.ZoneOffset G__55817] (. java.time.OffsetTime of ^java.time.LocalTime G__55816 ^java.time.ZoneOffset G__55817)))
 
 
-(defn minus-nanos ^java.time.OffsetTime ([^java.time.OffsetTime G__46745 G__46746] (.minusNanos ^java.time.OffsetTime G__46745 G__46746)))
+(defn minus-nanos ^java.time.OffsetTime ([^java.time.OffsetTime G__55818 G__55819] (.minusNanos ^java.time.OffsetTime G__55818 G__55819)))
 
 
-(defn range ^java.time.temporal.ValueRange ([^java.time.OffsetTime G__46747 ^java.time.temporal.TemporalField G__46748] (.range ^java.time.OffsetTime G__46747 ^java.time.temporal.TemporalField G__46748)))
+(defn range ^java.time.temporal.ValueRange ([^java.time.OffsetTime G__55820 ^java.time.temporal.TemporalField G__55821] (.range ^java.time.OffsetTime G__55820 ^java.time.temporal.TemporalField G__55821)))
 
 
-(defn is-equal ([^java.time.OffsetTime G__46749 ^java.time.OffsetTime G__46750] (.isEqual ^java.time.OffsetTime G__46749 ^java.time.OffsetTime G__46750)))
+(defn is-equal ([^java.time.OffsetTime G__55822 ^java.time.OffsetTime G__55823] (.isEqual ^java.time.OffsetTime G__55822 ^java.time.OffsetTime G__55823)))
 
 
-(defn of-instant ^java.time.OffsetTime ([^java.time.Instant G__46752 ^java.time.ZoneId G__46753] (. java.time.OffsetTime ofInstant ^java.time.Instant G__46752 ^java.time.ZoneId G__46753)))
+(defn of-instant ^java.time.OffsetTime ([^java.time.Instant G__55825 ^java.time.ZoneId G__55826] (. java.time.OffsetTime ofInstant ^java.time.Instant G__55825 ^java.time.ZoneId G__55826)))
 
 
-(defn with-minute ^java.time.OffsetTime ([^java.time.OffsetTime G__46754 G__46755] (.withMinute ^java.time.OffsetTime G__46754 G__46755)))
+(defn with-minute ^java.time.OffsetTime ([^java.time.OffsetTime G__55827 G__55828] (.withMinute ^java.time.OffsetTime G__55827 G__55828)))
 
 
-(defn format ^java.lang.String ([^java.time.OffsetTime G__46756 ^java.time.format.DateTimeFormatter G__46757] (.format ^java.time.OffsetTime G__46756 ^java.time.format.DateTimeFormatter G__46757)))
+(defn format ^java.lang.String ([^java.time.OffsetTime G__55829 ^java.time.format.DateTimeFormatter G__55830] (.format ^java.time.OffsetTime G__55829 ^java.time.format.DateTimeFormatter G__55830)))
 
 
-(defn get ([^java.time.OffsetTime G__46758 ^java.time.temporal.TemporalField G__46759] (.get ^java.time.OffsetTime G__46758 ^java.time.temporal.TemporalField G__46759)))
+(defn get ([^java.time.OffsetTime G__55831 ^java.time.temporal.TemporalField G__55832] (.get ^java.time.OffsetTime G__55831 ^java.time.temporal.TemporalField G__55832)))
 
 
-(defn truncated-to ^java.time.OffsetTime ([^java.time.OffsetTime G__46760 ^java.time.temporal.TemporalUnit G__46761] (.truncatedTo ^java.time.OffsetTime G__46760 ^java.time.temporal.TemporalUnit G__46761)))
+(defn truncated-to ^java.time.OffsetTime ([^java.time.OffsetTime G__55833 ^java.time.temporal.TemporalUnit G__55834] (.truncatedTo ^java.time.OffsetTime G__55833 ^java.time.temporal.TemporalUnit G__55834)))
 
 
-(defn minus-seconds ^java.time.OffsetTime ([^java.time.OffsetTime G__46762 G__46763] (.minusSeconds ^java.time.OffsetTime G__46762 G__46763)))
+(defn minus-seconds ^java.time.OffsetTime ([^java.time.OffsetTime G__55835 G__55836] (.minusSeconds ^java.time.OffsetTime G__55835 G__55836)))
 
 
-(defn to-local-time ^java.time.LocalTime ([^java.time.OffsetTime G__46764] (.toLocalTime ^java.time.OffsetTime G__46764)))
+(defn to-local-time ^java.time.LocalTime ([^java.time.OffsetTime G__55837] (.toLocalTime ^java.time.OffsetTime G__55837)))
 
 
-(defn now ^java.time.OffsetTime ([G__46766] (. java.time.OffsetTime now G__46766)) ([] (. java.time.OffsetTime now)))
+(defn now ^java.time.OffsetTime ([G__55839] (. java.time.OffsetTime now G__55839)) ([] (. java.time.OffsetTime now)))
 
 
-(defn plus-hours ^java.time.OffsetTime ([^java.time.OffsetTime G__46768 G__46769] (.plusHours ^java.time.OffsetTime G__46768 G__46769)))
+(defn plus-hours ^java.time.OffsetTime ([^java.time.OffsetTime G__55841 G__55842] (.plusHours ^java.time.OffsetTime G__55841 G__55842)))
 
 
 
 
-(defn plus-seconds ^java.time.OffsetTime ([^java.time.OffsetTime G__46770 G__46771] (.plusSeconds ^java.time.OffsetTime G__46770 G__46771)))
+(defn plus-seconds ^java.time.OffsetTime ([^java.time.OffsetTime G__55843 G__55844] (.plusSeconds ^java.time.OffsetTime G__55843 G__55844)))
 
 
-(defn plus-minutes ^java.time.OffsetTime ([^java.time.OffsetTime G__46772 G__46773] (.plusMinutes ^java.time.OffsetTime G__46772 G__46773)))
+(defn plus-minutes ^java.time.OffsetTime ([^java.time.OffsetTime G__55845 G__55846] (.plusMinutes ^java.time.OffsetTime G__55845 G__55846)))
 
 
 
-(defn until ([^java.time.OffsetTime G__46774 ^java.time.temporal.Temporal G__46775 ^java.time.temporal.TemporalUnit G__46776] (.until ^java.time.OffsetTime G__46774 ^java.time.temporal.Temporal G__46775 ^java.time.temporal.TemporalUnit G__46776)))
+(defn until ([^java.time.OffsetTime G__55847 ^java.time.temporal.Temporal G__55848 ^java.time.temporal.TemporalUnit G__55849] (.until ^java.time.OffsetTime G__55847 ^java.time.temporal.Temporal G__55848 ^java.time.temporal.TemporalUnit G__55849)))
 
 
 
 
 
-(defn is-before ([^java.time.OffsetTime G__46777 ^java.time.OffsetTime G__46778] (.isBefore ^java.time.OffsetTime G__46777 ^java.time.OffsetTime G__46778)))
+(defn is-before ([^java.time.OffsetTime G__55850 ^java.time.OffsetTime G__55851] (.isBefore ^java.time.OffsetTime G__55850 ^java.time.OffsetTime G__55851)))
 
 
-(defn adjust-into ^java.time.temporal.Temporal ([^java.time.OffsetTime G__46779 ^java.time.temporal.Temporal G__46780] (.adjustInto ^java.time.OffsetTime G__46779 ^java.time.temporal.Temporal G__46780)))
+(defn adjust-into ^java.time.temporal.Temporal ([^java.time.OffsetTime G__55852 ^java.time.temporal.Temporal G__55853] (.adjustInto ^java.time.OffsetTime G__55852 ^java.time.temporal.Temporal G__55853)))
 
 
 
-(defn get-hour ([^java.time.OffsetTime G__46781] (jti/getter hour ^java.time.OffsetTime G__46781)))
+(defn get-hour ([^java.time.OffsetTime G__55854] (jti/getter hour ^java.time.OffsetTime G__55854)))
 
 
-(defn minus ^java.time.OffsetTime ([^java.time.OffsetTime G__46782 G__46783] (.minus ^java.time.OffsetTime G__46782 G__46783)) ([^java.time.OffsetTime G__46784 G__46785 G__46786] (.minus ^java.time.OffsetTime G__46784 G__46785 G__46786)))
+(defn minus ^java.time.OffsetTime ([^java.time.OffsetTime G__55855 G__55856] (.minus ^java.time.OffsetTime G__55855 G__55856)) ([^java.time.OffsetTime G__55857 G__55858 G__55859] (.minus ^java.time.OffsetTime G__55857 G__55858 G__55859)))
 
 
-(defn plus-nanos ^java.time.OffsetTime ([^java.time.OffsetTime G__46787 G__46788] (.plusNanos ^java.time.OffsetTime G__46787 G__46788)))
+(defn plus-nanos ^java.time.OffsetTime ([^java.time.OffsetTime G__55860 G__55861] (.plusNanos ^java.time.OffsetTime G__55860 G__55861)))
 
 
-(defn get-nano ([^java.time.OffsetTime G__46789] (jti/getter nano ^java.time.OffsetTime G__46789)))
+(defn get-nano ([^java.time.OffsetTime G__55862] (jti/getter nano ^java.time.OffsetTime G__55862)))
 
 
-(defn is-after ([^java.time.OffsetTime G__46790 ^java.time.OffsetTime G__46791] (.isAfter ^java.time.OffsetTime G__46790 ^java.time.OffsetTime G__46791)))
+(defn is-after ([^java.time.OffsetTime G__55863 ^java.time.OffsetTime G__55864] (.isAfter ^java.time.OffsetTime G__55863 ^java.time.OffsetTime G__55864)))
 
 
-(defn to-string ^java.lang.String ([^java.time.OffsetTime G__46792] (.toString ^java.time.OffsetTime G__46792)))
+(defn to-string ^java.lang.String ([^java.time.OffsetTime G__55865] (.toString ^java.time.OffsetTime G__55865)))
 
 
-(defn with-hour ^java.time.OffsetTime ([^java.time.OffsetTime G__46793 G__46794] (.withHour ^java.time.OffsetTime G__46793 G__46794)))
+(defn with-hour ^java.time.OffsetTime ([^java.time.OffsetTime G__55866 G__55867] (.withHour ^java.time.OffsetTime G__55866 G__55867)))
 
 
-(defn equals ([^java.time.OffsetTime G__46795 ^java.lang.Object G__46796] (.equals ^java.time.OffsetTime G__46795 ^java.lang.Object G__46796)))
+(defn equals ([^java.time.OffsetTime G__55868 ^java.lang.Object G__55869] (.equals ^java.time.OffsetTime G__55868 ^java.lang.Object G__55869)))
 
 
 
-(defn with-nano ^java.time.OffsetTime ([^java.time.OffsetTime G__46797 G__46798] (.withNano ^java.time.OffsetTime G__46797 G__46798)))
+(defn with-nano ^java.time.OffsetTime ([^java.time.OffsetTime G__55870 G__55871] (.withNano ^java.time.OffsetTime G__55870 G__55871)))
 
 
-(defn get-minute ([^java.time.OffsetTime G__46799] (jti/getter minute ^java.time.OffsetTime G__46799)))
+(defn get-minute ([^java.time.OffsetTime G__55872] (jti/getter minute ^java.time.OffsetTime G__55872)))
 
 
-(defn minus-hours ^java.time.OffsetTime ([^java.time.OffsetTime G__46800 G__46801] (.minusHours ^java.time.OffsetTime G__46800 G__46801)))
+(defn minus-hours ^java.time.OffsetTime ([^java.time.OffsetTime G__55873 G__55874] (.minusHours ^java.time.OffsetTime G__55873 G__55874)))
 
 
-(defn hash-code ([^java.time.OffsetTime G__46802] (.hashCode ^java.time.OffsetTime G__46802)))
+(defn hash-code ([^java.time.OffsetTime G__55875] (.hashCode ^java.time.OffsetTime G__55875)))
 
 
 
-(defn get-long ([^java.time.OffsetTime G__46803 ^java.time.temporal.TemporalField G__46804] (.getLong ^java.time.OffsetTime G__46803 ^java.time.temporal.TemporalField G__46804)))
+(defn get-long ([^java.time.OffsetTime G__55876 ^java.time.temporal.TemporalField G__55877] (.getLong ^java.time.OffsetTime G__55876 ^java.time.temporal.TemporalField G__55877)))
 
 
-(defn get-offset ^java.time.ZoneOffset ([^java.time.OffsetTime G__46805] (jti/getter offset ^java.time.OffsetTime G__46805)))
+(defn get-offset ^java.time.ZoneOffset ([^java.time.OffsetTime G__55878] (jti/getter offset ^java.time.OffsetTime G__55878)))
 
 
-(defn with-offset-same-instant ^java.time.OffsetTime ([^java.time.OffsetTime G__46806 ^java.time.ZoneOffset G__46807] (.withOffsetSameInstant ^java.time.OffsetTime G__46806 ^java.time.ZoneOffset G__46807)))
+(defn with-offset-same-instant ^java.time.OffsetTime ([^java.time.OffsetTime G__55879 ^java.time.ZoneOffset G__55880] (.withOffsetSameInstant ^java.time.OffsetTime G__55879 ^java.time.ZoneOffset G__55880)))
 
 
-(defn with ^java.time.temporal.Temporal ([^java.time.OffsetTime G__46808 G__46809 G__46810] (.with ^java.time.OffsetTime G__46808 G__46809 G__46810)) ([^java.time.OffsetTime G__46811 G__46812] (.with ^java.time.OffsetTime G__46811 G__46812)))
+(defn with ^java.time.temporal.Temporal ([^java.time.OffsetTime G__55881 G__55882 G__55883] (.with ^java.time.OffsetTime G__55881 G__55882 G__55883)) ([^java.time.OffsetTime G__55884 G__55885] (.with ^java.time.OffsetTime G__55884 G__55885)))
 
 
-(defn from ^java.time.OffsetTime ([^java.time.temporal.TemporalAccessor G__46814] (. java.time.OffsetTime from ^java.time.temporal.TemporalAccessor G__46814)))
+(defn from ^java.time.OffsetTime ([^java.time.temporal.TemporalAccessor G__55887] (. java.time.OffsetTime from ^java.time.temporal.TemporalAccessor G__55887)))
 
 
-(defn parse ^java.time.OffsetTime ([^java.lang.CharSequence G__46816 ^java.time.format.DateTimeFormatter G__46817] (. java.time.OffsetTime parse ^java.lang.CharSequence G__46816 ^java.time.format.DateTimeFormatter G__46817)) ([^java.lang.CharSequence G__46819] (. java.time.OffsetTime parse ^java.lang.CharSequence G__46819)))
+(defn parse ^java.time.OffsetTime ([^java.lang.CharSequence G__55889 ^java.time.format.DateTimeFormatter G__55890] (. java.time.OffsetTime parse ^java.lang.CharSequence G__55889 ^java.time.format.DateTimeFormatter G__55890)) ([^java.lang.CharSequence G__55892] (. java.time.OffsetTime parse ^java.lang.CharSequence G__55892)))
 
 
-(defn plus ^java.time.temporal.Temporal ([^java.time.OffsetTime G__46820 G__46821] (.plus ^java.time.OffsetTime G__46820 G__46821)) ([^java.time.OffsetTime G__46822 G__46823 G__46824] (.plus ^java.time.OffsetTime G__46822 G__46823 G__46824)))
+(defn plus ^java.time.temporal.Temporal ([^java.time.OffsetTime G__55893 G__55894] (.plus ^java.time.OffsetTime G__55893 G__55894)) ([^java.time.OffsetTime G__55895 G__55896 G__55897] (.plus ^java.time.OffsetTime G__55895 G__55896 G__55897)))
 
 
-(defn at-date ^java.time.OffsetDateTime ([^java.time.OffsetTime G__46825 ^java.time.LocalDate G__46826] (.atDate ^java.time.OffsetTime G__46825 ^java.time.LocalDate G__46826)))
+(defn at-date ^java.time.OffsetDateTime ([^java.time.OffsetTime G__55898 ^java.time.LocalDate G__55899] (.atDate ^java.time.OffsetTime G__55898 ^java.time.LocalDate G__55899)))
 
 
 
-(defn with-offset-same-local ^java.time.OffsetTime ([^java.time.OffsetTime G__46827 ^java.time.ZoneOffset G__46828] (.withOffsetSameLocal ^java.time.OffsetTime G__46827 ^java.time.ZoneOffset G__46828)))
+(defn with-offset-same-local ^java.time.OffsetTime ([^java.time.OffsetTime G__55900 ^java.time.ZoneOffset G__55901] (.withOffsetSameLocal ^java.time.OffsetTime G__55900 ^java.time.ZoneOffset G__55901)))
 
 
 
-(defn minus-minutes ^java.time.OffsetTime ([^java.time.OffsetTime G__46829 G__46830] (.minusMinutes ^java.time.OffsetTime G__46829 G__46830)))
+(defn minus-minutes ^java.time.OffsetTime ([^java.time.OffsetTime G__55902 G__55903] (.minusMinutes ^java.time.OffsetTime G__55902 G__55903)))
 

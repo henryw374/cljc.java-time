@@ -1,4 +1,4 @@
-(ns cljc.java-time.temporal.chrono-field (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [ChronoField]])) (:refer-clojure :exclude [get range format]) #? (:clj (:import [java.time.temporal ChronoField])))
+(ns cljc.java-time.temporal.chrono-field (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [ChronoField]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time.temporal ChronoField])))
 (def milli-of-second (. java.time.temporal.ChronoField -MILLI_OF_SECOND))
 (def year-of-era (. java.time.temporal.ChronoField -YEAR_OF_ERA))
 (def clock-hour-of-day (. java.time.temporal.ChronoField -CLOCK_HOUR_OF_DAY))
@@ -32,65 +32,65 @@
 
 
 
-(defn get-display-name ^java.lang.String ([^java.time.temporal.ChronoField G__47555 ^java.util.Locale G__47556] (jti/getter displayName ^java.time.temporal.ChronoField G__47555 ^java.util.Locale G__47556)))
+(defn get-display-name ^java.lang.String ([^java.time.temporal.ChronoField G__56689 ^java.util.Locale G__56690] (jti/getter displayName ^java.time.temporal.ChronoField G__56689 ^java.util.Locale G__56690)))
 
 
 
 
 
 
-(defn is-time-based ([^java.time.temporal.ChronoField G__47557] (.isTimeBased ^java.time.temporal.ChronoField G__47557)))
+(defn is-time-based ([^java.time.temporal.ChronoField G__56691] (.isTimeBased ^java.time.temporal.ChronoField G__56691)))
 
 
-(defn range-refined-by ^java.time.temporal.ValueRange ([^java.time.temporal.ChronoField G__47558 ^java.time.temporal.TemporalAccessor G__47559] (.rangeRefinedBy ^java.time.temporal.ChronoField G__47558 ^java.time.temporal.TemporalAccessor G__47559)))
-
-
-
-
-
-
-(defn is-date-based ([^java.time.temporal.ChronoField G__47560] (.isDateBased ^java.time.temporal.ChronoField G__47560)))
+(defn range-refined-by ^java.time.temporal.ValueRange ([^java.time.temporal.ChronoField G__56692 ^java.time.temporal.TemporalAccessor G__56693] (.rangeRefinedBy ^java.time.temporal.ChronoField G__56692 ^java.time.temporal.TemporalAccessor G__56693)))
 
 
 
 
 
 
-
-
-
-(defn is-supported-by ([^java.time.temporal.ChronoField G__47561 ^java.time.temporal.TemporalAccessor G__47562] (.isSupportedBy ^java.time.temporal.ChronoField G__47561 ^java.time.temporal.TemporalAccessor G__47562)))
-
-
-
-
-
-(defn check-valid-int-value ([^java.time.temporal.ChronoField G__47563 G__47564] (.checkValidIntValue ^java.time.temporal.ChronoField G__47563 G__47564)))
+(defn is-date-based ([^java.time.temporal.ChronoField G__56694] (.isDateBased ^java.time.temporal.ChronoField G__56694)))
 
 
 
 
 
 
-(defn adjust-into ^java.time.temporal.Temporal ([^java.time.temporal.ChronoField G__47565 ^java.time.temporal.Temporal G__47566 G__47567] (.adjustInto ^java.time.temporal.ChronoField G__47565 ^java.time.temporal.Temporal G__47566 G__47567)))
-
-
-(defn to-string ^java.lang.String ([^java.time.temporal.ChronoField G__47568] (.toString ^java.time.temporal.ChronoField G__47568)))
-
-
-(defn get-range-unit ^java.time.temporal.TemporalUnit ([^java.time.temporal.ChronoField G__47569] (jti/getter rangeUnit ^java.time.temporal.ChronoField G__47569)))
 
 
 
-(defn get-from ([^java.time.temporal.ChronoField G__47570 ^java.time.temporal.TemporalAccessor G__47571] (jti/getter from ^java.time.temporal.ChronoField G__47570 ^java.time.temporal.TemporalAccessor G__47571)))
-
-
-(defn value-of ^java.time.temporal.ChronoField ([^java.lang.String G__47573] (. java.time.temporal.ChronoField valueOf ^java.lang.String G__47573)))
+(defn is-supported-by ([^java.time.temporal.ChronoField G__56695 ^java.time.temporal.TemporalAccessor G__56696] (.isSupportedBy ^java.time.temporal.ChronoField G__56695 ^java.time.temporal.TemporalAccessor G__56696)))
 
 
 
 
-(defn check-valid-value ([^java.time.temporal.ChronoField G__47574 G__47575] (.checkValidValue ^java.time.temporal.ChronoField G__47574 G__47575)))
+
+(defn check-valid-int-value ([^java.time.temporal.ChronoField G__56697 G__56698] (.checkValidIntValue ^java.time.temporal.ChronoField G__56697 G__56698)))
+
+
+
+
+
+
+(defn adjust-into ^java.time.temporal.Temporal ([^java.time.temporal.ChronoField G__56699 ^java.time.temporal.Temporal G__56700 G__56701] (.adjustInto ^java.time.temporal.ChronoField G__56699 ^java.time.temporal.Temporal G__56700 G__56701)))
+
+
+(defn to-string ^java.lang.String ([^java.time.temporal.ChronoField G__56702] (.toString ^java.time.temporal.ChronoField G__56702)))
+
+
+(defn get-range-unit ^java.time.temporal.TemporalUnit ([^java.time.temporal.ChronoField G__56703] (jti/getter rangeUnit ^java.time.temporal.ChronoField G__56703)))
+
+
+
+(defn get-from ([^java.time.temporal.ChronoField G__56704 ^java.time.temporal.TemporalAccessor G__56705] (jti/getter from ^java.time.temporal.ChronoField G__56704 ^java.time.temporal.TemporalAccessor G__56705)))
+
+
+(defn value-of ^java.time.temporal.ChronoField ([^java.lang.String G__56707] (. java.time.temporal.ChronoField valueOf ^java.lang.String G__56707)))
+
+
+
+
+(defn check-valid-value ([^java.time.temporal.ChronoField G__56708 G__56709] (.checkValidValue ^java.time.temporal.ChronoField G__56708 G__56709)))
 
 
 
@@ -106,5 +106,5 @@
 
 
 
-(defn get-base-unit ^java.time.temporal.TemporalUnit ([^java.time.temporal.ChronoField G__47577] (jti/getter baseUnit ^java.time.temporal.ChronoField G__47577)))
+(defn get-base-unit ^java.time.temporal.TemporalUnit ([^java.time.temporal.ChronoField G__56711] (jti/getter baseUnit ^java.time.temporal.ChronoField G__56711)))
 
