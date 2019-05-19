@@ -1,25 +1,42 @@
 # cljc.java-time
 
-A Clojure(Script) library which provides the java.time api through kebab-case-named function vars.
-
-The most exciting thing about this is that this makes `java.time` api available in Clojurescript and that
-you can write code to this api that runs in both Clojure and Clojurescript.
+A Clojure(Script) library which provides the java.time api through kebab-case-named function vars. Using this API, 
+you can write code to this api that runs in both Clojure and ClojureScript.
 
 See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U) for more background.
 
+## Related Libraries
+
+[tick](https://clojars.org/tick) is a higher level date-time library that uses this one. Even if you're using cljc.java-time directly,
+ie not through tick, it has very relevant docs on extra [setup for use with ClojureScript](https://juxt.pro/tick/docs/index.html#_clojurescript)
+
+[time-literals](https://github.com/henryw374/time-literals) is a Clojure(Script) library which provides tagged literals for objects from jsr-310 domain 
+
+## Rationale
+
+This library sits atop `java.time` on the jvm and [cljs.java-time](https://github.com/henryw374/cljs.java-time) on Javascript
+platforms. Writing code that uses those libraries directly is harder than interop normally is because:
+
+* To call the 'static' methods from Clojurescript you need to use the [dot-special-form](https://clojure.org/reference/java_interop#_the_dot_special_form) which is not idiomatic
+* The underlying js library has changed the name of the getter methods in java.time to remove the 'get' part of the name. There are ways to get around that on a case
+by case basis, but this library handles it for you.
+ 
+## How it works
+
 For every class in java.time, there is a clojure namespace. 
 
-For example, corresponding to java.time.LocalDate, there is a namespace
+For example, corresponding to `java.time.LocalDate`, there is a namespace
 
-cljc.java-time.local-date
+`cljc.java-time.local-date`
 
-In the namespace, there is one var per public method/field in the corresponding class.
+In that and every other namespace, there is one var per public method/field in the corresponding class.
 
-For example, for the method `java.time.LocalDate/parse`, there is a function `cljc.java-time.local-date/parse`
+For example, for the method `java.time.LocalDate/parse`, there is a corresponding function `cljc.java-time.local-date/parse`
+
+## Usage
 
 Get it from [Clojars](https://clojars.org/cljc.java-time)
 
-## Usage
  
 In .cljc file
  ```
@@ -33,7 +50,7 @@ In .cljc file
 
 ## TODO
  
-### java.time version
+### Keep up to date with java.time 
 
 New methods were added in Java 9 - these are not included in this library
  
