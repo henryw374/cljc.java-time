@@ -1,7 +1,7 @@
 # cljc.java-time
 
 A Clojure(Script) library which provides the java.time api through kebab-case-named function vars. Using this API, 
-you can write code to this api that runs in both Clojure and ClojureScript.
+you can write non-interop code using everything from java.time and which runs in both Clojure and ClojureScript.
 
 See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U) for more background.
 
