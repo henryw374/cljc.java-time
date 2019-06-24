@@ -49,6 +49,22 @@ In .cljc file
    (ld/parse "2019-01-01")
    
  ```
+ 
+## Problems & Irregularities
+
+### Overloaded Java methods with the same arities. 
+
+If there is a java method `foo(String x)` and `foo(boolean x)` then there's
+not going to be a direct clojure function or functions that correspond to those. In this case, dropping to interop code
+is the option we suggest. For now, if there is such a case in java.time (`ZoneId#of` is one) then no clojure function has
+been generated.
+
+### Inheritcance/Polymorphism 
+The generated code of this project mechanically generated methods for the java.time classes, even if those methods are 
+inherited via superclasses or interfaces. In this project, functions are generated at every 'level'. For example there is
+a `cljc.java-time.temporal.temporal/is-supported` and `cljc.java-time.local-date/is-supported`, with the latter being 
+essentially unnecessary but included anyway. 
+ 
 
 ## TODO
  
