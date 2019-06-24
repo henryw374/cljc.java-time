@@ -57,7 +57,7 @@ In .cljc file
 If there is a java method `foo(String x)` and `foo(boolean x)` then there's
 not going to be a direct clojure function or functions that correspond to those. In this case, dropping to interop code
 is the option we suggest. For now, if there is such a case in java.time (`ZoneId#of` is one) then no clojure function has
-been generated.
+been generated. Functions could be generated without type hints but haven't been so far.
 
 ### Inheritcance/Polymorphism 
 The generated code of this project mechanically generated methods for the java.time classes, even if those methods are 
