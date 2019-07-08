@@ -2,6 +2,7 @@
    (:require [clojure.reflect :as rf]
              [clojure.set :as set]
              [medley.core :as m]
+             [defwrapper :as df]
              [clojure.string :as string]
              [camel-snake-kebab.core :as csk]
              [clojure.java.io :as io])
@@ -36,7 +37,7 @@
        ['cljs.java-time.interop :as 'jti]
        (symbol "#?") (list
                        :cljs [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]]))
-     (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next])
+     (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next 'name 'resolve])
      (symbol "#?") (list
                             :clj
                             (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))))
@@ -49,68 +50,23 @@
        (symbol (str "^" x)))))
 
 (defn gen-for-class [c sub-p]
+  ;; header
   (println (header (.getSimpleName c) (csk/->kebab-case (.getSimpleName c))
              sub-p))
+  ;; fields
   (doseq [m (:members (rf/reflect c))]
     (when (and (not (:return-type m)) (not-empty (set/intersection #{:public} (:flags m))))
       (println
         (list 'def (csk/->kebab-case (:name m))
-          (list '. c (symbol (str "-" (:name m))))))
-      )
-    )
-  (doseq [ms (vals (group-by :name (:members (rf/reflect c))))]
-    (let [[m]  ms
-          ;group ms by paramter count - if >1 in  a group, just one, without any type hints
-          ms (if (and (= "Year" (.getSimpleName c)) (= "isLeap" (str (:name (first ms)))))
-               (filter #(not-empty (set/intersection #{:static} (:flags %))) ms)
-               (->> (group-by #(count (:parameter-types %)) ms)
-                    vals
-                    (map (fn [fs]
-                           ;(println (str (:name (first fs))) " " (count fs))
-                           (if (= (count fs) 1)
-                             (first fs)
-                             (do
-                               (update (first fs)
-                                 :parameter-types (fn [pt]
-                                                    (map (fn [_] 'int) pt)))))))))]
-      
-      
-      ;(println m)
-      (println)
-      (when (and (:return-type m) (not-empty (set/intersection #{:public} (:flags m))))
-        (println
-          (keep identity
-            (concat (list 'defn (csk/->kebab-case (:name m)) (type-hint (.getName (:return-type m))))
-              (map 
-                (fn [m]
-                  (let [static? (not-empty (set/intersection #{:static} (:flags m)))]
-                    (let [o-sym (gensym)
-                          p-syms (mapcat (fn [n]
-                                           (if-let [th (type-hint n)]
-                                             [th (gensym)]
-                                             [(gensym)])) (:parameter-types m))
-                          p-syms
-                          (vec (flatten
-                                 (if-not static? 
-                                   (cons [(type-hint (.getName c)) o-sym] p-syms) p-syms)))]
-                      (list (vec p-syms)
-                        (concat
-                          (if static?
-                            (list '. c (:name m))
-                            (if (and (string/starts-with? (:name m) "get") 
-                                  (not= "getLong" (str (:name m)))
-                                  (> (count (str (:name m))) 3))
-                              (list 'jti/getter (let [[f & r] (subs (str (:name m)) 3)]
-                                                  (symbol (apply str (string/lower-case f) r))))
-                              (list (symbol (str "." (:name m)))))
-                            )
-                          p-syms)))))
-                ms)
-              
-              
-              )))
-        (println)))
-    ))
+          (list '. c (symbol (str "-" (:name m))))))))
+  ;; methods
+  (doseq [f (df/defwrapper c)]
+    (let [f (if (= 'is-leap (second f))
+              '(clojure.core/defn is-leap {:arglists (quote (["long"]))}
+                 (^java.lang.Boolean [^long long57050] (. java.time.Year isLeap long57050)))
+              f)]
+      (pr f))
+    (println)))
  
  (comment 
    (def ms (:members (rf/reflect LocalDate)))
@@ -124,7 +80,7 @@
    (csk/->kebab-case (.getSimpleName LocalDate))
    (gen-for-class LocalDate)
 
-   (do
+   (binding [*print-meta* true]
      (doseq [c [Period
                 LocalDate
                 LocalDateTime
@@ -141,7 +97,11 @@
                 YearMonth
                 Clock
                 ZoneOffset]]
-       (let [w (io/writer (str "./src/cljc/java_time/" (csk/->snake_case (.getSimpleName c)) ".cljc"))]
+       
+       (let [f (str "./src/cljc/java_time/" (csk/->snake_case (.getSimpleName c)) ".cljc")
+             _ (io/make-parents f) 
+             w (io/writer f)]
+         
          (binding [*out* w]
            (gen-for-class c nil))))
      (doseq [c [TemporalAdjusters
@@ -149,12 +109,16 @@
                 TemporalAmount
                 ChronoUnit
                 ChronoField]]
-       (let [w (io/writer (str "./src/cljc/java_time/temporal/" (csk/->snake_case (.getSimpleName c)) ".cljc"))]
+       (let [f (str "./src/cljc/java_time/temporal/" (csk/->snake_case (.getSimpleName c)) ".cljc")
+             _ (io/make-parents f)
+             w (io/writer f)]
          (binding [*out* w]
            (gen-for-class c "temporal"))))
      (doseq [c [DateTimeFormatter
                 ResolverStyle]]
-       (let [w (io/writer (str "./src/cljc/java_time/format/" (csk/->snake_case (.getSimpleName c)) ".cljc"))]
+       (let [f (str "./src/cljc/java_time/format/" (csk/->snake_case (.getSimpleName c)) ".cljc")
+             _ (io/make-parents f)
+             w (io/writer f)]
          (binding [*out* w]
            (gen-for-class c "format"))))
      )
@@ -162,5 +126,12 @@
    ;todo - chrono and zone packages. needs cljs.java-time also
    
    (require '[clojure.tools.namespace.repl :as rep])
+   
+   (binding [*print-meta* true]
+     (pr ^{:oh :yeah} {}))
+
+   (set! *warn-on-reflection* true)
    (rep/refresh-all)
+   
+   (gen-for-class java.time.Period nil)
    )

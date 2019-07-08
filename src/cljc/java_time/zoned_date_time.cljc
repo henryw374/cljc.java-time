@@ -1,213 +1,74 @@
-(ns cljc.java-time.zoned-date-time (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [ZonedDateTime]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time ZonedDateTime])))
-
-
-(defn is-supported ([^java.time.ZonedDateTime G__55652 G__55653] (.isSupported ^java.time.ZonedDateTime G__55652 G__55653)))
-
-
-(defn plus-years ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55654 G__55655] (.plusYears ^java.time.ZonedDateTime G__55654 G__55655)))
-
-
-(defn query ^java.lang.Object ([^java.time.ZonedDateTime G__55656 ^java.time.temporal.TemporalQuery G__55657] (.query ^java.time.ZonedDateTime G__55656 ^java.time.temporal.TemporalQuery G__55657)))
-
-
-(defn with-second ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55658 G__55659] (.withSecond ^java.time.ZonedDateTime G__55658 G__55659)))
-
-
-(defn with-later-offset-at-overlap ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55660] (.withLaterOffsetAtOverlap ^java.time.ZonedDateTime G__55660)))
-
-
-(defn get-second ([^java.time.ZonedDateTime G__55661] (jti/getter second ^java.time.ZonedDateTime G__55661)))
-
-
-(defn get-day-of-month ([^java.time.ZonedDateTime G__55662] (jti/getter dayOfMonth ^java.time.ZonedDateTime G__55662)))
-
-
-
-(defn of ^java.time.ZonedDateTime ([G__55664 G__55665 G__55666 G__55667 G__55668 G__55669 G__55670 ^java.time.ZoneId G__55671] (. java.time.ZonedDateTime of G__55664 G__55665 G__55666 G__55667 G__55668 G__55669 G__55670 ^java.time.ZoneId G__55671)) ([^java.time.LocalDateTime G__55673 ^java.time.ZoneId G__55674] (. java.time.ZonedDateTime of ^java.time.LocalDateTime G__55673 ^java.time.ZoneId G__55674)) ([^java.time.LocalDate G__55676 ^java.time.LocalTime G__55677 ^java.time.ZoneId G__55678] (. java.time.ZonedDateTime of ^java.time.LocalDate G__55676 ^java.time.LocalTime G__55677 ^java.time.ZoneId G__55678)))
-
-
-(defn to-offset-date-time ^java.time.OffsetDateTime ([^java.time.ZonedDateTime G__55679] (.toOffsetDateTime ^java.time.ZonedDateTime G__55679)))
-
-
-(defn minus-nanos ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55680 G__55681] (.minusNanos ^java.time.ZonedDateTime G__55680 G__55681)))
-
-
-(defn range ^java.time.temporal.ValueRange ([^java.time.ZonedDateTime G__55682 ^java.time.temporal.TemporalField G__55683] (.range ^java.time.ZonedDateTime G__55682 ^java.time.temporal.TemporalField G__55683)))
-
-
-(defn with-day-of-year ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55684 G__55685] (.withDayOfYear ^java.time.ZonedDateTime G__55684 G__55685)))
-
-
-(defn of-instant ^java.time.ZonedDateTime ([^java.time.Instant G__55687 ^java.time.ZoneId G__55688] (. java.time.ZonedDateTime ofInstant ^java.time.Instant G__55687 ^java.time.ZoneId G__55688)) ([^java.time.LocalDateTime G__55690 ^java.time.ZoneOffset G__55691 ^java.time.ZoneId G__55692] (. java.time.ZonedDateTime ofInstant ^java.time.LocalDateTime G__55690 ^java.time.ZoneOffset G__55691 ^java.time.ZoneId G__55692)))
-
-
-(defn with-minute ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55693 G__55694] (.withMinute ^java.time.ZonedDateTime G__55693 G__55694)))
-
-
-
-(defn format ^java.lang.String ([^java.time.ZonedDateTime G__55695 ^java.time.format.DateTimeFormatter G__55696] (.format ^java.time.ZonedDateTime G__55695 ^java.time.format.DateTimeFormatter G__55696)))
-
-
-(defn minus-months ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55697 G__55698] (.minusMonths ^java.time.ZonedDateTime G__55697 G__55698)))
-
-
-(defn get ([^java.time.ZonedDateTime G__55699 ^java.time.temporal.TemporalField G__55700] (.get ^java.time.ZonedDateTime G__55699 ^java.time.temporal.TemporalField G__55700)))
-
-
-(defn truncated-to ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55701 ^java.time.temporal.TemporalUnit G__55702] (.truncatedTo ^java.time.ZonedDateTime G__55701 ^java.time.temporal.TemporalUnit G__55702)))
-
-
-(defn minus-weeks ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55703 G__55704] (.minusWeeks ^java.time.ZonedDateTime G__55703 G__55704)))
-
-
-(defn minus-seconds ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55705 G__55706] (.minusSeconds ^java.time.ZonedDateTime G__55705 G__55706)))
-
-
-(defn to-local-time ^java.time.LocalTime ([^java.time.ZonedDateTime G__55707] (.toLocalTime ^java.time.ZonedDateTime G__55707)))
-
-
-(defn now ^java.time.ZonedDateTime ([G__55709] (. java.time.ZonedDateTime now G__55709)) ([] (. java.time.ZonedDateTime now)))
-
-
-(defn minus-years ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55711 G__55712] (.minusYears ^java.time.ZonedDateTime G__55711 G__55712)))
-
-
-(defn minus-days ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55713 G__55714] (.minusDays ^java.time.ZonedDateTime G__55713 G__55714)))
-
-
-(defn plus-hours ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55715 G__55716] (.plusHours ^java.time.ZonedDateTime G__55715 G__55716)))
-
-
-(defn to-local-date-time ^java.time.LocalDateTime ([^java.time.ZonedDateTime G__55717] (.toLocalDateTime ^java.time.ZonedDateTime G__55717)))
-
-
-
-(defn with-fixed-offset-zone ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55718] (.withFixedOffsetZone ^java.time.ZonedDateTime G__55718)))
-
-
-(defn get-day-of-year ([^java.time.ZonedDateTime G__55719] (jti/getter dayOfYear ^java.time.ZonedDateTime G__55719)))
-
-
-(defn get-month ^java.time.Month ([^java.time.ZonedDateTime G__55720] (jti/getter month ^java.time.ZonedDateTime G__55720)))
-
-
-
-
-
-(defn plus-seconds ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55721 G__55722] (.plusSeconds ^java.time.ZonedDateTime G__55721 G__55722)))
-
-
-(defn plus-minutes ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55723 G__55724] (.plusMinutes ^java.time.ZonedDateTime G__55723 G__55724)))
-
-
-(defn to-local-date ^java.time.chrono.ChronoLocalDate ([^java.time.ZonedDateTime G__55725] (.toLocalDate ^java.time.ZonedDateTime G__55725)))
-
-
-(defn get-zone ^java.time.ZoneId ([^java.time.ZonedDateTime G__55726] (jti/getter zone ^java.time.ZonedDateTime G__55726)))
-
-
-
-(defn until ([^java.time.ZonedDateTime G__55727 ^java.time.temporal.Temporal G__55728 ^java.time.temporal.TemporalUnit G__55729] (.until ^java.time.ZonedDateTime G__55727 ^java.time.temporal.Temporal G__55728 ^java.time.temporal.TemporalUnit G__55729)))
-
-
-
-
-(defn get-hour ([^java.time.ZonedDateTime G__55730] (jti/getter hour ^java.time.ZonedDateTime G__55730)))
-
-
-(defn minus ^java.time.temporal.Temporal ([^java.time.ZonedDateTime G__55731 G__55732] (.minus ^java.time.ZonedDateTime G__55731 G__55732)) ([^java.time.ZonedDateTime G__55733 G__55734 G__55735] (.minus ^java.time.ZonedDateTime G__55733 G__55734 G__55735)))
-
-
-(defn plus-nanos ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55736 G__55737] (.plusNanos ^java.time.ZonedDateTime G__55736 G__55737)))
-
-
-(defn get-nano ([^java.time.ZonedDateTime G__55738] (jti/getter nano ^java.time.ZonedDateTime G__55738)))
-
-
-(defn get-year ([^java.time.ZonedDateTime G__55739] (jti/getter year ^java.time.ZonedDateTime G__55739)))
-
-
-(defn with-day-of-month ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55740 G__55741] (.withDayOfMonth ^java.time.ZonedDateTime G__55740 G__55741)))
-
-
-(defn to-string ^java.lang.String ([^java.time.ZonedDateTime G__55742] (.toString ^java.time.ZonedDateTime G__55742)))
-
-
-(defn with-zone-same-instant ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55743 G__55744] (.withZoneSameInstant ^java.time.ZonedDateTime G__55743 G__55744)))
-
-
-(defn plus-months ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55745 G__55746] (.plusMonths ^java.time.ZonedDateTime G__55745 G__55746)))
-
-
-(defn with-hour ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55747 G__55748] (.withHour ^java.time.ZonedDateTime G__55747 G__55748)))
-
-
-(defn with-zone-same-local ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55749 G__55750] (.withZoneSameLocal ^java.time.ZonedDateTime G__55749 G__55750)))
-
-
-(defn equals ([^java.time.ZonedDateTime G__55751 ^java.lang.Object G__55752] (.equals ^java.time.ZonedDateTime G__55751 ^java.lang.Object G__55752)))
-
-
-
-(defn get-month-value ([^java.time.ZonedDateTime G__55753] (jti/getter monthValue ^java.time.ZonedDateTime G__55753)))
-
-
-(defn with-nano ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55754 G__55755] (.withNano ^java.time.ZonedDateTime G__55754 G__55755)))
-
-
-(defn get-minute ([^java.time.ZonedDateTime G__55756] (jti/getter minute ^java.time.ZonedDateTime G__55756)))
-
-
-(defn of-local ^java.time.ZonedDateTime ([^java.time.LocalDateTime G__55758 ^java.time.ZoneId G__55759 ^java.time.ZoneOffset G__55760] (. java.time.ZonedDateTime ofLocal ^java.time.LocalDateTime G__55758 ^java.time.ZoneId G__55759 ^java.time.ZoneOffset G__55760)))
-
-
-(defn minus-hours ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55761 G__55762] (.minusHours ^java.time.ZonedDateTime G__55761 G__55762)))
-
-
-(defn with-earlier-offset-at-overlap ^java.time.chrono.ChronoZonedDateTime ([^java.time.ZonedDateTime G__55763] (.withEarlierOffsetAtOverlap ^java.time.ZonedDateTime G__55763)))
-
-
-
-(defn get-day-of-week ^java.time.DayOfWeek ([^java.time.ZonedDateTime G__55764] (jti/getter dayOfWeek ^java.time.ZonedDateTime G__55764)))
-
-
-(defn plus-days ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55765 G__55766] (.plusDays ^java.time.ZonedDateTime G__55765 G__55766)))
-
-
-(defn plus-weeks ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55767 G__55768] (.plusWeeks ^java.time.ZonedDateTime G__55767 G__55768)))
-
-
-(defn hash-code ([^java.time.ZonedDateTime G__55769] (.hashCode ^java.time.ZonedDateTime G__55769)))
-
-
-
-(defn of-strict ^java.time.ZonedDateTime ([^java.time.LocalDateTime G__55771 ^java.time.ZoneOffset G__55772 ^java.time.ZoneId G__55773] (. java.time.ZonedDateTime ofStrict ^java.time.LocalDateTime G__55771 ^java.time.ZoneOffset G__55772 ^java.time.ZoneId G__55773)))
-
-
-(defn get-long ([^java.time.ZonedDateTime G__55774 ^java.time.temporal.TemporalField G__55775] (.getLong ^java.time.ZonedDateTime G__55774 ^java.time.temporal.TemporalField G__55775)))
-
-
-(defn get-offset ^java.time.ZoneOffset ([^java.time.ZonedDateTime G__55776] (jti/getter offset ^java.time.ZonedDateTime G__55776)))
-
-
-(defn with ^java.time.temporal.Temporal ([^java.time.ZonedDateTime G__55777 G__55778 G__55779] (.with ^java.time.ZonedDateTime G__55777 G__55778 G__55779)) ([^java.time.ZonedDateTime G__55780 G__55781] (.with ^java.time.ZonedDateTime G__55780 G__55781)))
-
-
-(defn from ^java.time.ZonedDateTime ([^java.time.temporal.TemporalAccessor G__55783] (. java.time.ZonedDateTime from ^java.time.temporal.TemporalAccessor G__55783)))
-
-
-(defn parse ^java.time.ZonedDateTime ([^java.lang.CharSequence G__55785] (. java.time.ZonedDateTime parse ^java.lang.CharSequence G__55785)) ([^java.lang.CharSequence G__55787 ^java.time.format.DateTimeFormatter G__55788] (. java.time.ZonedDateTime parse ^java.lang.CharSequence G__55787 ^java.time.format.DateTimeFormatter G__55788)))
-
-
-(defn plus ^java.time.temporal.Temporal ([^java.time.ZonedDateTime G__55789 G__55790 G__55791] (.plus ^java.time.ZonedDateTime G__55789 G__55790 G__55791)) ([^java.time.ZonedDateTime G__55792 G__55793] (.plus ^java.time.ZonedDateTime G__55792 G__55793)))
-
-
-(defn with-year ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55794 G__55795] (.withYear ^java.time.ZonedDateTime G__55794 G__55795)))
-
-
-
-(defn with-month ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55796 G__55797] (.withMonth ^java.time.ZonedDateTime G__55796 G__55797)))
-
-
-(defn minus-minutes ^java.time.ZonedDateTime ([^java.time.ZonedDateTime G__55798 G__55799] (.minusMinutes ^java.time.ZonedDateTime G__55798 G__55799)))
-
+(ns cljc.java-time.zoned-date-time (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [ZonedDateTime]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time ZonedDateTime])))
+(clojure.core/defn minus-minutes {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2105 ^long long2106] (.minusMinutes this2105 long2106)))
+(clojure.core/defn truncated-to {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalUnit"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2107 ^java.time.temporal.TemporalUnit java-time-temporal-TemporalUnit2108] (.truncatedTo this2107 java-time-temporal-TemporalUnit2108)))
+(clojure.core/defn minus-weeks {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2109 ^long long2110] (.minusWeeks this2109 long2110)))
+(clojure.core/defn to-instant {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.Instant [^java.time.ZonedDateTime this2111] (.toInstant this2111)))
+(clojure.core/defn plus-weeks {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2112 ^long long2113] (.plusWeeks this2112 long2113)))
+(clojure.core/defn range {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))} (^java.time.temporal.ValueRange [^java.time.ZonedDateTime this2114 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2115] (.range this2114 java-time-temporal-TemporalField2115)))
+(clojure.core/defn with-earlier-offset-at-overlap {:arglists (quote (["java.time.ZonedDateTime"] ["java.time.ZonedDateTime"]))} (^java.lang.Object [this2116] #? (:cljs (.withEarlierOffsetAtOverlap ^java.time.ZonedDateTime this2116) :clj (clojure.core/cond (clojure.core/and) (clojure.core/let [] (.withEarlierOffsetAtOverlap ^java.time.ZonedDateTime this2116)) (clojure.core/and) (clojure.core/let [] (.withEarlierOffsetAtOverlap ^java.time.ZonedDateTime this2116)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn get-hour {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2117] (jti/getter hour this2117)))
+(clojure.core/defn minus-hours {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2118 ^long long2119] (.minusHours this2118 long2119)))
+(clojure.core/defn of {:arglists (quote (["java.time.ZonedDateTime" "java.time.LocalDate" "java.time.LocalTime" "java.time.ZoneId"] ["java.time.ZonedDateTime" "int" "int" "int" "int" "int" "int" "int" "java.time.ZoneId"] ["java.time.ZonedDateTime" "java.time.LocalDateTime" "java.time.ZoneId"]))} (^java.time.ZonedDateTime [^java.time.LocalDate java-time-LocalDate2120 ^java.time.LocalTime java-time-LocalTime2121 ^java.time.ZoneId java-time-ZoneId2122] (. java.time.ZonedDateTime of java-time-LocalDate2120 java-time-LocalTime2121 java-time-ZoneId2122)) (^java.time.ZonedDateTime [^java.lang.Integer int2123 ^java.lang.Integer int2124 ^java.lang.Integer int2125 ^java.lang.Integer int2126 ^java.lang.Integer int2127 ^java.lang.Integer int2128 ^java.lang.Integer int2129 ^java.time.ZoneId java-time-ZoneId2130] (. java.time.ZonedDateTime of int2123 int2124 int2125 int2126 int2127 int2128 int2129 java-time-ZoneId2130)) (^java.time.ZonedDateTime [^java.time.LocalDateTime java-time-LocalDateTime2131 ^java.time.ZoneId java-time-ZoneId2132] (. java.time.ZonedDateTime of java-time-LocalDateTime2131 java-time-ZoneId2132)))
+(clojure.core/defn with-month {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2133 ^java.lang.Integer int2134] (.withMonth this2133 int2134)))
+(clojure.core/defn is-equal {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))} (^java.lang.Boolean [^java.time.ZonedDateTime this2135 ^java.time.chrono.ChronoZonedDateTime java-time-chrono-ChronoZonedDateTime2136] (.isEqual this2135 java-time-chrono-ChronoZonedDateTime2136)))
+(clojure.core/defn get-nano {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2137] (jti/getter nano this2137)))
+(clojure.core/defn of-local {:arglists (quote (["java.time.ZonedDateTime" "java.time.LocalDateTime" "java.time.ZoneId" "java.time.ZoneOffset"]))} (^java.time.ZonedDateTime [^java.time.LocalDateTime java-time-LocalDateTime2138 ^java.time.ZoneId java-time-ZoneId2139 ^java.time.ZoneOffset java-time-ZoneOffset2140] (. java.time.ZonedDateTime ofLocal java-time-LocalDateTime2138 java-time-ZoneId2139 java-time-ZoneOffset2140)))
+(clojure.core/defn get-year {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2141] (jti/getter year this2141)))
+(clojure.core/defn minus-seconds {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2142 ^long long2143] (.minusSeconds this2142 long2143)))
+(clojure.core/defn get-second {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2144] (jti/getter second this2144)))
+(clojure.core/defn plus-nanos {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2145 ^long long2146] (.plusNanos this2145 long2146)))
+(clojure.core/defn get-day-of-year {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2147] (jti/getter dayOfYear this2147)))
+(clojure.core/defn plus {:arglists (quote (["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"]))} (^java.lang.Object [this2148 G__2149 G__2150] #? (:cljs (.plus ^java.time.ZonedDateTime this2148 G__2149 G__2150) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2149) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2150)) (clojure.core/let [G__2149 (clojure.core/long G__2149) G__2150 ^"java.time.temporal.TemporalUnit" G__2150] (.plus ^java.time.ZonedDateTime this2148 G__2149 G__2150)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2149) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2150)) (clojure.core/let [G__2149 (clojure.core/long G__2149) G__2150 ^"java.time.temporal.TemporalUnit" G__2150] (.plus ^java.time.ZonedDateTime this2148 G__2149 G__2150)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2149) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2150)) (clojure.core/let [G__2149 (clojure.core/long G__2149) G__2150 ^"java.time.temporal.TemporalUnit" G__2150] (.plus ^java.time.ZonedDateTime this2148 G__2149 G__2150)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2151 G__2152] #? (:cljs (.plus ^java.time.ZonedDateTime this2151 G__2152) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2152)) (clojure.core/let [G__2152 ^"java.time.temporal.TemporalAmount" G__2152] (.plus ^java.time.ZonedDateTime this2151 G__2152)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2152)) (clojure.core/let [G__2152 ^"java.time.temporal.TemporalAmount" G__2152] (.plus ^java.time.ZonedDateTime this2151 G__2152)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2152)) (clojure.core/let [G__2152 ^"java.time.temporal.TemporalAmount" G__2152] (.plus ^java.time.ZonedDateTime this2151 G__2152)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn with-hour {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2153 ^java.lang.Integer int2154] (.withHour this2153 int2154)))
+(clojure.core/defn with-minute {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2155 ^java.lang.Integer int2156] (.withMinute this2155 int2156)))
+(clojure.core/defn plus-minutes {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2157 ^long long2158] (.plusMinutes this2157 long2158)))
+(clojure.core/defn query {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^java.time.ZonedDateTime this2159 ^java.time.temporal.TemporalQuery java-time-temporal-TemporalQuery2160] (.query this2159 java-time-temporal-TemporalQuery2160)))
+(clojure.core/defn get-day-of-week {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.DayOfWeek [^java.time.ZonedDateTime this2161] (jti/getter dayOfWeek this2161)))
+(clojure.core/defn to-string {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.String [^java.time.ZonedDateTime this2162] (.toString this2162)))
+(clojure.core/defn plus-months {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2163 ^long long2164] (.plusMonths this2163 long2164)))
+(clojure.core/defn is-before {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))} (^java.lang.Boolean [^java.time.ZonedDateTime this2165 ^java.time.chrono.ChronoZonedDateTime java-time-chrono-ChronoZonedDateTime2166] (.isBefore this2165 java-time-chrono-ChronoZonedDateTime2166)))
+(clojure.core/defn minus-months {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2167 ^long long2168] (.minusMonths this2167 long2168)))
+(clojure.core/defn minus {:arglists (quote (["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"] ["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"] ["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"]))} (^java.lang.Object [this2169 G__2170 G__2171] #? (:cljs (.minus ^java.time.ZonedDateTime this2169 G__2170 G__2171) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2170) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2171)) (clojure.core/let [G__2170 (clojure.core/long G__2170) G__2171 ^"java.time.temporal.TemporalUnit" G__2171] (.minus ^java.time.ZonedDateTime this2169 G__2170 G__2171)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2170) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2171)) (clojure.core/let [G__2170 (clojure.core/long G__2170) G__2171 ^"java.time.temporal.TemporalUnit" G__2171] (.minus ^java.time.ZonedDateTime this2169 G__2170 G__2171)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2170) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2171)) (clojure.core/let [G__2170 (clojure.core/long G__2170) G__2171 ^"java.time.temporal.TemporalUnit" G__2171] (.minus ^java.time.ZonedDateTime this2169 G__2170 G__2171)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2172 G__2173] #? (:cljs (.minus ^java.time.ZonedDateTime this2172 G__2173) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2173)) (clojure.core/let [G__2173 ^"java.time.temporal.TemporalAmount" G__2173] (.minus ^java.time.ZonedDateTime this2172 G__2173)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2173)) (clojure.core/let [G__2173 ^"java.time.temporal.TemporalAmount" G__2173] (.minus ^java.time.ZonedDateTime this2172 G__2173)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2173)) (clojure.core/let [G__2173 ^"java.time.temporal.TemporalAmount" G__2173] (.minus ^java.time.ZonedDateTime this2172 G__2173)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn with-fixed-offset-zone {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2174] (.withFixedOffsetZone this2174)))
+(clojure.core/defn plus-hours {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2175 ^long long2176] (.plusHours this2175 long2176)))
+(clojure.core/defn with-zone-same-local {:arglists (quote (["java.time.ZonedDateTime" "java.time.ZoneId"] ["java.time.ZonedDateTime" "java.time.ZoneId"]))} (^java.lang.Object [this2177 G__2178] #? (:cljs (.withZoneSameLocal ^java.time.ZonedDateTime this2177 G__2178) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.ZoneId") G__2178)) (clojure.core/let [G__2178 ^"java.time.ZoneId" G__2178] (.withZoneSameLocal ^java.time.ZonedDateTime this2177 G__2178)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.ZoneId") G__2178)) (clojure.core/let [G__2178 ^"java.time.ZoneId" G__2178] (.withZoneSameLocal ^java.time.ZonedDateTime this2177 G__2178)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn with-zone-same-instant {:arglists (quote (["java.time.ZonedDateTime" "java.time.ZoneId"] ["java.time.ZonedDateTime" "java.time.ZoneId"]))} (^java.lang.Object [this2179 G__2180] #? (:cljs (.withZoneSameInstant ^java.time.ZonedDateTime this2179 G__2180) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.ZoneId") G__2180)) (clojure.core/let [G__2180 ^"java.time.ZoneId" G__2180] (.withZoneSameInstant ^java.time.ZonedDateTime this2179 G__2180)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.ZoneId") G__2180)) (clojure.core/let [G__2180 ^"java.time.ZoneId" G__2180] (.withZoneSameInstant ^java.time.ZonedDateTime this2179 G__2180)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn plus-days {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2181 ^long long2182] (.plusDays this2181 long2182)))
+(clojure.core/defn to-local-time {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.LocalTime [^java.time.ZonedDateTime this2183] (.toLocalTime this2183)))
+(clojure.core/defn get-long {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))} (^long [^java.time.ZonedDateTime this2184 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2185] (.getLong this2184 java-time-temporal-TemporalField2185)))
+(clojure.core/defn get-offset {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.ZoneOffset [^java.time.ZonedDateTime this2186] (jti/getter offset this2186)))
+(clojure.core/defn with-year {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2187 ^java.lang.Integer int2188] (.withYear this2187 int2188)))
+(clojure.core/defn with-nano {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2189 ^java.lang.Integer int2190] (.withNano this2189 int2190)))
+(clojure.core/defn to-epoch-second {:arglists (quote (["java.time.ZonedDateTime"]))} (^long [^java.time.ZonedDateTime this2191] (.toEpochSecond this2191)))
+(clojure.core/defn to-offset-date-time {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.OffsetDateTime [^java.time.ZonedDateTime this2192] (.toOffsetDateTime this2192)))
+(clojure.core/defn with-later-offset-at-overlap {:arglists (quote (["java.time.ZonedDateTime"] ["java.time.ZonedDateTime"]))} (^java.lang.Object [this2193] #? (:cljs (.withLaterOffsetAtOverlap ^java.time.ZonedDateTime this2193) :clj (clojure.core/cond (clojure.core/and) (clojure.core/let [] (.withLaterOffsetAtOverlap ^java.time.ZonedDateTime this2193)) (clojure.core/and) (clojure.core/let [] (.withLaterOffsetAtOverlap ^java.time.ZonedDateTime this2193)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn until {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^java.time.ZonedDateTime this2194 ^java.time.temporal.Temporal java-time-temporal-Temporal2195 ^java.time.temporal.TemporalUnit java-time-temporal-TemporalUnit2196] (.until this2194 java-time-temporal-Temporal2195 java-time-temporal-TemporalUnit2196)))
+(clojure.core/defn get-zone {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.ZoneId [^java.time.ZonedDateTime this2197] (jti/getter zone this2197)))
+(clojure.core/defn with-day-of-month {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2198 ^java.lang.Integer int2199] (.withDayOfMonth this2198 int2199)))
+(clojure.core/defn get-day-of-month {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2200] (jti/getter dayOfMonth this2200)))
+(clojure.core/defn from {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalAccessor"]))} (^java.time.ZonedDateTime [^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor2201] (. java.time.ZonedDateTime from java-time-temporal-TemporalAccessor2201)))
+(clojure.core/defn is-after {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))} (^java.lang.Boolean [^java.time.ZonedDateTime this2202 ^java.time.chrono.ChronoZonedDateTime java-time-chrono-ChronoZonedDateTime2203] (.isAfter this2202 java-time-chrono-ChronoZonedDateTime2203)))
+(clojure.core/defn minus-nanos {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2204 ^long long2205] (.minusNanos this2204 long2205)))
+(clojure.core/defn is-supported {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalUnit"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))} (^java.lang.Boolean [this2206 G__2207] #? (:cljs (.isSupported ^java.time.ZonedDateTime this2206 G__2207) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2207)) (clojure.core/let [G__2207 ^"java.time.temporal.TemporalUnit" G__2207] (.isSupported ^java.time.ZonedDateTime this2206 G__2207)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2207)) (clojure.core/let [G__2207 ^"java.time.temporal.TemporalField" G__2207] (.isSupported ^java.time.ZonedDateTime this2206 G__2207)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn minus-years {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2208 ^long long2209] (.minusYears this2208 long2209)))
+(clojure.core/defn get-chronology {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.chrono.Chronology [^java.time.ZonedDateTime this2210] (jti/getter chronology this2210)))
+(clojure.core/defn parse {:arglists (quote (["java.time.ZonedDateTime" "java.lang.CharSequence" "java.time.format.DateTimeFormatter"] ["java.time.ZonedDateTime" "java.lang.CharSequence"]))} (^java.time.ZonedDateTime [^java.lang.CharSequence java-lang-CharSequence2211 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter2212] (. java.time.ZonedDateTime parse java-lang-CharSequence2211 java-time-format-DateTimeFormatter2212)) (^java.time.ZonedDateTime [^java.lang.CharSequence java-lang-CharSequence2213] (. java.time.ZonedDateTime parse java-lang-CharSequence2213)))
+(clojure.core/defn with-second {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2214 ^java.lang.Integer int2215] (.withSecond this2214 int2215)))
+(clojure.core/defn to-local-date {:arglists (quote (["java.time.ZonedDateTime"] ["java.time.ZonedDateTime"]))} (^java.lang.Object [this2216] #? (:cljs (.toLocalDate ^java.time.ZonedDateTime this2216) :clj (clojure.core/cond (clojure.core/and) (clojure.core/let [] (.toLocalDate ^java.time.ZonedDateTime this2216)) (clojure.core/and) (clojure.core/let [] (.toLocalDate ^java.time.ZonedDateTime this2216)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn get-minute {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2217] (jti/getter minute this2217)))
+(clojure.core/defn hash-code {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2218] (.hashCode this2218)))
+(clojure.core/defn with {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField" "long"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAdjuster"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalField" "long"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAdjuster"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAdjuster"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalField" "long"]))} (^java.lang.Object [this2219 G__2220 G__2221] #? (:cljs (.with ^java.time.ZonedDateTime this2219 G__2220 G__2221) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2220) (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2221)) (clojure.core/let [G__2220 ^"java.time.temporal.TemporalField" G__2220 G__2221 (clojure.core/long G__2221)] (.with ^java.time.ZonedDateTime this2219 G__2220 G__2221)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2220) (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2221)) (clojure.core/let [G__2220 ^"java.time.temporal.TemporalField" G__2220 G__2221 (clojure.core/long G__2221)] (.with ^java.time.ZonedDateTime this2219 G__2220 G__2221)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2220) (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2221)) (clojure.core/let [G__2220 ^"java.time.temporal.TemporalField" G__2220 G__2221 (clojure.core/long G__2221)] (.with ^java.time.ZonedDateTime this2219 G__2220 G__2221)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2222 G__2223] #? (:cljs (.with ^java.time.ZonedDateTime this2222 G__2223) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAdjuster") G__2223)) (clojure.core/let [G__2223 ^"java.time.temporal.TemporalAdjuster" G__2223] (.with ^java.time.ZonedDateTime this2222 G__2223)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAdjuster") G__2223)) (clojure.core/let [G__2223 ^"java.time.temporal.TemporalAdjuster" G__2223] (.with ^java.time.ZonedDateTime this2222 G__2223)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAdjuster") G__2223)) (clojure.core/let [G__2223 ^"java.time.temporal.TemporalAdjuster" G__2223] (.with ^java.time.ZonedDateTime this2222 G__2223)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn now {:arglists (quote (["java.time.ZonedDateTime" "java.time.ZoneId"] ["java.time.ZonedDateTime"] ["java.time.ZonedDateTime" "java.time.Clock"]))} (^java.time.ZonedDateTime [G__2225] #? (:cljs (. java.time.ZonedDateTime now G__2225) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.ZoneId") G__2225)) (clojure.core/let [G__2225 ^"java.time.ZoneId" G__2225] (. java.time.ZonedDateTime now G__2225)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.Clock") G__2225)) (clojure.core/let [G__2225 ^"java.time.Clock" G__2225] (. java.time.ZonedDateTime now G__2225)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.time.ZonedDateTime [] (. java.time.ZonedDateTime now)))
+(clojure.core/defn to-local-date-time {:arglists (quote (["java.time.ZonedDateTime"] ["java.time.ZonedDateTime"]))} (^java.lang.Object [this2226] #? (:cljs (.toLocalDateTime ^java.time.ZonedDateTime this2226) :clj (clojure.core/cond (clojure.core/and) (clojure.core/let [] (.toLocalDateTime ^java.time.ZonedDateTime this2226)) (clojure.core/and) (clojure.core/let [] (.toLocalDateTime ^java.time.ZonedDateTime this2226)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn get-month-value {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2227] (jti/getter monthValue this2227)))
+(clojure.core/defn with-day-of-year {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2228 ^java.lang.Integer int2229] (.withDayOfYear this2228 int2229)))
+(clojure.core/defn compare-to {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"] ["java.time.ZonedDateTime" "java.lang.Object"]))} (^java.lang.Integer [this2230 G__2231] #? (:cljs (.compareTo ^java.time.ZonedDateTime this2230 G__2231) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.chrono.ChronoZonedDateTime") G__2231)) (clojure.core/let [G__2231 ^"java.time.chrono.ChronoZonedDateTime" G__2231] (.compareTo ^java.time.ZonedDateTime this2230 G__2231)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Object") G__2231)) (clojure.core/let [G__2231 ^"java.lang.Object" G__2231] (.compareTo ^java.time.ZonedDateTime this2230 G__2231)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn of-strict {:arglists (quote (["java.time.ZonedDateTime" "java.time.LocalDateTime" "java.time.ZoneOffset" "java.time.ZoneId"]))} (^java.time.ZonedDateTime [^java.time.LocalDateTime java-time-LocalDateTime2232 ^java.time.ZoneOffset java-time-ZoneOffset2233 ^java.time.ZoneId java-time-ZoneId2234] (. java.time.ZonedDateTime ofStrict java-time-LocalDateTime2232 java-time-ZoneOffset2233 java-time-ZoneId2234)))
+(clojure.core/defn get-month {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.time.Month [^java.time.ZonedDateTime this2235] (jti/getter month this2235)))
+(clojure.core/defn of-instant {:arglists (quote (["java.time.ZonedDateTime" "java.time.LocalDateTime" "java.time.ZoneOffset" "java.time.ZoneId"] ["java.time.ZonedDateTime" "java.time.Instant" "java.time.ZoneId"]))} (^java.time.ZonedDateTime [^java.time.LocalDateTime java-time-LocalDateTime2236 ^java.time.ZoneOffset java-time-ZoneOffset2237 ^java.time.ZoneId java-time-ZoneId2238] (. java.time.ZonedDateTime ofInstant java-time-LocalDateTime2236 java-time-ZoneOffset2237 java-time-ZoneId2238)) (^java.time.ZonedDateTime [^java.time.Instant java-time-Instant2239 ^java.time.ZoneId java-time-ZoneId2240] (. java.time.ZonedDateTime ofInstant java-time-Instant2239 java-time-ZoneId2240)))
+(clojure.core/defn plus-seconds {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2241 ^long long2242] (.plusSeconds this2241 long2242)))
+(clojure.core/defn get {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))} (^java.lang.Integer [^java.time.ZonedDateTime this2243 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2244] (.get this2243 java-time-temporal-TemporalField2244)))
+(clojure.core/defn equals {:arglists (quote (["java.time.ZonedDateTime" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.ZonedDateTime this2245 ^java.lang.Object java-lang-Object2246] (.equals this2245 java-lang-Object2246)))
+(clojure.core/defn format {:arglists (quote (["java.time.ZonedDateTime" "java.time.format.DateTimeFormatter"]))} (^java.lang.String [^java.time.ZonedDateTime this2247 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter2248] (.format this2247 java-time-format-DateTimeFormatter2248)))
+(clojure.core/defn plus-years {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2249 ^long long2250] (.plusYears this2249 long2250)))
+(clojure.core/defn minus-days {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^java.time.ZonedDateTime [^java.time.ZonedDateTime this2251 ^long long2252] (.minusDays this2251 long2252)))

@@ -1,125 +1,38 @@
-(ns cljc.java-time.period (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [Period]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time Period])))
+(ns cljc.java-time.period (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [Period]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time Period])))
 (def zero (. java.time.Period -ZERO))
-
-(defn with-years ^java.time.Period ([^java.time.Period G__55320 G__55321] (.withYears ^java.time.Period G__55320 G__55321)))
-
-
-(defn plus-years ^java.time.Period ([^java.time.Period G__55322 G__55323] (.plusYears ^java.time.Period G__55322 G__55323)))
-
-
-
-(defn of-weeks ^java.time.Period ([G__55325] (. java.time.Period ofWeeks G__55325)))
-
-
-(defn get-units ^java.util.List ([^java.time.Period G__55326] (jti/getter units ^java.time.Period G__55326)))
-
-
-(defn of ^java.time.Period ([G__55328 G__55329 G__55330] (. java.time.Period of G__55328 G__55329 G__55330)))
-
-
-(defn is-zero ([^java.time.Period G__55331] (.isZero ^java.time.Period G__55331)))
-
-
-(defn of-months ^java.time.Period ([G__55333] (. java.time.Period ofMonths G__55333)))
-
-
-
-(defn normalized ^java.time.chrono.ChronoPeriod ([^java.time.Period G__55334] (.normalized ^java.time.Period G__55334)))
-
-
-
-(defn minus-months ^java.time.Period ([^java.time.Period G__55335 G__55336] (.minusMonths ^java.time.Period G__55335 G__55336)))
-
-
-(defn get-days ([^java.time.Period G__55337] (jti/getter days ^java.time.Period G__55337)))
-
-
-(defn get ([^java.time.Period G__55338 ^java.time.temporal.TemporalUnit G__55339] (.get ^java.time.Period G__55338 ^java.time.temporal.TemporalUnit G__55339)))
-
-
-(defn minus-years ^java.time.Period ([^java.time.Period G__55340 G__55341] (.minusYears ^java.time.Period G__55340 G__55341)))
-
-
-(defn minus-days ^java.time.Period ([^java.time.Period G__55342 G__55343] (.minusDays ^java.time.Period G__55342 G__55343)))
-
-
-
-(defn get-years ([^java.time.Period G__55344] (jti/getter years ^java.time.Period G__55344)))
-
-
-(defn is-negative ([^java.time.Period G__55345] (.isNegative ^java.time.Period G__55345)))
-
-
-(defn with-months ^java.time.Period ([^java.time.Period G__55346 G__55347] (.withMonths ^java.time.Period G__55346 G__55347)))
-
-
-(defn to-total-months ([^java.time.Period G__55348] (.toTotalMonths ^java.time.Period G__55348)))
-
-
-
-
-
-(defn get-months ([^java.time.Period G__55349] (jti/getter months ^java.time.Period G__55349)))
-
-
-
-
-(defn multiplied-by ^java.time.Period ([^java.time.Period G__55350 G__55351] (.multipliedBy ^java.time.Period G__55350 G__55351)))
-
-
-(defn minus ^java.time.chrono.ChronoPeriod ([^java.time.Period G__55352 G__55353] (.minus ^java.time.Period G__55352 G__55353)))
-
-
-
-(defn between ^java.time.Period ([^java.time.LocalDate G__55355 ^java.time.LocalDate G__55356] (. java.time.Period between ^java.time.LocalDate G__55355 ^java.time.LocalDate G__55356)))
-
-
-(defn add-to ^java.time.temporal.Temporal ([^java.time.Period G__55357 ^java.time.temporal.Temporal G__55358] (.addTo ^java.time.Period G__55357 ^java.time.temporal.Temporal G__55358)))
-
-
-(defn get-chronology ^java.time.chrono.IsoChronology ([^java.time.Period G__55359] (jti/getter chronology ^java.time.Period G__55359)))
-
-
-(defn to-string ^java.lang.String ([^java.time.Period G__55360] (.toString ^java.time.Period G__55360)))
-
-
-(defn plus-months ^java.time.Period ([^java.time.Period G__55361 G__55362] (.plusMonths ^java.time.Period G__55361 G__55362)))
-
-
-(defn equals ([^java.time.Period G__55363 ^java.lang.Object G__55364] (.equals ^java.time.Period G__55363 ^java.lang.Object G__55364)))
-
-
-(defn with-days ^java.time.Period ([^java.time.Period G__55365 G__55366] (.withDays ^java.time.Period G__55365 G__55366)))
-
-
-(defn plus-days ^java.time.Period ([^java.time.Period G__55367 G__55368] (.plusDays ^java.time.Period G__55367 G__55368)))
-
-
-
-(defn hash-code ([^java.time.Period G__55369] (.hashCode ^java.time.Period G__55369)))
-
-
-
-(defn of-days ^java.time.Period ([G__55371] (. java.time.Period ofDays G__55371)))
-
-
-(defn of-years ^java.time.Period ([G__55373] (. java.time.Period ofYears G__55373)))
-
-
-(defn from ^java.time.Period ([^java.time.temporal.TemporalAmount G__55375] (. java.time.Period from ^java.time.temporal.TemporalAmount G__55375)))
-
-
-
-(defn parse ^java.time.Period ([^java.lang.CharSequence G__55377] (. java.time.Period parse ^java.lang.CharSequence G__55377)))
-
-
-(defn plus ^java.time.chrono.ChronoPeriod ([^java.time.Period G__55378 G__55379] (.plus ^java.time.Period G__55378 G__55379)))
-
-
-(defn subtract-from ^java.time.temporal.Temporal ([^java.time.Period G__55380 ^java.time.temporal.Temporal G__55381] (.subtractFrom ^java.time.Period G__55380 ^java.time.temporal.Temporal G__55381)))
-
-
-
-(defn negated ^java.time.chrono.ChronoPeriod ([^java.time.Period G__55382] (.negated ^java.time.Period G__55382)))
-
-
+(clojure.core/defn get-months {:arglists (quote (["java.time.Period"]))} (^java.lang.Integer [^java.time.Period this1789] (jti/getter months this1789)))
+(clojure.core/defn of-weeks {:arglists (quote (["java.time.Period" "int"]))} (^java.time.Period [^java.lang.Integer int1790] (. java.time.Period ofWeeks int1790)))
+(clojure.core/defn of-days {:arglists (quote (["java.time.Period" "int"]))} (^java.time.Period [^java.lang.Integer int1791] (. java.time.Period ofDays int1791)))
+(clojure.core/defn is-negative {:arglists (quote (["java.time.Period"]))} (^java.lang.Boolean [^java.time.Period this1792] (.isNegative this1792)))
+(clojure.core/defn of {:arglists (quote (["java.time.Period" "int" "int" "int"]))} (^java.time.Period [^java.lang.Integer int1793 ^java.lang.Integer int1794 ^java.lang.Integer int1795] (. java.time.Period of int1793 int1794 int1795)))
+(clojure.core/defn is-zero {:arglists (quote (["java.time.Period"]))} (^java.lang.Boolean [^java.time.Period this1796] (.isZero this1796)))
+(clojure.core/defn multiplied-by {:arglists (quote (["java.time.Period" "int"] ["java.time.Period" "int"]))} (^java.lang.Object [this1797 G__1798] #? (:cljs (.multipliedBy ^java.time.Period this1797 G__1798) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Integer") G__1798)) (clojure.core/let [G__1798 ^"java.lang.Integer" G__1798] (.multipliedBy ^java.time.Period this1797 G__1798)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Integer") G__1798)) (clojure.core/let [G__1798 ^"java.lang.Integer" G__1798] (.multipliedBy ^java.time.Period this1797 G__1798)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn get-units {:arglists (quote (["java.time.Period"]))} (^java.util.List [^java.time.Period this1799] (jti/getter units this1799)))
+(clojure.core/defn with-days {:arglists (quote (["java.time.Period" "int"]))} (^java.time.Period [^java.time.Period this1800 ^java.lang.Integer int1801] (.withDays this1800 int1801)))
+(clojure.core/defn plus {:arglists (quote (["java.time.Period" "java.time.temporal.TemporalAmount"] ["java.time.Period" "java.time.temporal.TemporalAmount"]))} (^java.lang.Object [this1802 G__1803] #? (:cljs (.plus ^java.time.Period this1802 G__1803) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__1803)) (clojure.core/let [G__1803 ^"java.time.temporal.TemporalAmount" G__1803] (.plus ^java.time.Period this1802 G__1803)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__1803)) (clojure.core/let [G__1803 ^"java.time.temporal.TemporalAmount" G__1803] (.plus ^java.time.Period this1802 G__1803)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn of-months {:arglists (quote (["java.time.Period" "int"]))} (^java.time.Period [^java.lang.Integer int1804] (. java.time.Period ofMonths int1804)))
+(clojure.core/defn to-string {:arglists (quote (["java.time.Period"]))} (^java.lang.String [^java.time.Period this1805] (.toString this1805)))
+(clojure.core/defn plus-months {:arglists (quote (["java.time.Period" "long"]))} (^java.time.Period [^java.time.Period this1806 ^long long1807] (.plusMonths this1806 long1807)))
+(clojure.core/defn minus-months {:arglists (quote (["java.time.Period" "long"]))} (^java.time.Period [^java.time.Period this1808 ^long long1809] (.minusMonths this1808 long1809)))
+(clojure.core/defn minus {:arglists (quote (["java.time.Period" "java.time.temporal.TemporalAmount"] ["java.time.Period" "java.time.temporal.TemporalAmount"]))} (^java.lang.Object [this1810 G__1811] #? (:cljs (.minus ^java.time.Period this1810 G__1811) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__1811)) (clojure.core/let [G__1811 ^"java.time.temporal.TemporalAmount" G__1811] (.minus ^java.time.Period this1810 G__1811)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__1811)) (clojure.core/let [G__1811 ^"java.time.temporal.TemporalAmount" G__1811] (.minus ^java.time.Period this1810 G__1811)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn add-to {:arglists (quote (["java.time.Period" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.Period this1812 ^java.time.temporal.Temporal java-time-temporal-Temporal1813] (.addTo this1812 java-time-temporal-Temporal1813)))
+(clojure.core/defn to-total-months {:arglists (quote (["java.time.Period"]))} (^long [^java.time.Period this1814] (.toTotalMonths this1814)))
+(clojure.core/defn plus-days {:arglists (quote (["java.time.Period" "long"]))} (^java.time.Period [^java.time.Period this1815 ^long long1816] (.plusDays this1815 long1816)))
+(clojure.core/defn of-years {:arglists (quote (["java.time.Period" "int"]))} (^java.time.Period [^java.lang.Integer int1817] (. java.time.Period ofYears int1817)))
+(clojure.core/defn get-days {:arglists (quote (["java.time.Period"]))} (^java.lang.Integer [^java.time.Period this1818] (jti/getter days this1818)))
+(clojure.core/defn negated {:arglists (quote (["java.time.Period"] ["java.time.Period"]))} (^java.lang.Object [this1819] #? (:cljs (.negated ^java.time.Period this1819) :clj (clojure.core/cond (clojure.core/and) (clojure.core/let [] (.negated ^java.time.Period this1819)) (clojure.core/and) (clojure.core/let [] (.negated ^java.time.Period this1819)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn get-years {:arglists (quote (["java.time.Period"]))} (^java.lang.Integer [^java.time.Period this1820] (jti/getter years this1820)))
+(clojure.core/defn with-years {:arglists (quote (["java.time.Period" "int"]))} (^java.time.Period [^java.time.Period this1821 ^java.lang.Integer int1822] (.withYears this1821 int1822)))
+(clojure.core/defn normalized {:arglists (quote (["java.time.Period"] ["java.time.Period"]))} (^java.lang.Object [this1823] #? (:cljs (.normalized ^java.time.Period this1823) :clj (clojure.core/cond (clojure.core/and) (clojure.core/let [] (.normalized ^java.time.Period this1823)) (clojure.core/and) (clojure.core/let [] (.normalized ^java.time.Period this1823)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn with-months {:arglists (quote (["java.time.Period" "int"]))} (^java.time.Period [^java.time.Period this1824 ^java.lang.Integer int1825] (.withMonths this1824 int1825)))
+(clojure.core/defn between {:arglists (quote (["java.time.Period" "java.time.LocalDate" "java.time.LocalDate"]))} (^java.time.Period [^java.time.LocalDate java-time-LocalDate1826 ^java.time.LocalDate java-time-LocalDate1827] (. java.time.Period between java-time-LocalDate1826 java-time-LocalDate1827)))
+(clojure.core/defn from {:arglists (quote (["java.time.Period" "java.time.temporal.TemporalAmount"]))} (^java.time.Period [^java.time.temporal.TemporalAmount java-time-temporal-TemporalAmount1828] (. java.time.Period from java-time-temporal-TemporalAmount1828)))
+(clojure.core/defn minus-years {:arglists (quote (["java.time.Period" "long"]))} (^java.time.Period [^java.time.Period this1829 ^long long1830] (.minusYears this1829 long1830)))
+(clojure.core/defn get-chronology {:arglists (quote (["java.time.Period"] ["java.time.Period"]))} (^java.lang.Object [this1831] #? (:cljs (jti/getter chronology ^java.time.Period this1831) :clj (clojure.core/cond (clojure.core/and) (clojure.core/let [] (jti/getter chronology ^java.time.Period this1831)) (clojure.core/and) (clojure.core/let [] (jti/getter chronology ^java.time.Period this1831)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn parse {:arglists (quote (["java.time.Period" "java.lang.CharSequence"]))} (^java.time.Period [^java.lang.CharSequence java-lang-CharSequence1832] (. java.time.Period parse java-lang-CharSequence1832)))
+(clojure.core/defn hash-code {:arglists (quote (["java.time.Period"]))} (^java.lang.Integer [^java.time.Period this1833] (.hashCode this1833)))
+(clojure.core/defn subtract-from {:arglists (quote (["java.time.Period" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.Period this1834 ^java.time.temporal.Temporal java-time-temporal-Temporal1835] (.subtractFrom this1834 java-time-temporal-Temporal1835)))
+(clojure.core/defn get {:arglists (quote (["java.time.Period" "java.time.temporal.TemporalUnit"]))} (^long [^java.time.Period this1836 ^java.time.temporal.TemporalUnit java-time-temporal-TemporalUnit1837] (.get this1836 java-time-temporal-TemporalUnit1837)))
+(clojure.core/defn equals {:arglists (quote (["java.time.Period" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.Period this1838 ^java.lang.Object java-lang-Object1839] (.equals this1838 java-lang-Object1839)))
+(clojure.core/defn plus-years {:arglists (quote (["java.time.Period" "long"]))} (^java.time.Period [^java.time.Period this1840 ^long long1841] (.plusYears this1840 long1841)))
+(clojure.core/defn minus-days {:arglists (quote (["java.time.Period" "long"]))} (^java.time.Period [^java.time.Period this1842 ^long long1843] (.minusDays this1842 long1843)))

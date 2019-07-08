@@ -1,4 +1,4 @@
-(ns cljc.java-time.format.date-time-formatter (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.format :refer [DateTimeFormatter]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time.format DateTimeFormatter])))
+(ns cljc.java-time.format.date-time-formatter (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.format :refer [DateTimeFormatter]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time.format DateTimeFormatter])))
 (def iso-local-time (. java.time.format.DateTimeFormatter -ISO_LOCAL_TIME))
 (def iso-ordinal-date (. java.time.format.DateTimeFormatter -ISO_ORDINAL_DATE))
 (def iso-offset-date (. java.time.format.DateTimeFormatter -ISO_OFFSET_DATE))
@@ -14,113 +14,28 @@
 (def iso-offset-date-time (. java.time.format.DateTimeFormatter -ISO_OFFSET_DATE_TIME))
 (def iso-date-time (. java.time.format.DateTimeFormatter -ISO_DATE_TIME))
 (def basic-iso-date (. java.time.format.DateTimeFormatter -BASIC_ISO_DATE))
-
-(defn get-resolver-fields ^java.util.Set ([^java.time.format.DateTimeFormatter G__56724] (jti/getter resolverFields ^java.time.format.DateTimeFormatter G__56724)))
-
-
-
-
-
-
-
-
-
-
-
-(defn parsed-leap-second ^java.time.temporal.TemporalQuery ([] (. java.time.format.DateTimeFormatter parsedLeapSecond)))
-
-
-(defn format ^java.lang.String ([^java.time.format.DateTimeFormatter G__56726 ^java.time.temporal.TemporalAccessor G__56727] (.format ^java.time.format.DateTimeFormatter G__56726 ^java.time.temporal.TemporalAccessor G__56727)))
-
-
-
-(defn of-localized-date-time ^java.time.format.DateTimeFormatter ([^java.time.format.FormatStyle G__56729 ^java.time.format.FormatStyle G__56730] (. java.time.format.DateTimeFormatter ofLocalizedDateTime ^java.time.format.FormatStyle G__56729 ^java.time.format.FormatStyle G__56730)) ([^java.time.format.FormatStyle G__56732] (. java.time.format.DateTimeFormatter ofLocalizedDateTime ^java.time.format.FormatStyle G__56732)))
-
-
-(defn parse-unresolved ^java.time.temporal.TemporalAccessor ([^java.time.format.DateTimeFormatter G__56733 ^java.lang.CharSequence G__56734 ^java.text.ParsePosition G__56735] (.parseUnresolved ^java.time.format.DateTimeFormatter G__56733 ^java.lang.CharSequence G__56734 ^java.text.ParsePosition G__56735)))
-
-
-(defn of-localized-date ^java.time.format.DateTimeFormatter ([^java.time.format.FormatStyle G__56737] (. java.time.format.DateTimeFormatter ofLocalizedDate ^java.time.format.FormatStyle G__56737)))
-
-
-
-(defn with-locale ^java.time.format.DateTimeFormatter ([^java.time.format.DateTimeFormatter G__56738 ^java.util.Locale G__56739] (.withLocale ^java.time.format.DateTimeFormatter G__56738 ^java.util.Locale G__56739)))
-
-
-(defn format-to ([^java.time.format.DateTimeFormatter G__56740 ^java.time.temporal.TemporalAccessor G__56741 ^java.lang.Appendable G__56742] (.formatTo ^java.time.format.DateTimeFormatter G__56740 ^java.time.temporal.TemporalAccessor G__56741 ^java.lang.Appendable G__56742)))
-
-
-(defn of-pattern ^java.time.format.DateTimeFormatter ([^java.lang.String G__56744 ^java.util.Locale G__56745] (. java.time.format.DateTimeFormatter ofPattern ^java.lang.String G__56744 ^java.util.Locale G__56745)) ([^java.lang.String G__56747] (. java.time.format.DateTimeFormatter ofPattern ^java.lang.String G__56747)))
-
-
-
-
-
-(defn get-zone ^java.time.ZoneId ([^java.time.format.DateTimeFormatter G__56748] (jti/getter zone ^java.time.format.DateTimeFormatter G__56748)))
-
-
-
-
-
-
-
-
-(defn with-resolver-fields ^java.time.format.DateTimeFormatter ([^java.time.format.DateTimeFormatter G__56749 G__56750] (.withResolverFields ^java.time.format.DateTimeFormatter G__56749 G__56750)))
-
-
-
-(defn with-resolver-style ^java.time.format.DateTimeFormatter ([^java.time.format.DateTimeFormatter G__56751 ^java.time.format.ResolverStyle G__56752] (.withResolverStyle ^java.time.format.DateTimeFormatter G__56751 ^java.time.format.ResolverStyle G__56752)))
-
-
-
-(defn get-chronology ^java.time.chrono.Chronology ([^java.time.format.DateTimeFormatter G__56753] (jti/getter chronology ^java.time.format.DateTimeFormatter G__56753)))
-
-
-(defn to-string ^java.lang.String ([^java.time.format.DateTimeFormatter G__56754] (.toString ^java.time.format.DateTimeFormatter G__56754)))
-
-
-
-
-
-
-(defn parsed-excess-days ^java.time.temporal.TemporalQuery ([] (. java.time.format.DateTimeFormatter parsedExcessDays)))
-
-
-(defn with-decimal-style ^java.time.format.DateTimeFormatter ([^java.time.format.DateTimeFormatter G__56756 ^java.time.format.DecimalStyle G__56757] (.withDecimalStyle ^java.time.format.DateTimeFormatter G__56756 ^java.time.format.DecimalStyle G__56757)))
-
-
-
-
-
-
-
-
-(defn with-zone ^java.time.format.DateTimeFormatter ([^java.time.format.DateTimeFormatter G__56758 ^java.time.ZoneId G__56759] (.withZone ^java.time.format.DateTimeFormatter G__56758 ^java.time.ZoneId G__56759)))
-
-
-(defn get-resolver-style ^java.time.format.ResolverStyle ([^java.time.format.DateTimeFormatter G__56760] (jti/getter resolverStyle ^java.time.format.DateTimeFormatter G__56760)))
-
-
-(defn get-decimal-style ^java.time.format.DecimalStyle ([^java.time.format.DateTimeFormatter G__56761] (jti/getter decimalStyle ^java.time.format.DateTimeFormatter G__56761)))
-
-
-(defn parse ^java.time.temporal.TemporalAccessor ([^java.time.format.DateTimeFormatter G__56762 ^java.lang.CharSequence G__56763] (.parse ^java.time.format.DateTimeFormatter G__56762 ^java.lang.CharSequence G__56763)) ([^java.time.format.DateTimeFormatter G__56764 G__56765 G__56766] (.parse ^java.time.format.DateTimeFormatter G__56764 G__56765 G__56766)))
-
-
-(defn get-locale ^java.util.Locale ([^java.time.format.DateTimeFormatter G__56767] (jti/getter locale ^java.time.format.DateTimeFormatter G__56767)))
-
-
-
-(defn of-localized-time ^java.time.format.DateTimeFormatter ([^java.time.format.FormatStyle G__56769] (. java.time.format.DateTimeFormatter ofLocalizedTime ^java.time.format.FormatStyle G__56769)))
-
-
-(defn to-format ^java.text.Format ([^java.time.format.DateTimeFormatter G__56770 ^java.time.temporal.TemporalQuery G__56771] (.toFormat ^java.time.format.DateTimeFormatter G__56770 ^java.time.temporal.TemporalQuery G__56771)) ([^java.time.format.DateTimeFormatter G__56772] (.toFormat ^java.time.format.DateTimeFormatter G__56772)))
-
-
-(defn parse-best ^java.time.temporal.TemporalAccessor ([^java.time.format.DateTimeFormatter G__56773 ^java.lang.CharSequence G__56774 ^java.time.temporal.TemporalQuery G__56775] (.parseBest ^java.time.format.DateTimeFormatter G__56773 ^java.lang.CharSequence G__56774 ^java.time.temporal.TemporalQuery G__56775)))
-
-
-
-
-(defn with-chronology ^java.time.format.DateTimeFormatter ([^java.time.format.DateTimeFormatter G__56776 ^java.time.chrono.Chronology G__56777] (.withChronology ^java.time.format.DateTimeFormatter G__56776 ^java.time.chrono.Chronology G__56777)))
-
+(clojure.core/defn of-pattern {:arglists (quote (["java.time.format.DateTimeFormatter" "java.lang.String"] ["java.time.format.DateTimeFormatter" "java.lang.String" "java.util.Locale"]))} (^java.time.format.DateTimeFormatter [^java.lang.String java-lang-String3123] (. java.time.format.DateTimeFormatter ofPattern java-lang-String3123)) (^java.time.format.DateTimeFormatter [^java.lang.String java-lang-String3124 ^java.util.Locale java-util-Locale3125] (. java.time.format.DateTimeFormatter ofPattern java-lang-String3124 java-util-Locale3125)))
+(clojure.core/defn parse-best {:arglists (quote (["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "[Ljava.time.temporal.TemporalQuery;"]))} (^java.time.temporal.TemporalAccessor [^java.time.format.DateTimeFormatter this3126 ^java.lang.CharSequence java-lang-CharSequence3127 ^"java.lang.Class" java-time-temporal-TemporalQuery-array3128] (.parseBest this3126 java-lang-CharSequence3127 java-time-temporal-TemporalQuery-array3128)))
+(clojure.core/defn format-to {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalAccessor" "java.lang.Appendable"]))} (^java.lang.Object [^java.time.format.DateTimeFormatter this3129 ^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor3130 ^java.lang.Appendable java-lang-Appendable3131] (.formatTo this3129 java-time-temporal-TemporalAccessor3130 java-lang-Appendable3131)))
+(clojure.core/defn get-decimal-style {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.time.format.DecimalStyle [^java.time.format.DateTimeFormatter this3132] (jti/getter decimalStyle this3132)))
+(clojure.core/defn with-chronology {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.chrono.Chronology"]))} (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this3133 ^java.time.chrono.Chronology java-time-chrono-Chronology3134] (.withChronology this3133 java-time-chrono-Chronology3134)))
+(clojure.core/defn get-resolver-style {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.time.format.ResolverStyle [^java.time.format.DateTimeFormatter this3135] (jti/getter resolverStyle this3135)))
+(clojure.core/defn with-decimal-style {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.format.DecimalStyle"]))} (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this3136 ^java.time.format.DecimalStyle java-time-format-DecimalStyle3137] (.withDecimalStyle this3136 java-time-format-DecimalStyle3137)))
+(clojure.core/defn get-locale {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.util.Locale [^java.time.format.DateTimeFormatter this3138] (jti/getter locale this3138)))
+(clojure.core/defn to-string {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.lang.String [^java.time.format.DateTimeFormatter this3139] (.toString this3139)))
+(clojure.core/defn parsed-leap-second {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.time.temporal.TemporalQuery [] (. java.time.format.DateTimeFormatter parsedLeapSecond)))
+(clojure.core/defn with-zone {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.ZoneId"]))} (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this3140 ^java.time.ZoneId java-time-ZoneId3141] (.withZone this3140 java-time-ZoneId3141)))
+(clojure.core/defn parsed-excess-days {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.time.temporal.TemporalQuery [] (. java.time.format.DateTimeFormatter parsedExcessDays)))
+(clojure.core/defn get-zone {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.time.ZoneId [^java.time.format.DateTimeFormatter this3142] (jti/getter zone this3142)))
+(clojure.core/defn of-localized-date-time {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.format.FormatStyle" "java.time.format.FormatStyle"] ["java.time.format.DateTimeFormatter" "java.time.format.FormatStyle"]))} (^java.time.format.DateTimeFormatter [^java.time.format.FormatStyle java-time-format-FormatStyle3143 ^java.time.format.FormatStyle java-time-format-FormatStyle3144] (. java.time.format.DateTimeFormatter ofLocalizedDateTime java-time-format-FormatStyle3143 java-time-format-FormatStyle3144)) (^java.time.format.DateTimeFormatter [^java.time.format.FormatStyle java-time-format-FormatStyle3145] (. java.time.format.DateTimeFormatter ofLocalizedDateTime java-time-format-FormatStyle3145)))
+(clojure.core/defn get-resolver-fields {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.util.Set [^java.time.format.DateTimeFormatter this3146] (jti/getter resolverFields this3146)))
+(clojure.core/defn get-chronology {:arglists (quote (["java.time.format.DateTimeFormatter"]))} (^java.time.chrono.Chronology [^java.time.format.DateTimeFormatter this3147] (jti/getter chronology this3147)))
+(clojure.core/defn parse {:arglists (quote (["java.time.format.DateTimeFormatter" "java.lang.CharSequence"] ["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "java.text.ParsePosition"] ["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "java.time.temporal.TemporalQuery"]))} (^java.time.temporal.TemporalAccessor [^java.time.format.DateTimeFormatter this3148 ^java.lang.CharSequence java-lang-CharSequence3149] (.parse this3148 java-lang-CharSequence3149)) (^java.lang.Object [this3150 G__3151 G__3152] #? (:cljs (.parse ^java.time.format.DateTimeFormatter this3150 G__3151 G__3152) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.CharSequence") G__3151) (clojure.core/instance? (java.lang.Class/forName "java.text.ParsePosition") G__3152)) (clojure.core/let [G__3151 ^"java.lang.CharSequence" G__3151 G__3152 ^"java.text.ParsePosition" G__3152] (.parse ^java.time.format.DateTimeFormatter this3150 G__3151 G__3152)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.CharSequence") G__3151) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalQuery") G__3152)) (clojure.core/let [G__3151 ^"java.lang.CharSequence" G__3151 G__3152 ^"java.time.temporal.TemporalQuery" G__3152] (.parse ^java.time.format.DateTimeFormatter this3150 G__3151 G__3152)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn with-locale {:arglists (quote (["java.time.format.DateTimeFormatter" "java.util.Locale"]))} (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this3153 ^java.util.Locale java-util-Locale3154] (.withLocale this3153 java-util-Locale3154)))
+(clojure.core/defn with-resolver-fields {:arglists (quote (["java.time.format.DateTimeFormatter" "java.util.Set"] ["java.time.format.DateTimeFormatter" "[Ljava.time.temporal.TemporalField;"]))} (^java.time.format.DateTimeFormatter [this3155 G__3156] #? (:cljs (.withResolverFields ^java.time.format.DateTimeFormatter this3155 G__3156) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.util.Set") G__3156)) (clojure.core/let [G__3156 ^"java.util.Set" G__3156] (.withResolverFields ^java.time.format.DateTimeFormatter this3155 G__3156)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "[Ljava.time.temporal.TemporalField;") G__3156)) (clojure.core/let [G__3156 ^"[Ljava.time.temporal.TemporalField;" G__3156] (.withResolverFields ^java.time.format.DateTimeFormatter this3155 G__3156)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn parse-unresolved {:arglists (quote (["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "java.text.ParsePosition"]))} (^java.time.temporal.TemporalAccessor [^java.time.format.DateTimeFormatter this3157 ^java.lang.CharSequence java-lang-CharSequence3158 ^java.text.ParsePosition java-text-ParsePosition3159] (.parseUnresolved this3157 java-lang-CharSequence3158 java-text-ParsePosition3159)))
+(clojure.core/defn of-localized-time {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.format.FormatStyle"]))} (^java.time.format.DateTimeFormatter [^java.time.format.FormatStyle java-time-format-FormatStyle3160] (. java.time.format.DateTimeFormatter ofLocalizedTime java-time-format-FormatStyle3160)))
+(clojure.core/defn of-localized-date {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.format.FormatStyle"]))} (^java.time.format.DateTimeFormatter [^java.time.format.FormatStyle java-time-format-FormatStyle3161] (. java.time.format.DateTimeFormatter ofLocalizedDate java-time-format-FormatStyle3161)))
+(clojure.core/defn format {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalAccessor"]))} (^java.lang.String [^java.time.format.DateTimeFormatter this3162 ^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor3163] (.format this3162 java-time-temporal-TemporalAccessor3163)))
+(clojure.core/defn to-format {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalQuery"] ["java.time.format.DateTimeFormatter"]))} (^java.text.Format [^java.time.format.DateTimeFormatter this3164 ^java.time.temporal.TemporalQuery java-time-temporal-TemporalQuery3165] (.toFormat this3164 java-time-temporal-TemporalQuery3165)) (^java.text.Format [^java.time.format.DateTimeFormatter this3166] (.toFormat this3166)))
+(clojure.core/defn with-resolver-style {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.format.ResolverStyle"]))} (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this3167 ^java.time.format.ResolverStyle java-time-format-ResolverStyle3168] (.withResolverStyle this3167 java-time-format-ResolverStyle3168)))

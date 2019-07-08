@@ -1,15 +1,13 @@
-(ns cljc.java-time.format.resolver-style (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.format :refer [ResolverStyle]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time.format ResolverStyle])))
+(ns cljc.java-time.format.resolver-style (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.format :refer [ResolverStyle]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time.format ResolverStyle])))
 (def smart (. java.time.format.ResolverStyle -SMART))
 (def strict (. java.time.format.ResolverStyle -STRICT))
 (def lenient (. java.time.format.ResolverStyle -LENIENT))
-
-
-
-
-(defn values ^java.time.format.ResolverStyle ([] (. java.time.format.ResolverStyle values)))
-
-
-
-(defn value-of ^java.time.format.ResolverStyle ([^java.lang.String G__56780] (. java.time.format.ResolverStyle valueOf ^java.lang.String G__56780)))
-
-
+(clojure.core/defn values {:arglists (quote (["java.time.format.ResolverStyle"]))} (^"java.lang.Class" [] (. java.time.format.ResolverStyle values)))
+(clojure.core/defn value-of {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.String"] ["java.time.format.ResolverStyle" "java.lang.Class" "java.lang.String"]))} (^java.time.format.ResolverStyle [^java.lang.String java-lang-String3169] (. java.time.format.ResolverStyle valueOf java-lang-String3169)) (^java.lang.Enum [^java.lang.Class java-lang-Class3170 ^java.lang.String java-lang-String3171] (. java.time.format.ResolverStyle valueOf java-lang-Class3170 java-lang-String3171)))
+(clojure.core/defn ordinal {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.Integer [^java.time.format.ResolverStyle this3172] (.ordinal this3172)))
+(clojure.core/defn to-string {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.String [^java.time.format.ResolverStyle this3173] (.toString this3173)))
+(clojure.core/defn name {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.String [^java.time.format.ResolverStyle this3174] (.name this3174)))
+(clojure.core/defn get-declaring-class {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.Class [^java.time.format.ResolverStyle this3175] (jti/getter declaringClass this3175)))
+(clojure.core/defn hash-code {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.Integer [^java.time.format.ResolverStyle this3176] (.hashCode this3176)))
+(clojure.core/defn compare-to {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Object"] ["java.time.format.ResolverStyle" "java.lang.Enum"]))} (^java.lang.Integer [this3177 G__3178] #? (:cljs (.compareTo ^java.time.format.ResolverStyle this3177 G__3178) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Object") G__3178)) (clojure.core/let [G__3178 ^"java.lang.Object" G__3178] (.compareTo ^java.time.format.ResolverStyle this3177 G__3178)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Enum") G__3178)) (clojure.core/let [G__3178 ^"java.lang.Enum" G__3178] (.compareTo ^java.time.format.ResolverStyle this3177 G__3178)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn equals {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.format.ResolverStyle this3179 ^java.lang.Object java-lang-Object3180] (.equals this3179 java-lang-Object3180)))

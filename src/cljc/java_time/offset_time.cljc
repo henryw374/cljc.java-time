@@ -1,149 +1,48 @@
-(ns cljc.java-time.offset-time (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [OffsetTime]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time OffsetTime])))
+(ns cljc.java-time.offset-time (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [OffsetTime]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time OffsetTime])))
 (def min (. java.time.OffsetTime -MIN))
 (def max (. java.time.OffsetTime -MAX))
-
-(defn compare-to ([^java.time.OffsetTime G__55800 G__55801] (.compareTo ^java.time.OffsetTime G__55800 G__55801)))
-
-
-(defn is-supported ([^java.time.OffsetTime G__55802 G__55803] (.isSupported ^java.time.OffsetTime G__55802 G__55803)))
-
-
-(defn query ^java.lang.Object ([^java.time.OffsetTime G__55804 ^java.time.temporal.TemporalQuery G__55805] (.query ^java.time.OffsetTime G__55804 ^java.time.temporal.TemporalQuery G__55805)))
-
-
-(defn with-second ^java.time.OffsetTime ([^java.time.OffsetTime G__55806 G__55807] (.withSecond ^java.time.OffsetTime G__55806 G__55807)))
-
-
-(defn get-second ([^java.time.OffsetTime G__55808] (jti/getter second ^java.time.OffsetTime G__55808)))
-
-
-(defn of ^java.time.OffsetTime ([G__55810 G__55811 G__55812 G__55813 ^java.time.ZoneOffset G__55814] (. java.time.OffsetTime of G__55810 G__55811 G__55812 G__55813 ^java.time.ZoneOffset G__55814)) ([^java.time.LocalTime G__55816 ^java.time.ZoneOffset G__55817] (. java.time.OffsetTime of ^java.time.LocalTime G__55816 ^java.time.ZoneOffset G__55817)))
-
-
-(defn minus-nanos ^java.time.OffsetTime ([^java.time.OffsetTime G__55818 G__55819] (.minusNanos ^java.time.OffsetTime G__55818 G__55819)))
-
-
-(defn range ^java.time.temporal.ValueRange ([^java.time.OffsetTime G__55820 ^java.time.temporal.TemporalField G__55821] (.range ^java.time.OffsetTime G__55820 ^java.time.temporal.TemporalField G__55821)))
-
-
-(defn is-equal ([^java.time.OffsetTime G__55822 ^java.time.OffsetTime G__55823] (.isEqual ^java.time.OffsetTime G__55822 ^java.time.OffsetTime G__55823)))
-
-
-(defn of-instant ^java.time.OffsetTime ([^java.time.Instant G__55825 ^java.time.ZoneId G__55826] (. java.time.OffsetTime ofInstant ^java.time.Instant G__55825 ^java.time.ZoneId G__55826)))
-
-
-(defn with-minute ^java.time.OffsetTime ([^java.time.OffsetTime G__55827 G__55828] (.withMinute ^java.time.OffsetTime G__55827 G__55828)))
-
-
-(defn format ^java.lang.String ([^java.time.OffsetTime G__55829 ^java.time.format.DateTimeFormatter G__55830] (.format ^java.time.OffsetTime G__55829 ^java.time.format.DateTimeFormatter G__55830)))
-
-
-(defn get ([^java.time.OffsetTime G__55831 ^java.time.temporal.TemporalField G__55832] (.get ^java.time.OffsetTime G__55831 ^java.time.temporal.TemporalField G__55832)))
-
-
-(defn truncated-to ^java.time.OffsetTime ([^java.time.OffsetTime G__55833 ^java.time.temporal.TemporalUnit G__55834] (.truncatedTo ^java.time.OffsetTime G__55833 ^java.time.temporal.TemporalUnit G__55834)))
-
-
-(defn minus-seconds ^java.time.OffsetTime ([^java.time.OffsetTime G__55835 G__55836] (.minusSeconds ^java.time.OffsetTime G__55835 G__55836)))
-
-
-(defn to-local-time ^java.time.LocalTime ([^java.time.OffsetTime G__55837] (.toLocalTime ^java.time.OffsetTime G__55837)))
-
-
-(defn now ^java.time.OffsetTime ([G__55839] (. java.time.OffsetTime now G__55839)) ([] (. java.time.OffsetTime now)))
-
-
-(defn plus-hours ^java.time.OffsetTime ([^java.time.OffsetTime G__55841 G__55842] (.plusHours ^java.time.OffsetTime G__55841 G__55842)))
-
-
-
-
-(defn plus-seconds ^java.time.OffsetTime ([^java.time.OffsetTime G__55843 G__55844] (.plusSeconds ^java.time.OffsetTime G__55843 G__55844)))
-
-
-(defn plus-minutes ^java.time.OffsetTime ([^java.time.OffsetTime G__55845 G__55846] (.plusMinutes ^java.time.OffsetTime G__55845 G__55846)))
-
-
-
-(defn until ([^java.time.OffsetTime G__55847 ^java.time.temporal.Temporal G__55848 ^java.time.temporal.TemporalUnit G__55849] (.until ^java.time.OffsetTime G__55847 ^java.time.temporal.Temporal G__55848 ^java.time.temporal.TemporalUnit G__55849)))
-
-
-
-
-
-(defn is-before ([^java.time.OffsetTime G__55850 ^java.time.OffsetTime G__55851] (.isBefore ^java.time.OffsetTime G__55850 ^java.time.OffsetTime G__55851)))
-
-
-(defn adjust-into ^java.time.temporal.Temporal ([^java.time.OffsetTime G__55852 ^java.time.temporal.Temporal G__55853] (.adjustInto ^java.time.OffsetTime G__55852 ^java.time.temporal.Temporal G__55853)))
-
-
-
-(defn get-hour ([^java.time.OffsetTime G__55854] (jti/getter hour ^java.time.OffsetTime G__55854)))
-
-
-(defn minus ^java.time.OffsetTime ([^java.time.OffsetTime G__55855 G__55856] (.minus ^java.time.OffsetTime G__55855 G__55856)) ([^java.time.OffsetTime G__55857 G__55858 G__55859] (.minus ^java.time.OffsetTime G__55857 G__55858 G__55859)))
-
-
-(defn plus-nanos ^java.time.OffsetTime ([^java.time.OffsetTime G__55860 G__55861] (.plusNanos ^java.time.OffsetTime G__55860 G__55861)))
-
-
-(defn get-nano ([^java.time.OffsetTime G__55862] (jti/getter nano ^java.time.OffsetTime G__55862)))
-
-
-(defn is-after ([^java.time.OffsetTime G__55863 ^java.time.OffsetTime G__55864] (.isAfter ^java.time.OffsetTime G__55863 ^java.time.OffsetTime G__55864)))
-
-
-(defn to-string ^java.lang.String ([^java.time.OffsetTime G__55865] (.toString ^java.time.OffsetTime G__55865)))
-
-
-(defn with-hour ^java.time.OffsetTime ([^java.time.OffsetTime G__55866 G__55867] (.withHour ^java.time.OffsetTime G__55866 G__55867)))
-
-
-(defn equals ([^java.time.OffsetTime G__55868 ^java.lang.Object G__55869] (.equals ^java.time.OffsetTime G__55868 ^java.lang.Object G__55869)))
-
-
-
-(defn with-nano ^java.time.OffsetTime ([^java.time.OffsetTime G__55870 G__55871] (.withNano ^java.time.OffsetTime G__55870 G__55871)))
-
-
-(defn get-minute ([^java.time.OffsetTime G__55872] (jti/getter minute ^java.time.OffsetTime G__55872)))
-
-
-(defn minus-hours ^java.time.OffsetTime ([^java.time.OffsetTime G__55873 G__55874] (.minusHours ^java.time.OffsetTime G__55873 G__55874)))
-
-
-(defn hash-code ([^java.time.OffsetTime G__55875] (.hashCode ^java.time.OffsetTime G__55875)))
-
-
-
-(defn get-long ([^java.time.OffsetTime G__55876 ^java.time.temporal.TemporalField G__55877] (.getLong ^java.time.OffsetTime G__55876 ^java.time.temporal.TemporalField G__55877)))
-
-
-(defn get-offset ^java.time.ZoneOffset ([^java.time.OffsetTime G__55878] (jti/getter offset ^java.time.OffsetTime G__55878)))
-
-
-(defn with-offset-same-instant ^java.time.OffsetTime ([^java.time.OffsetTime G__55879 ^java.time.ZoneOffset G__55880] (.withOffsetSameInstant ^java.time.OffsetTime G__55879 ^java.time.ZoneOffset G__55880)))
-
-
-(defn with ^java.time.temporal.Temporal ([^java.time.OffsetTime G__55881 G__55882 G__55883] (.with ^java.time.OffsetTime G__55881 G__55882 G__55883)) ([^java.time.OffsetTime G__55884 G__55885] (.with ^java.time.OffsetTime G__55884 G__55885)))
-
-
-(defn from ^java.time.OffsetTime ([^java.time.temporal.TemporalAccessor G__55887] (. java.time.OffsetTime from ^java.time.temporal.TemporalAccessor G__55887)))
-
-
-(defn parse ^java.time.OffsetTime ([^java.lang.CharSequence G__55889 ^java.time.format.DateTimeFormatter G__55890] (. java.time.OffsetTime parse ^java.lang.CharSequence G__55889 ^java.time.format.DateTimeFormatter G__55890)) ([^java.lang.CharSequence G__55892] (. java.time.OffsetTime parse ^java.lang.CharSequence G__55892)))
-
-
-(defn plus ^java.time.temporal.Temporal ([^java.time.OffsetTime G__55893 G__55894] (.plus ^java.time.OffsetTime G__55893 G__55894)) ([^java.time.OffsetTime G__55895 G__55896 G__55897] (.plus ^java.time.OffsetTime G__55895 G__55896 G__55897)))
-
-
-(defn at-date ^java.time.OffsetDateTime ([^java.time.OffsetTime G__55898 ^java.time.LocalDate G__55899] (.atDate ^java.time.OffsetTime G__55898 ^java.time.LocalDate G__55899)))
-
-
-
-(defn with-offset-same-local ^java.time.OffsetTime ([^java.time.OffsetTime G__55900 ^java.time.ZoneOffset G__55901] (.withOffsetSameLocal ^java.time.OffsetTime G__55900 ^java.time.ZoneOffset G__55901)))
-
-
-
-(defn minus-minutes ^java.time.OffsetTime ([^java.time.OffsetTime G__55902 G__55903] (.minusMinutes ^java.time.OffsetTime G__55902 G__55903)))
-
+(clojure.core/defn minus-minutes {:arglists (quote (["java.time.OffsetTime" "long"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2253 ^long long2254] (.minusMinutes this2253 long2254)))
+(clojure.core/defn truncated-to {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalUnit"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2255 ^java.time.temporal.TemporalUnit java-time-temporal-TemporalUnit2256] (.truncatedTo this2255 java-time-temporal-TemporalUnit2256)))
+(clojure.core/defn range {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))} (^java.time.temporal.ValueRange [^java.time.OffsetTime this2257 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2258] (.range this2257 java-time-temporal-TemporalField2258)))
+(clojure.core/defn get-hour {:arglists (quote (["java.time.OffsetTime"]))} (^java.lang.Integer [^java.time.OffsetTime this2259] (jti/getter hour this2259)))
+(clojure.core/defn minus-hours {:arglists (quote (["java.time.OffsetTime" "long"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2260 ^long long2261] (.minusHours this2260 long2261)))
+(clojure.core/defn of {:arglists (quote (["java.time.OffsetTime" "java.time.LocalTime" "java.time.ZoneOffset"] ["java.time.OffsetTime" "int" "int" "int" "int" "java.time.ZoneOffset"]))} (^java.time.OffsetTime [^java.time.LocalTime java-time-LocalTime2262 ^java.time.ZoneOffset java-time-ZoneOffset2263] (. java.time.OffsetTime of java-time-LocalTime2262 java-time-ZoneOffset2263)) (^java.time.OffsetTime [^java.lang.Integer int2264 ^java.lang.Integer int2265 ^java.lang.Integer int2266 ^java.lang.Integer int2267 ^java.time.ZoneOffset java-time-ZoneOffset2268] (. java.time.OffsetTime of int2264 int2265 int2266 int2267 java-time-ZoneOffset2268)))
+(clojure.core/defn is-equal {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))} (^java.lang.Boolean [^java.time.OffsetTime this2269 ^java.time.OffsetTime java-time-OffsetTime2270] (.isEqual this2269 java-time-OffsetTime2270)))
+(clojure.core/defn get-nano {:arglists (quote (["java.time.OffsetTime"]))} (^java.lang.Integer [^java.time.OffsetTime this2271] (jti/getter nano this2271)))
+(clojure.core/defn minus-seconds {:arglists (quote (["java.time.OffsetTime" "long"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2272 ^long long2273] (.minusSeconds this2272 long2273)))
+(clojure.core/defn get-second {:arglists (quote (["java.time.OffsetTime"]))} (^java.lang.Integer [^java.time.OffsetTime this2274] (jti/getter second this2274)))
+(clojure.core/defn plus-nanos {:arglists (quote (["java.time.OffsetTime" "long"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2275 ^long long2276] (.plusNanos this2275 long2276)))
+(clojure.core/defn plus {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAmount"] ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.OffsetTime" "java.time.temporal.TemporalAmount"] ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"]))} (^java.lang.Object [this2277 G__2278] #? (:cljs (.plus ^java.time.OffsetTime this2277 G__2278) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2278)) (clojure.core/let [G__2278 ^"java.time.temporal.TemporalAmount" G__2278] (.plus ^java.time.OffsetTime this2277 G__2278)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2278)) (clojure.core/let [G__2278 ^"java.time.temporal.TemporalAmount" G__2278] (.plus ^java.time.OffsetTime this2277 G__2278)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2279 G__2280 G__2281] #? (:cljs (.plus ^java.time.OffsetTime this2279 G__2280 G__2281) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2280) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2281)) (clojure.core/let [G__2280 (clojure.core/long G__2280) G__2281 ^"java.time.temporal.TemporalUnit" G__2281] (.plus ^java.time.OffsetTime this2279 G__2280 G__2281)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2280) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2281)) (clojure.core/let [G__2280 (clojure.core/long G__2280) G__2281 ^"java.time.temporal.TemporalUnit" G__2281] (.plus ^java.time.OffsetTime this2279 G__2280 G__2281)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn with-hour {:arglists (quote (["java.time.OffsetTime" "int"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2282 ^java.lang.Integer int2283] (.withHour this2282 int2283)))
+(clojure.core/defn with-minute {:arglists (quote (["java.time.OffsetTime" "int"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2284 ^java.lang.Integer int2285] (.withMinute this2284 int2285)))
+(clojure.core/defn plus-minutes {:arglists (quote (["java.time.OffsetTime" "long"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2286 ^long long2287] (.plusMinutes this2286 long2287)))
+(clojure.core/defn query {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^java.time.OffsetTime this2288 ^java.time.temporal.TemporalQuery java-time-temporal-TemporalQuery2289] (.query this2288 java-time-temporal-TemporalQuery2289)))
+(clojure.core/defn at-date {:arglists (quote (["java.time.OffsetTime" "java.time.LocalDate"]))} (^java.time.OffsetDateTime [^java.time.OffsetTime this2290 ^java.time.LocalDate java-time-LocalDate2291] (.atDate this2290 java-time-LocalDate2291)))
+(clojure.core/defn with-offset-same-instant {:arglists (quote (["java.time.OffsetTime" "java.time.ZoneOffset"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2292 ^java.time.ZoneOffset java-time-ZoneOffset2293] (.withOffsetSameInstant this2292 java-time-ZoneOffset2293)))
+(clojure.core/defn to-string {:arglists (quote (["java.time.OffsetTime"]))} (^java.lang.String [^java.time.OffsetTime this2294] (.toString this2294)))
+(clojure.core/defn is-before {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))} (^java.lang.Boolean [^java.time.OffsetTime this2295 ^java.time.OffsetTime java-time-OffsetTime2296] (.isBefore this2295 java-time-OffsetTime2296)))
+(clojure.core/defn minus {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAmount"] ["java.time.OffsetTime" "java.time.temporal.TemporalAmount"] ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"]))} (^java.lang.Object [this2297 G__2298] #? (:cljs (.minus ^java.time.OffsetTime this2297 G__2298) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2298)) (clojure.core/let [G__2298 ^"java.time.temporal.TemporalAmount" G__2298] (.minus ^java.time.OffsetTime this2297 G__2298)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2298)) (clojure.core/let [G__2298 ^"java.time.temporal.TemporalAmount" G__2298] (.minus ^java.time.OffsetTime this2297 G__2298)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2299 G__2300 G__2301] #? (:cljs (.minus ^java.time.OffsetTime this2299 G__2300 G__2301) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2300) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2301)) (clojure.core/let [G__2300 (clojure.core/long G__2300) G__2301 ^"java.time.temporal.TemporalUnit" G__2301] (.minus ^java.time.OffsetTime this2299 G__2300 G__2301)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2300) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2301)) (clojure.core/let [G__2300 (clojure.core/long G__2300) G__2301 ^"java.time.temporal.TemporalUnit" G__2301] (.minus ^java.time.OffsetTime this2299 G__2300 G__2301)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn plus-hours {:arglists (quote (["java.time.OffsetTime" "long"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2302 ^long long2303] (.plusHours this2302 long2303)))
+(clojure.core/defn to-local-time {:arglists (quote (["java.time.OffsetTime"]))} (^java.time.LocalTime [^java.time.OffsetTime this2304] (.toLocalTime this2304)))
+(clojure.core/defn get-long {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))} (^long [^java.time.OffsetTime this2305 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2306] (.getLong this2305 java-time-temporal-TemporalField2306)))
+(clojure.core/defn get-offset {:arglists (quote (["java.time.OffsetTime"]))} (^java.time.ZoneOffset [^java.time.OffsetTime this2307] (jti/getter offset this2307)))
+(clojure.core/defn with-nano {:arglists (quote (["java.time.OffsetTime" "int"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2308 ^java.lang.Integer int2309] (.withNano this2308 int2309)))
+(clojure.core/defn until {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^java.time.OffsetTime this2310 ^java.time.temporal.Temporal java-time-temporal-Temporal2311 ^java.time.temporal.TemporalUnit java-time-temporal-TemporalUnit2312] (.until this2310 java-time-temporal-Temporal2311 java-time-temporal-TemporalUnit2312)))
+(clojure.core/defn with-offset-same-local {:arglists (quote (["java.time.OffsetTime" "java.time.ZoneOffset"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2313 ^java.time.ZoneOffset java-time-ZoneOffset2314] (.withOffsetSameLocal this2313 java-time-ZoneOffset2314)))
+(clojure.core/defn from {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAccessor"]))} (^java.time.OffsetTime [^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor2315] (. java.time.OffsetTime from java-time-temporal-TemporalAccessor2315)))
+(clojure.core/defn is-after {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))} (^java.lang.Boolean [^java.time.OffsetTime this2316 ^java.time.OffsetTime java-time-OffsetTime2317] (.isAfter this2316 java-time-OffsetTime2317)))
+(clojure.core/defn minus-nanos {:arglists (quote (["java.time.OffsetTime" "long"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2318 ^long long2319] (.minusNanos this2318 long2319)))
+(clojure.core/defn is-supported {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"] ["java.time.OffsetTime" "java.time.temporal.TemporalUnit"]))} (^java.lang.Boolean [this2320 G__2321] #? (:cljs (.isSupported ^java.time.OffsetTime this2320 G__2321) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2321)) (clojure.core/let [G__2321 ^"java.time.temporal.TemporalField" G__2321] (.isSupported ^java.time.OffsetTime this2320 G__2321)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2321)) (clojure.core/let [G__2321 ^"java.time.temporal.TemporalUnit" G__2321] (.isSupported ^java.time.OffsetTime this2320 G__2321)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn parse {:arglists (quote (["java.time.OffsetTime" "java.lang.CharSequence" "java.time.format.DateTimeFormatter"] ["java.time.OffsetTime" "java.lang.CharSequence"]))} (^java.time.OffsetTime [^java.lang.CharSequence java-lang-CharSequence2322 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter2323] (. java.time.OffsetTime parse java-lang-CharSequence2322 java-time-format-DateTimeFormatter2323)) (^java.time.OffsetTime [^java.lang.CharSequence java-lang-CharSequence2324] (. java.time.OffsetTime parse java-lang-CharSequence2324)))
+(clojure.core/defn with-second {:arglists (quote (["java.time.OffsetTime" "int"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2325 ^java.lang.Integer int2326] (.withSecond this2325 int2326)))
+(clojure.core/defn get-minute {:arglists (quote (["java.time.OffsetTime"]))} (^java.lang.Integer [^java.time.OffsetTime this2327] (jti/getter minute this2327)))
+(clojure.core/defn hash-code {:arglists (quote (["java.time.OffsetTime"]))} (^java.lang.Integer [^java.time.OffsetTime this2328] (.hashCode this2328)))
+(clojure.core/defn adjust-into {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.OffsetTime this2329 ^java.time.temporal.Temporal java-time-temporal-Temporal2330] (.adjustInto this2329 java-time-temporal-Temporal2330)))
+(clojure.core/defn with {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField" "long"] ["java.time.OffsetTime" "java.time.temporal.TemporalField" "long"] ["java.time.OffsetTime" "java.time.temporal.TemporalAdjuster"] ["java.time.OffsetTime" "java.time.temporal.TemporalAdjuster"]))} (^java.lang.Object [this2331 G__2332 G__2333] #? (:cljs (.with ^java.time.OffsetTime this2331 G__2332 G__2333) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2332) (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2333)) (clojure.core/let [G__2332 ^"java.time.temporal.TemporalField" G__2332 G__2333 (clojure.core/long G__2333)] (.with ^java.time.OffsetTime this2331 G__2332 G__2333)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2332) (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2333)) (clojure.core/let [G__2332 ^"java.time.temporal.TemporalField" G__2332 G__2333 (clojure.core/long G__2333)] (.with ^java.time.OffsetTime this2331 G__2332 G__2333)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2334 G__2335] #? (:cljs (.with ^java.time.OffsetTime this2334 G__2335) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAdjuster") G__2335)) (clojure.core/let [G__2335 ^"java.time.temporal.TemporalAdjuster" G__2335] (.with ^java.time.OffsetTime this2334 G__2335)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAdjuster") G__2335)) (clojure.core/let [G__2335 ^"java.time.temporal.TemporalAdjuster" G__2335] (.with ^java.time.OffsetTime this2334 G__2335)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn now {:arglists (quote (["java.time.OffsetTime" "java.time.ZoneId"] ["java.time.OffsetTime"] ["java.time.OffsetTime" "java.time.Clock"]))} (^java.time.OffsetTime [G__2337] #? (:cljs (. java.time.OffsetTime now G__2337) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.ZoneId") G__2337)) (clojure.core/let [G__2337 ^"java.time.ZoneId" G__2337] (. java.time.OffsetTime now G__2337)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.Clock") G__2337)) (clojure.core/let [G__2337 ^"java.time.Clock" G__2337] (. java.time.OffsetTime now G__2337)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.time.OffsetTime [] (. java.time.OffsetTime now)))
+(clojure.core/defn compare-to {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"] ["java.time.OffsetTime" "java.lang.Object"]))} (^java.lang.Integer [this2338 G__2339] #? (:cljs (.compareTo ^java.time.OffsetTime this2338 G__2339) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.OffsetTime") G__2339)) (clojure.core/let [G__2339 ^"java.time.OffsetTime" G__2339] (.compareTo ^java.time.OffsetTime this2338 G__2339)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Object") G__2339)) (clojure.core/let [G__2339 ^"java.lang.Object" G__2339] (.compareTo ^java.time.OffsetTime this2338 G__2339)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn of-instant {:arglists (quote (["java.time.OffsetTime" "java.time.Instant" "java.time.ZoneId"]))} (^java.time.OffsetTime [^java.time.Instant java-time-Instant2340 ^java.time.ZoneId java-time-ZoneId2341] (. java.time.OffsetTime ofInstant java-time-Instant2340 java-time-ZoneId2341)))
+(clojure.core/defn plus-seconds {:arglists (quote (["java.time.OffsetTime" "long"]))} (^java.time.OffsetTime [^java.time.OffsetTime this2342 ^long long2343] (.plusSeconds this2342 long2343)))
+(clojure.core/defn get {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))} (^java.lang.Integer [^java.time.OffsetTime this2344 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2345] (.get this2344 java-time-temporal-TemporalField2345)))
+(clojure.core/defn equals {:arglists (quote (["java.time.OffsetTime" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.OffsetTime this2346 ^java.lang.Object java-lang-Object2347] (.equals this2346 java-lang-Object2347)))
+(clojure.core/defn format {:arglists (quote (["java.time.OffsetTime" "java.time.format.DateTimeFormatter"]))} (^java.lang.String [^java.time.OffsetTime this2348 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter2349] (.format this2348 java-time-format-DateTimeFormatter2349)))

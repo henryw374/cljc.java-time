@@ -1,57 +1,15 @@
-(ns cljc.java-time.temporal.temporal-adjusters (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [TemporalAdjusters]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time.temporal TemporalAdjusters])))
-
-
-(defn day-of-week-in-month ^java.time.temporal.TemporalAdjuster ([G__56624 ^java.time.DayOfWeek G__56625] (. java.time.temporal.TemporalAdjusters dayOfWeekInMonth G__56624 ^java.time.DayOfWeek G__56625)))
-
-
-(defn previous-or-same ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__56627] (. java.time.temporal.TemporalAdjusters previousOrSame ^java.time.DayOfWeek G__56627)))
-
-
-(defn last-in-month ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__56629] (. java.time.temporal.TemporalAdjusters lastInMonth ^java.time.DayOfWeek G__56629)))
-
-
-(defn first-day-of-month ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters firstDayOfMonth)))
-
-
-(defn first-day-of-next-month ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters firstDayOfNextMonth)))
-
-
-(defn of-date-adjuster ^java.time.temporal.TemporalAdjuster ([^java.util.function.UnaryOperator G__56633] (. java.time.temporal.TemporalAdjusters ofDateAdjuster ^java.util.function.UnaryOperator G__56633)))
-
-
-
-
-
-
-
-
-(defn last-day-of-month ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters lastDayOfMonth)))
-
-
-
-(defn last-day-of-year ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters lastDayOfYear)))
-
-
-(defn first-in-month ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__56637] (. java.time.temporal.TemporalAdjusters firstInMonth ^java.time.DayOfWeek G__56637)))
-
-
-
-
-(defn next ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__56639] (. java.time.temporal.TemporalAdjusters next ^java.time.DayOfWeek G__56639)))
-
-
-(defn next-or-same ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__56641] (. java.time.temporal.TemporalAdjusters nextOrSame ^java.time.DayOfWeek G__56641)))
-
-
-(defn previous ^java.time.temporal.TemporalAdjuster ([^java.time.DayOfWeek G__56643] (. java.time.temporal.TemporalAdjusters previous ^java.time.DayOfWeek G__56643)))
-
-
-
-(defn first-day-of-next-year ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters firstDayOfNextYear)))
-
-
-
-
-
-(defn first-day-of-year ^java.time.temporal.TemporalAdjuster ([] (. java.time.temporal.TemporalAdjusters firstDayOfYear)))
-
+(ns cljc.java-time.temporal.temporal-adjusters (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [TemporalAdjusters]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time.temporal TemporalAdjusters])))
+(clojure.core/defn next {:arglists (quote (["java.time.temporal.TemporalAdjusters" "java.time.DayOfWeek"]))} (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek java-time-DayOfWeek3019] (. java.time.temporal.TemporalAdjusters next java-time-DayOfWeek3019)))
+(clojure.core/defn next-or-same {:arglists (quote (["java.time.temporal.TemporalAdjusters" "java.time.DayOfWeek"]))} (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek java-time-DayOfWeek3020] (. java.time.temporal.TemporalAdjusters nextOrSame java-time-DayOfWeek3020)))
+(clojure.core/defn first-day-of-next-month {:arglists (quote (["java.time.temporal.TemporalAdjusters"]))} (^java.time.temporal.TemporalAdjuster [] (. java.time.temporal.TemporalAdjusters firstDayOfNextMonth)))
+(clojure.core/defn first-day-of-month {:arglists (quote (["java.time.temporal.TemporalAdjusters"]))} (^java.time.temporal.TemporalAdjuster [] (. java.time.temporal.TemporalAdjusters firstDayOfMonth)))
+(clojure.core/defn first-day-of-year {:arglists (quote (["java.time.temporal.TemporalAdjusters"]))} (^java.time.temporal.TemporalAdjuster [] (. java.time.temporal.TemporalAdjusters firstDayOfYear)))
+(clojure.core/defn of-date-adjuster {:arglists (quote (["java.time.temporal.TemporalAdjusters" "java.util.function.UnaryOperator"]))} (^java.time.temporal.TemporalAdjuster [^java.util.function.UnaryOperator java-util-function-UnaryOperator3021] (. java.time.temporal.TemporalAdjusters ofDateAdjuster java-util-function-UnaryOperator3021)))
+(clojure.core/defn last-day-of-year {:arglists (quote (["java.time.temporal.TemporalAdjusters"]))} (^java.time.temporal.TemporalAdjuster [] (. java.time.temporal.TemporalAdjusters lastDayOfYear)))
+(clojure.core/defn first-in-month {:arglists (quote (["java.time.temporal.TemporalAdjusters" "java.time.DayOfWeek"]))} (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek java-time-DayOfWeek3022] (. java.time.temporal.TemporalAdjusters firstInMonth java-time-DayOfWeek3022)))
+(clojure.core/defn previous-or-same {:arglists (quote (["java.time.temporal.TemporalAdjusters" "java.time.DayOfWeek"]))} (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek java-time-DayOfWeek3023] (. java.time.temporal.TemporalAdjusters previousOrSame java-time-DayOfWeek3023)))
+(clojure.core/defn previous {:arglists (quote (["java.time.temporal.TemporalAdjusters" "java.time.DayOfWeek"]))} (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek java-time-DayOfWeek3024] (. java.time.temporal.TemporalAdjusters previous java-time-DayOfWeek3024)))
+(clojure.core/defn last-day-of-month {:arglists (quote (["java.time.temporal.TemporalAdjusters"]))} (^java.time.temporal.TemporalAdjuster [] (. java.time.temporal.TemporalAdjusters lastDayOfMonth)))
+(clojure.core/defn last-in-month {:arglists (quote (["java.time.temporal.TemporalAdjusters" "java.time.DayOfWeek"]))} (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek java-time-DayOfWeek3025] (. java.time.temporal.TemporalAdjusters lastInMonth java-time-DayOfWeek3025)))
+(clojure.core/defn first-day-of-next-year {:arglists (quote (["java.time.temporal.TemporalAdjusters"]))} (^java.time.temporal.TemporalAdjuster [] (. java.time.temporal.TemporalAdjusters firstDayOfNextYear)))
+(clojure.core/defn day-of-week-in-month {:arglists (quote (["java.time.temporal.TemporalAdjusters" "int" "java.time.DayOfWeek"]))} (^java.time.temporal.TemporalAdjuster [^java.lang.Integer int3026 ^java.time.DayOfWeek java-time-DayOfWeek3027] (. java.time.temporal.TemporalAdjusters dayOfWeekInMonth int3026 java-time-DayOfWeek3027)))

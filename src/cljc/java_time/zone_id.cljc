@@ -1,44 +1,14 @@
-(ns cljc.java-time.zone-id (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [ZoneId]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time ZoneId])))
+(ns cljc.java-time.zone-id (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [ZoneId]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time ZoneId])))
 (def short-ids (. java.time.ZoneId -SHORT_IDS))
-
-(defn get-display-name ^java.lang.String ([^java.time.ZoneId G__56129 ^java.time.format.TextStyle G__56130 ^java.util.Locale G__56131] (jti/getter displayName ^java.time.ZoneId G__56129 ^java.time.format.TextStyle G__56130 ^java.util.Locale G__56131)))
-
-
-
-
-(defn normalized ^java.time.ZoneId ([^java.time.ZoneId G__56132] (.normalized ^java.time.ZoneId G__56132)))
-
-
-
-
-(defn get-available-zone-ids ^java.util.Set ([] (. java.time.ZoneId getAvailableZoneIds)))
-
-
-
-
-(defn to-string ^java.lang.String ([^java.time.ZoneId G__56134] (.toString ^java.time.ZoneId G__56134)))
-
-
-(defn equals ([^java.time.ZoneId G__56135 ^java.lang.Object G__56136] (.equals ^java.time.ZoneId G__56135 ^java.lang.Object G__56136)))
-
-
-
-(defn get-id ^java.lang.String ([^java.time.ZoneId G__56137] (jti/getter id ^java.time.ZoneId G__56137)))
-
-
-(defn of-offset ^java.time.ZoneId ([^java.lang.String G__56139 ^java.time.ZoneOffset G__56140] (. java.time.ZoneId ofOffset ^java.lang.String G__56139 ^java.time.ZoneOffset G__56140)))
-
-
-(defn hash-code ([^java.time.ZoneId G__56141] (.hashCode ^java.time.ZoneId G__56141)))
-
-
-
-(defn get-rules ^java.time.zone.ZoneRules ([^java.time.ZoneId G__56142] (jti/getter rules ^java.time.ZoneId G__56142)))
-
-
-(defn from ^java.time.ZoneId ([^java.time.temporal.TemporalAccessor G__56144] (. java.time.ZoneId from ^java.time.temporal.TemporalAccessor G__56144)))
-
-
-(defn system-default ^java.time.ZoneId ([] (. java.time.ZoneId systemDefault)))
-
-
+(clojure.core/defn get-available-zone-ids {:arglists (quote (["java.time.ZoneId"]))} (^java.util.Set [] (. java.time.ZoneId getAvailableZoneIds)))
+(clojure.core/defn of {:arglists (quote (["java.time.ZoneId" "java.lang.String"] ["java.time.ZoneId" "java.lang.String" "java.util.Map"]))} (^java.time.ZoneId [^java.lang.String java-lang-String2559] (. java.time.ZoneId of java-lang-String2559)) (^java.time.ZoneId [^java.lang.String java-lang-String2560 ^java.util.Map java-util-Map2561] (. java.time.ZoneId of java-lang-String2560 java-util-Map2561)))
+(clojure.core/defn of-offset {:arglists (quote (["java.time.ZoneId" "java.lang.String" "java.time.ZoneOffset"]))} (^java.time.ZoneId [^java.lang.String java-lang-String2562 ^java.time.ZoneOffset java-time-ZoneOffset2563] (. java.time.ZoneId ofOffset java-lang-String2562 java-time-ZoneOffset2563)))
+(clojure.core/defn to-string {:arglists (quote (["java.time.ZoneId"]))} (^java.lang.String [^java.time.ZoneId this2564] (.toString this2564)))
+(clojure.core/defn get-display-name {:arglists (quote (["java.time.ZoneId" "java.time.format.TextStyle" "java.util.Locale"]))} (^java.lang.String [^java.time.ZoneId this2565 ^java.time.format.TextStyle java-time-format-TextStyle2566 ^java.util.Locale java-util-Locale2567] (jti/getter displayName this2565 java-time-format-TextStyle2566 java-util-Locale2567)))
+(clojure.core/defn get-rules {:arglists (quote (["java.time.ZoneId"]))} (^java.time.zone.ZoneRules [^java.time.ZoneId this2568] (jti/getter rules this2568)))
+(clojure.core/defn get-id {:arglists (quote (["java.time.ZoneId"]))} (^java.lang.String [^java.time.ZoneId this2569] (jti/getter id this2569)))
+(clojure.core/defn normalized {:arglists (quote (["java.time.ZoneId"]))} (^java.time.ZoneId [^java.time.ZoneId this2570] (.normalized this2570)))
+(clojure.core/defn system-default {:arglists (quote (["java.time.ZoneId"]))} (^java.time.ZoneId [] (. java.time.ZoneId systemDefault)))
+(clojure.core/defn from {:arglists (quote (["java.time.ZoneId" "java.time.temporal.TemporalAccessor"]))} (^java.time.ZoneId [^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor2571] (. java.time.ZoneId from java-time-temporal-TemporalAccessor2571)))
+(clojure.core/defn hash-code {:arglists (quote (["java.time.ZoneId"]))} (^java.lang.Integer [^java.time.ZoneId this2572] (.hashCode this2572)))
+(clojure.core/defn equals {:arglists (quote (["java.time.ZoneId" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.ZoneId this2573 ^java.lang.Object java-lang-Object2574] (.equals this2573 java-lang-Object2574)))

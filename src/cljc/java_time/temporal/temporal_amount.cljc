@@ -1,13 +1,5 @@
-(ns cljc.java-time.temporal.temporal-amount (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [TemporalAmount]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time.temporal TemporalAmount])))
-
-(defn get-units ^java.util.List ([^java.time.temporal.TemporalAmount G__56666] (jti/getter units ^java.time.temporal.TemporalAmount G__56666)))
-
-
-(defn subtract-from ^java.time.temporal.Temporal ([^java.time.temporal.TemporalAmount G__56667 ^java.time.temporal.Temporal G__56668] (.subtractFrom ^java.time.temporal.TemporalAmount G__56667 ^java.time.temporal.Temporal G__56668)))
-
-
-(defn add-to ^java.time.temporal.Temporal ([^java.time.temporal.TemporalAmount G__56669 ^java.time.temporal.Temporal G__56670] (.addTo ^java.time.temporal.TemporalAmount G__56669 ^java.time.temporal.Temporal G__56670)))
-
-
-(defn get ([^java.time.temporal.TemporalAmount G__56671 ^java.time.temporal.TemporalUnit G__56672] (.get ^java.time.temporal.TemporalAmount G__56671 ^java.time.temporal.TemporalUnit G__56672)))
-
+(ns cljc.java-time.temporal.temporal-amount (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [TemporalAmount]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time.temporal TemporalAmount])))
+(clojure.core/defn get {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.TemporalUnit"]))} (^long [^java.time.temporal.TemporalAmount this3056 ^java.time.temporal.TemporalUnit java-time-temporal-TemporalUnit3057] (.get this3056 java-time-temporal-TemporalUnit3057)))
+(clojure.core/defn add-to {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.temporal.TemporalAmount this3058 ^java.time.temporal.Temporal java-time-temporal-Temporal3059] (.addTo this3058 java-time-temporal-Temporal3059)))
+(clojure.core/defn subtract-from {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.temporal.TemporalAmount this3060 ^java.time.temporal.Temporal java-time-temporal-Temporal3061] (.subtractFrom this3060 java-time-temporal-Temporal3061)))
+(clojure.core/defn get-units {:arglists (quote (["java.time.temporal.TemporalAmount"]))} (^java.util.List [^java.time.temporal.TemporalAmount this3062] (jti/getter units this3062)))

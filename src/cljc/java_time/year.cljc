@@ -1,103 +1,33 @@
-(ns cljc.java-time.year (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [Year]])) (:refer-clojure :exclude [get range format min max next]) #? (:clj (:import [java.time Year])))
+(ns cljc.java-time.year (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time :refer [Year]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time Year])))
 (def min-value (. java.time.Year -MIN_VALUE))
 (def max-value (. java.time.Year -MAX_VALUE))
-
-(defn compare-to ([^java.time.Year G__56402 G__56403] (.compareTo ^java.time.Year G__56402 G__56403)))
-
-
-(defn is-supported ([^java.time.Year G__56404 G__56405] (.isSupported ^java.time.Year G__56404 G__56405)))
-
-
-(defn plus-years ^java.time.Year ([^java.time.Year G__56406 G__56407] (.plusYears ^java.time.Year G__56406 G__56407)))
-
-
-(defn query ^java.lang.Object ([^java.time.Year G__56408 ^java.time.temporal.TemporalQuery G__56409] (.query ^java.time.Year G__56408 ^java.time.temporal.TemporalQuery G__56409)))
-
-
-(defn of ^java.time.Year ([G__56411] (. java.time.Year of G__56411)))
-
-
-(defn range ^java.time.temporal.ValueRange ([^java.time.Year G__56412 ^java.time.temporal.TemporalField G__56413] (.range ^java.time.Year G__56412 ^java.time.temporal.TemporalField G__56413)))
-
-
-
-
-(defn format ^java.lang.String ([^java.time.Year G__56414 ^java.time.format.DateTimeFormatter G__56415] (.format ^java.time.Year G__56414 ^java.time.format.DateTimeFormatter G__56415)))
-
-
-(defn at-day ^java.time.LocalDate ([^java.time.Year G__56416 G__56417] (.atDay ^java.time.Year G__56416 G__56417)))
-
-
-(defn get ([^java.time.Year G__56418 ^java.time.temporal.TemporalField G__56419] (.get ^java.time.Year G__56418 ^java.time.temporal.TemporalField G__56419)))
-
-
-(defn now ^java.time.Year ([G__56421] (. java.time.Year now G__56421)) ([] (. java.time.Year now)))
-
-
-(defn minus-years ^java.time.Year ([^java.time.Year G__56423 G__56424] (.minusYears ^java.time.Year G__56423 G__56424)))
-
-
-
-(defn get-value ([^java.time.Year G__56425] (jti/getter value ^java.time.Year G__56425)))
-
-
-
-(defn until ([^java.time.Year G__56426 ^java.time.temporal.Temporal G__56427 ^java.time.temporal.TemporalUnit G__56428] (.until ^java.time.Year G__56426 ^java.time.temporal.Temporal G__56427 ^java.time.temporal.TemporalUnit G__56428)))
-
-
-
-(defn is-before ([^java.time.Year G__56429 ^java.time.Year G__56430] (.isBefore ^java.time.Year G__56429 ^java.time.Year G__56430)))
-
-
-(defn adjust-into ^java.time.temporal.Temporal ([^java.time.Year G__56431 ^java.time.temporal.Temporal G__56432] (.adjustInto ^java.time.Year G__56431 ^java.time.temporal.Temporal G__56432)))
-
-
-(defn minus ^java.time.temporal.Temporal ([^java.time.Year G__56433 G__56434 G__56435] (.minus ^java.time.Year G__56433 G__56434 G__56435)) ([^java.time.Year G__56436 G__56437] (.minus ^java.time.Year G__56436 G__56437)))
-
-
-
-(defn is-after ([^java.time.Year G__56438 ^java.time.Year G__56439] (.isAfter ^java.time.Year G__56438 ^java.time.Year G__56439)))
-
-
-(defn is-leap ([G__56441] (. java.time.Year isLeap G__56441)))
-
-
-(defn to-string ^java.lang.String ([^java.time.Year G__56442] (.toString ^java.time.Year G__56442)))
-
-
-(defn at-month-day ^java.time.LocalDate ([^java.time.Year G__56443 ^java.time.MonthDay G__56444] (.atMonthDay ^java.time.Year G__56443 ^java.time.MonthDay G__56444)))
-
-
-(defn equals ([^java.time.Year G__56445 ^java.lang.Object G__56446] (.equals ^java.time.Year G__56445 ^java.lang.Object G__56446)))
-
-
-
-
-(defn hash-code ([^java.time.Year G__56447] (.hashCode ^java.time.Year G__56447)))
-
-
-
-(defn get-long ([^java.time.Year G__56448 ^java.time.temporal.TemporalField G__56449] (.getLong ^java.time.Year G__56448 ^java.time.temporal.TemporalField G__56449)))
-
-
-(defn with ^java.time.temporal.Temporal ([^java.time.Year G__56450 G__56451 G__56452] (.with ^java.time.Year G__56450 G__56451 G__56452)) ([^java.time.Year G__56453 G__56454] (.with ^java.time.Year G__56453 G__56454)))
-
-
-(defn from ^java.time.Year ([^java.time.temporal.TemporalAccessor G__56456] (. java.time.Year from ^java.time.temporal.TemporalAccessor G__56456)))
-
-
-(defn parse ^java.time.Year ([^java.lang.CharSequence G__56458 ^java.time.format.DateTimeFormatter G__56459] (. java.time.Year parse ^java.lang.CharSequence G__56458 ^java.time.format.DateTimeFormatter G__56459)) ([^java.lang.CharSequence G__56461] (. java.time.Year parse ^java.lang.CharSequence G__56461)))
-
-
-(defn plus ^java.time.Year ([^java.time.Year G__56462 G__56463 G__56464] (.plus ^java.time.Year G__56462 G__56463 G__56464)) ([^java.time.Year G__56465 G__56466] (.plus ^java.time.Year G__56465 G__56466)))
-
-
-(defn at-month ^java.time.YearMonth ([^java.time.Year G__56467 G__56468] (.atMonth ^java.time.Year G__56467 G__56468)))
-
-
-(defn length ([^java.time.Year G__56469] (.length ^java.time.Year G__56469)))
-
-
-(defn is-valid-month-day ([^java.time.Year G__56470 ^java.time.MonthDay G__56471] (.isValidMonthDay ^java.time.Year G__56470 ^java.time.MonthDay G__56471)))
-
-
+(clojure.core/defn range {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalField"]))} (^java.time.temporal.ValueRange [^java.time.Year this2825 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2826] (.range this2825 java-time-temporal-TemporalField2826)))
+(clojure.core/defn of {:arglists (quote (["java.time.Year" "int"]))} (^java.time.Year [^java.lang.Integer int2827] (. java.time.Year of int2827)))
+(clojure.core/defn at-day {:arglists (quote (["java.time.Year" "int"]))} (^java.time.LocalDate [^java.time.Year this2828 ^java.lang.Integer int2829] (.atDay this2828 int2829)))
+(clojure.core/defn plus {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalAmount"] ["java.time.Year" "long" "java.time.temporal.TemporalUnit"] ["java.time.Year" "long" "java.time.temporal.TemporalUnit"] ["java.time.Year" "java.time.temporal.TemporalAmount"]))} (^java.lang.Object [this2830 G__2831] #? (:cljs (.plus ^java.time.Year this2830 G__2831) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2831)) (clojure.core/let [G__2831 ^"java.time.temporal.TemporalAmount" G__2831] (.plus ^java.time.Year this2830 G__2831)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2831)) (clojure.core/let [G__2831 ^"java.time.temporal.TemporalAmount" G__2831] (.plus ^java.time.Year this2830 G__2831)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2832 G__2833 G__2834] #? (:cljs (.plus ^java.time.Year this2832 G__2833 G__2834) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2833) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2834)) (clojure.core/let [G__2833 (clojure.core/long G__2833) G__2834 ^"java.time.temporal.TemporalUnit" G__2834] (.plus ^java.time.Year this2832 G__2833 G__2834)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2833) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2834)) (clojure.core/let [G__2833 (clojure.core/long G__2833) G__2834 ^"java.time.temporal.TemporalUnit" G__2834] (.plus ^java.time.Year this2832 G__2833 G__2834)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn is-valid-month-day {:arglists (quote (["java.time.Year" "java.time.MonthDay"]))} (^java.lang.Boolean [^java.time.Year this2835 ^java.time.MonthDay java-time-MonthDay2836] (.isValidMonthDay this2835 java-time-MonthDay2836)))
+(clojure.core/defn query {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^java.time.Year this2837 ^java.time.temporal.TemporalQuery java-time-temporal-TemporalQuery2838] (.query this2837 java-time-temporal-TemporalQuery2838)))
+^{:line 65, :column 16} (clojure.core/defn is-leap {:arglists ^{:line 65, :column 54} (quote ^{:line 65, :column 61} (["long"]))} ^{:line 66, :column 18} (^java.lang.Boolean [^long long57050] ^{:line 66, :column 56} (. java.time.Year isLeap long57050)))
+(clojure.core/defn to-string {:arglists (quote (["java.time.Year"]))} (^java.lang.String [^java.time.Year this2839] (.toString this2839)))
+(clojure.core/defn is-before {:arglists (quote (["java.time.Year" "java.time.Year"]))} (^java.lang.Boolean [^java.time.Year this2840 ^java.time.Year java-time-Year2841] (.isBefore this2840 java-time-Year2841)))
+(clojure.core/defn minus {:arglists (quote (["java.time.Year" "long" "java.time.temporal.TemporalUnit"] ["java.time.Year" "java.time.temporal.TemporalAmount"] ["java.time.Year" "java.time.temporal.TemporalAmount"] ["java.time.Year" "long" "java.time.temporal.TemporalUnit"]))} (^java.lang.Object [this2842 G__2843 G__2844] #? (:cljs (.minus ^java.time.Year this2842 G__2843 G__2844) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2843) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2844)) (clojure.core/let [G__2843 (clojure.core/long G__2843) G__2844 ^"java.time.temporal.TemporalUnit" G__2844] (.minus ^java.time.Year this2842 G__2843 G__2844)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2843) (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2844)) (clojure.core/let [G__2843 (clojure.core/long G__2843) G__2844 ^"java.time.temporal.TemporalUnit" G__2844] (.minus ^java.time.Year this2842 G__2843 G__2844)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2845 G__2846] #? (:cljs (.minus ^java.time.Year this2845 G__2846) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2846)) (clojure.core/let [G__2846 ^"java.time.temporal.TemporalAmount" G__2846] (.minus ^java.time.Year this2845 G__2846)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAmount") G__2846)) (clojure.core/let [G__2846 ^"java.time.temporal.TemporalAmount" G__2846] (.minus ^java.time.Year this2845 G__2846)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn at-month-day {:arglists (quote (["java.time.Year" "java.time.MonthDay"]))} (^java.time.LocalDate [^java.time.Year this2847 ^java.time.MonthDay java-time-MonthDay2848] (.atMonthDay this2847 java-time-MonthDay2848)))
+(clojure.core/defn get-value {:arglists (quote (["java.time.Year"]))} (^java.lang.Integer [^java.time.Year this2849] (jti/getter value this2849)))
+(clojure.core/defn get-long {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalField"]))} (^long [^java.time.Year this2850 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2851] (.getLong this2850 java-time-temporal-TemporalField2851)))
+(clojure.core/defn at-month {:arglists (quote (["java.time.Year" "int"] ["java.time.Year" "java.time.Month"]))} (^java.time.YearMonth [this2852 G__2853] #? (:cljs (.atMonth ^java.time.Year this2852 G__2853) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Integer") G__2853)) (clojure.core/let [G__2853 ^"java.lang.Integer" G__2853] (.atMonth ^java.time.Year this2852 G__2853)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.Month") G__2853)) (clojure.core/let [G__2853 ^"java.time.Month" G__2853] (.atMonth ^java.time.Year this2852 G__2853)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn until {:arglists (quote (["java.time.Year" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^java.time.Year this2854 ^java.time.temporal.Temporal java-time-temporal-Temporal2855 ^java.time.temporal.TemporalUnit java-time-temporal-TemporalUnit2856] (.until this2854 java-time-temporal-Temporal2855 java-time-temporal-TemporalUnit2856)))
+(clojure.core/defn length {:arglists (quote (["java.time.Year"]))} (^java.lang.Integer [^java.time.Year this2857] (.length this2857)))
+(clojure.core/defn from {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalAccessor"]))} (^java.time.Year [^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor2858] (. java.time.Year from java-time-temporal-TemporalAccessor2858)))
+(clojure.core/defn is-after {:arglists (quote (["java.time.Year" "java.time.Year"]))} (^java.lang.Boolean [^java.time.Year this2859 ^java.time.Year java-time-Year2860] (.isAfter this2859 java-time-Year2860)))
+(clojure.core/defn is-supported {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalUnit"] ["java.time.Year" "java.time.temporal.TemporalField"]))} (^java.lang.Boolean [this2861 G__2862] #? (:cljs (.isSupported ^java.time.Year this2861 G__2862) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalUnit") G__2862)) (clojure.core/let [G__2862 ^"java.time.temporal.TemporalUnit" G__2862] (.isSupported ^java.time.Year this2861 G__2862)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2862)) (clojure.core/let [G__2862 ^"java.time.temporal.TemporalField" G__2862] (.isSupported ^java.time.Year this2861 G__2862)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn minus-years {:arglists (quote (["java.time.Year" "long"]))} (^java.time.Year [^java.time.Year this2863 ^long long2864] (.minusYears this2863 long2864)))
+(clojure.core/defn parse {:arglists (quote (["java.time.Year" "java.lang.CharSequence" "java.time.format.DateTimeFormatter"] ["java.time.Year" "java.lang.CharSequence"]))} (^java.time.Year [^java.lang.CharSequence java-lang-CharSequence2865 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter2866] (. java.time.Year parse java-lang-CharSequence2865 java-time-format-DateTimeFormatter2866)) (^java.time.Year [^java.lang.CharSequence java-lang-CharSequence2867] (. java.time.Year parse java-lang-CharSequence2867)))
+(clojure.core/defn hash-code {:arglists (quote (["java.time.Year"]))} (^java.lang.Integer [^java.time.Year this2868] (.hashCode this2868)))
+(clojure.core/defn adjust-into {:arglists (quote (["java.time.Year" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.Year this2869 ^java.time.temporal.Temporal java-time-temporal-Temporal2870] (.adjustInto this2869 java-time-temporal-Temporal2870)))
+(clojure.core/defn with {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalAdjuster"] ["java.time.Year" "java.time.temporal.TemporalField" "long"] ["java.time.Year" "java.time.temporal.TemporalField" "long"] ["java.time.Year" "java.time.temporal.TemporalAdjuster"]))} (^java.lang.Object [this2871 G__2872] #? (:cljs (.with ^java.time.Year this2871 G__2872) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAdjuster") G__2872)) (clojure.core/let [G__2872 ^"java.time.temporal.TemporalAdjuster" G__2872] (.with ^java.time.Year this2871 G__2872)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalAdjuster") G__2872)) (clojure.core/let [G__2872 ^"java.time.temporal.TemporalAdjuster" G__2872] (.with ^java.time.Year this2871 G__2872)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))) (^java.lang.Object [this2873 G__2874 G__2875] #? (:cljs (.with ^java.time.Year this2873 G__2874 G__2875) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2874) (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2875)) (clojure.core/let [G__2874 ^"java.time.temporal.TemporalField" G__2874 G__2875 (clojure.core/long G__2875)] (.with ^java.time.Year this2873 G__2874 G__2875)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.temporal.TemporalField") G__2874) (clojure.core/instance? (java.lang.Class/forName "java.lang.Long") G__2875)) (clojure.core/let [G__2874 ^"java.time.temporal.TemporalField" G__2874 G__2875 (clojure.core/long G__2875)] (.with ^java.time.Year this2873 G__2874 G__2875)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn now {:arglists (quote (["java.time.Year"] ["java.time.Year" "java.time.ZoneId"] ["java.time.Year" "java.time.Clock"]))} (^java.time.Year [] (. java.time.Year now)) (^java.time.Year [G__2877] #? (:cljs (. java.time.Year now G__2877) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.ZoneId") G__2877)) (clojure.core/let [G__2877 ^"java.time.ZoneId" G__2877] (. java.time.Year now G__2877)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.Clock") G__2877)) (clojure.core/let [G__2877 ^"java.time.Clock" G__2877] (. java.time.Year now G__2877)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn compare-to {:arglists (quote (["java.time.Year" "java.lang.Object"] ["java.time.Year" "java.time.Year"]))} (^java.lang.Integer [this2878 G__2879] #? (:cljs (.compareTo ^java.time.Year this2878 G__2879) :clj (clojure.core/cond (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.lang.Object") G__2879)) (clojure.core/let [G__2879 ^"java.lang.Object" G__2879] (.compareTo ^java.time.Year this2878 G__2879)) (clojure.core/and (clojure.core/instance? (java.lang.Class/forName "java.time.Year") G__2879)) (clojure.core/let [G__2879 ^"java.time.Year" G__2879] (.compareTo ^java.time.Year this2878 G__2879)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))))
+(clojure.core/defn get {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalField"]))} (^java.lang.Integer [^java.time.Year this2880 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2881] (.get this2880 java-time-temporal-TemporalField2881)))
+(clojure.core/defn equals {:arglists (quote (["java.time.Year" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.Year this2882 ^java.lang.Object java-lang-Object2883] (.equals this2882 java-lang-Object2883)))
+(clojure.core/defn format {:arglists (quote (["java.time.Year" "java.time.format.DateTimeFormatter"]))} (^java.lang.String [^java.time.Year this2884 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter2885] (.format this2884 java-time-format-DateTimeFormatter2885)))
+(clojure.core/defn plus-years {:arglists (quote (["java.time.Year" "long"]))} (^java.time.Year [^java.time.Year this2886 ^long long2887] (.plusYears this2886 long2887)))
