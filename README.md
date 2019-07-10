@@ -19,7 +19,7 @@ This library sits atop `java.time` on the jvm and [cljs.java-time](https://githu
 platforms. Writing cross-platform code that uses those libraries directly is harder than interop normally is because:
 
 * To call the java.time 'static' methods in a cljc file you need to use the [dot-special-form](https://clojure.org/reference/java_interop#_the_dot_special_form) which is not idiomatic
-* The underlying js library has changed the name of the getter methods in java.time (in almost all cases but not quite!)  to remove the 'get' part of the name. There are ways to get around that on a case
+* The underlying js library has changed the name of the getter methods in java.time (in *almost* all cases)  to remove the 'get' part of the name. There are ways to get around that on a case
 by case basis, but this library handles it for you.
  
 ## How it works
@@ -53,7 +53,7 @@ In .cljc file
  
 ## Problems & Irregularities
 
-java.time.Year#isLeap is exists as an instance method and a static method. Only the static version has been wrapped.
+java.time.Year#isLeap exists as an instance method and a static method. Only the static version has been wrapped.
 
 ### Inheritcance/Polymorphism 
 The generated code of this project mechanically generated methods for the java.time classes, even if those methods are 
