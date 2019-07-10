@@ -9,7 +9,7 @@ See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
 ## Related Libraries
 
 [tick](https://clojars.org/tick) is a higher level date-time library that uses this one. Even if you're using cljc.java-time directly,
-ie not through tick, it has very relevant docs on extra [setup for use with ClojureScript](https://juxt.pro/tick/docs/index.html#_clojurescript)
+ie not through tick, it has very relevant docs on extra [setup for use with ClojureScript](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
 
 [time-literals](https://github.com/henryw374/time-literals) is a Clojure(Script) library which provides tagged literals for objects from jsr-310 domain 
 
