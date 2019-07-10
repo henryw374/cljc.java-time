@@ -18,8 +18,8 @@ ie not through tick, it has very relevant docs on extra [setup for use with Cloj
 This library sits atop `java.time` on the jvm and [cljs.java-time](https://github.com/henryw374/cljs.java-time) on Javascript
 platforms. Writing cross-platform code that uses those libraries directly is harder than interop normally is because:
 
-* To call the 'static' methods from Clojurescript you need to use the [dot-special-form](https://clojure.org/reference/java_interop#_the_dot_special_form) which is not idiomatic
-* The underlying js library has changed the name of the getter methods in java.time to remove the 'get' part of the name. There are ways to get around that on a case
+* To call the java.time 'static' methods in a cljc file you need to use the [dot-special-form](https://clojure.org/reference/java_interop#_the_dot_special_form) which is not idiomatic
+* The underlying js library has changed the name of the getter methods in java.time (in almost all cases but not quite!)  to remove the 'get' part of the name. There are ways to get around that on a case
 by case basis, but this library handles it for you.
  
 ## How it works
@@ -33,6 +33,8 @@ For example, corresponding to `java.time.LocalDate`, there is a namespace
 In that and every other namespace, there is one var per public method/field in the corresponding class.
 
 For example, for the method `java.time.LocalDate/parse`, there is a corresponding function `cljc.java-time.local-date/parse`
+
+Instance methods take the instance as the extra first arg
 
 ## Usage
 
@@ -51,7 +53,7 @@ In .cljc file
  
 ## Problems & Irregularities
 
-java.time.Year#isLeap is both an instance method and a static method. Only the static version has been wrapped.
+java.time.Year#isLeap is exists as an instance method and a static method. Only the static version has been wrapped.
 
 ### Inheritcance/Polymorphism 
 The generated code of this project mechanically generated methods for the java.time classes, even if those methods are 
@@ -60,9 +62,9 @@ a `cljc.java-time.temporal.temporal/is-supported` and `cljc.java-time.local-date
 essentially unnecessary but included anyway. 
  
 
-## TODO
+## Note
  
-### Keep up to date with java.time 
+### Java 9 
 
 New methods were added in Java 9 - these are not included in this library
  
