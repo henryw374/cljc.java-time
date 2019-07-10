@@ -2,8 +2,7 @@
 
 # cljc.java-time
 
-A Clojure(Script) library which provides the java.time api through kebab-case-named function vars. Using this API, 
-you can write non-interop code using everything from java.time and which runs in both Clojure and ClojureScript.
+A Clojure(Script) library which provides the java.time api through kebab-case-named function vars.
 
 See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U) for more background.
 
@@ -17,7 +16,7 @@ ie not through tick, it has very relevant docs on extra [setup for use with Cloj
 ## Rationale
 
 This library sits atop `java.time` on the jvm and [cljs.java-time](https://github.com/henryw374/cljs.java-time) on Javascript
-platforms. Writing code that uses those libraries directly is harder than interop normally is because:
+platforms. Writing cross-platform code that uses those libraries directly is harder than interop normally is because:
 
 * To call the 'static' methods from Clojurescript you need to use the [dot-special-form](https://clojure.org/reference/java_interop#_the_dot_special_form) which is not idiomatic
 * The underlying js library has changed the name of the getter methods in java.time to remove the 'get' part of the name. There are ways to get around that on a case
@@ -52,12 +51,7 @@ In .cljc file
  
 ## Problems & Irregularities
 
-### Overloaded Java methods with the same arities. 
-
-If there is a java method `foo(String x)` and `foo(boolean x)` then there's
-not going to be a direct clojure function or functions that correspond to those. In this case, dropping to interop code
-is the option we suggest. For now, if there is such a case in java.time (`ZoneId#of` is one) then no clojure function has
-been generated. Functions could be generated without type hints but haven't been so far.
+java.time.Year#isLeap is both an instance method and a static method. Only the static version has been wrapped.
 
 ### Inheritcance/Polymorphism 
 The generated code of this project mechanically generated methods for the java.time classes, even if those methods are 
