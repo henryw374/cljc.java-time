@@ -4,7 +4,7 @@
 
 # cljc.java-time
 
-A Clojure(Script) library which provides the java.time api through kebab-case-named function vars.
+A Clojure(Script) library which mirrors the java.time api through kebab-case-named vars.
 
 See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U) for more background.
 
@@ -48,8 +48,11 @@ In .cljc file
  (ns my.cljc
    (:require  [cljc.java-time.local-date :as ld])
    
+   ;create a date
+   (def a-date (ld/parse "2019-01-01"))
    
-   (ld/parse "2019-01-01")
+   ;add some days
+   (ld/plus-days a-date 99)
    
  ```
  
@@ -58,9 +61,9 @@ In .cljc file
 java.time.Year#isLeap exists as an instance method and a static method. Only the static version has been wrapped.
 
 ### Inheritcance/Polymorphism 
-The generated code of this project mechanically generated methods for the java.time classes, even if those methods are 
-inherited via superclasses or interfaces. In this project, functions are generated at every 'level'. For example there is
-a `cljc.java-time.temporal.temporal/is-supported` and `cljc.java-time.local-date/is-supported`, with the latter being 
+The code of this project consists of mechanically generated functions for the java.time methods, even if those methods are 
+inherited via superclasses or interfaces. In this project, functions are generated in every class they can be applied to. For example there is
+`cljc.java-time.temporal.temporal/is-supported` and also `cljc.java-time.local-date/is-supported`, with the latter being 
 essentially unnecessary but included anyway. 
  
 
