@@ -17,6 +17,6 @@
                        :main-opts   ["-m" "cognitect.test-runner"]}
            :test-cljs {:extra-paths ["test" "cljs-test-runner-out/gen"]
                        :extra-deps  {olical/cljs-test-runner {:mvn/version "3.5.0"}}
-                       :main-opts   ["-m" "cljs-test-runner.main" " -x chrome-headless"]
+                       :main-opts   ["-m" "cljs-test-runner.main" " -x node"]
                        }
            }}

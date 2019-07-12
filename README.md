@@ -1,5 +1,7 @@
 [![Clojars Project](https://img.shields.io/clojars/v/cljc.java-time.svg)](https://clojars.org/cljc.java-time)
 
+[![CircleCI](https://circleci.com/gh/henryw374/cljc.java-time.svg?style=svg)](https://circleci.com/gh/henryw374/cljc.java-time)
+
 # cljc.java-time
 
 A Clojure(Script) library which provides the java.time api through kebab-case-named function vars.

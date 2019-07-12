@@ -1,0 +1,25 @@
+# Clojure CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-clojure/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/clojure:tools-deps-1.9.0.394-node
+        # https://discuss.circleci.com/t/builds-getting-killed-with-vague-message-received-signal-killed/10214/9
+        command: "/bin/bash"
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run: clojure -Atest -e deprecated
+      - run: sudo npm install karma-cli -g
+      - run: npm install karma --save-dev
+      - run: npm install karma-cljs-test
+      - run: mkdir -p cljs-test-runner-out/gen 
+      - run: clojure -Sverbose -Atest-cljs  
+
