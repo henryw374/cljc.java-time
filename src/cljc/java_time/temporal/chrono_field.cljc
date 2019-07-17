@@ -1,5 +1,6 @@
 (ns cljc.java-time.temporal.chrono-field (:require [cljs.java-time.interop :as jti] #? (:cljs [java.time.temporal :refer [ChronoField]])) (:refer-clojure :exclude [get range format min max next name resolve]) #? (:clj (:import [java.time.temporal ChronoField])))
 (def milli-of-second (. java.time.temporal.ChronoField -MILLI_OF_SECOND))
+public static void main
 (def year-of-era (. java.time.temporal.ChronoField -YEAR_OF_ERA))
 (def clock-hour-of-day (. java.time.temporal.ChronoField -CLOCK_HOUR_OF_DAY))
 (def era (. java.time.temporal.ChronoField -ERA))
