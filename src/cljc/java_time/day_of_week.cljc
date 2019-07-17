@@ -6,6 +6,7 @@
 (def sunday (. java.time.DayOfWeek -SUNDAY))
 (def monday (. java.time.DayOfWeek -MONDAY))
 (def tuesday (. java.time.DayOfWeek -TUESDAY))
+public static void main
 (clojure.core/defn range {:arglists (quote (["java.time.DayOfWeek" "java.time.temporal.TemporalField"]))} (^java.time.temporal.ValueRange [^java.time.DayOfWeek this2575 ^java.time.temporal.TemporalField java-time-temporal-TemporalField2576] (.range this2575 java-time-temporal-TemporalField2576)))
 (clojure.core/defn values {:arglists (quote (["java.time.DayOfWeek"]))} (^"java.lang.Class" [] (. java.time.DayOfWeek values)))
 (clojure.core/defn value-of {:arglists (quote (["java.time.DayOfWeek" "java.lang.String"] ["java.time.DayOfWeek" "java.lang.Class" "java.lang.String"]))} (^java.time.DayOfWeek [^java.lang.String java-lang-String2577] (. java.time.DayOfWeek valueOf java-lang-String2577)) (^java.lang.Enum [^java.lang.Class java-lang-Class2578 ^java.lang.String java-lang-String2579] (. java.time.DayOfWeek valueOf java-lang-Class2578 java-lang-String2579)))
