@@ -1,4 +1,4 @@
-{:deps    {cljs.java-time {:mvn/version "0.1.10"}}
+{:deps    {cljs.java-time {:mvn/version "0.1.11"}}
  :aliases {:dev       {:extra-paths ["dev" "test"]
                        :extra-deps  {medley                      {:mvn/version "0.8.4"}
                                      camel-snake-kebab           {:mvn/version "0.4.0"}
