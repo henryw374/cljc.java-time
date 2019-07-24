@@ -162,11 +162,12 @@
        (~@method-call ~@(map #(vary-meta % dissoc :tag) arg-vec)))))
 
 (defn method-wrapper-form [fname klazz methods]
-  (let [arities (group-by parameter-count methods)]
+  (let [arities (group-by parameter-count methods)
+        static? (method-static? (first methods))]
     `(defn ~fname
-       {:arglists '~(map (comp (partial into [(.getName klazz)])
+       {:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
                            #(map (fn [x] (.getName x)) %)
-                            parameter-types) methods)}
+                           parameter-types) methods)}
        ~@(map (fn [[cnt meths]]
                 (if (= 1 (count meths))
                   (wrapper-tail klazz (first meths))

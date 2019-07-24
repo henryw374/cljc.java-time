@@ -68,18 +68,8 @@
       (pr f))
     (println)))
  
- (comment 
-   (def ms (:members (rf/reflect LocalDate)))
-   (vals (group-by :name ms))
-   (def m (->> (:members (rf/reflect java.time.format.DateTimeFormatter))
-               (m/find-first #(= "parseBest" (str (:name %))))
-               :parameter-types
-               last
-               type))
-   (def c LocalDate)
-   (csk/->kebab-case (.getSimpleName LocalDate))
-   (gen-for-class LocalDate)
-
+ (defn generate-library-code! []
+   ;todo - chrono and zone packages. needs cljs.java-time also
    (binding [*print-meta* true]
      (doseq [c [Period
                 LocalDate
@@ -97,11 +87,11 @@
                 YearMonth
                 Clock
                 ZoneOffset]]
-       
+
        (let [f (str "./src/cljc/java_time/" (csk/->snake_case (.getSimpleName c)) ".cljc")
-             _ (io/make-parents f) 
+             _ (io/make-parents f)
              w (io/writer f)]
-         
+
          (binding [*out* w]
            (gen-for-class c nil))))
      (doseq [c [TemporalAdjusters
@@ -120,18 +110,13 @@
              _ (io/make-parents f)
              w (io/writer f)]
          (binding [*out* w]
-           (gen-for-class c "format"))))
-     )
-
-   ;todo - chrono and zone packages. needs cljs.java-time also
+           (gen-for-class c "format"))))))
+ 
+ (comment 
    
+   (generate-library-code!)
    (require '[clojure.tools.namespace.repl :as rep])
-   
-   (binding [*print-meta* true]
-     (pr ^{:oh :yeah} {}))
-
-   (set! *warn-on-reflection* true)
    (rep/refresh-all)
    
-   (gen-for-class java.time.Period nil)
+   
    )
