@@ -8,3 +8,5 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
+resources
+node_modules
