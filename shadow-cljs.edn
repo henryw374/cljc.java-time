@@ -1,0 +1,10 @@
+{:deps   {:aliases [:dev]}
+ :nrepl  {:port 9000}
+ :builds {:test {:target           :browser-test
+                 :test-dir         "resources/public/js/test"
+                 :ns-regexp        "-test$"
+                 :compiler-options {:static-fns false}      ; required for mocking to work
+                 :devtools         {:http-port          9002
+                                    :http-resource-root "public"
+                                    :http-root          "resources/public/js/test"}}}}
+

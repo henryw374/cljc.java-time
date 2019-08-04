@@ -1,0 +1,19 @@
+{
+  "name": "cljc.java-time",
+  "version": "1.0.0",
+  "description": "[![Clojars Project](https://img.shields.io/clojars/v/cljc.java-time.svg)](https://clojars.org/cljc.java-time)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henryw374/cljc.java-time/issues"
+  },
+  "homepage": "https://github.com/henryw374/cljc.java-time#readme",
+  "devDependencies": {
+    "js-joda": "^1.11.0",
+    "shadow-cljs": "^2.8.42"
+  }
+}

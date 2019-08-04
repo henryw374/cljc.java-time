@@ -33,6 +33,9 @@ deploy:
 figwheel:
 			clj -R:dev:dev-nrepl:dev-rebel -C:dev:dev-nrepl:dev-rebel:test -m figwheel.main --build tick --repl
 
+shadow:
+	npm install; npx shadow-cljs watch test
+
 # hooray for stackoverflow
 .PHONY: list
 list:
