@@ -6,7 +6,7 @@
             [cljc.java-time.month :refer [january]]
             [cljc.java-time.local-date-time :as ldt]
             [cljc.java-time.year]
-            ))
+            #?(:cljs [cljs.java-time.extend-eq-and-compare])))
 
 #?(:clj
    (deftest multi-tail-var-args
