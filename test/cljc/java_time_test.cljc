@@ -3,7 +3,8 @@
             [cljc.java-time.temporal.chrono-field]
             [cljc.java-time.format.date-time-formatter]
             [cljc.java-time.year-month]
-            [cljc.java-time.month]
+            [cljc.java-time.month :refer [january]]
+            [cljc.java-time.local-date-time :as ldt]
             [cljc.java-time.year]
             ))
 
@@ -32,3 +33,6 @@
 (deftest leap-year 
   (testing "no obv. way to accommodate both isLeap methods. just going with the static one"
     (is (cljc.java-time.year/is-leap 24))))
+
+(deftest of-works-in-js-and-jvm
+  (is (= (ldt/of 2011 january 3 11 59) (ldt/of 2011 january 3 11 59))))

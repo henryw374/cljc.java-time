@@ -63,7 +63,7 @@
 (defn ensure-boxed [t]
   (get '{byte    java.lang.Byte
          short   java.lang.Short
-         int     java.lang.Integer
+         int     java.lang.Number
          long    java.lang.Long
          float   java.lang.Float
          double  java.lang.Double
@@ -109,6 +109,9 @@
 
       (= 'double tag)
       `(double ~value)
+      
+      (= 'java.lang.Integer tag)
+      `(int ~value)
 
       :else
       (vary-meta value assoc :tag (.getName tag)))))
