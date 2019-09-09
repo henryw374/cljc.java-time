@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cljc.java-time</groupId>
   <artifactId>cljc.java-time</artifactId>
-  <version>0.1.5</version>
+  <version>0.1.6</version>
   <name>cljc.java-time</name>
     <description>A Clojure(Script) library which provides the java.time api through kebab-case-named function vars.</description>
     <url>https://github.com/henryw374/cljc.java-time</url>
@@ -14,7 +14,7 @@
     <dependency>
       <groupId>cljs.java-time</groupId>
       <artifactId>cljs.java-time</artifactId>
-      <version>0.1.11</version>
+      <version>0.1.12</version>
     </dependency>
   </dependencies>
     <build>

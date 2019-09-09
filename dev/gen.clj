@@ -19,6 +19,7 @@
                        DayOfWeek
                        LocalTime
                        Month
+                       MonthDay
                        Duration
                        Year
                        YearMonth
@@ -82,6 +83,7 @@
                 DayOfWeek
                 LocalTime
                 Month
+                MonthDay
                 Duration
                 Year
                 YearMonth
