@@ -6,6 +6,8 @@
 
 A Clojure(Script) library which mirrors the java.time api through kebab-case-named vars.
 
+It also has predicates for each entity: `(instant? x)`
+
 See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U) for more background.
 
 ## Related Libraries
