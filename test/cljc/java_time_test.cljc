@@ -19,7 +19,7 @@
             [cljc.java-time.zone-id :as zone-id]
             [cljc.java-time.zone-offset :as zone-offset]
             [cljc.java-time.zoned-date-time :as zoned-date-time]
-            [cljc.java-time.predicates :as predicates]
+            [cljc.java-time.extn.predicates :as predicates]
             #?(:cljs [cljs.java-time.extend-eq-and-compare])))
 
 #?(:clj

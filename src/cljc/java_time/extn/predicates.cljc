@@ -1,4 +1,4 @@
-(ns cljc.java-time.predicates
+(ns cljc.java-time.extn.predicates
   (:require [cljs.java-time.interop :as jti] 
             #?(:cljs [java.time :refer [Clock
                                         DayOfWeek
