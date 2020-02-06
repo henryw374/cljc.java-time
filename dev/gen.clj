@@ -68,7 +68,7 @@
              sub-p))
   ;; fields
   (doseq [m (:members (rf/reflect c))]
-    (when (and (not (:return-type m)) (not-empty (set/intersection #{:public} (:flags m))))
+    (when (and (not (:parameter-types m)) (not-empty (set/intersection #{:public} (:flags m))))
       (println
         (list 'def (csk/->kebab-case (:name m))
           (list '. c (symbol (str "-" (:name m))))))))
@@ -112,7 +112,15 @@
                 Temporal
                 TemporalAmount
                 ChronoUnit
-                ChronoField]]
+                ChronoField
+                IsoFields
+                TemporalAccessor
+                TemporalAdjuster
+                TemporalQuery
+                TemporalQueries
+                TemporalUnit
+                ValueRange
+                TemporalField]]
        (let [f (str "./src/cljc/java_time/temporal/" (csk/->snake_case (.getSimpleName c)) ".cljc")
              _ (io/make-parents f)
              w (io/writer f)]
@@ -120,7 +128,10 @@
            (gen-for-class c "temporal"))))
      (doseq [c [DateTimeFormatter
                 DateTimeFormatterBuilder
-                ResolverStyle]]
+                ResolverStyle
+                DecimalStyle
+                SignStyle
+                TextStyle]]
        (let [f (str "./src/cljc/java_time/format/" (csk/->snake_case (.getSimpleName c)) ".cljc")
              _ (io/make-parents f)
              w (io/writer f)]

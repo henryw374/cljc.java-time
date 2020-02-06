@@ -1,7 +1,17 @@
 (ns cljc.java-time-test
   (:require [clojure.test :refer [deftest testing is]]
             [cljc.java-time.temporal.chrono-field]
+            [cljc.java-time.temporal.chrono-unit]
+            [cljc.java-time.temporal.iso-fields]
+            [cljc.java-time.temporal.temporal]
+            [cljc.java-time.temporal.temporal-accessor]
+            [cljc.java-time.temporal.temporal-adjuster]
             [cljc.java-time.format.date-time-formatter]
+            [cljc.java-time.format.resolver-style]
+            [cljc.java-time.format.date-time-formatter-builder]
+            [cljc.java-time.format.decimal-style]
+            [cljc.java-time.format.sign-style]
+            [cljc.java-time.format.text-style]
             [cljc.java-time.clock :as clock]
             [cljc.java-time.day-of-week :as day-of-week]
             [cljc.java-time.duration :as duration]
@@ -20,6 +30,7 @@
             [cljc.java-time.zone-offset :as zone-offset]
             [cljc.java-time.zoned-date-time :as zoned-date-time]
             [cljc.java-time.extn.predicates :as predicates]
+            
             #?(:cljs [cljs.java-time.extend-eq-and-compare])))
 
 #?(:clj

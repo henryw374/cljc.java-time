@@ -82,7 +82,7 @@ request to [js-joda](https://github.com/js-joda/js-joda)
  
 ## License
 
-Copyright © 2019 [Widd Industries](http://widdindustries.com/about/)
+Copyright © 2020 [Widd Industries](http://widdindustries.com/about/)
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
