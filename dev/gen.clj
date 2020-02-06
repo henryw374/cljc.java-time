@@ -1,7 +1,6 @@
  (ns gen
    (:require [clojure.reflect :as rf]
              [clojure.set :as set]
-             [medley.core :as m]
              [defwrapper :as df]
              [clojure.string :as string]
              [camel-snake-kebab.core :as csk]
@@ -23,15 +22,28 @@
                        Duration
                        Year
                        YearMonth
-                       Clock ZoneOffset]
+                       Clock
+                       ZoneOffset]
             [java.time.format DateTimeFormatter
-                              ResolverStyle]
+                              DateTimeFormatterBuilder
+                              ResolverStyle
+                              DecimalStyle
+                              SignStyle
+                              TextStyle]
             [java.time.temporal TemporalAdjusters
                                 Temporal
                                 TemporalAmount
                                 ChronoUnit
-                                ChronoField]))
- 
+                                ChronoField
+                                IsoFields
+                                TemporalAccessor
+                                TemporalAdjuster
+                                TemporalQuery
+                                TemporalQueries
+                                TemporalUnit
+                                ValueRange
+                                TemporalField]))
+
  (defn header [class-name ns-name sub-p]
    (list 'ns (symbol (str "cljc.java-time." (when sub-p (str sub-p ".")) ns-name))
      (list :require
@@ -42,7 +54,7 @@
      (symbol "#?") (list
                             :clj
                             (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))))
- 
+
  (defn type-hint [x]
    (let [x (string/replace (str x) "<>" "")]
      (when (or (clojure.string/includes? x ".")
@@ -68,7 +80,7 @@
               f)]
       (pr f))
     (println)))
- 
+
  (defn generate-library-code! []
    ;todo - chrono and zone packages. needs cljs.java-time also
    (binding [*print-meta* true]
@@ -107,18 +119,19 @@
          (binding [*out* w]
            (gen-for-class c "temporal"))))
      (doseq [c [DateTimeFormatter
+                DateTimeFormatterBuilder
                 ResolverStyle]]
        (let [f (str "./src/cljc/java_time/format/" (csk/->snake_case (.getSimpleName c)) ".cljc")
              _ (io/make-parents f)
              w (io/writer f)]
          (binding [*out* w]
            (gen-for-class c "format"))))))
- 
- (comment 
-   
+
+ (comment
+
    (generate-library-code!)
    (require '[clojure.tools.namespace.repl :as rep])
    (rep/refresh-all)
-   
-   
+
+
    )
