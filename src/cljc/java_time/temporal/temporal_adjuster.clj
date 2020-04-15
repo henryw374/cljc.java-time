@@ -1,0 +1,2 @@
+(ns cljc.java-time.temporal.temporal-adjuster (:refer-clojure :exclude [get range format min max next name resolve]) (:import [java.time.temporal TemporalAdjuster]))
+(clojure.core/defn adjust-into {:arglists (quote (["java.time.temporal.TemporalAdjuster" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.temporal.TemporalAdjuster this7507 ^java.time.temporal.Temporal java-time-temporal-Temporal7508] (.adjustInto this7507 java-time-temporal-Temporal7508)))

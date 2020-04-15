@@ -94,12 +94,7 @@
     (vary-meta value assoc :tag (ensure-boxed-long-double tag))))
 
 (defn instance-method [nm]
-  (if (and (string/starts-with? nm "get")
-        (not= "getLong" (str nm))
-        (> (count (str nm)) 3))
-    (list 'jti/getter (let [[f & r] (subs (str nm) 3)]
-                        (symbol (apply str (string/lower-case f) r))))
-    (list (symbol (str "." nm)))))
+  (list (symbol (str "." nm))))
 
 (defn tagged-local [value tag]
   (let [tag (ensure-boxed-long-double tag)]
@@ -128,27 +123,22 @@
                       (list '. (symbol (.getName klazz)) (symbol nam))
                       (instance-method nam))]
     `(~(tagged `[~@(when-not static? [this]) ~@arg-vec] ret)
-       ~(symbol "#?")
-         (:cljs (~@method-call
-                  ~@(when-not static? [(tagged this klazz)])
-                  ~@arg-vec)
-          :clj
-          (cond
-            ~@(mapcat
-                (fn [method]
-                  `[(and ~@(map (fn [sym ^Class klz]
-                                  `(instance? (Class/forName ~(.getName (ensure-boxed (class-name klz)))) ~sym))
-                             arg-vec
-                             (parameter-types method)))
-                    (let [~@(mapcat (fn [sym ^Class klz]
-                                      [sym (tagged-local sym klz)])
-                              arg-vec
-                              (parameter-types method))]
-                      (~@method-call
-                        ~@(when-not static? [(tagged this klazz)])
-                        ~@arg-vec))])
-                methods)
-            :else (throw (IllegalArgumentException. "no corresponding java.time method with these args")))))))
+       (cond
+         ~@(mapcat
+             (fn [method]
+               `[(and ~@(map (fn [sym ^Class klz]
+                               `(instance? (Class/forName ~(.getName (ensure-boxed (class-name klz)))) ~sym))
+                          arg-vec
+                          (parameter-types method)))
+                 (let [~@(mapcat (fn [sym ^Class klz]
+                                   [sym (tagged-local sym klz)])
+                           arg-vec
+                           (parameter-types method))]
+                   (~@method-call
+                     ~@(when-not static? [(tagged this klazz)])
+                     ~@arg-vec))])
+             methods)
+         :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))))
 
 (defn wrapper-tail [klazz method]
   (let [nam (method-name method)

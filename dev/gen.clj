@@ -46,14 +46,8 @@
 
  (defn header [class-name ns-name sub-p]
    (list 'ns (symbol (str "cljc.java-time." (when sub-p (str sub-p ".")) ns-name))
-     (list :require
-       ['cljs.java-time.interop :as 'jti]
-       (symbol "#?") (list
-                       :cljs [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]]))
      (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next 'name 'resolve])
-     (symbol "#?") (list
-                            :clj
-                            (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))))
+     (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name])))
 
  (defn type-hint [x]
    (let [x (string/replace (str x) "<>" "")]
@@ -102,7 +96,7 @@
                 Clock
                 ZoneOffset]]
 
-       (let [f (str "./src/cljc/java_time/" (csk/->snake_case (.getSimpleName c)) ".cljc")
+       (let [f (str "./src/cljc/java_time/" (csk/->snake_case (.getSimpleName c)) ".clj")
              _ (io/make-parents f)
              w (io/writer f)]
 
@@ -121,7 +115,7 @@
                 TemporalUnit
                 ValueRange
                 TemporalField]]
-       (let [f (str "./src/cljc/java_time/temporal/" (csk/->snake_case (.getSimpleName c)) ".cljc")
+       (let [f (str "./src/cljc/java_time/temporal/" (csk/->snake_case (.getSimpleName c)) ".clj")
              _ (io/make-parents f)
              w (io/writer f)]
          (binding [*out* w]
@@ -132,7 +126,7 @@
                 DecimalStyle
                 SignStyle
                 TextStyle]]
-       (let [f (str "./src/cljc/java_time/format/" (csk/->snake_case (.getSimpleName c)) ".cljc")
+       (let [f (str "./src/cljc/java_time/format/" (csk/->snake_case (.getSimpleName c)) ".clj")
              _ (io/make-parents f)
              w (io/writer f)]
          (binding [*out* w]
