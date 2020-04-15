@@ -77,8 +77,7 @@ New methods were added in Java 9 - these are not included in this library
  
 ### ClojureScript
 
-Be aware that the Implementation is not 100%. It's probably 99% though and anything you find missing can be added via pull
-request to [js-joda](https://github.com/js-joda/js-joda)
+
  
 ## License
 

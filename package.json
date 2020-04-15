@@ -13,7 +13,10 @@
   },
   "homepage": "https://github.com/henryw374/cljc.java-time#readme",
   "devDependencies": {
-    "js-joda": "^1.11.0",
+    "proposal-temporal": "./proposal-temporal/polyfill",
     "shadow-cljs": "^2.8.42"
+  },
+  "dependencies": {
+    "karma-cljs-test": "^0.1.0"
   }
 }

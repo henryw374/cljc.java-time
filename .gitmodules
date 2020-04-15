@@ -1,0 +1,3 @@
+[submodule "proposal-temporal"]
+	path = proposal-temporal
+	url = https://github.com/tc39/proposal-temporal.git
