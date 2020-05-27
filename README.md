@@ -44,6 +44,8 @@ Instance methods take the instance as the extra first arg
 
 Get it from [Clojars](https://clojars.org/cljc.java-time)
 
+Version 0.1.9 and up require minimum Clojurescript version of 1.10.741
+
  
 In .cljc file
  ```
@@ -77,7 +79,7 @@ New methods were added in Java 9 - these are not included in this library
  
 ### ClojureScript
 
-Be aware that the Implementation is not 100%. It's probably 99% though and anything you find missing can be added via pull
+Be aware that the underlying js implementation is probably only 99% complete. Anything you find missing can be added via pull
 request to [js-joda](https://github.com/js-joda/js-joda)
  
 ## License

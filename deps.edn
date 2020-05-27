@@ -1,10 +1,10 @@
 {:paths   ["src"]
- :deps    {cljs.java-time {:mvn/version "0.1.15"}}
+ :deps    {cljs.java-time {:mvn/version "0.1.16"}}
  :aliases {:dev       {:extra-paths ["dev" "test"]
                        :extra-deps  {medley                      {:mvn/version "0.8.4"}
                                      camel-snake-kebab           {:mvn/version "0.4.0"}
                                      org.clojure/tools.namespace {:mvn/version "0.2.11"}
-                                     org.clojure/clojurescript   {:mvn/version "1.10.516"}
+                                     org.clojure/clojurescript   {:mvn/version "1.10.741"}
                                      org.clojure/clojure         {:mvn/version "1.10.0"}
                                      thheller/shadow-cljs        {:mvn/version "2.8.41"}
                                      com.bhauman/figwheel-main   {:mvn/version "0.2.0"}
@@ -15,5 +15,6 @@
                                                                 :sha     "028a6d41ac9ac5d5c405dfc38e4da6b4cc1255d5"}}
                        :main-opts   ["-m" "cognitect.test-runner"]}
            :test-cljs {:extra-paths ["test" "cljs-test-runner-out/gen"]
-                       :extra-deps  {olical/cljs-test-runner {:mvn/version "3.5.0"}}
-                       :main-opts   ["-m" "cljs-test-runner.main" " -x node"]}}}
+                       :extra-deps  {org.clojure/clojurescript   {:mvn/version "1.10.741"}
+                                     olical/cljs-test-runner {:mvn/version "3.5.0"}}
+                       :main-opts   ["-m" "cljs-test-runner.main" "-c" "test/cljs-test-opts.edn -x chrome-headless"]}}}
