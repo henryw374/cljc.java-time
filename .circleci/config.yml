@@ -20,6 +20,7 @@ jobs:
       # need a few bits for cljs test - there must be a better way of including?
       - run: sudo npm install karma-cli -g
       - run: npm install karma --save-dev
+      - run: npm install karma-chrome-launcher
       - run: npm install karma-cljs-test
       - run: mkdir -p cljs-test-runner-out/gen 
       - run: clojure -Sverbose -Atest-cljs  
