@@ -71,7 +71,10 @@
     (when (and (not (:parameter-types m)) (not-empty (set/intersection #{:public} (:flags m))))
       (println
         (list 'def (csk/->kebab-case (:name m))
-          (list '. c (symbol (str "-" (:name m))))))))
+          (symbol "#?") (list 
+                          :clj (symbol (str (.getName c) "/" (:name m)))
+                          :cljs
+                          (list '. c (symbol (str "-" (:name m)))))))))
   ;; methods
   (doseq [f (df/defwrapper c)]
     (let [f (if (= 'is-leap (second f))
