@@ -12,6 +12,8 @@ See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
 
 This library also works on [babashka](https://github.com/borkdude/babashka/)
 
+The new platform Date-Time lib being built for Javascript is being considered for adoption. see [wiki](https://github.com/henryw374/cljc.java-time/wiki)
+
 ## Related Libraries
 
 [tick](https://clojars.org/tick) is a higher level date-time library that uses this one. Even if you're using cljc.java-time directly,
