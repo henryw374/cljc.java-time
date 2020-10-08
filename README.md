@@ -35,8 +35,8 @@ by case basis, but this library handles it for you.
 Reasons to use this:
 
 * All type hinting is done for you
-* `comp`, `apply`, `juxt` and all other clojure.core fns that apply to fns can now be used without `#(.foo %)`
-* In fact, instead of seeing `#(.foo %)` in your code and not knowing what foo is, you'll have a properly namespaced clojure function `foo` - much better!
+* `comp`, `apply`, `juxt` and all other clojure.core fns that apply to fns can now be used without anon fns: `#(.foo %)`
+* In fact, instead of seeing `#(.foo %)` in someone's code and not knowing what foo is, you'll have a properly namespaced clojure function `foo` - much better!
 * predicates, for example `(local-date? x)` 
  
 ## How it works
