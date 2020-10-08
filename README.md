@@ -29,6 +29,15 @@ platforms. Writing cross-platform code that uses those libraries directly is har
 * To call the java.time 'static' methods in a cljc file you need to use the [dot-special-form](https://clojure.org/reference/java_interop#_the_dot_special_form) which is not idiomatic
 * The underlying js library has changed the name of the getter methods in java.time (in *almost* all cases)  to remove the 'get' part of the name. There are ways to get around that on a case
 by case basis, but this library handles it for you.
+
+### .. but I just develop on the JVM Only
+
+Reasons to use this:
+
+* All type hinting is done for you
+* `comp`, `apply`, `juxt` and all other clojure.core fns that apply to fns can now be used without `#(.foo %)`
+* In fact, instead of seeing `#(.foo %)` in your code and not knowing what foo is, you'll have a properly namespaced clojure function `foo` - much better!
+* predicates, for example `(local-date? x)` 
  
 ## How it works
 
