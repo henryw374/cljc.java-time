@@ -1,0 +1,2 @@
+(ns cljc.java-time.temporal.temporal-query (:import [java.time.temporal TemporalQuery]) (:refer-clojure :exclude [get range format min max next name resolve short]))
+(clojure.core/defn query-from {:arglists (quote (["java.time.temporal.TemporalQuery" "java.time.temporal.TemporalAccessor"]))} (^java.lang.Object [^java.time.temporal.TemporalQuery this51033 ^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor51034] (.queryFrom this51033 java-time-temporal-TemporalAccessor51034)))

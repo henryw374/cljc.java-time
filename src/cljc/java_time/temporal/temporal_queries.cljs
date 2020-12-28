@@ -1,0 +1,8 @@
+(ns cljc.java-time.temporal.temporal-queries (:require [java.time.temporal :refer [TemporalQueries]]) (:refer-clojure :exclude [get range format min max next name resolve short]))
+(clojure.core/defn precision {:arglists (quote ([]))} (^java.time.temporal.TemporalQuery [] (. java.time.temporal.TemporalQueries precision)))
+(clojure.core/defn chronology {:arglists (quote ([]))} (^java.time.temporal.TemporalQuery [] (. java.time.temporal.TemporalQueries chronology)))
+(clojure.core/defn zone-id {:arglists (quote ([]))} (^java.time.temporal.TemporalQuery [] (. java.time.temporal.TemporalQueries zoneId)))
+(clojure.core/defn zone {:arglists (quote ([]))} (^java.time.temporal.TemporalQuery [] (. java.time.temporal.TemporalQueries zone)))
+(clojure.core/defn local-date {:arglists (quote ([]))} (^java.time.temporal.TemporalQuery [] (. java.time.temporal.TemporalQueries localDate)))
+(clojure.core/defn local-time {:arglists (quote ([]))} (^java.time.temporal.TemporalQuery [] (. java.time.temporal.TemporalQueries localTime)))
+(clojure.core/defn offset {:arglists (quote ([]))} (^java.time.temporal.TemporalQuery [] (. java.time.temporal.TemporalQueries offset)))

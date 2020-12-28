@@ -1,8 +1,8 @@
 {:paths   ["src"]
- :deps    {cljs.java-time {:mvn/version "0.1.16"}}
+ :deps    {cljs.java-time/cljs.java-time {:mvn/version "0.1.17"}}
  :aliases {:dev       {:extra-paths ["dev" "test"]
-                       :extra-deps  {medley                      {:mvn/version "0.8.4"}
-                                     camel-snake-kebab           {:mvn/version "0.4.0"}
+                       :extra-deps  {medley/medley                      {:mvn/version "0.8.4"}
+                                     camel-snake-kebab/camel-snake-kebab           {:mvn/version "0.4.0"}
                                      org.clojure/tools.namespace {:mvn/version "0.2.11"}
                                      org.clojure/clojurescript   {:mvn/version "1.10.741"}
                                      org.clojure/clojure         {:mvn/version "1.10.0"}

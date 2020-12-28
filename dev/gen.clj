@@ -44,16 +44,13 @@
                                 ValueRange
                                 TemporalField]))
 
- (defn header [class-name ns-name sub-p]
+ (defn header [class-name ns-name sub-p ext]
    (list 'ns (symbol (str "cljc.java-time." (when sub-p (str sub-p ".")) ns-name))
-     (list :require
-       ['cljs.java-time.interop :as 'jti]
-       (symbol "#?") (list
-                       :cljs [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]]))
-     (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next 'name 'resolve])
-     (symbol "#?") (list
-                            :clj
-                            (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))))
+     (if (= :cljs ext)
+       (list :require
+         [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]])
+       (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))
+     (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next 'name 'resolve 'short])))
 
  (defn type-hint [x]
    (let [x (string/replace (str x) "<>" "")]
@@ -62,27 +59,33 @@
              )
        (symbol (str "^" x)))))
 
-(defn gen-for-class [c sub-p]
+(defn gen-for-class [c sub-p ext]
   ;; header
   (println (header (.getSimpleName c) (csk/->kebab-case (.getSimpleName c))
-             sub-p))
+             sub-p ext))
   ;; fields
   (doseq [m (:members (rf/reflect c))]
     (when (and (not (:parameter-types m)) (not-empty (set/intersection #{:public} (:flags m))))
       (println
         (list 'def (csk/->kebab-case (:name m))
-          (symbol "#?") (list 
-                          :clj (symbol (str (.getName c) "/" (:name m)))
-                          :cljs
+           (if (= :clj ext) 
+                           (symbol (str (.getName c) "/" (:name m)))
                           (list '. c (symbol (str "-" (:name m)))))))))
   ;; methods
-  (doseq [f (df/defwrapper c)]
+  (doseq [f (df/defwrapper c ext)]
     (let [f (if (= 'is-leap (second f))
               '(clojure.core/defn is-leap {:arglists (quote (["long"]))}
                  (^java.lang.Boolean [^long long57050] (. java.time.Year isLeap long57050)))
               f)]
       (pr f))
     (println)))
+ 
+ (defn get-and-write [c ext sub-p]
+   (let [f (str "./src/cljc/java_time/" (when sub-p (str sub-p "/"))  (csk/->snake_case (.getSimpleName c)) "." (name ext))
+         _ (io/make-parents f)
+         w (io/writer f)]
+     (binding [*out* w]
+       (gen-for-class c sub-p ext))))
 
  (defn generate-library-code! []
    ;todo - chrono and zone packages. needs cljs.java-time also
@@ -104,13 +107,8 @@
                 YearMonth
                 Clock
                 ZoneOffset]]
-
-       (let [f (str "./src/cljc/java_time/" (csk/->snake_case (.getSimpleName c)) ".cljc")
-             _ (io/make-parents f)
-             w (io/writer f)]
-
-         (binding [*out* w]
-           (gen-for-class c nil))))
+   (get-and-write c :clj nil)
+   (get-and-write c :cljs nil))
      (doseq [c [TemporalAdjusters
                 Temporal
                 TemporalAmount
@@ -124,22 +122,16 @@
                 TemporalUnit
                 ValueRange
                 TemporalField]]
-       (let [f (str "./src/cljc/java_time/temporal/" (csk/->snake_case (.getSimpleName c)) ".cljc")
-             _ (io/make-parents f)
-             w (io/writer f)]
-         (binding [*out* w]
-           (gen-for-class c "temporal"))))
+       (get-and-write c :clj "temporal")
+       (get-and-write c :cljs "temporal"))
      (doseq [c [DateTimeFormatter
                 DateTimeFormatterBuilder
                 ResolverStyle
                 DecimalStyle
                 SignStyle
                 TextStyle]]
-       (let [f (str "./src/cljc/java_time/format/" (csk/->snake_case (.getSimpleName c)) ".cljc")
-             _ (io/make-parents f)
-             w (io/writer f)]
-         (binding [*out* w]
-           (gen-for-class c "format"))))))
+       (get-and-write c :clj "format")
+       (get-and-write c :cljs "format"))))
 
  (comment
 

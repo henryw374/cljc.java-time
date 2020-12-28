@@ -93,12 +93,14 @@
               tag)]
     (vary-meta value assoc :tag (ensure-boxed-long-double tag))))
 
-(defn instance-method [nm]
-  (if (and (string/starts-with? nm "get")
+(defn instance-method [nm ext]
+  (if (and
+        (= :cljs ext)
+        (string/starts-with? nm "get")
         (not= "getLong" (str nm))
         (> (count (str nm)) 3))
-    (list 'jti/getter (let [[f & r] (subs (str nm) 3)]
-                        (symbol (apply str (string/lower-case f) r))))
+    (list  (let [[f & r] (subs (str nm) 3)]
+                     (symbol (apply str "." (string/lower-case f) r))))
     (list (symbol (str "." nm)))))
 
 (defn tagged-local [value tag]
@@ -109,14 +111,14 @@
 
       (= 'double tag)
       `(double ~value)
-      
+
       (= 'java.lang.Integer tag)
       `(int ~value)
 
       :else
       (vary-meta value assoc :tag (.getName tag)))))
 
-(defn wrapper-multi-tail [klazz methods]
+(defn wrapper-multi-tail [klazz methods ext]
   (let [static? (method-static? (first methods))
         nam (method-name (first methods))
         this (gensym "this")
@@ -126,31 +128,31 @@
               java.lang.Object)
         method-call (if static?
                       (list '. (symbol (.getName klazz)) (symbol nam))
-                      (instance-method nam))]
+                      (instance-method nam ext))
+        xx (if (= :cljs ext)
+             `(~@method-call
+                ~@(when-not static? [(tagged this klazz)])
+                ~@arg-vec)
+             `(cond
+                ~@(mapcat
+                  (fn [method]
+                    `[(and ~@(map (fn [sym ^Class klz]
+                                    `(instance? (Class/forName ~(.getName (ensure-boxed (class-name klz)))) ~sym))
+                               arg-vec
+                               (parameter-types method)))
+                      (let [~@(mapcat (fn [sym ^Class klz]
+                                        [sym (tagged-local sym klz)])
+                                arg-vec
+                                (parameter-types method))]
+                        (~@method-call
+                          ~@(when-not static? [(tagged this klazz)])
+                          ~@arg-vec))])
+                  methods)
+                :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))]
     `(~(tagged `[~@(when-not static? [this]) ~@arg-vec] ret)
-       ~(symbol "#?")
-         (:cljs (~@method-call
-                  ~@(when-not static? [(tagged this klazz)])
-                  ~@arg-vec)
-          :clj
-          (cond
-            ~@(mapcat
-                (fn [method]
-                  `[(and ~@(map (fn [sym ^Class klz]
-                                  `(instance? (Class/forName ~(.getName (ensure-boxed (class-name klz)))) ~sym))
-                             arg-vec
-                             (parameter-types method)))
-                    (let [~@(mapcat (fn [sym ^Class klz]
-                                      [sym (tagged-local sym klz)])
-                              arg-vec
-                              (parameter-types method))]
-                      (~@method-call
-                        ~@(when-not static? [(tagged this klazz)])
-                        ~@arg-vec))])
-                methods)
-            :else (throw (IllegalArgumentException. "no corresponding java.time method with these args")))))))
+       ~xx)))
 
-(defn wrapper-tail [klazz method]
+(defn wrapper-tail [klazz method ext]
   (let [nam (method-name method)
         ret (return-type method)
         par (parameter-types method)
@@ -160,11 +162,11 @@
                   par)
         method-call (if static?
                       (list '. (symbol (.getName klazz)) (symbol nam))
-                      (instance-method nam))]
+                      (instance-method nam ext))]
     `(~(tagged arg-vec ret)
        (~@method-call ~@(map #(vary-meta % dissoc :tag) arg-vec)))))
 
-(defn method-wrapper-form [fname klazz methods]
+(defn method-wrapper-form [fname klazz methods ext]
   (let [arities (group-by parameter-count methods)
         static? (method-static? (first methods))]
     `(defn ~fname
@@ -173,8 +175,8 @@
                            parameter-types) methods)}
        ~@(map (fn [[cnt meths]]
                 (if (= 1 (count meths))
-                  (wrapper-tail klazz (first meths))
-                  (wrapper-multi-tail klazz meths)))
+                  (wrapper-tail klazz (first meths) ext)
+                  (wrapper-multi-tail klazz meths ext)))
            arities))))
 
 (defn methods-for-class [klazz]
@@ -184,9 +186,9 @@
        (remove (set (class-methods Object)))
        (group-by method-name)))
 
-(defn defwrapper [klazz & [prefix]]
+(defn defwrapper [klazz ext & [prefix]]
   (let [methods (methods-for-class klazz)]
     (do
       (for [[mname meths] methods
             :let [fname (symbol (str prefix (camel->kebab mname)))]]
-        (method-wrapper-form fname klazz meths)))))
+        (method-wrapper-form fname klazz meths ext)))))
