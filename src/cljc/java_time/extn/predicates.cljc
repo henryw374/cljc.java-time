@@ -1,5 +1,5 @@
 (ns cljc.java-time.extn.predicates
-  (:require #?(:cljs [java.time :refer [Clock
+  #?(:cljs (:require [java.time :refer [Clock
                                         DayOfWeek
                                         Duration
                                         Instant
