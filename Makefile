@@ -24,7 +24,7 @@ test-cljs:
 			rm -rf cljs-test-runner-out && mkdir -p cljs-test-runner-out/gen && clojure -Sverbose -Atest-cljs
 
 test:
-			make test-clj && make test-cljs
+			./test/bb_test.clj && make test-clj && make test-cljs
 
 pom:
 			rm pom.xml; clojure -Spom; echo "Now use git diff to add back in the non-generated bits of pom"

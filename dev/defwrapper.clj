@@ -90,20 +90,31 @@
            void    java.lang.Object}
       t t)))
 
-(defn tagged [value tag]
-  (let [tag (if (and (instance? Class tag) (.isArray ^Class tag))
-              (.getName (type tag)) ;`(array-class ~(primitive-class (class-name (.getComponentType ^Class tag))))
-              tag)]
-    (vary-meta value assoc :tag (ensure-boxed-long-double tag))))
+(defn joda-name [c]
+  (if (and
+        (instance? Class c)
+        (string/starts-with? (.getName c) "java.time"))
+    (symbol (str "js/JSJoda." (.getSimpleName c)))
+    (if (and (instance? Class c) (.isArray ^Class c))
+      (.getName (type c)) ;`(array-class ~(primitive-class (class-name (.getComponentType ^Class tag))))
+      c)))
+
+(defn tagged [value tag ext]
+  (if (= :clj ext)
+    (let [tag (if (and (instance? Class tag) (.isArray ^Class tag))
+                (.getName (type tag)) ;`(array-class ~(primitive-class (class-name (.getComponentType ^Class tag))))
+                tag)]
+      (vary-meta value assoc :tag (ensure-boxed-long-double tag)))
+    (vary-meta value assoc :tag (joda-name tag))))
 
 (defn instance-method [nm ext]
-  (if (and
+    (if (and
         (= :cljs ext)
-        (string/starts-with? nm "get")
-        (not= "getLong" (str nm))
-        (> (count (str nm)) 3))
-    (list  (let [[f & r] (subs (str nm) 3)]
-                     (symbol (apply str "." (string/lower-case f) r))))
+          (string/starts-with? nm "get")
+          (not= "getLong" (str nm))
+          (> (count (str nm)) 3))
+      (list (let [[f & r] (subs (str nm) 3)]
+              (symbol (apply str "." (string/lower-case f) r))))
     (list (symbol (str "." nm)))))
 
 (defn tagged-local [value tag]
@@ -121,6 +132,14 @@
       :else
       (vary-meta value assoc :tag (.getName tag)))))
 
+(defn method-call [static? klazz nam ext]
+  (if static?
+    (if (= :clj ext)
+      (list (symbol (str (.getName klazz) "/" nam)))
+      ; interop hints don't appear to be respected for 'static fns'
+      (list 'js-invoke (symbol (.getName klazz)) (symbol (str "\"" nam "\""))))
+    (instance-method nam ext)))
+
 (defn wrapper-multi-tail [klazz methods ext helpful?]
   (let [static? (method-static? (first methods))
         nam (method-name (first methods))
@@ -129,12 +148,10 @@
         ret (if (apply = (map return-type methods))
               (return-type (first methods))
               java.lang.Object)
-        method-call (if static?
-                      (list '. (symbol (.getName klazz)) (symbol nam))
-                      (instance-method nam ext))
+        method-call (method-call static? klazz nam ext)
         bod (if (= :cljs ext)
              `(~@method-call
-                ~@(when-not static? [(tagged this klazz)])
+                ~@(when-not static? [(tagged this klazz ext)])
                 ~@arg-vec)
              `(cond
                 ~@(mapcat
@@ -148,7 +165,7 @@
                                 arg-vec
                                 (parameter-types method))]
                         (~@method-call
-                          ~@(when-not static? [(tagged this klazz)])
+                          ~@(when-not static? [(tagged this klazz ext)])
                           ~@arg-vec))])
                   methods)
                 :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
@@ -157,7 +174,7 @@
                                   'cljc.java-time.extn.calendar-awareness/calendar-aware-cljs)
                  ~bod)
               bod)]
-    `(~(tagged `[~@(when-not static? [this]) ~@arg-vec] ret)
+    `(~(tagged `[~@(when-not static? [this]) ~@arg-vec] ret ext)
        ~bod)))
 
 (defn wrapper-tail [klazz method ext helpful?]
@@ -165,19 +182,17 @@
         ret (return-type method)
         par (parameter-types method)
         static? (method-static? method)
-        arg-vec (into (if static? [] [(tagged (gensym "this") klazz)])
-                  (map #(tagged (gensym (class->name %)) %))
+        arg-vec (into (if static? [] [(tagged (gensym "this") klazz ext)])
+                  (map #(tagged (gensym (class->name %)) % ext))
                   par)
-        method-call (if static?
-                      (list '. (symbol (.getName klazz)) (symbol nam))
-                      (instance-method nam ext))
+        method-call (method-call static? klazz nam ext)
         bod `(~@method-call ~@(map #(vary-meta % dissoc :tag) arg-vec))
         bod (if helpful?
               `(~(if (= :clj ext) 'cljc.java-time.extn.calendar-awareness/calendar-aware-clj
                                   'cljc.java-time.extn.calendar-awareness/calendar-aware-cljs)
                  ~bod)
               bod)]
-    `(~(tagged arg-vec ret)
+    `(~(tagged arg-vec ret ext)
        ~bod)))
 
 (defn method-wrapper-form [fname klazz methods ext helpful?]

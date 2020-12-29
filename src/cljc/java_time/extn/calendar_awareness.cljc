@@ -1,6 +1,9 @@
 (ns cljc.java-time.extn.calendar-awareness
   #?(:cljs (:require-macros [cljc.java-time.extn.calendar-awareness :refer [calendar-aware-cljs]]))
-  #?(:clj (:import (java.time.temporal UnsupportedTemporalTypeException))))
+  #?(:bb 
+     ; have to put something in bb branch I guess
+     (:import (java.time Instant))
+     :clj (:import (java.time.temporal UnsupportedTemporalTypeException))))
 
 (defn
   helpful-exception-messages?
@@ -27,8 +30,8 @@
     f
     `(try
        ~f
-       (catch UnsupportedTemporalTypeException e#
-         (throw (UnsupportedTemporalTypeException.
+       (catch #?(:bb Exception :clj UnsupportedTemporalTypeException) e#
+         (throw (#?(:bb Exception. :clj UnsupportedTemporalTypeException.)
                   (str ~helpful-exception-message
                     "\n original message " (.getMessage e#)
                     "\n cause of exception: " (-> (.getStackTrace e#) first
