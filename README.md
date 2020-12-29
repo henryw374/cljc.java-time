@@ -6,7 +6,9 @@
 
 A Clojure(Script) library which mirrors the java.time api through kebab-case-named vars.
 
-It also has predicates for each entity: `(cljc.java-time.extn.predicates/instant? x)`
+The java.time api is augmented with:
+* predicate functions for each entity type: `(cljc.java-time.extn.predicates/instant? x)`
+* more helpful error messages for unsupported operations on Instants 
 
 See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U) for more background.
 

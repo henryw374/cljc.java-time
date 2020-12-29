@@ -1,7 +1,10 @@
 (ns defwrapper
   "based on gist by @plexus"
   (:require [clojure.string :as string]
-            [medley.core :as m]))
+            [medley.core :as m]
+            [figwheel.main.logging :as log])
+  (:import (java.time.format DateTimeFormatter)
+           (java.time Instant)))
 
 (set! *warn-on-reflection* true)
 (set! *print-meta* true)
@@ -118,7 +121,7 @@
       :else
       (vary-meta value assoc :tag (.getName tag)))))
 
-(defn wrapper-multi-tail [klazz methods ext]
+(defn wrapper-multi-tail [klazz methods ext helpful?]
   (let [static? (method-static? (first methods))
         nam (method-name (first methods))
         this (gensym "this")
@@ -129,7 +132,7 @@
         method-call (if static?
                       (list '. (symbol (.getName klazz)) (symbol nam))
                       (instance-method nam ext))
-        xx (if (= :cljs ext)
+        bod (if (= :cljs ext)
              `(~@method-call
                 ~@(when-not static? [(tagged this klazz)])
                 ~@arg-vec)
@@ -148,11 +151,16 @@
                           ~@(when-not static? [(tagged this klazz)])
                           ~@arg-vec))])
                   methods)
-                :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))]
+                :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
+        bod (if helpful?
+              `(~(if (= :clj ext) 'cljc.java-time.extn.calendar-awareness/calendar-aware-clj
+                                  'cljc.java-time.extn.calendar-awareness/calendar-aware-cljs)
+                 ~bod)
+              bod)]
     `(~(tagged `[~@(when-not static? [this]) ~@arg-vec] ret)
-       ~xx)))
+       ~bod)))
 
-(defn wrapper-tail [klazz method ext]
+(defn wrapper-tail [klazz method ext helpful?]
   (let [nam (method-name method)
         ret (return-type method)
         par (parameter-types method)
@@ -162,11 +170,17 @@
                   par)
         method-call (if static?
                       (list '. (symbol (.getName klazz)) (symbol nam))
-                      (instance-method nam ext))]
+                      (instance-method nam ext))
+        bod `(~@method-call ~@(map #(vary-meta % dissoc :tag) arg-vec))
+        bod (if helpful?
+              `(~(if (= :clj ext) 'cljc.java-time.extn.calendar-awareness/calendar-aware-clj
+                                  'cljc.java-time.extn.calendar-awareness/calendar-aware-cljs)
+                 ~bod)
+              bod)]
     `(~(tagged arg-vec ret)
-       (~@method-call ~@(map #(vary-meta % dissoc :tag) arg-vec)))))
+       ~bod)))
 
-(defn method-wrapper-form [fname klazz methods ext]
+(defn method-wrapper-form [fname klazz methods ext helpful?]
   (let [arities (group-by parameter-count methods)
         static? (method-static? (first methods))]
     `(defn ~fname
@@ -175,8 +189,8 @@
                            parameter-types) methods)}
        ~@(map (fn [[cnt meths]]
                 (if (= 1 (count meths))
-                  (wrapper-tail klazz (first meths) ext)
-                  (wrapper-multi-tail klazz meths ext)))
+                  (wrapper-tail klazz (first meths) ext helpful?)
+                  (wrapper-multi-tail klazz meths ext helpful?)))
            arities))))
 
 (defn methods-for-class [klazz]
@@ -186,9 +200,21 @@
        (remove (set (class-methods Object)))
        (group-by method-name)))
 
+(def helpful-exceptions
+  {Instant           #{'minus
+                       'plus
+                       'range
+                       'until
+                       'from
+                       'adjust-into
+                       'with
+                       'get}
+   DateTimeFormatter #{'format}})
+
 (defn defwrapper [klazz ext & [prefix]]
-  (let [methods (methods-for-class klazz)]
+  (let [methods (methods-for-class klazz)
+        helpful-fns (get helpful-exceptions klazz)]
     (do
       (for [[mname meths] methods
             :let [fname (symbol (str prefix (camel->kebab mname)))]]
-        (method-wrapper-form fname klazz meths ext)))))
+        (method-wrapper-form fname klazz meths ext (contains? helpful-fns fname))))))

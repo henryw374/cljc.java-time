@@ -28,10 +28,10 @@ test:
 
 pom:
 			rm pom.xml; clojure -Spom; echo "Now use git diff to add back in the non-generated bits of pom"
+install:
+			rm -rf target && mvn install
 deploy:			
 			mvn deploy
-figwheel:
-			clj -R:dev -C:dev:dev-nrepl:dev-rebel:test -m figwheel.main --build tick --repl
 
 shadow:
 	npm install; npx shadow-cljs watch test

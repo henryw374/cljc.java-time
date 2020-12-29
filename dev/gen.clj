@@ -45,12 +45,19 @@
                                 TemporalField]))
 
  (defn header [class-name ns-name sub-p ext]
-   (list 'ns (symbol (str "cljc.java-time." (when sub-p (str sub-p ".")) ns-name))
-     (if (= :cljs ext)
-       (list :require
-         [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]])
-       (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))
-     (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next 'name 'resolve 'short])))
+   (let [req
+          (cond->
+              [:require
+               ['cljc.java-time.extn.calendar-awareness]]
+              (= :cljs ext) (conj [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]])
+            :always seq)]
+     (cond-> (vector 'ns (symbol (str "cljc.java-time." (when sub-p (str sub-p ".")) ns-name))
+               (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next 'name 'resolve 'short])
+               req)
+       (= :clj ext) (conj (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))
+       :always seq)))
+
+;(header 'Instant "foo" nil :cljs)
 
  (defn type-hint [x]
    (let [x (string/replace (str x) "<>" "")]
@@ -136,6 +143,7 @@
  (comment
 
    (generate-library-code!)
+   
    (require '[clojure.tools.namespace.repl :as rep])
    (rep/refresh-all)
 
