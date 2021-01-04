@@ -63,17 +63,16 @@ Version 0.1.9 and up require minimum Clojurescript version of 1.10.741
 
  
 In .cljc file
- ```
- (ns my.cljc
-   (:require  [cljc.java-time.local-date :as ld])
+```clj
+(ns my.cljc
+  (:require  [cljc.java-time.local-date :as ld])
    
-   ;create a date
-   (def a-date (ld/parse "2019-01-01"))
+;create a date
+(def a-date (ld/parse "2019-01-01"))
    
-   ;add some days
-   (ld/plus-days a-date 99)
-   
- ```
+;add some days
+(ld/plus-days a-date 99)
+```
  
 ## Problems & Irregularities
 
