@@ -84,13 +84,6 @@ inherited via superclasses or interfaces. In this project, functions are generat
 `cljc.java-time.temporal.temporal/is-supported` and also `cljc.java-time.local-date/is-supported`, with the latter being 
 essentially unnecessary but included anyway. 
  
-
-## Note
- 
-### Java 9 
-
-New methods were added in Java 9 - these are not included in this library
- 
 ### ClojureScript
 
 Be aware that the underlying js implementation is probably only 99% complete. Anything you find missing can be added via pull
