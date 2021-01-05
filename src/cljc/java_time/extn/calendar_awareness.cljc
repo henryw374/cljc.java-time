@@ -17,9 +17,11 @@
   )
 
 (def helpful-exception-message
-  "Hi there! - It looks like you might be trying to something with a java.time.Instant that would require it to be 'calendar-aware'.
-   You should know that java.time.Instant isn't calendar-aware and so has no facility with working 
-   with years, months, days etc. To get around that, consider converting the Instant to a 
+  "Hi there! - It looks like you might be trying to do something with a java.time.Instant that would require it to be 'calendar-aware',
+   but in fact Instant has no facility with working with years, months, days etc. Think of it as just 
+   a milli/nanosecond offset from the UNIX epoch.
+   
+   To get around this, consider converting the Instant to a 
    ZonedDateTime first or for formatting/parsing specifically, you might add a zone to your formatter.
     see https://stackoverflow.com/a/27483371/1700930. 
     
