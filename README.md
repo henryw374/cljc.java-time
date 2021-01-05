@@ -61,8 +61,6 @@ Get it from [Clojars](https://clojars.org/cljc.java-time)
 
 Version 0.1.9 and up require minimum Clojurescript version of 1.10.741
 
-Version 0.1.13 and up require Java 9+. (seems reasonable since java 8 is eol but raise an issue if it's a problem)
-
  
 In .cljc file
 ```clj
@@ -85,6 +83,15 @@ The code of this project consists of mechanically generated functions for the ja
 inherited via superclasses or interfaces. In this project, functions are generated in every class they can be applied to. For example there is
 `cljc.java-time.temporal.temporal/is-supported` and also `cljc.java-time.local-date/is-supported`, with the latter being 
 essentially unnecessary but included anyway. 
+ 
+
+## Note
+ 
+### Java 9 
+
+New methods were added in Java 9 - these are not included in this library because according
+to the [Clojure Survey](https://clojure.org/news/2020/02/20/state-of-clojure-2020) about half
+of Clojure users are still on Java 8 :(
  
 ### ClojureScript
 
