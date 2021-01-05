@@ -61,6 +61,8 @@ Get it from [Clojars](https://clojars.org/cljc.java-time)
 
 Version 0.1.9 and up require minimum Clojurescript version of 1.10.741
 
+Version 0.1.13 and up require Java 9+. (seems reasonable since java 8 is eol but raise an issue if it's a problem)
+
  
 In .cljc file
 ```clj
