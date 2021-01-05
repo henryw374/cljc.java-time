@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/clojure:tools-deps-1.10.1.763-node-browsers
+      - image: circleci/clojure:openjdk-11-tools-deps-node-browsers
         # https://discuss.circleci.com/t/builds-getting-killed-with-vague-message-received-signal-killed/10214/9
         command: "/bin/bash"
 
