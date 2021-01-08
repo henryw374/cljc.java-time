@@ -14,9 +14,9 @@ See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
 
 This library also works on [babashka](https://github.com/borkdude/babashka/)
 
-The new platform Date-Time lib being built for Javascript is being considered for adoption.
+The new platform Date-Time lib being built for Javascript is being considered for adoption,
 
-Some initial work has been done to implement java.time with that - [see here](https://github.com/henryw374/cljc.java-time/temporal/README.md) 
+Some initial work has been done to implement java.time with that - [see here](https://github.com/henryw374/cljc.java-time/tree/master/temporal) 
 
 see [wiki](https://github.com/henryw374/cljc.java-time/wiki)
 
