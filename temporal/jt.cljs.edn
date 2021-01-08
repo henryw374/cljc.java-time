@@ -1,0 +1,4 @@
+^{:auto-testing true
+  :open-url false
+  :watch-dirs ["src" "test"]}
+{:main cljc.java-time.temporal-test}
