@@ -2,6 +2,19 @@
   (:require [cljc.java-time.extn.predicates :as preds])
   (:refer-clojure :exclude [get range format min max next name resolve short]))
 
+(extend-protocol IEquiv
+  js/Temporal.PlainDate 
+  (-equiv [o other] (.equals ^js/TemporalThing o other)))
+
+(extend-protocol IHash
+  js/Temporal.PlainDate
+  (-hash [o] (hash (str o))))
+
+(extend-protocol IComparable
+  js/Temporal.PlainDate
+  (-compare [x y] (let [d (.-sign ^js/Temporal.Duration (.until ^js/TemporalThing x y))]
+                    (or (zero? d) (* -1 d)))))
+
 (clojure.core/defn now {:arglists (quote ([] ["java.time.ZoneId"] ["java.time.Clock"]))}
   ([] (js/Temporal.now.plainDateISO))
   ([^js/TemporalThing now-clock-or-zone]
@@ -33,7 +46,9 @@
 ;(clojure.core/defn get-year {:arglists (quote (["java.time.LocalDate"]))} (^int [^js/JSJoda.LocalDate this6262] (.year this6262)))
 ;(clojure.core/defn to-epoch-day {:arglists (quote (["java.time.LocalDate"]))} (^long [^js/JSJoda.LocalDate this6263] (.toEpochDay this6263)))
 ;(clojure.core/defn get-day-of-year {:arglists (quote (["java.time.LocalDate"]))} (^int [^js/JSJoda.LocalDate this6264] (.dayOfYear this6264)))
-;(clojure.core/defn plus {:arglists (quote (["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"]))} (^java.lang.Object [this6265 G__6266 G__6267] (.plus ^js/JSJoda.LocalDate this6265 G__6266 G__6267)) (^java.lang.Object [this6268 G__6269] (.plus ^js/JSJoda.LocalDate this6268 G__6269)))
+(clojure.core/defn plus {:arglists (quote (["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"]))} 
+  (^java.lang.Object [this6265 G__6266 G__6267] (.add ^js/JSJoda.LocalDate this6265 G__6266 G__6267)) 
+  (^java.lang.Object [this6268 G__6269] (.add ^js/JSJoda.LocalDate this6268 G__6269)))
 ;(clojure.core/defn is-leap-year {:arglists (quote (["java.time.LocalDate"]))} (^boolean [^js/JSJoda.LocalDate this6270] (.isLeapYear this6270)))
 ;(clojure.core/defn query {:arglists (quote (["java.time.LocalDate" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^js/JSJoda.LocalDate this6271 ^js/JSJoda.TemporalQuery java-time-temporal-TemporalQuery6272] (.query this6271 java-time-temporal-TemporalQuery6272)))
 ;(clojure.core/defn get-day-of-week {:arglists (quote (["java.time.LocalDate"]))} (^js/JSJoda.DayOfWeek [^js/JSJoda.LocalDate this6273] (.dayOfWeek this6273)))
@@ -41,7 +56,9 @@
 ;(clojure.core/defn plus-months {:arglists (quote (["java.time.LocalDate" "long"]))} (^js/JSJoda.LocalDate [^js/JSJoda.LocalDate this6275 ^long long6276] (.plusMonths this6275 long6276)))
 ;(clojure.core/defn is-before {:arglists (quote (["java.time.LocalDate" "java.time.chrono.ChronoLocalDate"]))} (^boolean [^js/JSJoda.LocalDate this6277 ^js/JSJoda.ChronoLocalDate java-time-chrono-ChronoLocalDate6278] (.isBefore this6277 java-time-chrono-ChronoLocalDate6278)))
 ;(clojure.core/defn minus-months {:arglists (quote (["java.time.LocalDate" "long"]))} (^js/JSJoda.LocalDate [^js/JSJoda.LocalDate this6279 ^long long6280] (.minusMonths this6279 long6280)))
-;(clojure.core/defn minus {:arglists (quote (["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"]))} (^java.lang.Object [this6281 G__6282 G__6283] (.minus ^js/JSJoda.LocalDate this6281 G__6282 G__6283)) (^java.lang.Object [this6284 G__6285] (.minus ^js/JSJoda.LocalDate this6284 G__6285)))
+(clojure.core/defn minus {:arglists (quote (["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"] ["java.time.LocalDate" "java.time.temporal.TemporalAmount"]))} 
+  (^java.lang.Object [this6281 G__6282 G__6283] (.subtract ^js/JSJoda.LocalDate this6281 G__6282 G__6283)) 
+  (^java.lang.Object [this6284 G__6285] (.subtract ^js/JSJoda.LocalDate this6284 G__6285)))
 ;(clojure.core/defn plus-days {:arglists (quote (["java.time.LocalDate" "long"]))} (^js/JSJoda.LocalDate [^js/JSJoda.LocalDate this6286 ^long long6287] (.plusDays this6286 long6287)))
 ;(clojure.core/defn get-long {:arglists (quote (["java.time.LocalDate" "java.time.temporal.TemporalField"]))} (^long [^js/JSJoda.LocalDate this6288 ^js/JSJoda.TemporalField java-time-temporal-TemporalField6289] (.getLong this6288 java-time-temporal-TemporalField6289)))
 ;(clojure.core/defn with-year {:arglists (quote (["java.time.LocalDate" "int"]))} (^js/JSJoda.LocalDate [^js/JSJoda.LocalDate this6290 ^int int6291] (.withYear this6290 int6291)))
