@@ -18,7 +18,7 @@ The new platform Date-Time lib being built for Javascript is being considered fo
 
 Some initial work has been done to implement java.time with that - [see here](https://github.com/henryw374/cljc.java-time/tree/master/temporal) 
 
-see [wiki](https://github.com/henryw374/cljc.java-time/wiki)
+More discussion on this in the [wiki](https://github.com/henryw374/cljc.java-time/wiki)
 
 ## Related Libraries
 
