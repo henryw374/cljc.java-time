@@ -24,4 +24,4 @@ Note - Temporal is still stage 2
 * start repl with dev profile
 * start figwheel from cljs ns 
 * open dev/public/index.html
-* run tests with `(cljs.test/run-all-tests)`
+* run tests in `cljc.java-time.all-tests` `(cljs.test/run-all-tests)`
