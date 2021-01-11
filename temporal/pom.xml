@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.widdindustries</groupId>
+  <artifactId>java-time.temporal</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>java-time.temporal</name>
+    <description>A Clojure(Script) library which provides the java.time api through kebab-case-named function vars.</description>
+    <url>https://github.com/henryw374/cljc.java-time</url>
+    <scm>
+        <url>https://github.com/henryw374/cljc.java-time</url>
+    </scm>
+  <dependencies>
+  </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>src</directory>
+            </resource>
+            <resource>
+                <directory>../java-time/src</directory>
+            </resource>
+            <resource>
+                <directory>../js-joda-and-java-time/src</directory>
+            </resource>
+        </resources>
+
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>clojars</id>
+            <name>Clojars repository</name>
+            <url>https://clojars.org/repo</url>
+        </repository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>clojars</id>
+            <url>https://repo.clojars.org/</url>
+        </repository>
+    </repositories>
+</project>

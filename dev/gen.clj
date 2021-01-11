@@ -88,7 +88,7 @@
     (println)))
 
 (defn get-and-write [c ext sub-p]
-  (let [f (str "./src/cljc/java_time/" (when sub-p (str sub-p "/")) (csk/->snake_case (.getSimpleName c)) "." (name ext))
+  (let [f (str "./" (if (= :clj ext) "java-time/src" "js-joda/src") "/cljc/java_time/" (when sub-p (str sub-p "/")) (csk/->snake_case (.getSimpleName c)) "." (name ext))
         _ (io/make-parents f)
         w (io/writer f)]
     (binding [*out* w]

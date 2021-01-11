@@ -1,40 +1,19 @@
-# Authoritative build rules for tick.
-
-# If you don't have GNU Make on your system, use this file as a
-# cribsheet for how to build various aspects of tick.
-
-STYLESDIR = ../asciidoctor-stylesheet-factory/stylesheets
-STYLESHEET = juxt.css
-
-.PHONY: 		watch default deploy test dev-docs-cljs
-
-default:		docs/index.html
-
-# Build the docs
-docs/index.html:	docs/*.adoc docs/docinfo*.html ${STYLESDIR}/${STYLESHEET}
-			asciidoctor -d book \
-			-a "webfonts!" \
-			-a stylesdir=../${STYLESDIR} \
-			-a stylesheet=${STYLESHEET} \
-			docs/index.adoc
+# Authoritative build rules for cljc.java-time
 
 test-clj:
-			clojure -Atest -e deprecated
-test-cljs:
-			rm -rf cljs-test-runner-out && mkdir -p cljs-test-runner-out/gen && clojure -Sverbose -Atest-cljs
+			cd js-joda && clojure -Mtest -d ../js-joda-and-java-time/test
+test-cljs-joda:
+			cd js-joda && rm -rf cljs-test-runner-out && mkdir -p cljs-test-runner-out/gen && clojure -Sverbose -Atest-cljs
 
 test:
-			./test/bb_test.clj && make test-clj && make test-cljs
+			./js-joda-and-java-time/test/bb_test.clj && make test-clj && make test-cljs-joda
 
-pom:
-			rm pom.xml; clojure -Spom; echo "Now use git diff to add back in the non-generated bits of pom"
-install:
-			rm -rf target && mvn install
-deploy:			
-			mvn deploy
-
-shadow:
-	npm install; npx shadow-cljs watch test
+pom-joda:
+			cd js-joda && rm pom.xml; clojure -Spom; echo "Now use git diff to add back in the non-generated bits of pom"
+install-joda:
+			cd js-joda && rm -rf target && mvn install
+deploy-joda:			
+			cd js-joda && mvn deploy
 
 # hooray for stackoverflow
 .PHONY: list
