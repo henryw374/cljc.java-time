@@ -1,0 +1,10 @@
+{:deps {
+        tick                      { ;:mvn/version "0.4.30-alpha"
+                                   :git/url "https://github.com/juxt/tick.git"
+                                   :sha "e684de0b514af4f686557053c376e82eacfbbcc6"
+                                   ;:local/root "../../tick"
+                                   :exclusions  [cljc.java-time]
+                                   }
+        cljc.java-time {:local/root "../temporal"}
+        
+        }}
