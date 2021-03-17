@@ -151,25 +151,28 @@
               java.lang.Object)
         method-call (method-call static? klazz nam ext)
         bod (if (= :cljs ext)
-              `(~@method-call
-                 ~@(when-not static? [(tagged this klazz ext)])
-                 ~@arg-vec)
-              `(cond
-                 ~@(mapcat
-                     (fn [method]
-                       `[(and ~@(map (fn [sym ^Class klz]
-                                       `(instance? (Class/forName ~(.getName (ensure-boxed (class-name klz)))) ~sym))
-                                  arg-vec
-                                  (parameter-types method)))
-                         (let [~@(mapcat (fn [sym ^Class klz]
-                                           [sym (tagged-local sym klz)])
-                                   arg-vec
-                                   (parameter-types method))]
-                           (~@method-call
-                             ~@(when-not static? [(tagged this klazz ext)])
-                             ~@arg-vec))])
-                     methods)
-                 :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
+             `(~@method-call
+                ~@(when-not static? [(tagged this klazz ext)])
+                ~@arg-vec)
+             `(cond
+                ~@(mapcat
+                  (fn [method]
+                    `[(and ~@(map (fn [sym ^Class klz]
+                                    (if (.isArray klz)
+                                       `(= ~(.getComponentType klz)
+                                          (.getComponentType (class ~sym)))
+                                       `(instance? ~(ensure-boxed (class-name klz)) ~sym)))
+                               arg-vec
+                               (parameter-types method)))
+                      (let [~@(mapcat (fn [sym ^Class klz]
+                                        [sym (tagged-local sym klz)])
+                                arg-vec
+                                (parameter-types method))]
+                        (~@method-call
+                          ~@(when-not static? [(tagged this klazz ext)])
+                          ~@arg-vec))])
+                  methods)
+                :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
         bod (if helpful?
               `(~(if (= :clj ext) 'cljc.java-time.extn.calendar-awareness/calendar-aware-clj
                                   'cljc.java-time.extn.calendar-awareness/calendar-aware-cljs)
