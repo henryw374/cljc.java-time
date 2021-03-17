@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
 
-      - run: clojure -Atest -e deprecated
+      - run: clojure -Mtest
       # need a few bits for cljs test - there must be a better way of including?
       - run: sudo npm install karma-cli -g
       - run: npm install karma --save-dev
