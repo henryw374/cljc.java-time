@@ -4,7 +4,8 @@
             [medley.core :as m]
             [figwheel.main.logging :as log])
   (:import (java.time.format DateTimeFormatter)
-           (java.time Instant)))
+           (java.time Instant)
+           (java.lang.reflect Modifier Method)))
 
 (set! *warn-on-reflection* true)
 (set! *print-meta* true)
@@ -108,13 +109,13 @@
     (vary-meta value assoc :tag (joda-name tag))))
 
 (defn instance-method [nm ext]
-    (if (and
+  (if (and
         (= :cljs ext)
-          (string/starts-with? nm "get")
-          (not= "getLong" (str nm))
-          (> (count (str nm)) 3))
-      (list (let [[f & r] (subs (str nm) 3)]
-              (symbol (apply str "." (string/lower-case f) r))))
+        (string/starts-with? nm "get")
+        (not= "getLong" (str nm))
+        (> (count (str nm)) 3))
+    (list (let [[f & r] (subs (str nm) 3)]
+            (symbol (apply str "." (string/lower-case f) r))))
     (list (symbol (str "." nm)))))
 
 (defn tagged-local [value tag]
@@ -150,25 +151,25 @@
               java.lang.Object)
         method-call (method-call static? klazz nam ext)
         bod (if (= :cljs ext)
-             `(~@method-call
-                ~@(when-not static? [(tagged this klazz ext)])
-                ~@arg-vec)
-             `(cond
-                ~@(mapcat
-                  (fn [method]
-                    `[(and ~@(map (fn [sym ^Class klz]
-                                    `(instance? (Class/forName ~(.getName (ensure-boxed (class-name klz)))) ~sym))
-                               arg-vec
-                               (parameter-types method)))
-                      (let [~@(mapcat (fn [sym ^Class klz]
-                                        [sym (tagged-local sym klz)])
-                                arg-vec
-                                (parameter-types method))]
-                        (~@method-call
-                          ~@(when-not static? [(tagged this klazz ext)])
-                          ~@arg-vec))])
-                  methods)
-                :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
+              `(~@method-call
+                 ~@(when-not static? [(tagged this klazz ext)])
+                 ~@arg-vec)
+              `(cond
+                 ~@(mapcat
+                     (fn [method]
+                       `[(and ~@(map (fn [sym ^Class klz]
+                                       `(instance? (Class/forName ~(.getName (ensure-boxed (class-name klz)))) ~sym))
+                                  arg-vec
+                                  (parameter-types method)))
+                         (let [~@(mapcat (fn [sym ^Class klz]
+                                           [sym (tagged-local sym klz)])
+                                   arg-vec
+                                   (parameter-types method))]
+                           (~@method-call
+                             ~@(when-not static? [(tagged this klazz ext)])
+                             ~@arg-vec))])
+                     methods)
+                 :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
         bod (if helpful?
               `(~(if (= :clj ext) 'cljc.java-time.extn.calendar-awareness/calendar-aware-clj
                                   'cljc.java-time.extn.calendar-awareness/calendar-aware-cljs)
@@ -208,10 +209,15 @@
                   (wrapper-multi-tail klazz meths ext helpful?)))
            arities))))
 
+
+(defn concrete? [^Method m]
+  (not (Modifier/isVolatile (.getModifiers m))))
+
 (defn methods-for-class [klazz]
   (->> klazz
        class-methods
        (filter method-public?)
+       (filter concrete?)
        (remove (set (class-methods Object)))
        (group-by method-name)))
 
@@ -233,3 +239,16 @@
       (for [[mname meths] methods
             :let [fname (symbol (str prefix (camel->kebab mname)))]]
         (method-wrapper-form fname klazz meths ext (contains? helpful-fns fname))))))
+
+(comment
+  (-> (methods-for-class java.time.LocalDateTime)
+      (get "toLocalDate")
+      ;last
+      ;(.getModifiers)
+      ;(Modifier/toString)
+      )
+
+  (-> (seq (.getDeclaredMethods java.time.LocalDateTime)))
+  (method-wrapper-form "foo" java.time.LocalDateTime
+    meths ext (contains? helpful-fns fname))
+  )
