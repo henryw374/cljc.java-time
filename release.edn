@@ -1,0 +1,3 @@
+{:group-id "cljc.java-time"
+ :artifact-id "cljc.java-time"
+ :scm-url "https://github.com/henryw374/cljc.java-time"}
