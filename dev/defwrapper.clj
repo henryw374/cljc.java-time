@@ -32,7 +32,10 @@
   (.getName method))
 
 (defn class-name [^Class klazz]
-  (symbol (.getName klazz)))
+  (let [original-name (.getName klazz)]
+    (symbol (if (= "java.time.temporal.TemporalUnit" (.getName klazz))
+              "java.time.temporal.ChronoUnit"
+              original-name))))
 
 (defn camel->kebab
   [string]
@@ -97,13 +100,13 @@
         (string/starts-with? (.getName c) "java.time"))
     (symbol (str "js/JSJoda." (.getSimpleName c)))
     (if (and (instance? Class c) (.isArray ^Class c))
-      (.getName (type c)) ;`(array-class ~(primitive-class (class-name (.getComponentType ^Class tag))))
+      (.getName (type c))
       c)))
 
 (defn tagged [value tag ext]
   (if (= :clj ext)
     (let [tag (if (and (instance? Class tag) (.isArray ^Class tag))
-                (.getName (type tag)) ;`(array-class ~(primitive-class (class-name (.getComponentType ^Class tag))))
+                (.getName (type tag))
                 tag)]
       (vary-meta value assoc :tag (ensure-boxed-long-double tag)))
     (vary-meta value assoc :tag (joda-name tag))))

@@ -97,6 +97,18 @@ of Clojure users are still on Java 8 :(
 
 Be aware that the underlying js implementation is probably only 99% complete. Anything you find missing can be added via pull
 request to [js-joda](https://github.com/js-joda/js-joda)
+
+## Development
+
+babashka
+
+for now... start babashka as follows
+
+deps -A:test -Scommand "bb -cp {{classpath}}" --socket-repl 1666'
+
+and run tests from the repl
+
+one cmd to do this would be preferable
  
 ## License
 

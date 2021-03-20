@@ -1,2 +1,0 @@
-{:paths ["src"]
- :deps {cljc.java-time/cljc.java-time {:local/root ".."}}}
