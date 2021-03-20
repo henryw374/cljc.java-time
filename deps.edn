@@ -1,6 +1,8 @@
 {:paths   ["src"]
  :deps    {cljs.java-time/cljs.java-time {:mvn/version "0.1.18"}}
- :aliases {:dev       {:extra-paths ["dev" "test"]
+ :aliases {:release     {:extra-deps {applied-science/deps-library {:mvn/version "RELEASE"}}
+                         :main-opts  ["-m" "applied-science.deps-library"]}
+           :dev       {:extra-paths ["dev" "test"]
                        :extra-deps  {medley/medley                       {:mvn/version "0.8.4"}
                                      camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.0"}
                                      org.clojure/tools.namespace         {:mvn/version "0.2.11"}

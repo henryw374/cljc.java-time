@@ -8,12 +8,10 @@ test-cljs:
 test:
 			make test-clj && make test-cljs
 
-pom:
-			rm pom.xml; clojure -Spom; echo "Now use git diff to add back in the non-generated bits of pom"
 install:
-			rm -rf target && mvn install
-deploy:			
-			mvn deploy
+			clojure -M:release install --version $(VERSION)
+deploy:
+			clojure -M:release --version $(VERSION)
 
 shadow:
 	npm install; npx shadow-cljs watch test
