@@ -14,7 +14,11 @@ See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
 
 This library also works on [babashka](https://github.com/borkdude/babashka/)
 
-The new platform Date-Time lib being built for Javascript is being considered for adoption. see [wiki](https://github.com/henryw374/cljc.java-time/wiki)
+Temporal, the [new JS platform Date-Time lib](https://github.com/tc39/proposal-temporal)
+has been considered for use as an alternative basis of this library instead of js-joda, but although it has
+some overlap with java.time, Temporal is different enough that implementing cljc.java-time would be very 
+difficult. For a dependency-free Clojure(Script) date-time API, see [Tempo](https://github.com/henryw374/tempo)
+
 
 ## Related Libraries
 
