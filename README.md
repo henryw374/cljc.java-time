@@ -93,7 +93,7 @@ essentially unnecessary but included anyway.
  
 ### Java 9 
 
-New methods were added in Java 9 - these are not included in this library because according
+A couple of new methods were added to `java.time` in Java 9 - these are not included in this library because according
 to the [Clojure Survey](https://clojure.org/news/2020/02/20/state-of-clojure-2020) about half
 of Clojure users are still on Java 8 :(
  
@@ -116,7 +116,6 @@ one cmd to do this would be preferable
  
 ## License
 
-Copyright © 2020 [Widd Industries](http://widdindustries.com/about/)
+Copyright © 2021 [Widd Industries](http://widdindustries.com/about/)
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the [MIT License](/LICENSE)
