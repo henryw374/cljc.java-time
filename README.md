@@ -10,6 +10,8 @@ The java.time api is augmented with:
 * predicate functions for each entity type: `(cljc.java-time.extn.predicates/instant? x)`
 * more helpful error messages for unsupported operations on Instants 
 
+This library uses a pure-JS implementation of java.time, see here [for discussion on whether that affects application performance or build size](https://widdindustries.com/clojurescript-datetime-lib-comparison/)
+
 See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U) for more background.
 
 This library also works on [babashka](https://github.com/borkdude/babashka/)
