@@ -42,7 +42,7 @@
                                TemporalQueries
                                TemporalUnit
                                ValueRange
-                               TemporalField]))
+                               TemporalField WeekFields]))
 
 (defn header [class-name ns-name sub-p ext]
   (let [req
@@ -84,7 +84,7 @@
               '(clojure.core/defn is-leap {:arglists (quote (["long"]))}
                  (^java.lang.Boolean [^long long57050] (. java.time.Year isLeap long57050)))
               f)]
-      (pr f))
+      (pr f))e
     (println)))
 
 (defn get-and-write [c ext sub-p]
@@ -122,6 +122,7 @@
                ChronoUnit
                ChronoField
                IsoFields
+               WeekFields
                TemporalAccessor
                TemporalAdjuster
                TemporalQuery
