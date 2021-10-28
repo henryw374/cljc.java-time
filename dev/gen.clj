@@ -49,7 +49,7 @@
         (cond->
           [:require
            ['cljc.java-time.extn.calendar-awareness]]
-          (= :cljs ext) (conj [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]])
+          (= :cljs ext) (conj [(symbol "goog.object")] [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]])
           :always seq)]
     (cond-> (vector 'ns (symbol (str "cljc.java-time." (when sub-p (str sub-p ".")) ns-name))
               (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next 'name 'resolve 'short])
@@ -84,7 +84,7 @@
               '(clojure.core/defn is-leap {:arglists (quote (["long"]))}
                  (^java.lang.Boolean [^long long57050] (. java.time.Year isLeap long57050)))
               f)]
-      (pr f))e
+      (pr f))
     (println)))
 
 (defn get-and-write [c ext sub-p]
