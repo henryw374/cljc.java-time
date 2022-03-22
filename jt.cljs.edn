@@ -1,4 +1,0 @@
-^{:auto-testing true
-  :open-url "http://localhost:9504"
-  :watch-dirs ["src" "test"]}
-{:main cljc.java-time-test}

@@ -1,6 +1,6 @@
 [![Clojars Project](https://img.shields.io/clojars/v/cljc.java-time.svg)](https://clojars.org/cljc.java-time)
 
-[![CircleCI](https://circleci.com/gh/henryw374/cljc.java-time.svg?style=svg)](https://circleci.com/gh/henryw374/cljc.java-time)
+[![Tests build](https://github.com/henryw374/cljc.java-time/actions/workflows/tests.yaml/badge.svg)](https://github.com/henryw374/cljc.java-time/actions/workflows/tests.yaml)
 
 # cljc.java-time
 

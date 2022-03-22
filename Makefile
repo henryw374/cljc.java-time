@@ -3,7 +3,7 @@
 test-clj:
 			clojure -Atest -e deprecated
 test-cljs:
-			rm -rf cljs-test-runner-out && mkdir -p cljs-test-runner-out/gen && clojure -Sverbose -Mtest-cljs
+			clojure -Atest-cljs -X com.widdindustries.tiadough-cljs2/tests-ci :compile-mode :release
 
 test:
 			make test-clj && make test-cljs
