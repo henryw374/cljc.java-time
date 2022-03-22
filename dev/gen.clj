@@ -52,7 +52,7 @@
           (= :cljs ext) (conj [(symbol "goog.object")] [(symbol (str "java.time" (when sub-p (str "." sub-p)))) :refer [class-name]])
           :always seq)]
     (cond-> (vector 'ns (symbol (str "cljc.java-time." (when sub-p (str sub-p ".")) ns-name))
-              (list :refer-clojure :exclude ['get 'range 'format 'min 'max 'next 'name 'resolve 'short])
+              (list :refer-clojure :exclude ['abs 'get 'range 'format 'min 'max 'next 'name 'resolve 'short])
               req)
       (= :clj ext) (conj (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))
       :always seq)))
