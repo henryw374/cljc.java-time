@@ -18,6 +18,9 @@
                                                                 :sha     "028a6d41ac9ac5d5c405dfc38e4da6b4cc1255d5"}}
                        :main-opts   ["-m" "cognitect.test-runner"]}
            :test-cljs {:extra-paths ["dev " "test" "web-target"]
-                       :extra-deps  {com.widdindustries/tiadough 
-                                     {:local/root "tiadough-cljs2"}}}
-                       }}
+                       :extra-deps  {com.widdindustries/tiado-cljs2
+                                     { ;:local/root "../shadow-template" 
+                                      :git/url "https://github.com/henryw374/tiado-cljs2.git"
+                                      :sha "154df5d3b4871d04abb036c031124b01eb92c7a0"
+                                      }}}
+           }}

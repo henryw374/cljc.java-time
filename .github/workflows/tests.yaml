@@ -1,6 +1,6 @@
 # https://practical.li/clojure/continuous-integration/github-actions/
 name: Tests build
-on: [push]
+on: [push, pull_request]
 jobs:
   clojure:
     runs-on: ubuntu-latest
@@ -27,4 +27,4 @@ jobs:
         uses: browser-actions/setup-chrome@latest
         
       - name: Run Cljs Unit tests  
-        run: mkdir -p web-target/public && make test-cljs        
+        run: make test-cljs-shadow        
