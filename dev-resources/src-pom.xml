@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+    <organization>
+        <name>Widd Industries Ltd</name>
+        <url>http://widdindustries.com</url>
+    </organization>
+    <description>Provides the full java-time API to Clojure and Clojurescript</description>
+    <url>https://github.com/henryw374/cljc.java-time</url>
+    <licenses>
+        <license>
+            <url>http://opensource.org/licenses/MIT</url>
+            <name>MIT</name>
+            <comments/>
+        </license>
+    </licenses>
+    <packaging>jar</packaging>
+    <scm>
+    <url>https://github.com/henryw374/cljc.java-time</url>
+    <connection>scm:git:git@github.com:henryw374/cljc.java-time.git</connection>
+    <developerConnection>scm:git:git@github.com:henryw374/cljc.java-time.git</developerConnection>
+  </scm>
+    <distributionManagement>
+        <repository>
+            <id>clojars</id>
+            <name>Clojars repository</name>
+            <url>https://clojars.org/repo</url>
+        </repository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>clojars</id>
+            <url>https://repo.clojars.org/</url>
+        </repository>
+    </repositories>
+</project>

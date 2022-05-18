@@ -3,8 +3,10 @@
                                           ;:git/url "https://github.com/henryw374/cljs.java-time.git"
                                           ;:sha "a0c35ba6c49916f0f9f5e72c050f08c49f1505ac"
                                           }}
- :aliases {:release   {:extra-deps {applied-science/deps-library {:mvn/version "RELEASE"}}
-                       :main-opts  ["-m" "applied-science.deps-library"]}
+ :aliases {:build {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}
+                                   io.github.clojure/tools.build {:git/tag "v0.8.2" :git/sha "ba1a2bf"}}
+                      :paths ["dev"]
+                      :ns-default build}
            :dev       {:extra-paths ["dev" "test"]
                        :extra-deps  {medley/medley                       {:mvn/version "0.8.4"}
                                      camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.0"}

@@ -1,4 +1,5 @@
-[![Clojars Project](https://img.shields.io/clojars/v/cljc.java-time.svg)](https://clojars.org/cljc.java-time)
+[![Clojars Project](https://img.shields.io/clojars/v/com.widdindustries/cljc.java-time.svg)](https://clojars.org/com.widdindustries/cljc.java-time)
+
 
 [![Tests build](https://github.com/henryw374/cljc.java-time/actions/workflows/tests.yaml/badge.svg)](https://github.com/henryw374/cljc.java-time/actions/workflows/tests.yaml)
 
