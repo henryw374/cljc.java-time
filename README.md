@@ -82,6 +82,21 @@ In .cljc file
 ;add some days
 (ld/plus-days a-date 99)
 ```
+
+Roundtripping with with legacy Date
+```clj 
+
+(require '[cljc.java-time.instant :as i])
+
+;cljs
+(-> (js/Date.) (.getTime) (i/of-epoch-milli) (i/to-epoch-milli) (js/Date.))
+
+;clj 
+(-> (Date.) (.getTime) (i/of-epoch-milli) (i/to-epoch-milli) (Date.))
+
+
+
+```
  
 ## Problems & Irregularities
 
