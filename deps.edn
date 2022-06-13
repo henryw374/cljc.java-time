@@ -23,6 +23,6 @@
                        :extra-deps  {com.widdindustries/tiado-cljs2
                                      { ;:local/root "../shadow-template" 
                                       :git/url "https://github.com/henryw374/tiado-cljs2.git"
-                                      :sha "154df5d3b4871d04abb036c031124b01eb92c7a0"
+                                      :sha "fbd9f3b8df3523ccf11bbc685836ce7f96f18068"
                                       }}}
            }}
