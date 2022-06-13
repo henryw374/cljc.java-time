@@ -1,5 +1,5 @@
 (ns cljs
-  (:require [com.widdindustries.tiadough-cljs2 :as util]))
+  (:require [com.widdindustries.tiado-cljs2 :as util]))
 
 (defn test-watch []
   (util/browser-test-build :watch {}))
