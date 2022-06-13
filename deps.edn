@@ -1,8 +1,5 @@
 {:paths   ["src"]
- :deps    {cljs.java-time/cljs.java-time {:mvn/version "0.1.19"
-                                          ;:git/url "https://github.com/henryw374/cljs.java-time.git"
-                                          ;:sha "a0c35ba6c49916f0f9f5e72c050f08c49f1505ac"
-                                          }}
+ :deps    {com.widdindustries/cljs.java-time {:mvn/version "0.1.20"}}
  :aliases {:build {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}
                                    io.github.clojure/tools.build {:git/tag "v0.8.2" :git/sha "ba1a2bf"}}
                       :paths ["dev"]

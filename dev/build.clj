@@ -14,7 +14,9 @@
 (def jar-file (format "target/%s-%s.jar" (name lib) version))
 
 (defn clean [_]
-  (b/delete {:path "target"}))
+  (b/delete {:path "target"})
+  (sh/sh "rm" "-rf" "web-target/public/*")
+  )
 
 (defn jar [_]
   (b/write-pom {:src-pom "dev-resources/src-pom.xml"
