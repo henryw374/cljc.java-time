@@ -66,11 +66,10 @@ Instance methods take the instance as the extra first arg
 
 ## Usage
 
-Get it from [Clojars](https://clojars.org/cljc.java-time)
+Clojars badge is at the top of this README
 
 Version 0.1.9 and up require minimum Clojurescript version of 1.10.741
 
- 
 In .cljc file
 ```clj
 (ns my.cljc
