@@ -101,7 +101,7 @@ Roundtripping with with legacy Date
 
 java.time.Year#isLeap exists as an instance method and a static method. Only the static version has been wrapped.
 
-### Inheritcance/Polymorphism 
+### Inheritance/Polymorphism 
 The code of this project consists of mechanically generated functions for the java.time methods, even if those methods are 
 inherited via superclasses or interfaces. In this project, functions are generated in every class they can be applied to. For example there is
 `cljc.java-time.temporal.temporal/is-supported` and also `cljc.java-time.local-date/is-supported`, with the latter being 
@@ -147,7 +147,9 @@ in shadow and run tests.
 
 Start babashka as follows
 
+```
 deps -A:test -Scommand "bb -cp {{classpath}}" --socket-repl 1666'
+```
 
 and run tests from the repl
 
