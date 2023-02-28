@@ -82,7 +82,7 @@ In .cljc file
 (ld/plus-days a-date 99)
 ```
 
-Roundtripping with with legacy Date
+Roundtripping with legacy Date
 ```clj 
 
 (require '[cljc.java-time.instant :as i])
