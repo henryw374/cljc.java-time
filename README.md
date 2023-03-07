@@ -95,7 +95,7 @@ Roundtripping with legacy Date
 Here is how to get to a babashka (v 1.2.174+) repl with tick:
 
 ```
-export BABASHKA_CLASSPATH=$(clojure -Spath -Sdeps '{:deps {tick/tick {:mvn/version "0.6.0"}}}')
+export BABASHKA_CLASSPATH=$(clojure -Spath -Sdeps '{:deps {com.widdindustries/cljc.java-time {:mvn/version "RELEASE"}}}')
 
 bb
 ```
