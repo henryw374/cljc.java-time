@@ -14,10 +14,6 @@ This library uses a pure-JS implementation of java.time, see here [for discussio
 
 See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U) for more background.
 
-This library mostly works on [babashka](https://github.com/borkdude/babashka/). Only 'mostly'
- because babashka doesn't include all classes from java.time. TemporalQuery for example. If a 
- namespace that uses TemporalQuery is required, an error is thrown. 
-
 Temporal, the [new JS platform Date-Time lib](https://github.com/tc39/proposal-temporal)
 has been considered for use as an alternative basis of this library instead of js-joda, but although it has
 some overlap with java.time, Temporal is different enough that implementing cljc.java-time would be very 
@@ -94,9 +90,16 @@ Roundtripping with legacy Date
 ;clj 
 (-> (Date.) (.getTime) (i/of-epoch-milli) (i/to-epoch-milli) (Date.))
 
+```
 
+Here is how to get to a babashka (v 1.2.174+) repl with tick:
 
 ```
+export BABASHKA_CLASSPATH=$(clojure -Spath -Sdeps '{:deps {tick/tick {:mvn/version "0.6.0"}}}')
+
+bb
+```
+
  
 ## Problems & Irregularities
 
