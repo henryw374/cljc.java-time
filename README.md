@@ -1,7 +1,6 @@
 [![Clojars Project](https://img.shields.io/clojars/v/com.widdindustries/cljc.java-time.svg)](https://clojars.org/com.widdindustries/cljc.java-time)
-
-
 [![Tests build](https://github.com/henryw374/cljc.java-time/actions/workflows/tests.yaml/badge.svg)](https://github.com/henryw374/cljc.java-time/actions/workflows/tests.yaml)
+[![bb compatible](https://raw.githubusercontent.com/babashka/babashka/master/logo/badge.svg)](https://babashka.org)
 
 # cljc.java-time
 
@@ -69,6 +68,8 @@ Instance methods take the instance as the extra first arg
 Clojars badge is at the top of this README
 
 Version 0.1.9 and up require minimum Clojurescript version of 1.10.741
+
+If using cljsjs, add [js-joda](https://clojars.org/henryw374/js-joda) and [js-joda-locale-en-us](https://clojars.org/henryw374/js-joda-locale-en-us) to your dependencies as well
 
 In .cljc file
 ```clj
