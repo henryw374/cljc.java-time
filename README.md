@@ -1,6 +1,6 @@
 [![Clojars Project](https://img.shields.io/clojars/v/com.widdindustries/cljc.java-time.svg)](https://clojars.org/com.widdindustries/cljc.java-time)
 [![Tests build](https://github.com/henryw374/cljc.java-time/actions/workflows/tests.yaml/badge.svg)](https://github.com/henryw374/cljc.java-time/actions/workflows/tests.yaml)
-[![bb compatible](https://raw.githubusercontent.com/babashka/babashka/master/logo/badge.svg)](https://babashka.org)
+[![bb compatible](https://raw.githubusercontent.com/babashka/babashka/master/logo/badge.svg)](https://book.babashka.org#badges)
 
 # cljc.java-time
 
