@@ -17,7 +17,7 @@ See [my talk at Clojure/North 2019](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
 Temporal, the [new JS platform Date-Time lib](https://github.com/tc39/proposal-temporal)
 has been considered for use as an alternative basis of this library instead of js-joda, but although it has
 some overlap with java.time, Temporal is different enough that implementing cljc.java-time would be very 
-difficult. For a dependency-free Clojure(Script) date-time API, see [Tempo](https://github.com/henryw374/tempo)
+difficult. For a dependency-free Clojure(Script) date-time API, see [Chronos](https://github.com/henryw374/chronos)
 
 
 ## Related Libraries
