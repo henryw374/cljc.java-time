@@ -42,10 +42,10 @@
 
 (clojure.core/defn value-of
   {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
-  (^java.time.temporal.ChronoUnit [^java.lang.String arg0]
-   (java.time.temporal.ChronoUnit/valueOf arg0))
-  (^java.lang.Enum [^java.lang.Class arg0 ^java.lang.String arg1]
-   (java.time.temporal.ChronoUnit/valueOf arg0 arg1)))
+  (^java.time.temporal.ChronoUnit [^java.lang.String name]
+   (java.time.temporal.ChronoUnit/valueOf name))
+  (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
+   (java.time.temporal.ChronoUnit/valueOf enum-type name)))
 
 (clojure.core/defn ordinal
   {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
@@ -69,8 +69,8 @@
 
 (clojure.core/defn add-to
   {:arglists (quote (["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "long"]))}
-  (^java.time.temporal.Temporal [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal arg0 ^long arg1]
-   (.addTo this arg0 arg1)))
+  (^java.time.temporal.Temporal [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal ^long amount]
+   (.addTo this temporal amount)))
 
 (clojure.core/defn name
   {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
@@ -79,8 +79,8 @@
 
 (clojure.core/defn is-supported-by
   {:arglists (quote (["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal"]))}
-  (^java.lang.Boolean [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal arg0]
-   (.isSupportedBy this arg0)))
+  (^java.lang.Boolean [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal]
+   (.isSupportedBy this temporal)))
 
 (clojure.core/defn get-declaring-class
   {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
@@ -89,8 +89,10 @@
 
 (clojure.core/defn between
   {:arglists (quote (["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "java.time.temporal.Temporal"]))}
-  (^long [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal arg0 ^java.time.temporal.Temporal arg1]
-   (.between this arg0 arg1)))
+  (^long
+   [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal1-inclusive
+    ^java.time.temporal.Temporal temporal2-exclusive]
+   (.between this temporal1-inclusive temporal2-exclusive)))
 
 (clojure.core/defn hash-code
   {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
@@ -99,8 +101,8 @@
 
 (clojure.core/defn compare-to
   {:arglists (quote (["java.time.temporal.ChronoUnit" "java.lang.Enum"]))}
-  (^java.lang.Integer [^java.time.temporal.ChronoUnit this ^java.lang.Enum arg0]
-   (.compareTo this arg0)))
+  (^java.lang.Integer [^java.time.temporal.ChronoUnit this ^java.lang.Enum o]
+   (.compareTo this o)))
 
 (clojure.core/defn get-duration
   {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
@@ -109,8 +111,8 @@
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.temporal.ChronoUnit" "java.lang.Object"]))}
-  (^java.lang.Boolean [^java.time.temporal.ChronoUnit this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^java.lang.Boolean [^java.time.temporal.ChronoUnit this ^java.lang.Object other]
+   (.equals this other)))
 
 (clojure.core/defn is-time-based
   {:arglists (quote (["java.time.temporal.ChronoUnit"]))}

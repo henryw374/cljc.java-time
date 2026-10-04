@@ -9,18 +9,18 @@
 
 (clojure.core/defn minus-minutes
   {:arglists (quote (["java.time.OffsetTime" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0]
-   (.minusMinutes this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long minutes]
+   (.minusMinutes this minutes)))
 
 (clojure.core/defn truncated-to
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalUnit"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.ChronoUnit arg0]
-   (.truncatedTo this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.ChronoUnit unit]
+   (.truncatedTo this unit)))
 
 (clojure.core/defn range
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))}
-  (^java.time.temporal.ValueRange [^java.time.OffsetTime this ^java.time.temporal.TemporalField arg0]
-   (.range this arg0)))
+  (^java.time.temporal.ValueRange [^java.time.OffsetTime this ^java.time.temporal.TemporalField field]
+   (.range this field)))
 
 (clojure.core/defn get-hour
   {:arglists (quote (["java.time.OffsetTime"]))}
@@ -29,22 +29,22 @@
 
 (clojure.core/defn minus-hours
   {:arglists (quote (["java.time.OffsetTime" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0]
-   (.minusHours this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long hours]
+   (.minusHours this hours)))
 
 (clojure.core/defn of
   {:arglists (quote (["java.time.LocalTime" "java.time.ZoneOffset"] ["int" "int" "int" "int" "java.time.ZoneOffset"]))}
-  (^java.time.OffsetTime [^java.time.LocalTime arg0 ^java.time.ZoneOffset arg1]
-   (java.time.OffsetTime/of arg0 arg1))
+  (^java.time.OffsetTime [^java.time.LocalTime time ^java.time.ZoneOffset offset]
+   (java.time.OffsetTime/of time offset))
   (^java.time.OffsetTime
-   [^java.lang.Integer arg0 ^java.lang.Integer arg1 ^java.lang.Integer arg2 ^java.lang.Integer arg3
-    ^java.time.ZoneOffset arg4]
-   (java.time.OffsetTime/of arg0 arg1 arg2 arg3 arg4)))
+   [^java.lang.Integer hour ^java.lang.Integer minute ^java.lang.Integer second ^java.lang.Integer nano-of-second
+    ^java.time.ZoneOffset offset]
+   (java.time.OffsetTime/of hour minute second nano-of-second offset)))
 
 (clojure.core/defn is-equal
   {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))}
-  (^java.lang.Boolean [^java.time.OffsetTime this ^java.time.OffsetTime arg0]
-   (.isEqual this arg0)))
+  (^java.lang.Boolean [^java.time.OffsetTime this ^java.time.OffsetTime other]
+   (.isEqual this other)))
 
 (clojure.core/defn get-nano
   {:arglists (quote (["java.time.OffsetTime"]))}
@@ -53,8 +53,8 @@
 
 (clojure.core/defn minus-seconds
   {:arglists (quote (["java.time.OffsetTime" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0]
-   (.minusSeconds this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long seconds]
+   (.minusSeconds this seconds)))
 
 (clojure.core/defn get-second
   {:arglists (quote (["java.time.OffsetTime"]))}
@@ -63,46 +63,46 @@
 
 (clojure.core/defn plus-nanos
   {:arglists (quote (["java.time.OffsetTime" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0]
-   (.plusNanos this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long nanos]
+   (.plusNanos this nanos)))
 
 (clojure.core/defn plus
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAmount"]
                      ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.TemporalAmount arg0]
-   (.plus this arg0))
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0 ^java.time.temporal.ChronoUnit arg1]
-   (.plus this arg0 arg1)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.TemporalAmount amount-to-add]
+   (.plus this amount-to-add))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long amount-to-add ^java.time.temporal.ChronoUnit unit]
+   (.plus this amount-to-add unit)))
 
 (clojure.core/defn with-hour
   {:arglists (quote (["java.time.OffsetTime" "int"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.lang.Integer arg0]
-   (.withHour this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.lang.Integer hour]
+   (.withHour this hour)))
 
 (clojure.core/defn with-minute
   {:arglists (quote (["java.time.OffsetTime" "int"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.lang.Integer arg0]
-   (.withMinute this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.lang.Integer minute]
+   (.withMinute this minute)))
 
 (clojure.core/defn plus-minutes
   {:arglists (quote (["java.time.OffsetTime" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0]
-   (.plusMinutes this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long minutes]
+   (.plusMinutes this minutes)))
 
 (clojure.core/defn query
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalQuery"]))}
-  (^java.lang.Object [^java.time.OffsetTime this ^java.time.temporal.TemporalQuery arg0]
-   (.query this arg0)))
+  (^java.lang.Object [^java.time.OffsetTime this ^java.time.temporal.TemporalQuery query]
+   (.query this query)))
 
 (clojure.core/defn at-date
   {:arglists (quote (["java.time.OffsetTime" "java.time.LocalDate"]))}
-  (^java.time.OffsetDateTime [^java.time.OffsetTime this ^java.time.LocalDate arg0]
-   (.atDate this arg0)))
+  (^java.time.OffsetDateTime [^java.time.OffsetTime this ^java.time.LocalDate date]
+   (.atDate this date)))
 
 (clojure.core/defn with-offset-same-instant
   {:arglists (quote (["java.time.OffsetTime" "java.time.ZoneOffset"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.ZoneOffset arg0]
-   (.withOffsetSameInstant this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.ZoneOffset offset]
+   (.withOffsetSameInstant this offset)))
 
 (clojure.core/defn to-string
   {:arglists (quote (["java.time.OffsetTime"]))}
@@ -111,21 +111,21 @@
 
 (clojure.core/defn is-before
   {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))}
-  (^java.lang.Boolean [^java.time.OffsetTime this ^java.time.OffsetTime arg0]
-   (.isBefore this arg0)))
+  (^java.lang.Boolean [^java.time.OffsetTime this ^java.time.OffsetTime other]
+   (.isBefore this other)))
 
 (clojure.core/defn minus
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAmount"]
                      ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.TemporalAmount arg0]
-   (.minus this arg0))
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0 ^java.time.temporal.ChronoUnit arg1]
-   (.minus this arg0 arg1)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.TemporalAmount amount-to-subtract]
+   (.minus this amount-to-subtract))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long amount-to-subtract ^java.time.temporal.ChronoUnit unit]
+   (.minus this amount-to-subtract unit)))
 
 (clojure.core/defn plus-hours
   {:arglists (quote (["java.time.OffsetTime" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0]
-   (.plusHours this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long hours]
+   (.plusHours this hours)))
 
 (clojure.core/defn to-local-time
   {:arglists (quote (["java.time.OffsetTime"]))}
@@ -134,8 +134,8 @@
 
 (clojure.core/defn get-long
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))}
-  (^long [^java.time.OffsetTime this ^java.time.temporal.TemporalField arg0]
-   (.getLong this arg0)))
+  (^long [^java.time.OffsetTime this ^java.time.temporal.TemporalField field]
+   (.getLong this field)))
 
 (clojure.core/defn get-offset
   {:arglists (quote (["java.time.OffsetTime"]))}
@@ -144,56 +144,58 @@
 
 (clojure.core/defn with-nano
   {:arglists (quote (["java.time.OffsetTime" "int"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.lang.Integer arg0]
-   (.withNano this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.lang.Integer nano-of-second]
+   (.withNano this nano-of-second)))
 
 (clojure.core/defn until
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
-  (^long [^java.time.OffsetTime this ^java.time.temporal.Temporal arg0 ^java.time.temporal.ChronoUnit arg1]
-   (.until this arg0 arg1)))
+  (^long [^java.time.OffsetTime this ^java.time.temporal.Temporal end-exclusive ^java.time.temporal.ChronoUnit unit]
+   (.until this end-exclusive unit)))
 
 (clojure.core/defn with-offset-same-local
   {:arglists (quote (["java.time.OffsetTime" "java.time.ZoneOffset"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.ZoneOffset arg0]
-   (.withOffsetSameLocal this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.ZoneOffset offset]
+   (.withOffsetSameLocal this offset)))
 
 (clojure.core/defn from
   {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
-  (^java.time.OffsetTime [^java.time.temporal.TemporalAccessor arg0]
-   (java.time.OffsetTime/from arg0)))
+  (^java.time.OffsetTime [^java.time.temporal.TemporalAccessor temporal]
+   (java.time.OffsetTime/from temporal)))
 
 (clojure.core/defn is-after
   {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))}
-  (^java.lang.Boolean [^java.time.OffsetTime this ^java.time.OffsetTime arg0]
-   (.isAfter this arg0)))
+  (^java.lang.Boolean [^java.time.OffsetTime this ^java.time.OffsetTime other]
+   (.isAfter this other)))
 
 (clojure.core/defn minus-nanos
   {:arglists (quote (["java.time.OffsetTime" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0]
-   (.minusNanos this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long nanos]
+   (.minusNanos this nanos)))
 
 (clojure.core/defn is-supported
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]
                      ["java.time.OffsetTime" "java.time.temporal.TemporalUnit"]))}
   (^java.lang.Boolean [this arg0]
-   (clojure.core/cond
-     (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalField arg0))
-       (clojure.core/let [arg0 ^"java.time.temporal.TemporalField" arg0] (.isSupported ^java.time.OffsetTime this arg0))
-     (clojure.core/and (clojure.core/instance? java.time.temporal.ChronoUnit arg0))
-       (clojure.core/let [arg0 ^"java.time.temporal.ChronoUnit" arg0] (.isSupported ^java.time.OffsetTime this arg0))
-     :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
+   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalField arg0))
+                        (clojure.core/let [field ^"java.time.temporal.TemporalField" arg0]
+                          (.isSupported ^java.time.OffsetTime this field))
+                      (clojure.core/and (clojure.core/instance? java.time.temporal.ChronoUnit arg0))
+                        (clojure.core/let [unit ^"java.time.temporal.ChronoUnit" arg0]
+                          (.isSupported ^java.time.OffsetTime this unit))
+                      :else (throw (java.lang.IllegalArgumentException.
+                                     "no corresponding java.time method with these args")))))
 
 (clojure.core/defn parse
   {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
-  (^java.time.OffsetTime [^java.lang.CharSequence arg0]
-   (java.time.OffsetTime/parse arg0))
-  (^java.time.OffsetTime [^java.lang.CharSequence arg0 ^java.time.format.DateTimeFormatter arg1]
-   (java.time.OffsetTime/parse arg0 arg1)))
+  (^java.time.OffsetTime [^java.lang.CharSequence text]
+   (java.time.OffsetTime/parse text))
+  (^java.time.OffsetTime [^java.lang.CharSequence text ^java.time.format.DateTimeFormatter formatter]
+   (java.time.OffsetTime/parse text formatter)))
 
 (clojure.core/defn with-second
   {:arglists (quote (["java.time.OffsetTime" "int"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.lang.Integer arg0]
-   (.withSecond this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.lang.Integer second]
+   (.withSecond this second)))
 
 (clojure.core/defn get-minute
   {:arglists (quote (["java.time.OffsetTime"]))}
@@ -207,16 +209,16 @@
 
 (clojure.core/defn adjust-into
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.Temporal"]))}
-  (^java.time.temporal.Temporal [^java.time.OffsetTime this ^java.time.temporal.Temporal arg0]
-   (.adjustInto this arg0)))
+  (^java.time.temporal.Temporal [^java.time.OffsetTime this ^java.time.temporal.Temporal temporal]
+   (.adjustInto this temporal)))
 
 (clojure.core/defn with
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAdjuster"]
                      ["java.time.OffsetTime" "java.time.temporal.TemporalField" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.TemporalAdjuster arg0]
-   (.with this arg0))
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.TemporalField arg0 ^long arg1]
-   (.with this arg0 arg1)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.TemporalAdjuster adjuster]
+   (.with this adjuster))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^java.time.temporal.TemporalField field ^long new-value]
+   (.with this field new-value)))
 
 (clojure.core/defn now
   {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
@@ -224,38 +226,38 @@
    (java.time.OffsetTime/now))
   (^java.time.OffsetTime [arg0]
    (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.Clock arg0))
-                        (clojure.core/let [arg0 ^"java.time.Clock" arg0] (java.time.OffsetTime/now arg0))
+                        (clojure.core/let [clock ^"java.time.Clock" arg0] (java.time.OffsetTime/now clock))
                       (clojure.core/and (clojure.core/instance? java.time.ZoneId arg0))
-                        (clojure.core/let [arg0 ^"java.time.ZoneId" arg0] (java.time.OffsetTime/now arg0))
+                        (clojure.core/let [zone ^"java.time.ZoneId" arg0] (java.time.OffsetTime/now zone))
                       :else (throw (java.lang.IllegalArgumentException.
                                      "no corresponding java.time method with these args")))))
 
 (clojure.core/defn compare-to
   {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))}
-  (^java.lang.Integer [^java.time.OffsetTime this ^java.time.OffsetTime arg0]
-   (.compareTo this arg0)))
+  (^java.lang.Integer [^java.time.OffsetTime this ^java.time.OffsetTime other]
+   (.compareTo this other)))
 
 (clojure.core/defn of-instant
   {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))}
-  (^java.time.OffsetTime [^java.time.Instant arg0 ^java.time.ZoneId arg1]
-   (java.time.OffsetTime/ofInstant arg0 arg1)))
+  (^java.time.OffsetTime [^java.time.Instant instant ^java.time.ZoneId zone]
+   (java.time.OffsetTime/ofInstant instant zone)))
 
 (clojure.core/defn plus-seconds
   {:arglists (quote (["java.time.OffsetTime" "long"]))}
-  (^java.time.OffsetTime [^java.time.OffsetTime this ^long arg0]
-   (.plusSeconds this arg0)))
+  (^java.time.OffsetTime [^java.time.OffsetTime this ^long seconds]
+   (.plusSeconds this seconds)))
 
 (clojure.core/defn get
   {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))}
-  (^java.lang.Integer [^java.time.OffsetTime this ^java.time.temporal.TemporalField arg0]
-   (.get this arg0)))
+  (^java.lang.Integer [^java.time.OffsetTime this ^java.time.temporal.TemporalField field]
+   (.get this field)))
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.OffsetTime" "java.lang.Object"]))}
-  (^java.lang.Boolean [^java.time.OffsetTime this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^java.lang.Boolean [^java.time.OffsetTime this ^java.lang.Object obj]
+   (.equals this obj)))
 
 (clojure.core/defn format
   {:arglists (quote (["java.time.OffsetTime" "java.time.format.DateTimeFormatter"]))}
-  (^java.lang.String [^java.time.OffsetTime this ^java.time.format.DateTimeFormatter arg0]
-   (.format this arg0)))
+  (^java.lang.String [^java.time.OffsetTime this ^java.time.format.DateTimeFormatter formatter]
+   (.format this formatter)))

@@ -5,13 +5,13 @@
 
 (clojure.core/defn tick
   {:arglists (quote (["java.time.Clock" "java.time.Duration"]))}
-  (^java.time.Clock [^java.time.Clock arg0 ^java.time.Duration arg1]
-   (java.time.Clock/tick arg0 arg1)))
+  (^java.time.Clock [^java.time.Clock base-clock ^java.time.Duration tick-duration]
+   (java.time.Clock/tick base-clock tick-duration)))
 
 (clojure.core/defn offset
   {:arglists (quote (["java.time.Clock" "java.time.Duration"]))}
-  (^java.time.Clock [^java.time.Clock arg0 ^java.time.Duration arg1]
-   (java.time.Clock/offset arg0 arg1)))
+  (^java.time.Clock [^java.time.Clock base-clock ^java.time.Duration offset-duration]
+   (java.time.Clock/offset base-clock offset-duration)))
 
 (clojure.core/defn system-utc
   {:arglists (quote ([]))}
@@ -25,18 +25,18 @@
 
 (clojure.core/defn fixed
   {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))}
-  (^java.time.Clock [^java.time.Instant arg0 ^java.time.ZoneId arg1]
-   (java.time.Clock/fixed arg0 arg1)))
+  (^java.time.Clock [^java.time.Instant fixed-instant ^java.time.ZoneId zone]
+   (java.time.Clock/fixed fixed-instant zone)))
 
 (clojure.core/defn tick-minutes
   {:arglists (quote (["java.time.ZoneId"]))}
-  (^java.time.Clock [^java.time.ZoneId arg0]
-   (java.time.Clock/tickMinutes arg0)))
+  (^java.time.Clock [^java.time.ZoneId zone]
+   (java.time.Clock/tickMinutes zone)))
 
 (clojure.core/defn tick-seconds
   {:arglists (quote (["java.time.ZoneId"]))}
-  (^java.time.Clock [^java.time.ZoneId arg0]
-   (java.time.Clock/tickSeconds arg0)))
+  (^java.time.Clock [^java.time.ZoneId zone]
+   (java.time.Clock/tickSeconds zone)))
 
 (clojure.core/defn millis
   {:arglists (quote (["java.time.Clock"]))}
@@ -45,8 +45,8 @@
 
 (clojure.core/defn with-zone
   {:arglists (quote (["java.time.Clock" "java.time.ZoneId"]))}
-  (^java.time.Clock [^java.time.Clock this ^java.time.ZoneId arg0]
-   (.withZone this arg0)))
+  (^java.time.Clock [^java.time.Clock this ^java.time.ZoneId zone]
+   (.withZone this zone)))
 
 (clojure.core/defn get-zone
   {:arglists (quote (["java.time.Clock"]))}
@@ -60,8 +60,8 @@
 
 (clojure.core/defn system
   {:arglists (quote (["java.time.ZoneId"]))}
-  (^java.time.Clock [^java.time.ZoneId arg0]
-   (java.time.Clock/system arg0)))
+  (^java.time.Clock [^java.time.ZoneId zone]
+   (java.time.Clock/system zone)))
 
 (clojure.core/defn instant
   {:arglists (quote (["java.time.Clock"]))}
@@ -70,5 +70,5 @@
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.Clock" "java.lang.Object"]))}
-  (^java.lang.Boolean [^java.time.Clock this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^java.lang.Boolean [^java.time.Clock this ^java.lang.Object obj]
+   (.equals this obj)))

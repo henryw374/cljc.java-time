@@ -7,18 +7,18 @@
 
 (clojure.core/defn with-decimal-separator
   {:arglists (quote (["java.time.format.DecimalStyle" "char"]))}
-  (^java.time.format.DecimalStyle [^java.time.format.DecimalStyle this ^java.lang.Character arg0]
-   (.withDecimalSeparator this arg0)))
+  (^java.time.format.DecimalStyle [^java.time.format.DecimalStyle this ^java.lang.Character decimal-separator]
+   (.withDecimalSeparator this decimal-separator)))
 
 (clojure.core/defn of
   {:arglists (quote (["java.util.Locale"]))}
-  (^java.time.format.DecimalStyle [^java.util.Locale arg0]
-   (java.time.format.DecimalStyle/of arg0)))
+  (^java.time.format.DecimalStyle [^java.util.Locale locale]
+   (java.time.format.DecimalStyle/of locale)))
 
 (clojure.core/defn with-positive-sign
   {:arglists (quote (["java.time.format.DecimalStyle" "char"]))}
-  (^java.time.format.DecimalStyle [^java.time.format.DecimalStyle this ^java.lang.Character arg0]
-   (.withPositiveSign this arg0)))
+  (^java.time.format.DecimalStyle [^java.time.format.DecimalStyle this ^java.lang.Character positive-sign]
+   (.withPositiveSign this positive-sign)))
 
 (clojure.core/defn get-decimal-separator
   {:arglists (quote (["java.time.format.DecimalStyle"]))}
@@ -32,8 +32,8 @@
 
 (clojure.core/defn with-zero-digit
   {:arglists (quote (["java.time.format.DecimalStyle" "char"]))}
-  (^java.time.format.DecimalStyle [^java.time.format.DecimalStyle this ^java.lang.Character arg0]
-   (.withZeroDigit this arg0)))
+  (^java.time.format.DecimalStyle [^java.time.format.DecimalStyle this ^java.lang.Character zero-digit]
+   (.withZeroDigit this zero-digit)))
 
 (clojure.core/defn to-string
   {:arglists (quote (["java.time.format.DecimalStyle"]))}
@@ -47,8 +47,8 @@
 
 (clojure.core/defn with-negative-sign
   {:arglists (quote (["java.time.format.DecimalStyle" "char"]))}
-  (^java.time.format.DecimalStyle [^java.time.format.DecimalStyle this ^java.lang.Character arg0]
-   (.withNegativeSign this arg0)))
+  (^java.time.format.DecimalStyle [^java.time.format.DecimalStyle this ^java.lang.Character negative-sign]
+   (.withNegativeSign this negative-sign)))
 
 (clojure.core/defn get-available-locales
   {:arglists (quote ([]))}
@@ -72,5 +72,5 @@
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.format.DecimalStyle" "java.lang.Object"]))}
-  (^java.lang.Boolean [^java.time.format.DecimalStyle this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^java.lang.Boolean [^java.time.format.DecimalStyle this ^java.lang.Object obj]
+   (.equals this obj)))

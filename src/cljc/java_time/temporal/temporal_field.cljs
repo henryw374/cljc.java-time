@@ -18,8 +18,9 @@
   {:arglists (quote (["java.time.temporal.TemporalField" "java.util.Map" "java.time.temporal.TemporalAccessor"
                       "java.time.format.ResolverStyle"]))}
   (^js/JSJoda.TemporalAccessor
-   [^js/JSJoda.TemporalField this ^java.util.Map arg0 ^js/JSJoda.TemporalAccessor arg1 ^js/JSJoda.ResolverStyle arg2]
-   (.resolve this arg0 arg1 arg2)))
+   [^js/JSJoda.TemporalField this ^java.util.Map field-values ^js/JSJoda.TemporalAccessor partial-temporal
+    ^js/JSJoda.ResolverStyle resolver-style]
+   (.resolve this field-values partial-temporal resolver-style)))
 
 (clojure.core/defn get-base-unit
   {:arglists (quote (["java.time.temporal.TemporalField"]))}
@@ -38,28 +39,28 @@
 
 (clojure.core/defn get-display-name
   {:arglists (quote (["java.time.temporal.TemporalField" "java.util.Locale"]))}
-  (^java.lang.String [^js/JSJoda.TemporalField this ^java.util.Locale arg0]
-   (.displayName this arg0)))
+  (^java.lang.String [^js/JSJoda.TemporalField this ^java.util.Locale locale]
+   (.displayName this locale)))
 
 (clojure.core/defn is-supported-by
   {:arglists (quote (["java.time.temporal.TemporalField" "java.time.temporal.TemporalAccessor"]))}
-  (^boolean [^js/JSJoda.TemporalField this ^js/JSJoda.TemporalAccessor arg0]
-   (.isSupportedBy this arg0)))
+  (^boolean [^js/JSJoda.TemporalField this ^js/JSJoda.TemporalAccessor temporal]
+   (.isSupportedBy this temporal)))
 
 (clojure.core/defn range-refined-by
   {:arglists (quote (["java.time.temporal.TemporalField" "java.time.temporal.TemporalAccessor"]))}
-  (^js/JSJoda.ValueRange [^js/JSJoda.TemporalField this ^js/JSJoda.TemporalAccessor arg0]
-   (.rangeRefinedBy this arg0)))
+  (^js/JSJoda.ValueRange [^js/JSJoda.TemporalField this ^js/JSJoda.TemporalAccessor temporal]
+   (.rangeRefinedBy this temporal)))
 
 (clojure.core/defn adjust-into
   {:arglists (quote (["java.time.temporal.TemporalField" "java.time.temporal.Temporal" "long"]))}
-  (^js/JSJoda.Temporal [^js/JSJoda.TemporalField this ^js/JSJoda.Temporal arg0 ^long arg1]
-   (.adjustInto this arg0 arg1)))
+  (^js/JSJoda.Temporal [^js/JSJoda.TemporalField this ^js/JSJoda.Temporal temporal ^long new-value]
+   (.adjustInto this temporal new-value)))
 
 (clojure.core/defn get-from
   {:arglists (quote (["java.time.temporal.TemporalField" "java.time.temporal.TemporalAccessor"]))}
-  (^long [^js/JSJoda.TemporalField this ^js/JSJoda.TemporalAccessor arg0]
-   (.from this arg0)))
+  (^long [^js/JSJoda.TemporalField this ^js/JSJoda.TemporalAccessor temporal]
+   (.from this temporal)))
 
 (clojure.core/defn is-time-based
   {:arglists (quote (["java.time.temporal.TemporalField"]))}

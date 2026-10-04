@@ -12,15 +12,15 @@
 
 (clojure.core/defn of
   {:arglists (quote (["java.lang.String"] ["java.lang.String" "java.util.Map"]))}
-  (^java.time.ZoneId [^java.lang.String arg0]
-   (java.time.ZoneId/of arg0))
-  (^java.time.ZoneId [^java.lang.String arg0 ^java.util.Map arg1]
-   (java.time.ZoneId/of arg0 arg1)))
+  (^java.time.ZoneId [^java.lang.String zone-id]
+   (java.time.ZoneId/of zone-id))
+  (^java.time.ZoneId [^java.lang.String zone-id ^java.util.Map alias-map]
+   (java.time.ZoneId/of zone-id alias-map)))
 
 (clojure.core/defn of-offset
   {:arglists (quote (["java.lang.String" "java.time.ZoneOffset"]))}
-  (^java.time.ZoneId [^java.lang.String arg0 ^java.time.ZoneOffset arg1]
-   (java.time.ZoneId/ofOffset arg0 arg1)))
+  (^java.time.ZoneId [^java.lang.String prefix ^java.time.ZoneOffset offset]
+   (java.time.ZoneId/ofOffset prefix offset)))
 
 (clojure.core/defn to-string
   {:arglists (quote (["java.time.ZoneId"]))}
@@ -29,8 +29,8 @@
 
 (clojure.core/defn get-display-name
   {:arglists (quote (["java.time.ZoneId" "java.time.format.TextStyle" "java.util.Locale"]))}
-  (^java.lang.String [^java.time.ZoneId this ^java.time.format.TextStyle arg0 ^java.util.Locale arg1]
-   (.getDisplayName this arg0 arg1)))
+  (^java.lang.String [^java.time.ZoneId this ^java.time.format.TextStyle style ^java.util.Locale locale]
+   (.getDisplayName this style locale)))
 
 (clojure.core/defn get-rules
   {:arglists (quote (["java.time.ZoneId"]))}
@@ -54,8 +54,8 @@
 
 (clojure.core/defn from
   {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
-  (^java.time.ZoneId [^java.time.temporal.TemporalAccessor arg0]
-   (java.time.ZoneId/from arg0)))
+  (^java.time.ZoneId [^java.time.temporal.TemporalAccessor temporal]
+   (java.time.ZoneId/from temporal)))
 
 (clojure.core/defn hash-code
   {:arglists (quote (["java.time.ZoneId"]))}
@@ -64,5 +64,5 @@
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.ZoneId" "java.lang.Object"]))}
-  (^java.lang.Boolean [^java.time.ZoneId this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^java.lang.Boolean [^java.time.ZoneId this ^java.lang.Object obj]
+   (.equals this obj)))

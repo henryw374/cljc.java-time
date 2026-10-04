@@ -20,10 +20,10 @@
 
 (clojure.core/defn value-of
   {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
-  (^java.time.format.SignStyle [^java.lang.String arg0]
-   (java.time.format.SignStyle/valueOf arg0))
-  (^java.lang.Enum [^java.lang.Class arg0 ^java.lang.String arg1]
-   (java.time.format.SignStyle/valueOf arg0 arg1)))
+  (^java.time.format.SignStyle [^java.lang.String name]
+   (java.time.format.SignStyle/valueOf name))
+  (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
+   (java.time.format.SignStyle/valueOf enum-type name)))
 
 (clojure.core/defn ordinal
   {:arglists (quote (["java.time.format.SignStyle"]))}
@@ -52,10 +52,10 @@
 
 (clojure.core/defn compare-to
   {:arglists (quote (["java.time.format.SignStyle" "java.lang.Enum"]))}
-  (^java.lang.Integer [^java.time.format.SignStyle this ^java.lang.Enum arg0]
-   (.compareTo this arg0)))
+  (^java.lang.Integer [^java.time.format.SignStyle this ^java.lang.Enum o]
+   (.compareTo this o)))
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.format.SignStyle" "java.lang.Object"]))}
-  (^java.lang.Boolean [^java.time.format.SignStyle this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^java.lang.Boolean [^java.time.format.SignStyle this ^java.lang.Object other]
+   (.equals this other)))

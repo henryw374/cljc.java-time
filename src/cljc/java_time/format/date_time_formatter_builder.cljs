@@ -16,36 +16,36 @@
                      ["java.time.format.DateTimeFormatterBuilder" "java.util.Locale"]))}
   (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatterBuilder this]
    (.toFormatter this))
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatterBuilder this ^java.util.Locale arg0]
-   (.toFormatter this arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatterBuilder this ^java.util.Locale locale]
+   (.toFormatter this locale)))
 
 (clojure.core/defn append-pattern
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.lang.String"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^java.lang.String arg0]
-   (.appendPattern this arg0)))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^java.lang.String pattern]
+   (.appendPattern this pattern)))
 
 (clojure.core/defn append-value
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"]
                      ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int"]
                      ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
                       "java.time.format.SignStyle"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField arg0]
-   (.appendValue this arg0))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField field]
+   (.appendValue this field))
   (^js/JSJoda.DateTimeFormatterBuilder
-   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField arg0 ^int arg1]
-   (.appendValue this arg0 arg1))
+   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField field ^int width]
+   (.appendValue this field width))
   (^js/JSJoda.DateTimeFormatterBuilder
-   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField arg0 ^int arg1 ^int arg2
-    ^js/JSJoda.SignStyle arg3]
-   (.appendValue this arg0 arg1 arg2 arg3)))
+   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField field ^int min-width ^int max-width
+    ^js/JSJoda.SignStyle sign-style]
+   (.appendValue this field min-width max-width sign-style)))
 
 (clojure.core/defn append-instant
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]
                      ["java.time.format.DateTimeFormatterBuilder" "int"]))}
   (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this]
    (.appendInstant this))
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^int arg0]
-   (.appendInstant this arg0)))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^int fractional-digits]
+   (.appendInstant this fractional-digits)))
 
 (clojure.core/defn append-literal
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "char"]
@@ -62,13 +62,14 @@
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
                       "boolean"]))}
   (^js/JSJoda.DateTimeFormatterBuilder
-   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField arg0 ^int arg1 ^int arg2 ^boolean arg3]
-   (.appendFraction this arg0 arg1 arg2 arg3)))
+   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField field ^int min-width ^int max-width
+    ^boolean decimal-point]
+   (.appendFraction this field min-width max-width decimal-point)))
 
 (clojure.core/defn append-optional
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.DateTimeFormatter"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.DateTimeFormatter arg0]
-   (.appendOptional this arg0)))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.DateTimeFormatter formatter]
+   (.appendOptional this formatter)))
 
 (clojure.core/defn optional-end
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
@@ -83,10 +84,10 @@
 (clojure.core/defn pad-next
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "int"]
                      ["java.time.format.DateTimeFormatterBuilder" "int" "char"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^int arg0]
-   (.padNext this arg0))
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^int arg0 ^char arg1]
-   (.padNext this arg0 arg1)))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^int pad-width]
+   (.padNext this pad-width))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^int pad-width ^char pad-char]
+   (.padNext this pad-width pad-char)))
 
 (clojure.core/defn append-chronology-id
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
@@ -110,8 +111,8 @@
 
 (clojure.core/defn append-chronology-text
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TextStyle arg0]
-   (.appendChronologyText this arg0)))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TextStyle text-style]
+   (.appendChronologyText this text-style)))
 
 (clojure.core/defn append-offset-id
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
@@ -126,8 +127,8 @@
 (clojure.core/defn parse-defaulting
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "long"]))}
   (^js/JSJoda.DateTimeFormatterBuilder
-   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField arg0 ^long arg1]
-   (.parseDefaulting this arg0 arg1)))
+   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField field ^long value]
+   (.parseDefaulting this field value)))
 
 (clojure.core/defn append-zone-id
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
@@ -138,8 +139,14 @@
   {:arglists (quote (["java.time.format.FormatStyle" "java.time.format.FormatStyle" "java.time.chrono.Chronology"
                       "java.util.Locale"]))}
   (^java.lang.String
-   [^js/JSJoda.FormatStyle arg0 ^js/JSJoda.FormatStyle arg1 ^js/JSJoda.Chronology arg2 ^java.util.Locale arg3]
-   (js-invoke java.time.format.DateTimeFormatterBuilder "getLocalizedDateTimePattern" arg0 arg1 arg2 arg3)))
+   [^js/JSJoda.FormatStyle date-style ^js/JSJoda.FormatStyle time-style ^js/JSJoda.Chronology chrono
+    ^java.util.Locale locale]
+   (js-invoke java.time.format.DateTimeFormatterBuilder
+              "getLocalizedDateTimePattern"
+              date-style
+              time-style
+              chrono
+              locale)))
 
 (clojure.core/defn parse-case-insensitive
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
@@ -148,21 +155,21 @@
 
 (clojure.core/defn append-localized-offset
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TextStyle arg0]
-   (.appendLocalizedOffset this arg0)))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TextStyle style]
+   (.appendLocalizedOffset this style)))
 
 (clojure.core/defn append
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.DateTimeFormatter"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.DateTimeFormatter arg0]
-   (.append this arg0)))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.DateTimeFormatter formatter]
+   (.append this formatter)))
 
 (clojure.core/defn append-text
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"]
                      ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"
                       "java.time.format.TextStyle"]
                      ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "java.util.Map"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField arg0]
-   (.appendText this arg0))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TemporalField field]
+   (.appendText this field))
   (^js/JSJoda.DateTimeFormatterBuilder [this arg0 arg1]
    (.appendText ^js/JSJoda.DateTimeFormatterBuilder this arg0 arg1)))
 
@@ -170,14 +177,14 @@
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.FormatStyle"
                       "java.time.format.FormatStyle"]))}
   (^js/JSJoda.DateTimeFormatterBuilder
-   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.FormatStyle arg0 ^js/JSJoda.FormatStyle arg1]
-   (.appendLocalized this arg0 arg1)))
+   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.FormatStyle date-style ^js/JSJoda.FormatStyle time-style]
+   (.appendLocalized this date-style time-style)))
 
 (clojure.core/defn append-offset
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.lang.String" "java.lang.String"]))}
   (^js/JSJoda.DateTimeFormatterBuilder
-   [^js/JSJoda.DateTimeFormatterBuilder this ^java.lang.String arg0 ^java.lang.String arg1]
-   (.appendOffset this arg0 arg1)))
+   [^js/JSJoda.DateTimeFormatterBuilder this ^java.lang.String pattern ^java.lang.String no-offset-text]
+   (.appendOffset this pattern no-offset-text)))
 
 (clojure.core/defn append-value-reduced
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int" "int"]
@@ -189,8 +196,8 @@
 (clojure.core/defn append-zone-text
   {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"]
                      ["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle" "java.util.Set"]))}
-  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TextStyle arg0]
-   (.appendZoneText this arg0))
+  (^js/JSJoda.DateTimeFormatterBuilder [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TextStyle text-style]
+   (.appendZoneText this text-style))
   (^js/JSJoda.DateTimeFormatterBuilder
-   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TextStyle arg0 ^java.util.Set arg1]
-   (.appendZoneText this arg0 arg1)))
+   [^js/JSJoda.DateTimeFormatterBuilder this ^js/JSJoda.TextStyle text-style ^java.util.Set preferred-zones]
+   (.appendZoneText this text-style preferred-zones)))

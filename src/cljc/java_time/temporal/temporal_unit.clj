@@ -5,13 +5,15 @@
 
 (clojure.core/defn add-to
   {:arglists (quote (["java.time.temporal.TemporalUnit" "java.time.temporal.Temporal" "long"]))}
-  (^java.time.temporal.Temporal [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal arg0 ^long arg1]
-   (.addTo this arg0 arg1)))
+  (^java.time.temporal.Temporal [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal ^long amount]
+   (.addTo this temporal amount)))
 
 (clojure.core/defn between
   {:arglists (quote (["java.time.temporal.TemporalUnit" "java.time.temporal.Temporal" "java.time.temporal.Temporal"]))}
-  (^long [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal arg0 ^java.time.temporal.Temporal arg1]
-   (.between this arg0 arg1)))
+  (^long
+   [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal1-inclusive
+    ^java.time.temporal.Temporal temporal2-exclusive]
+   (.between this temporal1-inclusive temporal2-exclusive)))
 
 (clojure.core/defn get-duration
   {:arglists (quote (["java.time.temporal.TemporalUnit"]))}
@@ -30,8 +32,8 @@
 
 (clojure.core/defn is-supported-by
   {:arglists (quote (["java.time.temporal.TemporalUnit" "java.time.temporal.Temporal"]))}
-  (^java.lang.Boolean [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal arg0]
-   (.isSupportedBy this arg0)))
+  (^java.lang.Boolean [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal]
+   (.isSupportedBy this temporal)))
 
 (clojure.core/defn is-time-based
   {:arglists (quote (["java.time.temporal.TemporalUnit"]))}

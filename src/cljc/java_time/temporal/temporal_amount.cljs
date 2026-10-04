@@ -6,13 +6,13 @@
 
 (clojure.core/defn add-to
   {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"]))}
-  (^js/JSJoda.Temporal [^js/JSJoda.TemporalAmount this ^js/JSJoda.Temporal arg0]
-   (.addTo this arg0)))
+  (^js/JSJoda.Temporal [^js/JSJoda.TemporalAmount this ^js/JSJoda.Temporal temporal]
+   (.addTo this temporal)))
 
 (clojure.core/defn get
   {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.TemporalUnit"]))}
-  (^long [^js/JSJoda.TemporalAmount this ^js/JSJoda.TemporalUnit arg0]
-   (.get this arg0)))
+  (^long [^js/JSJoda.TemporalAmount this ^js/JSJoda.TemporalUnit unit]
+   (.get this unit)))
 
 (clojure.core/defn get-units
   {:arglists (quote (["java.time.temporal.TemporalAmount"]))}
@@ -21,5 +21,5 @@
 
 (clojure.core/defn subtract-from
   {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"]))}
-  (^js/JSJoda.Temporal [^js/JSJoda.TemporalAmount this ^js/JSJoda.Temporal arg0]
-   (.subtractFrom this arg0)))
+  (^js/JSJoda.Temporal [^js/JSJoda.TemporalAmount this ^js/JSJoda.Temporal temporal]
+   (.subtractFrom this temporal)))

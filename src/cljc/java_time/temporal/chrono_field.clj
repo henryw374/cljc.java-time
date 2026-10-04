@@ -80,18 +80,18 @@
 
 (clojure.core/defn value-of
   {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
-  (^java.time.temporal.ChronoField [^java.lang.String arg0]
-   (java.time.temporal.ChronoField/valueOf arg0))
-  (^java.lang.Enum [^java.lang.Class arg0 ^java.lang.String arg1]
-   (java.time.temporal.ChronoField/valueOf arg0 arg1)))
+  (^java.time.temporal.ChronoField [^java.lang.String name]
+   (java.time.temporal.ChronoField/valueOf name))
+  (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
+   (java.time.temporal.ChronoField/valueOf enum-type name)))
 
 (clojure.core/defn resolve
   {:arglists (quote (["java.time.temporal.ChronoField" "java.util.Map" "java.time.temporal.TemporalAccessor"
                       "java.time.format.ResolverStyle"]))}
   (^java.time.temporal.TemporalAccessor
-   [^java.time.temporal.ChronoField this ^java.util.Map arg0 ^java.time.temporal.TemporalAccessor arg1
-    ^java.time.format.ResolverStyle arg2]
-   (.resolve this arg0 arg1 arg2)))
+   [^java.time.temporal.ChronoField this ^java.util.Map field-values
+    ^java.time.temporal.TemporalAccessor partial-temporal ^java.time.format.ResolverStyle resolver-style]
+   (.resolve this field-values partial-temporal resolver-style)))
 
 (clojure.core/defn ordinal
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -100,8 +100,8 @@
 
 (clojure.core/defn check-valid-int-value
   {:arglists (quote (["java.time.temporal.ChronoField" "long"]))}
-  (^java.lang.Integer [^java.time.temporal.ChronoField this ^long arg0]
-   (.checkValidIntValue this arg0)))
+  (^java.lang.Integer [^java.time.temporal.ChronoField this ^long value]
+   (.checkValidIntValue this value)))
 
 (clojure.core/defn get-base-unit
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -120,8 +120,8 @@
 
 (clojure.core/defn get-display-name
   {:arglists (quote (["java.time.temporal.ChronoField" "java.util.Locale"]))}
-  (^java.lang.String [^java.time.temporal.ChronoField this ^java.util.Locale arg0]
-   (.getDisplayName this arg0)))
+  (^java.lang.String [^java.time.temporal.ChronoField this ^java.util.Locale locale]
+   (.getDisplayName this locale)))
 
 (clojure.core/defn name
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -130,13 +130,13 @@
 
 (clojure.core/defn is-supported-by
   {:arglists (quote (["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"]))}
-  (^java.lang.Boolean [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor arg0]
-   (.isSupportedBy this arg0)))
+  (^java.lang.Boolean [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor temporal]
+   (.isSupportedBy this temporal)))
 
 (clojure.core/defn range-refined-by
   {:arglists (quote (["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"]))}
-  (^java.time.temporal.ValueRange [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor arg0]
-   (.rangeRefinedBy this arg0)))
+  (^java.time.temporal.ValueRange [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor temporal]
+   (.rangeRefinedBy this temporal)))
 
 (clojure.core/defn get-declaring-class
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -150,23 +150,24 @@
 
 (clojure.core/defn adjust-into
   {:arglists (quote (["java.time.temporal.ChronoField" "java.time.temporal.Temporal" "long"]))}
-  (^java.time.temporal.Temporal [^java.time.temporal.ChronoField this ^java.time.temporal.Temporal arg0 ^long arg1]
-   (.adjustInto this arg0 arg1)))
+  (^java.time.temporal.Temporal
+   [^java.time.temporal.ChronoField this ^java.time.temporal.Temporal temporal ^long new-value]
+   (.adjustInto this temporal new-value)))
 
 (clojure.core/defn get-from
   {:arglists (quote (["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"]))}
-  (^long [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor arg0]
-   (.getFrom this arg0)))
+  (^long [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor temporal]
+   (.getFrom this temporal)))
 
 (clojure.core/defn compare-to
   {:arglists (quote (["java.time.temporal.ChronoField" "java.lang.Enum"]))}
-  (^java.lang.Integer [^java.time.temporal.ChronoField this ^java.lang.Enum arg0]
-   (.compareTo this arg0)))
+  (^java.lang.Integer [^java.time.temporal.ChronoField this ^java.lang.Enum o]
+   (.compareTo this o)))
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.temporal.ChronoField" "java.lang.Object"]))}
-  (^java.lang.Boolean [^java.time.temporal.ChronoField this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^java.lang.Boolean [^java.time.temporal.ChronoField this ^java.lang.Object other]
+   (.equals this other)))
 
 (clojure.core/defn is-time-based
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -175,5 +176,5 @@
 
 (clojure.core/defn check-valid-value
   {:arglists (quote (["java.time.temporal.ChronoField" "long"]))}
-  (^long [^java.time.temporal.ChronoField this ^long arg0]
-   (.checkValidValue this arg0)))
+  (^long [^java.time.temporal.ChronoField this ^long value]
+   (.checkValidValue this value)))

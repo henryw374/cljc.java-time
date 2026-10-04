@@ -16,10 +16,10 @@
 
 (clojure.core/defn of
   {:arglists (quote (["java.util.Locale"] ["java.time.DayOfWeek" "int"]))}
-  (^java.time.temporal.WeekFields [^java.util.Locale arg0]
-   (java.time.temporal.WeekFields/of arg0))
-  (^java.time.temporal.WeekFields [^java.time.DayOfWeek arg0 ^java.lang.Integer arg1]
-   (java.time.temporal.WeekFields/of arg0 arg1)))
+  (^java.time.temporal.WeekFields [^java.util.Locale locale]
+   (java.time.temporal.WeekFields/of locale))
+  (^java.time.temporal.WeekFields [^java.time.DayOfWeek first-day-of-week ^java.lang.Integer minimal-days-in-first-week]
+   (java.time.temporal.WeekFields/of first-day-of-week minimal-days-in-first-week)))
 
 (clojure.core/defn get-first-day-of-week
   {:arglists (quote (["java.time.temporal.WeekFields"]))}
@@ -63,5 +63,5 @@
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.temporal.WeekFields" "java.lang.Object"]))}
-  (^java.lang.Boolean [^java.time.temporal.WeekFields this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^java.lang.Boolean [^java.time.temporal.WeekFields this ^java.lang.Object object]
+   (.equals this object)))

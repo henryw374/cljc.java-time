@@ -6,13 +6,13 @@
 
 (clojure.core/defn tick
   {:arglists (quote (["java.time.Clock" "java.time.Duration"]))}
-  (^js/JSJoda.Clock [^js/JSJoda.Clock arg0 ^js/JSJoda.Duration arg1]
-   (js-invoke java.time.Clock "tick" arg0 arg1)))
+  (^js/JSJoda.Clock [^js/JSJoda.Clock base-clock ^js/JSJoda.Duration tick-duration]
+   (js-invoke java.time.Clock "tick" base-clock tick-duration)))
 
 (clojure.core/defn offset
   {:arglists (quote (["java.time.Clock" "java.time.Duration"]))}
-  (^js/JSJoda.Clock [^js/JSJoda.Clock arg0 ^js/JSJoda.Duration arg1]
-   (js-invoke java.time.Clock "offset" arg0 arg1)))
+  (^js/JSJoda.Clock [^js/JSJoda.Clock base-clock ^js/JSJoda.Duration offset-duration]
+   (js-invoke java.time.Clock "offset" base-clock offset-duration)))
 
 (clojure.core/defn system-utc
   {:arglists (quote ([]))}
@@ -26,18 +26,18 @@
 
 (clojure.core/defn fixed
   {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))}
-  (^js/JSJoda.Clock [^js/JSJoda.Instant arg0 ^js/JSJoda.ZoneId arg1]
-   (js-invoke java.time.Clock "fixed" arg0 arg1)))
+  (^js/JSJoda.Clock [^js/JSJoda.Instant fixed-instant ^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.Clock "fixed" fixed-instant zone)))
 
 (clojure.core/defn tick-minutes
   {:arglists (quote (["java.time.ZoneId"]))}
-  (^js/JSJoda.Clock [^js/JSJoda.ZoneId arg0]
-   (js-invoke java.time.Clock "tickMinutes" arg0)))
+  (^js/JSJoda.Clock [^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.Clock "tickMinutes" zone)))
 
 (clojure.core/defn tick-seconds
   {:arglists (quote (["java.time.ZoneId"]))}
-  (^js/JSJoda.Clock [^js/JSJoda.ZoneId arg0]
-   (js-invoke java.time.Clock "tickSeconds" arg0)))
+  (^js/JSJoda.Clock [^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.Clock "tickSeconds" zone)))
 
 (clojure.core/defn millis
   {:arglists (quote (["java.time.Clock"]))}
@@ -46,8 +46,8 @@
 
 (clojure.core/defn with-zone
   {:arglists (quote (["java.time.Clock" "java.time.ZoneId"]))}
-  (^js/JSJoda.Clock [^js/JSJoda.Clock this ^js/JSJoda.ZoneId arg0]
-   (.withZone this arg0)))
+  (^js/JSJoda.Clock [^js/JSJoda.Clock this ^js/JSJoda.ZoneId zone]
+   (.withZone this zone)))
 
 (clojure.core/defn get-zone
   {:arglists (quote (["java.time.Clock"]))}
@@ -61,8 +61,8 @@
 
 (clojure.core/defn system
   {:arglists (quote (["java.time.ZoneId"]))}
-  (^js/JSJoda.Clock [^js/JSJoda.ZoneId arg0]
-   (js-invoke java.time.Clock "system" arg0)))
+  (^js/JSJoda.Clock [^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.Clock "system" zone)))
 
 (clojure.core/defn instant
   {:arglists (quote (["java.time.Clock"]))}
@@ -71,5 +71,5 @@
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.Clock" "java.lang.Object"]))}
-  (^boolean [^js/JSJoda.Clock this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^boolean [^js/JSJoda.Clock this ^java.lang.Object obj]
+   (.equals this obj)))

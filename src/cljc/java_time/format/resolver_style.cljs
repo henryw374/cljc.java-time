@@ -17,10 +17,10 @@
 
 (clojure.core/defn value-of
   {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
-  (^js/JSJoda.ResolverStyle [^java.lang.String arg0]
-   (js-invoke java.time.format.ResolverStyle "valueOf" arg0))
-  (^java.lang.Enum [^java.lang.Class arg0 ^java.lang.String arg1]
-   (js-invoke java.time.format.ResolverStyle "valueOf" arg0 arg1)))
+  (^js/JSJoda.ResolverStyle [^java.lang.String name]
+   (js-invoke java.time.format.ResolverStyle "valueOf" name))
+  (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
+   (js-invoke java.time.format.ResolverStyle "valueOf" enum-type name)))
 
 (clojure.core/defn ordinal
   {:arglists (quote (["java.time.format.ResolverStyle"]))}
@@ -49,10 +49,10 @@
 
 (clojure.core/defn compare-to
   {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Enum"]))}
-  (^int [^js/JSJoda.ResolverStyle this ^java.lang.Enum arg0]
-   (.compareTo this arg0)))
+  (^int [^js/JSJoda.ResolverStyle this ^java.lang.Enum o]
+   (.compareTo this o)))
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Object"]))}
-  (^boolean [^js/JSJoda.ResolverStyle this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^boolean [^js/JSJoda.ResolverStyle this ^java.lang.Object other]
+   (.equals this other)))

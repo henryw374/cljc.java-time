@@ -6,5 +6,5 @@
 
 (clojure.core/defn query-from
   {:arglists (quote (["java.time.temporal.TemporalQuery" "java.time.temporal.TemporalAccessor"]))}
-  (^java.lang.Object [^js/JSJoda.TemporalQuery this ^js/JSJoda.TemporalAccessor arg0]
-   (.queryFrom this arg0)))
+  (^java.lang.Object [^js/JSJoda.TemporalQuery this ^js/JSJoda.TemporalAccessor temporal]
+   (.queryFrom this temporal)))

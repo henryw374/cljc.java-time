@@ -5,5 +5,5 @@
 
 (clojure.core/defn adjust-into
   {:arglists (quote (["java.time.temporal.TemporalAdjuster" "java.time.temporal.Temporal"]))}
-  (^java.time.temporal.Temporal [^java.time.temporal.TemporalAdjuster this ^java.time.temporal.Temporal arg0]
-   (.adjustInto this arg0)))
+  (^java.time.temporal.Temporal [^java.time.temporal.TemporalAdjuster this ^java.time.temporal.Temporal temporal]
+   (.adjustInto this temporal)))

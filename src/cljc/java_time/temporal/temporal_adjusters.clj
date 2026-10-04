@@ -5,13 +5,13 @@
 
 (clojure.core/defn next
   {:arglists (quote (["java.time.DayOfWeek"]))}
-  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek arg0]
-   (java.time.temporal.TemporalAdjusters/next arg0)))
+  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek day-of-week]
+   (java.time.temporal.TemporalAdjusters/next day-of-week)))
 
 (clojure.core/defn next-or-same
   {:arglists (quote (["java.time.DayOfWeek"]))}
-  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek arg0]
-   (java.time.temporal.TemporalAdjusters/nextOrSame arg0)))
+  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek day-of-week]
+   (java.time.temporal.TemporalAdjusters/nextOrSame day-of-week)))
 
 (clojure.core/defn first-day-of-next-month
   {:arglists (quote ([]))}
@@ -30,8 +30,8 @@
 
 (clojure.core/defn of-date-adjuster
   {:arglists (quote (["java.util.function.UnaryOperator"]))}
-  (^java.time.temporal.TemporalAdjuster [^java.util.function.UnaryOperator arg0]
-   (java.time.temporal.TemporalAdjusters/ofDateAdjuster arg0)))
+  (^java.time.temporal.TemporalAdjuster [^java.util.function.UnaryOperator date-based-adjuster]
+   (java.time.temporal.TemporalAdjusters/ofDateAdjuster date-based-adjuster)))
 
 (clojure.core/defn last-day-of-year
   {:arglists (quote ([]))}
@@ -40,18 +40,18 @@
 
 (clojure.core/defn first-in-month
   {:arglists (quote (["java.time.DayOfWeek"]))}
-  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek arg0]
-   (java.time.temporal.TemporalAdjusters/firstInMonth arg0)))
+  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek day-of-week]
+   (java.time.temporal.TemporalAdjusters/firstInMonth day-of-week)))
 
 (clojure.core/defn previous-or-same
   {:arglists (quote (["java.time.DayOfWeek"]))}
-  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek arg0]
-   (java.time.temporal.TemporalAdjusters/previousOrSame arg0)))
+  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek day-of-week]
+   (java.time.temporal.TemporalAdjusters/previousOrSame day-of-week)))
 
 (clojure.core/defn previous
   {:arglists (quote (["java.time.DayOfWeek"]))}
-  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek arg0]
-   (java.time.temporal.TemporalAdjusters/previous arg0)))
+  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek day-of-week]
+   (java.time.temporal.TemporalAdjusters/previous day-of-week)))
 
 (clojure.core/defn last-day-of-month
   {:arglists (quote ([]))}
@@ -60,8 +60,8 @@
 
 (clojure.core/defn last-in-month
   {:arglists (quote (["java.time.DayOfWeek"]))}
-  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek arg0]
-   (java.time.temporal.TemporalAdjusters/lastInMonth arg0)))
+  (^java.time.temporal.TemporalAdjuster [^java.time.DayOfWeek day-of-week]
+   (java.time.temporal.TemporalAdjusters/lastInMonth day-of-week)))
 
 (clojure.core/defn first-day-of-next-year
   {:arglists (quote ([]))}
@@ -70,5 +70,5 @@
 
 (clojure.core/defn day-of-week-in-month
   {:arglists (quote (["int" "java.time.DayOfWeek"]))}
-  (^java.time.temporal.TemporalAdjuster [^java.lang.Integer arg0 ^java.time.DayOfWeek arg1]
-   (java.time.temporal.TemporalAdjusters/dayOfWeekInMonth arg0 arg1)))
+  (^java.time.temporal.TemporalAdjuster [^java.lang.Integer ordinal ^java.time.DayOfWeek day-of-week]
+   (java.time.temporal.TemporalAdjusters/dayOfWeekInMonth ordinal day-of-week)))

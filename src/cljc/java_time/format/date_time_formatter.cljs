@@ -36,22 +36,23 @@
 
 (clojure.core/defn of-pattern
   {:arglists (quote (["java.lang.String"] ["java.lang.String" "java.util.Locale"]))}
-  (^js/JSJoda.DateTimeFormatter [^java.lang.String arg0]
-   (js-invoke java.time.format.DateTimeFormatter "ofPattern" arg0))
-  (^js/JSJoda.DateTimeFormatter [^java.lang.String arg0 ^java.util.Locale arg1]
-   (js-invoke java.time.format.DateTimeFormatter "ofPattern" arg0 arg1)))
+  (^js/JSJoda.DateTimeFormatter [^java.lang.String pattern]
+   (js-invoke java.time.format.DateTimeFormatter "ofPattern" pattern))
+  (^js/JSJoda.DateTimeFormatter [^java.lang.String pattern ^java.util.Locale locale]
+   (js-invoke java.time.format.DateTimeFormatter "ofPattern" pattern locale)))
 
 (clojure.core/defn parse-best
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.lang.CharSequence"
                       "[Ljava.time.temporal.TemporalQuery;"]))}
-  (^js/JSJoda.TemporalAccessor [^js/JSJoda.DateTimeFormatter this ^java.lang.CharSequence arg0 ^"java.lang.Class" arg1]
-   (.parseBest this arg0 arg1)))
+  (^js/JSJoda.TemporalAccessor
+   [^js/JSJoda.DateTimeFormatter this ^java.lang.CharSequence text ^"java.lang.Class" queries]
+   (.parseBest this text queries)))
 
 (clojure.core/defn format-to
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalAccessor"
                       "java.lang.Appendable"]))}
-  (^void [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.TemporalAccessor arg0 ^java.lang.Appendable arg1]
-   (.formatTo this arg0 arg1)))
+  (^void [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.TemporalAccessor temporal ^java.lang.Appendable appendable]
+   (.formatTo this temporal appendable)))
 
 (clojure.core/defn get-decimal-style
   {:arglists (quote (["java.time.format.DateTimeFormatter"]))}
@@ -60,8 +61,8 @@
 
 (clojure.core/defn with-chronology
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.chrono.Chronology"]))}
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.Chronology arg0]
-   (.withChronology this arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.Chronology chrono]
+   (.withChronology this chrono)))
 
 (clojure.core/defn get-resolver-style
   {:arglists (quote (["java.time.format.DateTimeFormatter"]))}
@@ -70,8 +71,8 @@
 
 (clojure.core/defn with-decimal-style
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.format.DecimalStyle"]))}
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.DecimalStyle arg0]
-   (.withDecimalStyle this arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.DecimalStyle decimal-style]
+   (.withDecimalStyle this decimal-style)))
 
 (clojure.core/defn get-locale
   {:arglists (quote (["java.time.format.DateTimeFormatter"]))}
@@ -90,8 +91,8 @@
 
 (clojure.core/defn with-zone
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.ZoneId"]))}
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.ZoneId arg0]
-   (.withZone this arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.ZoneId zone]
+   (.withZone this zone)))
 
 (clojure.core/defn parsed-excess-days
   {:arglists (quote ([]))}
@@ -105,10 +106,10 @@
 
 (clojure.core/defn of-localized-date-time
   {:arglists (quote (["java.time.format.FormatStyle"] ["java.time.format.FormatStyle" "java.time.format.FormatStyle"]))}
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.FormatStyle arg0]
-   (js-invoke java.time.format.DateTimeFormatter "ofLocalizedDateTime" arg0))
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.FormatStyle arg0 ^js/JSJoda.FormatStyle arg1]
-   (js-invoke java.time.format.DateTimeFormatter "ofLocalizedDateTime" arg0 arg1)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.FormatStyle date-time-style]
+   (js-invoke java.time.format.DateTimeFormatter "ofLocalizedDateTime" date-time-style))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.FormatStyle date-style ^js/JSJoda.FormatStyle time-style]
+   (js-invoke java.time.format.DateTimeFormatter "ofLocalizedDateTime" date-style time-style)))
 
 (clojure.core/defn get-resolver-fields
   {:arglists (quote (["java.time.format.DateTimeFormatter"]))}
@@ -125,15 +126,15 @@
                      ["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "java.text.ParsePosition"]
                      ["java.time.format.DateTimeFormatter" "java.lang.CharSequence"
                       "java.time.temporal.TemporalQuery"]))}
-  (^js/JSJoda.TemporalAccessor [^js/JSJoda.DateTimeFormatter this ^java.lang.CharSequence arg0]
-   (.parse this arg0))
+  (^js/JSJoda.TemporalAccessor [^js/JSJoda.DateTimeFormatter this ^java.lang.CharSequence text]
+   (.parse this text))
   (^java.lang.Object [this arg0 arg1]
    (.parse ^js/JSJoda.DateTimeFormatter this arg0 arg1)))
 
 (clojure.core/defn with-locale
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.util.Locale"]))}
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^java.util.Locale arg0]
-   (.withLocale this arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^java.util.Locale locale]
+   (.withLocale this locale)))
 
 (clojure.core/defn with-resolver-fields
   {:arglists (quote (["java.time.format.DateTimeFormatter" "[Ljava.time.temporal.TemporalField;"]
@@ -144,33 +145,33 @@
 (clojure.core/defn parse-unresolved
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "java.text.ParsePosition"]))}
   (^js/JSJoda.TemporalAccessor
-   [^js/JSJoda.DateTimeFormatter this ^java.lang.CharSequence arg0 ^java.text.ParsePosition arg1]
-   (.parseUnresolved this arg0 arg1)))
+   [^js/JSJoda.DateTimeFormatter this ^java.lang.CharSequence text ^java.text.ParsePosition position]
+   (.parseUnresolved this text position)))
 
 (clojure.core/defn of-localized-time
   {:arglists (quote (["java.time.format.FormatStyle"]))}
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.FormatStyle arg0]
-   (js-invoke java.time.format.DateTimeFormatter "ofLocalizedTime" arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.FormatStyle time-style]
+   (js-invoke java.time.format.DateTimeFormatter "ofLocalizedTime" time-style)))
 
 (clojure.core/defn of-localized-date
   {:arglists (quote (["java.time.format.FormatStyle"]))}
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.FormatStyle arg0]
-   (js-invoke java.time.format.DateTimeFormatter "ofLocalizedDate" arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.FormatStyle date-style]
+   (js-invoke java.time.format.DateTimeFormatter "ofLocalizedDate" date-style)))
 
 (clojure.core/defn format
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalAccessor"]))}
-  (^java.lang.String [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.TemporalAccessor arg0]
-   (cljc.java-time.extn.calendar-awareness/calendar-aware-cljs (.format this arg0))))
+  (^java.lang.String [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.TemporalAccessor temporal]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-cljs (.format this temporal))))
 
 (clojure.core/defn to-format
   {:arglists (quote (["java.time.format.DateTimeFormatter"]
                      ["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalQuery"]))}
   (^java.text.Format [^js/JSJoda.DateTimeFormatter this]
    (.toFormat this))
-  (^java.text.Format [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.TemporalQuery arg0]
-   (.toFormat this arg0)))
+  (^java.text.Format [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.TemporalQuery parse-query]
+   (.toFormat this parse-query)))
 
 (clojure.core/defn with-resolver-style
   {:arglists (quote (["java.time.format.DateTimeFormatter" "java.time.format.ResolverStyle"]))}
-  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.ResolverStyle arg0]
-   (.withResolverStyle this arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this ^js/JSJoda.ResolverStyle resolver-style]
+   (.withResolverStyle this resolver-style)))

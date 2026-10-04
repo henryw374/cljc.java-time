@@ -10,43 +10,43 @@
 
 (clojure.core/defn range
   {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalField"]))}
-  (^js/JSJoda.ValueRange [^js/JSJoda.Year this ^js/JSJoda.TemporalField arg0]
-   (.range this arg0)))
+  (^js/JSJoda.ValueRange [^js/JSJoda.Year this ^js/JSJoda.TemporalField field]
+   (.range this field)))
 
 (clojure.core/defn of
   {:arglists (quote (["int"]))}
-  (^js/JSJoda.Year [^int arg0]
-   (js-invoke java.time.Year "of" arg0)))
+  (^js/JSJoda.Year [^int iso-year]
+   (js-invoke java.time.Year "of" iso-year)))
 
 (clojure.core/defn at-day
   {:arglists (quote (["java.time.Year" "int"]))}
-  (^js/JSJoda.LocalDate [^js/JSJoda.Year this ^int arg0]
-   (.atDay this arg0)))
+  (^js/JSJoda.LocalDate [^js/JSJoda.Year this ^int day-of-year]
+   (.atDay this day-of-year)))
 
 (clojure.core/defn plus
   {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalAmount"]
                      ["java.time.Year" "long" "java.time.temporal.TemporalUnit"]))}
-  (^js/JSJoda.Year [^js/JSJoda.Year this ^js/JSJoda.TemporalAmount arg0]
-   (.plus this arg0))
-  (^js/JSJoda.Year [^js/JSJoda.Year this ^long arg0 ^js/JSJoda.TemporalUnit arg1]
-   (.plus this arg0 arg1)))
+  (^js/JSJoda.Year [^js/JSJoda.Year this ^js/JSJoda.TemporalAmount amount-to-add]
+   (.plus this amount-to-add))
+  (^js/JSJoda.Year [^js/JSJoda.Year this ^long amount-to-add ^js/JSJoda.TemporalUnit unit]
+   (.plus this amount-to-add unit)))
 
 (clojure.core/defn is-valid-month-day
   {:arglists (quote (["java.time.Year" "java.time.MonthDay"]))}
-  (^boolean [^js/JSJoda.Year this ^js/JSJoda.MonthDay arg0]
-   (.isValidMonthDay this arg0)))
+  (^boolean [^js/JSJoda.Year this ^js/JSJoda.MonthDay month-day]
+   (.isValidMonthDay this month-day)))
 
 (clojure.core/defn query
   {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalQuery"]))}
-  (^java.lang.Object [^js/JSJoda.Year this ^js/JSJoda.TemporalQuery arg0]
-   (.query this arg0)))
+  (^java.lang.Object [^js/JSJoda.Year this ^js/JSJoda.TemporalQuery query]
+   (.query this query)))
 
 ^{:column 16, :line 89}
 (clojure.core/defn is-leap
   {:arglists ^{:line 89, :column 54} (quote ^{:line 89, :column 61} (["long"]))}
   ^{:line 90, :column 18}
-  (^java.lang.Boolean [^long arg0]
-   ^{:line 90, :column 51} (. java.time.Year isLeap arg0)))
+  (^java.lang.Boolean [^long year]
+   ^{:line 90, :column 51} (. java.time.Year isLeap year)))
 
 (clojure.core/defn to-string
   {:arglists (quote (["java.time.Year"]))}
@@ -55,21 +55,21 @@
 
 (clojure.core/defn is-before
   {:arglists (quote (["java.time.Year" "java.time.Year"]))}
-  (^boolean [^js/JSJoda.Year this ^js/JSJoda.Year arg0]
-   (.isBefore this arg0)))
+  (^boolean [^js/JSJoda.Year this ^js/JSJoda.Year other]
+   (.isBefore this other)))
 
 (clojure.core/defn minus
   {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalAmount"]
                      ["java.time.Year" "long" "java.time.temporal.TemporalUnit"]))}
-  (^js/JSJoda.Year [^js/JSJoda.Year this ^js/JSJoda.TemporalAmount arg0]
-   (.minus this arg0))
-  (^js/JSJoda.Year [^js/JSJoda.Year this ^long arg0 ^js/JSJoda.TemporalUnit arg1]
-   (.minus this arg0 arg1)))
+  (^js/JSJoda.Year [^js/JSJoda.Year this ^js/JSJoda.TemporalAmount amount-to-subtract]
+   (.minus this amount-to-subtract))
+  (^js/JSJoda.Year [^js/JSJoda.Year this ^long amount-to-subtract ^js/JSJoda.TemporalUnit unit]
+   (.minus this amount-to-subtract unit)))
 
 (clojure.core/defn at-month-day
   {:arglists (quote (["java.time.Year" "java.time.MonthDay"]))}
-  (^js/JSJoda.LocalDate [^js/JSJoda.Year this ^js/JSJoda.MonthDay arg0]
-   (.atMonthDay this arg0)))
+  (^js/JSJoda.LocalDate [^js/JSJoda.Year this ^js/JSJoda.MonthDay month-day]
+   (.atMonthDay this month-day)))
 
 (clojure.core/defn get-value
   {:arglists (quote (["java.time.Year"]))}
@@ -78,8 +78,8 @@
 
 (clojure.core/defn get-long
   {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalField"]))}
-  (^long [^js/JSJoda.Year this ^js/JSJoda.TemporalField arg0]
-   (.getLong this arg0)))
+  (^long [^js/JSJoda.Year this ^js/JSJoda.TemporalField field]
+   (.getLong this field)))
 
 (clojure.core/defn at-month
   {:arglists (quote (["java.time.Year" "int"] ["java.time.Year" "java.time.Month"]))}
@@ -88,8 +88,8 @@
 
 (clojure.core/defn until
   {:arglists (quote (["java.time.Year" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
-  (^long [^js/JSJoda.Year this ^js/JSJoda.Temporal arg0 ^js/JSJoda.TemporalUnit arg1]
-   (.until this arg0 arg1)))
+  (^long [^js/JSJoda.Year this ^js/JSJoda.Temporal end-exclusive ^js/JSJoda.TemporalUnit unit]
+   (.until this end-exclusive unit)))
 
 (clojure.core/defn length
   {:arglists (quote (["java.time.Year"]))}
@@ -98,13 +98,13 @@
 
 (clojure.core/defn from
   {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
-  (^js/JSJoda.Year [^js/JSJoda.TemporalAccessor arg0]
-   (js-invoke java.time.Year "from" arg0)))
+  (^js/JSJoda.Year [^js/JSJoda.TemporalAccessor temporal]
+   (js-invoke java.time.Year "from" temporal)))
 
 (clojure.core/defn is-after
   {:arglists (quote (["java.time.Year" "java.time.Year"]))}
-  (^boolean [^js/JSJoda.Year this ^js/JSJoda.Year arg0]
-   (.isAfter this arg0)))
+  (^boolean [^js/JSJoda.Year this ^js/JSJoda.Year other]
+   (.isAfter this other)))
 
 (clojure.core/defn is-supported
   {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalField"]
@@ -114,15 +114,15 @@
 
 (clojure.core/defn minus-years
   {:arglists (quote (["java.time.Year" "long"]))}
-  (^js/JSJoda.Year [^js/JSJoda.Year this ^long arg0]
-   (.minusYears this arg0)))
+  (^js/JSJoda.Year [^js/JSJoda.Year this ^long years-to-subtract]
+   (.minusYears this years-to-subtract)))
 
 (clojure.core/defn parse
   {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
-  (^js/JSJoda.Year [^java.lang.CharSequence arg0]
-   (js-invoke java.time.Year "parse" arg0))
-  (^js/JSJoda.Year [^java.lang.CharSequence arg0 ^js/JSJoda.DateTimeFormatter arg1]
-   (js-invoke java.time.Year "parse" arg0 arg1)))
+  (^js/JSJoda.Year [^java.lang.CharSequence text]
+   (js-invoke java.time.Year "parse" text))
+  (^js/JSJoda.Year [^java.lang.CharSequence text ^js/JSJoda.DateTimeFormatter formatter]
+   (js-invoke java.time.Year "parse" text formatter)))
 
 (clojure.core/defn hash-code
   {:arglists (quote (["java.time.Year"]))}
@@ -131,16 +131,16 @@
 
 (clojure.core/defn adjust-into
   {:arglists (quote (["java.time.Year" "java.time.temporal.Temporal"]))}
-  (^js/JSJoda.Temporal [^js/JSJoda.Year this ^js/JSJoda.Temporal arg0]
-   (.adjustInto this arg0)))
+  (^js/JSJoda.Temporal [^js/JSJoda.Year this ^js/JSJoda.Temporal temporal]
+   (.adjustInto this temporal)))
 
 (clojure.core/defn with
   {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalAdjuster"]
                      ["java.time.Year" "java.time.temporal.TemporalField" "long"]))}
-  (^js/JSJoda.Year [^js/JSJoda.Year this ^js/JSJoda.TemporalAdjuster arg0]
-   (.with this arg0))
-  (^js/JSJoda.Year [^js/JSJoda.Year this ^js/JSJoda.TemporalField arg0 ^long arg1]
-   (.with this arg0 arg1)))
+  (^js/JSJoda.Year [^js/JSJoda.Year this ^js/JSJoda.TemporalAdjuster adjuster]
+   (.with this adjuster))
+  (^js/JSJoda.Year [^js/JSJoda.Year this ^js/JSJoda.TemporalField field ^long new-value]
+   (.with this field new-value)))
 
 (clojure.core/defn now
   {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
@@ -151,25 +151,25 @@
 
 (clojure.core/defn compare-to
   {:arglists (quote (["java.time.Year" "java.time.Year"]))}
-  (^int [^js/JSJoda.Year this ^js/JSJoda.Year arg0]
-   (.compareTo this arg0)))
+  (^int [^js/JSJoda.Year this ^js/JSJoda.Year other]
+   (.compareTo this other)))
 
 (clojure.core/defn get
   {:arglists (quote (["java.time.Year" "java.time.temporal.TemporalField"]))}
-  (^int [^js/JSJoda.Year this ^js/JSJoda.TemporalField arg0]
-   (.get this arg0)))
+  (^int [^js/JSJoda.Year this ^js/JSJoda.TemporalField field]
+   (.get this field)))
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.Year" "java.lang.Object"]))}
-  (^boolean [^js/JSJoda.Year this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^boolean [^js/JSJoda.Year this ^java.lang.Object obj]
+   (.equals this obj)))
 
 (clojure.core/defn format
   {:arglists (quote (["java.time.Year" "java.time.format.DateTimeFormatter"]))}
-  (^java.lang.String [^js/JSJoda.Year this ^js/JSJoda.DateTimeFormatter arg0]
-   (.format this arg0)))
+  (^java.lang.String [^js/JSJoda.Year this ^js/JSJoda.DateTimeFormatter formatter]
+   (.format this formatter)))
 
 (clojure.core/defn plus-years
   {:arglists (quote (["java.time.Year" "long"]))}
-  (^js/JSJoda.Year [^js/JSJoda.Year this ^long arg0]
-   (.plusYears this arg0)))
+  (^js/JSJoda.Year [^js/JSJoda.Year this ^long years-to-add]
+   (.plusYears this years-to-add)))

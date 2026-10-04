@@ -11,22 +11,22 @@
 
 (clojure.core/defn of
   {:arglists (quote (["long" "long"] ["long" "long" "long"] ["long" "long" "long" "long"]))}
-  (^js/JSJoda.ValueRange [^long arg0 ^long arg1]
-   (js-invoke java.time.temporal.ValueRange "of" arg0 arg1))
-  (^js/JSJoda.ValueRange [^long arg0 ^long arg1 ^long arg2]
-   (js-invoke java.time.temporal.ValueRange "of" arg0 arg1 arg2))
-  (^js/JSJoda.ValueRange [^long arg0 ^long arg1 ^long arg2 ^long arg3]
-   (js-invoke java.time.temporal.ValueRange "of" arg0 arg1 arg2 arg3)))
+  (^js/JSJoda.ValueRange [^long min ^long max]
+   (js-invoke java.time.temporal.ValueRange "of" min max))
+  (^js/JSJoda.ValueRange [^long min ^long max-smallest ^long max-largest]
+   (js-invoke java.time.temporal.ValueRange "of" min max-smallest max-largest))
+  (^js/JSJoda.ValueRange [^long min-smallest ^long min-largest ^long max-smallest ^long max-largest]
+   (js-invoke java.time.temporal.ValueRange "of" min-smallest min-largest max-smallest max-largest)))
 
 (clojure.core/defn is-valid-value
   {:arglists (quote (["java.time.temporal.ValueRange" "long"]))}
-  (^boolean [^js/JSJoda.ValueRange this ^long arg0]
-   (.isValidValue this arg0)))
+  (^boolean [^js/JSJoda.ValueRange this ^long value]
+   (.isValidValue this value)))
 
 (clojure.core/defn check-valid-int-value
   {:arglists (quote (["java.time.temporal.ValueRange" "long" "java.time.temporal.TemporalField"]))}
-  (^int [^js/JSJoda.ValueRange this ^long arg0 ^js/JSJoda.TemporalField arg1]
-   (.checkValidIntValue this arg0 arg1)))
+  (^int [^js/JSJoda.ValueRange this ^long value ^js/JSJoda.TemporalField field]
+   (.checkValidIntValue this value field)))
 
 (clojure.core/defn to-string
   {:arglists (quote (["java.time.temporal.ValueRange"]))}
@@ -45,8 +45,8 @@
 
 (clojure.core/defn is-valid-int-value
   {:arglists (quote (["java.time.temporal.ValueRange" "long"]))}
-  (^boolean [^js/JSJoda.ValueRange this ^long arg0]
-   (.isValidIntValue this arg0)))
+  (^boolean [^js/JSJoda.ValueRange this ^long value]
+   (.isValidIntValue this value)))
 
 (clojure.core/defn hash-code
   {:arglists (quote (["java.time.temporal.ValueRange"]))}
@@ -65,8 +65,8 @@
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.temporal.ValueRange" "java.lang.Object"]))}
-  (^boolean [^js/JSJoda.ValueRange this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^boolean [^js/JSJoda.ValueRange this ^java.lang.Object obj]
+   (.equals this obj)))
 
 (clojure.core/defn get-largest-minimum
   {:arglists (quote (["java.time.temporal.ValueRange"]))}
@@ -75,5 +75,5 @@
 
 (clojure.core/defn check-valid-value
   {:arglists (quote (["java.time.temporal.ValueRange" "long" "java.time.temporal.TemporalField"]))}
-  (^long [^js/JSJoda.ValueRange this ^long arg0 ^js/JSJoda.TemporalField arg1]
-   (.checkValidValue this arg0 arg1)))
+  (^long [^js/JSJoda.ValueRange this ^long value ^js/JSJoda.TemporalField field]
+   (.checkValidValue this value field)))

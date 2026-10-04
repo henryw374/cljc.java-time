@@ -13,15 +13,15 @@
 
 (clojure.core/defn of
   {:arglists (quote (["java.lang.String"] ["java.lang.String" "java.util.Map"]))}
-  (^js/JSJoda.ZoneId [^java.lang.String arg0]
-   (js-invoke java.time.ZoneId "of" arg0))
-  (^js/JSJoda.ZoneId [^java.lang.String arg0 ^java.util.Map arg1]
-   (js-invoke java.time.ZoneId "of" arg0 arg1)))
+  (^js/JSJoda.ZoneId [^java.lang.String zone-id]
+   (js-invoke java.time.ZoneId "of" zone-id))
+  (^js/JSJoda.ZoneId [^java.lang.String zone-id ^java.util.Map alias-map]
+   (js-invoke java.time.ZoneId "of" zone-id alias-map)))
 
 (clojure.core/defn of-offset
   {:arglists (quote (["java.lang.String" "java.time.ZoneOffset"]))}
-  (^js/JSJoda.ZoneId [^java.lang.String arg0 ^js/JSJoda.ZoneOffset arg1]
-   (js-invoke java.time.ZoneId "ofOffset" arg0 arg1)))
+  (^js/JSJoda.ZoneId [^java.lang.String prefix ^js/JSJoda.ZoneOffset offset]
+   (js-invoke java.time.ZoneId "ofOffset" prefix offset)))
 
 (clojure.core/defn to-string
   {:arglists (quote (["java.time.ZoneId"]))}
@@ -30,8 +30,8 @@
 
 (clojure.core/defn get-display-name
   {:arglists (quote (["java.time.ZoneId" "java.time.format.TextStyle" "java.util.Locale"]))}
-  (^java.lang.String [^js/JSJoda.ZoneId this ^js/JSJoda.TextStyle arg0 ^java.util.Locale arg1]
-   (.displayName this arg0 arg1)))
+  (^java.lang.String [^js/JSJoda.ZoneId this ^js/JSJoda.TextStyle style ^java.util.Locale locale]
+   (.displayName this style locale)))
 
 (clojure.core/defn get-rules
   {:arglists (quote (["java.time.ZoneId"]))}
@@ -55,8 +55,8 @@
 
 (clojure.core/defn from
   {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
-  (^js/JSJoda.ZoneId [^js/JSJoda.TemporalAccessor arg0]
-   (js-invoke java.time.ZoneId "from" arg0)))
+  (^js/JSJoda.ZoneId [^js/JSJoda.TemporalAccessor temporal]
+   (js-invoke java.time.ZoneId "from" temporal)))
 
 (clojure.core/defn hash-code
   {:arglists (quote (["java.time.ZoneId"]))}
@@ -65,5 +65,5 @@
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.ZoneId" "java.lang.Object"]))}
-  (^boolean [^js/JSJoda.ZoneId this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^boolean [^js/JSJoda.ZoneId this ^java.lang.Object obj]
+   (.equals this obj)))

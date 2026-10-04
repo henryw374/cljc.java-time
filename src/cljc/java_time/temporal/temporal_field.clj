@@ -17,9 +17,9 @@
   {:arglists (quote (["java.time.temporal.TemporalField" "java.util.Map" "java.time.temporal.TemporalAccessor"
                       "java.time.format.ResolverStyle"]))}
   (^java.time.temporal.TemporalAccessor
-   [^java.time.temporal.TemporalField this ^java.util.Map arg0 ^java.time.temporal.TemporalAccessor arg1
-    ^java.time.format.ResolverStyle arg2]
-   (.resolve this arg0 arg1 arg2)))
+   [^java.time.temporal.TemporalField this ^java.util.Map field-values
+    ^java.time.temporal.TemporalAccessor partial-temporal ^java.time.format.ResolverStyle resolver-style]
+   (.resolve this field-values partial-temporal resolver-style)))
 
 (clojure.core/defn get-base-unit
   {:arglists (quote (["java.time.temporal.TemporalField"]))}
@@ -38,28 +38,29 @@
 
 (clojure.core/defn get-display-name
   {:arglists (quote (["java.time.temporal.TemporalField" "java.util.Locale"]))}
-  (^java.lang.String [^java.time.temporal.TemporalField this ^java.util.Locale arg0]
-   (.getDisplayName this arg0)))
+  (^java.lang.String [^java.time.temporal.TemporalField this ^java.util.Locale locale]
+   (.getDisplayName this locale)))
 
 (clojure.core/defn is-supported-by
   {:arglists (quote (["java.time.temporal.TemporalField" "java.time.temporal.TemporalAccessor"]))}
-  (^java.lang.Boolean [^java.time.temporal.TemporalField this ^java.time.temporal.TemporalAccessor arg0]
-   (.isSupportedBy this arg0)))
+  (^java.lang.Boolean [^java.time.temporal.TemporalField this ^java.time.temporal.TemporalAccessor temporal]
+   (.isSupportedBy this temporal)))
 
 (clojure.core/defn range-refined-by
   {:arglists (quote (["java.time.temporal.TemporalField" "java.time.temporal.TemporalAccessor"]))}
-  (^java.time.temporal.ValueRange [^java.time.temporal.TemporalField this ^java.time.temporal.TemporalAccessor arg0]
-   (.rangeRefinedBy this arg0)))
+  (^java.time.temporal.ValueRange [^java.time.temporal.TemporalField this ^java.time.temporal.TemporalAccessor temporal]
+   (.rangeRefinedBy this temporal)))
 
 (clojure.core/defn adjust-into
   {:arglists (quote (["java.time.temporal.TemporalField" "java.time.temporal.Temporal" "long"]))}
-  (^java.time.temporal.Temporal [^java.time.temporal.TemporalField this ^java.time.temporal.Temporal arg0 ^long arg1]
-   (.adjustInto this arg0 arg1)))
+  (^java.time.temporal.Temporal
+   [^java.time.temporal.TemporalField this ^java.time.temporal.Temporal temporal ^long new-value]
+   (.adjustInto this temporal new-value)))
 
 (clojure.core/defn get-from
   {:arglists (quote (["java.time.temporal.TemporalField" "java.time.temporal.TemporalAccessor"]))}
-  (^long [^java.time.temporal.TemporalField this ^java.time.temporal.TemporalAccessor arg0]
-   (.getFrom this arg0)))
+  (^long [^java.time.temporal.TemporalField this ^java.time.temporal.TemporalAccessor temporal]
+   (.getFrom this temporal)))
 
 (clojure.core/defn is-time-based
   {:arglists (quote (["java.time.temporal.TemporalField"]))}

@@ -81,17 +81,18 @@
 
 (clojure.core/defn value-of
   {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
-  (^js/JSJoda.ChronoField [^java.lang.String arg0]
-   (js-invoke java.time.temporal.ChronoField "valueOf" arg0))
-  (^java.lang.Enum [^java.lang.Class arg0 ^java.lang.String arg1]
-   (js-invoke java.time.temporal.ChronoField "valueOf" arg0 arg1)))
+  (^js/JSJoda.ChronoField [^java.lang.String name]
+   (js-invoke java.time.temporal.ChronoField "valueOf" name))
+  (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
+   (js-invoke java.time.temporal.ChronoField "valueOf" enum-type name)))
 
 (clojure.core/defn resolve
   {:arglists (quote (["java.time.temporal.ChronoField" "java.util.Map" "java.time.temporal.TemporalAccessor"
                       "java.time.format.ResolverStyle"]))}
   (^js/JSJoda.TemporalAccessor
-   [^js/JSJoda.ChronoField this ^java.util.Map arg0 ^js/JSJoda.TemporalAccessor arg1 ^js/JSJoda.ResolverStyle arg2]
-   (.resolve this arg0 arg1 arg2)))
+   [^js/JSJoda.ChronoField this ^java.util.Map field-values ^js/JSJoda.TemporalAccessor partial-temporal
+    ^js/JSJoda.ResolverStyle resolver-style]
+   (.resolve this field-values partial-temporal resolver-style)))
 
 (clojure.core/defn ordinal
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -100,8 +101,8 @@
 
 (clojure.core/defn check-valid-int-value
   {:arglists (quote (["java.time.temporal.ChronoField" "long"]))}
-  (^int [^js/JSJoda.ChronoField this ^long arg0]
-   (.checkValidIntValue this arg0)))
+  (^int [^js/JSJoda.ChronoField this ^long value]
+   (.checkValidIntValue this value)))
 
 (clojure.core/defn get-base-unit
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -120,8 +121,8 @@
 
 (clojure.core/defn get-display-name
   {:arglists (quote (["java.time.temporal.ChronoField" "java.util.Locale"]))}
-  (^java.lang.String [^js/JSJoda.ChronoField this ^java.util.Locale arg0]
-   (.displayName this arg0)))
+  (^java.lang.String [^js/JSJoda.ChronoField this ^java.util.Locale locale]
+   (.displayName this locale)))
 
 (clojure.core/defn name
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -130,13 +131,13 @@
 
 (clojure.core/defn is-supported-by
   {:arglists (quote (["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"]))}
-  (^boolean [^js/JSJoda.ChronoField this ^js/JSJoda.TemporalAccessor arg0]
-   (.isSupportedBy this arg0)))
+  (^boolean [^js/JSJoda.ChronoField this ^js/JSJoda.TemporalAccessor temporal]
+   (.isSupportedBy this temporal)))
 
 (clojure.core/defn range-refined-by
   {:arglists (quote (["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"]))}
-  (^js/JSJoda.ValueRange [^js/JSJoda.ChronoField this ^js/JSJoda.TemporalAccessor arg0]
-   (.rangeRefinedBy this arg0)))
+  (^js/JSJoda.ValueRange [^js/JSJoda.ChronoField this ^js/JSJoda.TemporalAccessor temporal]
+   (.rangeRefinedBy this temporal)))
 
 (clojure.core/defn get-declaring-class
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -150,23 +151,23 @@
 
 (clojure.core/defn adjust-into
   {:arglists (quote (["java.time.temporal.ChronoField" "java.time.temporal.Temporal" "long"]))}
-  (^js/JSJoda.Temporal [^js/JSJoda.ChronoField this ^js/JSJoda.Temporal arg0 ^long arg1]
-   (.adjustInto this arg0 arg1)))
+  (^js/JSJoda.Temporal [^js/JSJoda.ChronoField this ^js/JSJoda.Temporal temporal ^long new-value]
+   (.adjustInto this temporal new-value)))
 
 (clojure.core/defn get-from
   {:arglists (quote (["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"]))}
-  (^long [^js/JSJoda.ChronoField this ^js/JSJoda.TemporalAccessor arg0]
-   (.from this arg0)))
+  (^long [^js/JSJoda.ChronoField this ^js/JSJoda.TemporalAccessor temporal]
+   (.from this temporal)))
 
 (clojure.core/defn compare-to
   {:arglists (quote (["java.time.temporal.ChronoField" "java.lang.Enum"]))}
-  (^int [^js/JSJoda.ChronoField this ^java.lang.Enum arg0]
-   (.compareTo this arg0)))
+  (^int [^js/JSJoda.ChronoField this ^java.lang.Enum o]
+   (.compareTo this o)))
 
 (clojure.core/defn equals
   {:arglists (quote (["java.time.temporal.ChronoField" "java.lang.Object"]))}
-  (^boolean [^js/JSJoda.ChronoField this ^java.lang.Object arg0]
-   (.equals this arg0)))
+  (^boolean [^js/JSJoda.ChronoField this ^java.lang.Object other]
+   (.equals this other)))
 
 (clojure.core/defn is-time-based
   {:arglists (quote (["java.time.temporal.ChronoField"]))}
@@ -175,5 +176,5 @@
 
 (clojure.core/defn check-valid-value
   {:arglists (quote (["java.time.temporal.ChronoField" "long"]))}
-  (^long [^js/JSJoda.ChronoField this ^long arg0]
-   (.checkValidValue this arg0)))
+  (^long [^js/JSJoda.ChronoField this ^long value]
+   (.checkValidValue this value)))
