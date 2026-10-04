@@ -1,12 +1,16 @@
 (ns defwrapper
   "based on gist by @plexus"
-  (:require [clojure.string :as string])
+  (:require [clojure.edn :as edn]
+            [clojure.string :as string])
   (:import (java.time.format DateTimeFormatter)
            (java.time Instant)
            (java.lang.reflect Modifier Method)))
 
 (set! *warn-on-reflection* true)
 (set! *print-meta* true)
+
+(def fqn->param-names
+  (edn/read-string (slurp "dev/param-names.edn")))
 
 (defn class-methods [^Class class]
   (seq (.getMethods class)))
@@ -155,21 +159,26 @@
                 ~@arg-vec)
              `(cond
                 ~@(mapcat
-                  (fn [method]
-                    `[(and ~@(map (fn [sym ^Class klz]
-                                    (if (.isArray klz)
-                                       `(= ~(.getComponentType klz)
-                                          (.getComponentType (class ~sym)))
-                                       `(instance? ~(ensure-boxed (class-name klz)) ~sym)))
-                               arg-vec
-                               (parameter-types method)))
-                      (let [~@(mapcat (fn [sym ^Class klz]
-                                        [sym (tagged-local sym klz)])
-                                arg-vec
-                                (parameter-types method))]
-                        (~@method-call
-                          ~@(when-not static? [(tagged this klazz ext)])
-                          ~@arg-vec))])
+                  (fn [^Method method]
+                    (let [param-names (->> (method-fqn method)
+                                           (get fqn->param-names)
+                                           (mapv (comp symbol camel->kebab)))]
+                      (assert (= (count arg-vec) (count param-names)) (method-fqn method))
+                      `[(and ~@(map (fn [sym ^Class klz]
+                                      (if (.isArray klz)
+                                        `(= ~(.getComponentType klz)
+                                            (.getComponentType (class ~sym)))
+                                        `(instance? ~(ensure-boxed (class-name klz)) ~sym)))
+                                    arg-vec
+                                    (parameter-types method)))
+                        (let [~@(mapcat (fn [pn sym ^Class klz]
+                                          [pn (tagged-local sym klz)])
+                                        param-names
+                                        arg-vec
+                                        (parameter-types method))]
+                          (~@method-call
+                           ~@(when-not static? [(tagged this klazz ext)])
+                           ~@param-names))]))
                   methods)
                 :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
         bod (if helpful?
@@ -185,9 +194,14 @@
         ret (return-type method)
         par (parameter-types method)
         static? (method-static? method)
+        param-names (->> (method-fqn method)
+                         (get fqn->param-names)
+                         (mapv (comp symbol camel->kebab)))
+        _ (assert (= (count par) (count param-names)) (method-fqn method))
         arg-vec (into (if static? [] [(tagged 'this klazz ext)])
-                  (map-indexed #(tagged (symbol (str "arg" %1)) %2 ext))
-                  par)
+                      (map #(tagged %1 %2 ext)
+                           param-names
+                           par))
         method-call (method-call static? klazz nam ext)
         bod `(~@method-call ~@(map #(vary-meta % dissoc :tag) arg-vec))
         bod (if helpful?
