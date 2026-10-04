@@ -47,13 +47,6 @@
       (clojure.string/replace #"([a-z0-9])([A-Z])" "$1-$2")
       (clojure.string/lower-case)))
 
-(defn class->name [^Class class]
-  (->
-    (if (.isArray class)
-      (str (.getName (.getComponentType class)) "-array")
-      (.getName class))
-    (string/replace "." "-")))
-
 (defn method-public? [^java.lang.reflect.Method method]
   (java.lang.reflect.Modifier/isPublic (.getModifiers method)))
 
@@ -150,8 +143,8 @@
 (defn wrapper-multi-tail [klazz methods ext helpful?]
   (let [static? (method-static? (first methods))
         nam (method-name (first methods))
-        this (gensym "this")
-        arg-vec (take (parameter-count (first methods)) (repeatedly gensym))
+        this 'this
+        arg-vec (take (parameter-count (first methods)) (map #(symbol (str "arg" %)) (range)))
         ret (if (apply = (map return-type methods))
               (return-type (first methods))
               java.lang.Object)
@@ -192,8 +185,8 @@
         ret (return-type method)
         par (parameter-types method)
         static? (method-static? method)
-        arg-vec (into (if static? [] [(tagged (gensym "this") klazz ext)])
-                  (map #(tagged (gensym (class->name %)) % ext))
+        arg-vec (into (if static? [] [(tagged 'this klazz ext)])
+                  (map-indexed #(tagged (symbol (str "arg" %1)) %2 ext))
                   par)
         method-call (method-call static? klazz nam ext)
         bod `(~@method-call ~@(map #(vary-meta % dissoc :tag) arg-vec))

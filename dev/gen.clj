@@ -86,7 +86,7 @@
   (doseq [f (df/defwrapper c ext)]
     (let [f (if (= 'is-leap (second f))
               '(clojure.core/defn is-leap {:arglists (quote (["long"]))}
-                 (^java.lang.Boolean [^long long57050] (. java.time.Year isLeap long57050)))
+                 (^java.lang.Boolean [^long arg0] (. java.time.Year isLeap arg0)))
               f)]
       (pr f))
     (println)))
