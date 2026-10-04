@@ -29,6 +29,11 @@
 (defn method-name [^java.lang.reflect.Method method]
   (.getName method))
 
+(defn method-fqn [^Method method]
+  (-> (str method)
+      (string/split #" ")
+      (peek)))
+
 (defn class-name [^Class klazz]
   (let [original-name (.getName klazz)]
     (symbol (if (= "java.time.temporal.TemporalUnit" (.getName klazz))
@@ -201,12 +206,13 @@
        ~bod)))
 
 (defn method-wrapper-form [fname klazz methods ext helpful?]
-  (let [arities (group-by parameter-count methods)
+  (let [arities (into (sorted-map) (group-by parameter-count methods))
         static? (method-static? (first methods))]
     `(defn ~fname
        {:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
                            #(map (fn [x] (.getName x)) %)
-                           parameter-types) methods)}
+                           parameter-types)
+                         (mapcat val arities))}
        ~@(map (fn [[cnt meths]]
                 (if (= 1 (count meths))
                   (wrapper-tail klazz (first meths) ext helpful?)
@@ -223,6 +229,7 @@
        (filter method-public?)
        (filter concrete?)
        (remove (set (class-methods Object)))
+       (sort-by method-fqn)
        (group-by method-name)))
 
 (def helpful-exceptions
