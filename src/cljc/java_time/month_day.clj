@@ -1,26 +1,143 @@
-(ns cljc.java-time.month-day (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness]) (:import [java.time MonthDay]))
-(clojure.core/defn at-year {:arglists (quote (["java.time.MonthDay" "int"]))} (^java.time.LocalDate [^java.time.MonthDay this14844 ^java.lang.Integer int14845] (.atYear this14844 int14845)))
-(clojure.core/defn range {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))} (^java.time.temporal.ValueRange [^java.time.MonthDay this14846 ^java.time.temporal.TemporalField java-time-temporal-TemporalField14847] (.range this14846 java-time-temporal-TemporalField14847)))
-(clojure.core/defn of {:arglists (quote (["int" "int"] ["java.time.Month" "int"]))} (^java.time.MonthDay [G__14849 G__14850] (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.Number G__14849) (clojure.core/instance? java.lang.Number G__14850)) (clojure.core/let [G__14849 (clojure.core/int G__14849) G__14850 (clojure.core/int G__14850)] (java.time.MonthDay/of G__14849 G__14850)) (clojure.core/and (clojure.core/instance? java.time.Month G__14849) (clojure.core/instance? java.lang.Number G__14850)) (clojure.core/let [G__14849 ^"java.time.Month" G__14849 G__14850 (clojure.core/int G__14850)] (java.time.MonthDay/of G__14849 G__14850)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
-(clojure.core/defn with-month {:arglists (quote (["java.time.MonthDay" "int"]))} (^java.time.MonthDay [^java.time.MonthDay this14851 ^java.lang.Integer int14852] (.withMonth this14851 int14852)))
-(clojure.core/defn query {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^java.time.MonthDay this14853 ^java.time.temporal.TemporalQuery java-time-temporal-TemporalQuery14854] (.query this14853 java-time-temporal-TemporalQuery14854)))
-(clojure.core/defn to-string {:arglists (quote (["java.time.MonthDay"]))} (^java.lang.String [^java.time.MonthDay this14855] (.toString this14855)))
-(clojure.core/defn is-before {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))} (^java.lang.Boolean [^java.time.MonthDay this14856 ^java.time.MonthDay java-time-MonthDay14857] (.isBefore this14856 java-time-MonthDay14857)))
-(clojure.core/defn get-long {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))} (^long [^java.time.MonthDay this14858 ^java.time.temporal.TemporalField java-time-temporal-TemporalField14859] (.getLong this14858 java-time-temporal-TemporalField14859)))
-(clojure.core/defn with-day-of-month {:arglists (quote (["java.time.MonthDay" "int"]))} (^java.time.MonthDay [^java.time.MonthDay this14860 ^java.lang.Integer int14861] (.withDayOfMonth this14860 int14861)))
-(clojure.core/defn get-day-of-month {:arglists (quote (["java.time.MonthDay"]))} (^java.lang.Integer [^java.time.MonthDay this14862] (.getDayOfMonth this14862)))
-(clojure.core/defn from {:arglists (quote (["java.time.temporal.TemporalAccessor"]))} (^java.time.MonthDay [^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor14863] (java.time.MonthDay/from java-time-temporal-TemporalAccessor14863)))
-(clojure.core/defn is-after {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))} (^java.lang.Boolean [^java.time.MonthDay this14864 ^java.time.MonthDay java-time-MonthDay14865] (.isAfter this14864 java-time-MonthDay14865)))
-(clojure.core/defn is-supported {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))} (^java.lang.Boolean [^java.time.MonthDay this14866 ^java.time.temporal.TemporalField java-time-temporal-TemporalField14867] (.isSupported this14866 java-time-temporal-TemporalField14867)))
-(clojure.core/defn parse {:arglists (quote (["java.lang.CharSequence" "java.time.format.DateTimeFormatter"] ["java.lang.CharSequence"]))} (^java.time.MonthDay [^java.lang.CharSequence java-lang-CharSequence14868 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter14869] (java.time.MonthDay/parse java-lang-CharSequence14868 java-time-format-DateTimeFormatter14869)) (^java.time.MonthDay [^java.lang.CharSequence java-lang-CharSequence14870] (java.time.MonthDay/parse java-lang-CharSequence14870)))
-(clojure.core/defn is-valid-year {:arglists (quote (["java.time.MonthDay" "int"]))} (^java.lang.Boolean [^java.time.MonthDay this14871 ^java.lang.Integer int14872] (.isValidYear this14871 int14872)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.MonthDay"]))} (^java.lang.Integer [^java.time.MonthDay this14873] (.hashCode this14873)))
-(clojure.core/defn adjust-into {:arglists (quote (["java.time.MonthDay" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.MonthDay this14874 ^java.time.temporal.Temporal java-time-temporal-Temporal14875] (.adjustInto this14874 java-time-temporal-Temporal14875)))
-(clojure.core/defn with {:arglists (quote (["java.time.MonthDay" "java.time.Month"]))} (^java.time.MonthDay [^java.time.MonthDay this14876 ^java.time.Month java-time-Month14877] (.with this14876 java-time-Month14877)))
-(clojure.core/defn now {:arglists (quote (["java.time.ZoneId"] ["java.time.Clock"] []))} (^java.time.MonthDay [G__14879] (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.ZoneId G__14879)) (clojure.core/let [G__14879 ^"java.time.ZoneId" G__14879] (java.time.MonthDay/now G__14879)) (clojure.core/and (clojure.core/instance? java.time.Clock G__14879)) (clojure.core/let [G__14879 ^"java.time.Clock" G__14879] (java.time.MonthDay/now G__14879)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))) (^java.time.MonthDay [] (java.time.MonthDay/now)))
-(clojure.core/defn get-month-value {:arglists (quote (["java.time.MonthDay"]))} (^java.lang.Integer [^java.time.MonthDay this14880] (.getMonthValue this14880)))
-(clojure.core/defn compare-to {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))} (^java.lang.Integer [^java.time.MonthDay this14881 ^java.time.MonthDay java-time-MonthDay14882] (.compareTo this14881 java-time-MonthDay14882)))
-(clojure.core/defn get-month {:arglists (quote (["java.time.MonthDay"]))} (^java.time.Month [^java.time.MonthDay this14883] (.getMonth this14883)))
-(clojure.core/defn get {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))} (^java.lang.Integer [^java.time.MonthDay this14884 ^java.time.temporal.TemporalField java-time-temporal-TemporalField14885] (.get this14884 java-time-temporal-TemporalField14885)))
-(clojure.core/defn equals {:arglists (quote (["java.time.MonthDay" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.MonthDay this14886 ^java.lang.Object java-lang-Object14887] (.equals this14886 java-lang-Object14887)))
-(clojure.core/defn format {:arglists (quote (["java.time.MonthDay" "java.time.format.DateTimeFormatter"]))} (^java.lang.String [^java.time.MonthDay this14888 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter14889] (.format this14888 java-time-format-DateTimeFormatter14889)))
+(ns cljc.java-time.month-day
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness])
+  (:import [java.time MonthDay]))
+
+(clojure.core/defn at-year
+  {:arglists (quote (["java.time.MonthDay" "int"]))}
+  (^java.time.LocalDate [^java.time.MonthDay this ^java.lang.Integer arg0]
+   (.atYear this arg0)))
+
+(clojure.core/defn range
+  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))}
+  (^java.time.temporal.ValueRange [^java.time.MonthDay this ^java.time.temporal.TemporalField arg0]
+   (.range this arg0)))
+
+(clojure.core/defn of
+  {:arglists (quote (["int" "int"] ["java.time.Month" "int"]))}
+  (^java.time.MonthDay [arg0 arg1]
+   (clojure.core/cond
+     (clojure.core/and (clojure.core/instance? java.lang.Number arg0) (clojure.core/instance? java.lang.Number arg1))
+       (clojure.core/let [arg0 (clojure.core/int arg0) arg1 (clojure.core/int arg1)] (java.time.MonthDay/of arg0 arg1))
+     (clojure.core/and (clojure.core/instance? java.time.Month arg0) (clojure.core/instance? java.lang.Number arg1))
+       (clojure.core/let [arg0 ^"java.time.Month" arg0 arg1 (clojure.core/int arg1)] (java.time.MonthDay/of arg0 arg1))
+     :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
+
+(clojure.core/defn with-month
+  {:arglists (quote (["java.time.MonthDay" "int"]))}
+  (^java.time.MonthDay [^java.time.MonthDay this ^java.lang.Integer arg0]
+   (.withMonth this arg0)))
+
+(clojure.core/defn query
+  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalQuery"]))}
+  (^java.lang.Object [^java.time.MonthDay this ^java.time.temporal.TemporalQuery arg0]
+   (.query this arg0)))
+
+(clojure.core/defn to-string
+  {:arglists (quote (["java.time.MonthDay"]))}
+  (^java.lang.String [^java.time.MonthDay this]
+   (.toString this)))
+
+(clojure.core/defn is-before
+  {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))}
+  (^java.lang.Boolean [^java.time.MonthDay this ^java.time.MonthDay arg0]
+   (.isBefore this arg0)))
+
+(clojure.core/defn get-long
+  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))}
+  (^long [^java.time.MonthDay this ^java.time.temporal.TemporalField arg0]
+   (.getLong this arg0)))
+
+(clojure.core/defn with-day-of-month
+  {:arglists (quote (["java.time.MonthDay" "int"]))}
+  (^java.time.MonthDay [^java.time.MonthDay this ^java.lang.Integer arg0]
+   (.withDayOfMonth this arg0)))
+
+(clojure.core/defn get-day-of-month
+  {:arglists (quote (["java.time.MonthDay"]))}
+  (^java.lang.Integer [^java.time.MonthDay this]
+   (.getDayOfMonth this)))
+
+(clojure.core/defn from
+  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+  (^java.time.MonthDay [^java.time.temporal.TemporalAccessor arg0]
+   (java.time.MonthDay/from arg0)))
+
+(clojure.core/defn is-after
+  {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))}
+  (^java.lang.Boolean [^java.time.MonthDay this ^java.time.MonthDay arg0]
+   (.isAfter this arg0)))
+
+(clojure.core/defn is-supported
+  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))}
+  (^java.lang.Boolean [^java.time.MonthDay this ^java.time.temporal.TemporalField arg0]
+   (.isSupported this arg0)))
+
+(clojure.core/defn parse
+  {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
+  (^java.time.MonthDay [^java.lang.CharSequence arg0]
+   (java.time.MonthDay/parse arg0))
+  (^java.time.MonthDay [^java.lang.CharSequence arg0 ^java.time.format.DateTimeFormatter arg1]
+   (java.time.MonthDay/parse arg0 arg1)))
+
+(clojure.core/defn is-valid-year
+  {:arglists (quote (["java.time.MonthDay" "int"]))}
+  (^java.lang.Boolean [^java.time.MonthDay this ^java.lang.Integer arg0]
+   (.isValidYear this arg0)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.MonthDay"]))}
+  (^java.lang.Integer [^java.time.MonthDay this]
+   (.hashCode this)))
+
+(clojure.core/defn adjust-into
+  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.Temporal"]))}
+  (^java.time.temporal.Temporal [^java.time.MonthDay this ^java.time.temporal.Temporal arg0]
+   (.adjustInto this arg0)))
+
+(clojure.core/defn with
+  {:arglists (quote (["java.time.MonthDay" "java.time.Month"]))}
+  (^java.time.MonthDay [^java.time.MonthDay this ^java.time.Month arg0]
+   (.with this arg0)))
+
+(clojure.core/defn now
+  {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
+  (^java.time.MonthDay []
+   (java.time.MonthDay/now))
+  (^java.time.MonthDay [arg0]
+   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.Clock arg0))
+                        (clojure.core/let [arg0 ^"java.time.Clock" arg0] (java.time.MonthDay/now arg0))
+                      (clojure.core/and (clojure.core/instance? java.time.ZoneId arg0))
+                        (clojure.core/let [arg0 ^"java.time.ZoneId" arg0] (java.time.MonthDay/now arg0))
+                      :else (throw (java.lang.IllegalArgumentException.
+                                     "no corresponding java.time method with these args")))))
+
+(clojure.core/defn get-month-value
+  {:arglists (quote (["java.time.MonthDay"]))}
+  (^java.lang.Integer [^java.time.MonthDay this]
+   (.getMonthValue this)))
+
+(clojure.core/defn compare-to
+  {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))}
+  (^java.lang.Integer [^java.time.MonthDay this ^java.time.MonthDay arg0]
+   (.compareTo this arg0)))
+
+(clojure.core/defn get-month
+  {:arglists (quote (["java.time.MonthDay"]))}
+  (^java.time.Month [^java.time.MonthDay this]
+   (.getMonth this)))
+
+(clojure.core/defn get
+  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))}
+  (^java.lang.Integer [^java.time.MonthDay this ^java.time.temporal.TemporalField arg0]
+   (.get this arg0)))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.MonthDay" "java.lang.Object"]))}
+  (^java.lang.Boolean [^java.time.MonthDay this ^java.lang.Object arg0]
+   (.equals this arg0)))
+
+(clojure.core/defn format
+  {:arglists (quote (["java.time.MonthDay" "java.time.format.DateTimeFormatter"]))}
+  (^java.lang.String [^java.time.MonthDay this ^java.time.format.DateTimeFormatter arg0]
+   (.format this arg0)))

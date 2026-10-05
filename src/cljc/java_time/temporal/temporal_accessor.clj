@@ -1,6 +1,29 @@
-(ns cljc.java-time.temporal.temporal-accessor (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness]) (:import [java.time.temporal TemporalAccessor]))
-(clojure.core/defn get {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))} (^java.lang.Integer [^java.time.temporal.TemporalAccessor this15720 ^java.time.temporal.TemporalField java-time-temporal-TemporalField15721] (.get this15720 java-time-temporal-TemporalField15721)))
-(clojure.core/defn get-long {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))} (^long [^java.time.temporal.TemporalAccessor this15722 ^java.time.temporal.TemporalField java-time-temporal-TemporalField15723] (.getLong this15722 java-time-temporal-TemporalField15723)))
-(clojure.core/defn query {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^java.time.temporal.TemporalAccessor this15724 ^java.time.temporal.TemporalQuery java-time-temporal-TemporalQuery15725] (.query this15724 java-time-temporal-TemporalQuery15725)))
-(clojure.core/defn is-supported {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))} (^java.lang.Boolean [^java.time.temporal.TemporalAccessor this15726 ^java.time.temporal.TemporalField java-time-temporal-TemporalField15727] (.isSupported this15726 java-time-temporal-TemporalField15727)))
-(clojure.core/defn range {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))} (^java.time.temporal.ValueRange [^java.time.temporal.TemporalAccessor this15728 ^java.time.temporal.TemporalField java-time-temporal-TemporalField15729] (.range this15728 java-time-temporal-TemporalField15729)))
+(ns cljc.java-time.temporal.temporal-accessor
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness])
+  (:import [java.time.temporal TemporalAccessor]))
+
+(clojure.core/defn get
+  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))}
+  (^java.lang.Integer [^java.time.temporal.TemporalAccessor this ^java.time.temporal.TemporalField arg0]
+   (.get this arg0)))
+
+(clojure.core/defn get-long
+  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))}
+  (^long [^java.time.temporal.TemporalAccessor this ^java.time.temporal.TemporalField arg0]
+   (.getLong this arg0)))
+
+(clojure.core/defn is-supported
+  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))}
+  (^java.lang.Boolean [^java.time.temporal.TemporalAccessor this ^java.time.temporal.TemporalField arg0]
+   (.isSupported this arg0)))
+
+(clojure.core/defn query
+  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalQuery"]))}
+  (^java.lang.Object [^java.time.temporal.TemporalAccessor this ^java.time.temporal.TemporalQuery arg0]
+   (.query this arg0)))
+
+(clojure.core/defn range
+  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))}
+  (^java.time.temporal.ValueRange [^java.time.temporal.TemporalAccessor this ^java.time.temporal.TemporalField arg0]
+   (.range this arg0)))

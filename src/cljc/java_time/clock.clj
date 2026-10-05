@@ -1,15 +1,74 @@
-(ns cljc.java-time.clock (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness]) (:import [java.time Clock]))
-(clojure.core/defn tick {:arglists (quote (["java.time.Clock" "java.time.Duration"]))} (^java.time.Clock [^java.time.Clock java-time-Clock15370 ^java.time.Duration java-time-Duration15371] (java.time.Clock/tick java-time-Clock15370 java-time-Duration15371)))
-(clojure.core/defn offset {:arglists (quote (["java.time.Clock" "java.time.Duration"]))} (^java.time.Clock [^java.time.Clock java-time-Clock15372 ^java.time.Duration java-time-Duration15373] (java.time.Clock/offset java-time-Clock15372 java-time-Duration15373)))
-(clojure.core/defn system-utc {:arglists (quote ([]))} (^java.time.Clock [] (java.time.Clock/systemUTC)))
-(clojure.core/defn system-default-zone {:arglists (quote ([]))} (^java.time.Clock [] (java.time.Clock/systemDefaultZone)))
-(clojure.core/defn fixed {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))} (^java.time.Clock [^java.time.Instant java-time-Instant15374 ^java.time.ZoneId java-time-ZoneId15375] (java.time.Clock/fixed java-time-Instant15374 java-time-ZoneId15375)))
-(clojure.core/defn tick-minutes {:arglists (quote (["java.time.ZoneId"]))} (^java.time.Clock [^java.time.ZoneId java-time-ZoneId15376] (java.time.Clock/tickMinutes java-time-ZoneId15376)))
-(clojure.core/defn tick-seconds {:arglists (quote (["java.time.ZoneId"]))} (^java.time.Clock [^java.time.ZoneId java-time-ZoneId15377] (java.time.Clock/tickSeconds java-time-ZoneId15377)))
-(clojure.core/defn millis {:arglists (quote (["java.time.Clock"]))} (^long [^java.time.Clock this15378] (.millis this15378)))
-(clojure.core/defn with-zone {:arglists (quote (["java.time.Clock" "java.time.ZoneId"]))} (^java.time.Clock [^java.time.Clock this15379 ^java.time.ZoneId java-time-ZoneId15380] (.withZone this15379 java-time-ZoneId15380)))
-(clojure.core/defn get-zone {:arglists (quote (["java.time.Clock"]))} (^java.time.ZoneId [^java.time.Clock this15381] (.getZone this15381)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.Clock"]))} (^java.lang.Integer [^java.time.Clock this15382] (.hashCode this15382)))
-(clojure.core/defn system {:arglists (quote (["java.time.ZoneId"]))} (^java.time.Clock [^java.time.ZoneId java-time-ZoneId15383] (java.time.Clock/system java-time-ZoneId15383)))
-(clojure.core/defn instant {:arglists (quote (["java.time.Clock"]))} (^java.time.Instant [^java.time.Clock this15384] (.instant this15384)))
-(clojure.core/defn equals {:arglists (quote (["java.time.Clock" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.Clock this15385 ^java.lang.Object java-lang-Object15386] (.equals this15385 java-lang-Object15386)))
+(ns cljc.java-time.clock
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness])
+  (:import [java.time Clock]))
+
+(clojure.core/defn tick
+  {:arglists (quote (["java.time.Clock" "java.time.Duration"]))}
+  (^java.time.Clock [^java.time.Clock arg0 ^java.time.Duration arg1]
+   (java.time.Clock/tick arg0 arg1)))
+
+(clojure.core/defn offset
+  {:arglists (quote (["java.time.Clock" "java.time.Duration"]))}
+  (^java.time.Clock [^java.time.Clock arg0 ^java.time.Duration arg1]
+   (java.time.Clock/offset arg0 arg1)))
+
+(clojure.core/defn system-utc
+  {:arglists (quote ([]))}
+  (^java.time.Clock []
+   (java.time.Clock/systemUTC)))
+
+(clojure.core/defn system-default-zone
+  {:arglists (quote ([]))}
+  (^java.time.Clock []
+   (java.time.Clock/systemDefaultZone)))
+
+(clojure.core/defn fixed
+  {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))}
+  (^java.time.Clock [^java.time.Instant arg0 ^java.time.ZoneId arg1]
+   (java.time.Clock/fixed arg0 arg1)))
+
+(clojure.core/defn tick-minutes
+  {:arglists (quote (["java.time.ZoneId"]))}
+  (^java.time.Clock [^java.time.ZoneId arg0]
+   (java.time.Clock/tickMinutes arg0)))
+
+(clojure.core/defn tick-seconds
+  {:arglists (quote (["java.time.ZoneId"]))}
+  (^java.time.Clock [^java.time.ZoneId arg0]
+   (java.time.Clock/tickSeconds arg0)))
+
+(clojure.core/defn millis
+  {:arglists (quote (["java.time.Clock"]))}
+  (^long [^java.time.Clock this]
+   (.millis this)))
+
+(clojure.core/defn with-zone
+  {:arglists (quote (["java.time.Clock" "java.time.ZoneId"]))}
+  (^java.time.Clock [^java.time.Clock this ^java.time.ZoneId arg0]
+   (.withZone this arg0)))
+
+(clojure.core/defn get-zone
+  {:arglists (quote (["java.time.Clock"]))}
+  (^java.time.ZoneId [^java.time.Clock this]
+   (.getZone this)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.Clock"]))}
+  (^java.lang.Integer [^java.time.Clock this]
+   (.hashCode this)))
+
+(clojure.core/defn system
+  {:arglists (quote (["java.time.ZoneId"]))}
+  (^java.time.Clock [^java.time.ZoneId arg0]
+   (java.time.Clock/system arg0)))
+
+(clojure.core/defn instant
+  {:arglists (quote (["java.time.Clock"]))}
+  (^java.time.Instant [^java.time.Clock this]
+   (.instant this)))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.Clock" "java.lang.Object"]))}
+  (^java.lang.Boolean [^java.time.Clock this ^java.lang.Object arg0]
+   (.equals this arg0)))

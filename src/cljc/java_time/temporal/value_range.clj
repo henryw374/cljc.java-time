@@ -1,15 +1,78 @@
-(ns cljc.java-time.temporal.value-range (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness]) (:import [java.time.temporal ValueRange]))
-(clojure.core/defn get-minimum {:arglists (quote (["java.time.temporal.ValueRange"]))} (^long [^java.time.temporal.ValueRange this15774] (.getMinimum this15774)))
-(clojure.core/defn of {:arglists (quote (["long" "long" "long"] ["long" "long" "long" "long"] ["long" "long"]))} (^java.time.temporal.ValueRange [^long long15775 ^long long15776 ^long long15777] (java.time.temporal.ValueRange/of long15775 long15776 long15777)) (^java.time.temporal.ValueRange [^long long15778 ^long long15779 ^long long15780 ^long long15781] (java.time.temporal.ValueRange/of long15778 long15779 long15780 long15781)) (^java.time.temporal.ValueRange [^long long15782 ^long long15783] (java.time.temporal.ValueRange/of long15782 long15783)))
-(clojure.core/defn is-valid-value {:arglists (quote (["java.time.temporal.ValueRange" "long"]))} (^java.lang.Boolean [^java.time.temporal.ValueRange this15784 ^long long15785] (.isValidValue this15784 long15785)))
-(clojure.core/defn check-valid-int-value {:arglists (quote (["java.time.temporal.ValueRange" "long" "java.time.temporal.TemporalField"]))} (^java.lang.Integer [^java.time.temporal.ValueRange this15786 ^long long15787 ^java.time.temporal.TemporalField java-time-temporal-TemporalField15788] (.checkValidIntValue this15786 long15787 java-time-temporal-TemporalField15788)))
-(clojure.core/defn to-string {:arglists (quote (["java.time.temporal.ValueRange"]))} (^java.lang.String [^java.time.temporal.ValueRange this15789] (.toString this15789)))
-(clojure.core/defn is-int-value {:arglists (quote (["java.time.temporal.ValueRange"]))} (^java.lang.Boolean [^java.time.temporal.ValueRange this15790] (.isIntValue this15790)))
-(clojure.core/defn get-smallest-maximum {:arglists (quote (["java.time.temporal.ValueRange"]))} (^long [^java.time.temporal.ValueRange this15791] (.getSmallestMaximum this15791)))
-(clojure.core/defn is-valid-int-value {:arglists (quote (["java.time.temporal.ValueRange" "long"]))} (^java.lang.Boolean [^java.time.temporal.ValueRange this15792 ^long long15793] (.isValidIntValue this15792 long15793)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.temporal.ValueRange"]))} (^java.lang.Integer [^java.time.temporal.ValueRange this15794] (.hashCode this15794)))
-(clojure.core/defn is-fixed {:arglists (quote (["java.time.temporal.ValueRange"]))} (^java.lang.Boolean [^java.time.temporal.ValueRange this15795] (.isFixed this15795)))
-(clojure.core/defn get-maximum {:arglists (quote (["java.time.temporal.ValueRange"]))} (^long [^java.time.temporal.ValueRange this15796] (.getMaximum this15796)))
-(clojure.core/defn equals {:arglists (quote (["java.time.temporal.ValueRange" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.temporal.ValueRange this15797 ^java.lang.Object java-lang-Object15798] (.equals this15797 java-lang-Object15798)))
-(clojure.core/defn get-largest-minimum {:arglists (quote (["java.time.temporal.ValueRange"]))} (^long [^java.time.temporal.ValueRange this15799] (.getLargestMinimum this15799)))
-(clojure.core/defn check-valid-value {:arglists (quote (["java.time.temporal.ValueRange" "long" "java.time.temporal.TemporalField"]))} (^long [^java.time.temporal.ValueRange this15800 ^long long15801 ^java.time.temporal.TemporalField java-time-temporal-TemporalField15802] (.checkValidValue this15800 long15801 java-time-temporal-TemporalField15802)))
+(ns cljc.java-time.temporal.value-range
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness])
+  (:import [java.time.temporal ValueRange]))
+
+(clojure.core/defn get-minimum
+  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+  (^long [^java.time.temporal.ValueRange this]
+   (.getMinimum this)))
+
+(clojure.core/defn of
+  {:arglists (quote (["long" "long"] ["long" "long" "long"] ["long" "long" "long" "long"]))}
+  (^java.time.temporal.ValueRange [^long arg0 ^long arg1]
+   (java.time.temporal.ValueRange/of arg0 arg1))
+  (^java.time.temporal.ValueRange [^long arg0 ^long arg1 ^long arg2]
+   (java.time.temporal.ValueRange/of arg0 arg1 arg2))
+  (^java.time.temporal.ValueRange [^long arg0 ^long arg1 ^long arg2 ^long arg3]
+   (java.time.temporal.ValueRange/of arg0 arg1 arg2 arg3)))
+
+(clojure.core/defn is-valid-value
+  {:arglists (quote (["java.time.temporal.ValueRange" "long"]))}
+  (^java.lang.Boolean [^java.time.temporal.ValueRange this ^long arg0]
+   (.isValidValue this arg0)))
+
+(clojure.core/defn check-valid-int-value
+  {:arglists (quote (["java.time.temporal.ValueRange" "long" "java.time.temporal.TemporalField"]))}
+  (^java.lang.Integer [^java.time.temporal.ValueRange this ^long arg0 ^java.time.temporal.TemporalField arg1]
+   (.checkValidIntValue this arg0 arg1)))
+
+(clojure.core/defn to-string
+  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+  (^java.lang.String [^java.time.temporal.ValueRange this]
+   (.toString this)))
+
+(clojure.core/defn is-int-value
+  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+  (^java.lang.Boolean [^java.time.temporal.ValueRange this]
+   (.isIntValue this)))
+
+(clojure.core/defn get-smallest-maximum
+  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+  (^long [^java.time.temporal.ValueRange this]
+   (.getSmallestMaximum this)))
+
+(clojure.core/defn is-valid-int-value
+  {:arglists (quote (["java.time.temporal.ValueRange" "long"]))}
+  (^java.lang.Boolean [^java.time.temporal.ValueRange this ^long arg0]
+   (.isValidIntValue this arg0)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+  (^java.lang.Integer [^java.time.temporal.ValueRange this]
+   (.hashCode this)))
+
+(clojure.core/defn is-fixed
+  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+  (^java.lang.Boolean [^java.time.temporal.ValueRange this]
+   (.isFixed this)))
+
+(clojure.core/defn get-maximum
+  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+  (^long [^java.time.temporal.ValueRange this]
+   (.getMaximum this)))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.temporal.ValueRange" "java.lang.Object"]))}
+  (^java.lang.Boolean [^java.time.temporal.ValueRange this ^java.lang.Object arg0]
+   (.equals this arg0)))
+
+(clojure.core/defn get-largest-minimum
+  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+  (^long [^java.time.temporal.ValueRange this]
+   (.getLargestMinimum this)))
+
+(clojure.core/defn check-valid-value
+  {:arglists (quote (["java.time.temporal.ValueRange" "long" "java.time.temporal.TemporalField"]))}
+  (^long [^java.time.temporal.ValueRange this ^long arg0 ^java.time.temporal.TemporalField arg1]
+   (.checkValidValue this arg0 arg1)))

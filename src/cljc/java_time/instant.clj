@@ -1,37 +1,194 @@
-(ns cljc.java-time.instant (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness]) (:import [java.time Instant]))
+(ns cljc.java-time.instant
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness])
+  (:import [java.time Instant]))
+
 (def min java.time.Instant/MIN)
+
 (def epoch java.time.Instant/EPOCH)
+
 (def max java.time.Instant/MAX)
-(clojure.core/defn truncated-to {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalUnit"]))} (^java.time.Instant [^java.time.Instant this14054 ^java.time.temporal.ChronoUnit java-time-temporal-TemporalUnit14055] (.truncatedTo this14054 java-time-temporal-TemporalUnit14055)))
-(clojure.core/defn range {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField"]))} (^java.time.temporal.ValueRange [^java.time.Instant this14056 ^java.time.temporal.TemporalField java-time-temporal-TemporalField14057] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.range this14056 java-time-temporal-TemporalField14057))))
-(clojure.core/defn of-epoch-second {:arglists (quote (["long" "long"] ["long"]))} (^java.time.Instant [^long long14058 ^long long14059] (java.time.Instant/ofEpochSecond long14058 long14059)) (^java.time.Instant [^long long14060] (java.time.Instant/ofEpochSecond long14060)))
-(clojure.core/defn at-offset {:arglists (quote (["java.time.Instant" "java.time.ZoneOffset"]))} (^java.time.OffsetDateTime [^java.time.Instant this14061 ^java.time.ZoneOffset java-time-ZoneOffset14062] (.atOffset this14061 java-time-ZoneOffset14062)))
-(clojure.core/defn minus-millis {:arglists (quote (["java.time.Instant" "long"]))} (^java.time.Instant [^java.time.Instant this14063 ^long long14064] (.minusMillis this14063 long14064)))
-(clojure.core/defn get-nano {:arglists (quote (["java.time.Instant"]))} (^java.lang.Integer [^java.time.Instant this14065] (.getNano this14065)))
-(clojure.core/defn plus-millis {:arglists (quote (["java.time.Instant" "long"]))} (^java.time.Instant [^java.time.Instant this14066 ^long long14067] (.plusMillis this14066 long14067)))
-(clojure.core/defn minus-seconds {:arglists (quote (["java.time.Instant" "long"]))} (^java.time.Instant [^java.time.Instant this14068 ^long long14069] (.minusSeconds this14068 long14069)))
-(clojure.core/defn plus-nanos {:arglists (quote (["java.time.Instant" "long"]))} (^java.time.Instant [^java.time.Instant this14070 ^long long14071] (.plusNanos this14070 long14071)))
-(clojure.core/defn plus {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalAmount"] ["java.time.Instant" "long" "java.time.temporal.TemporalUnit"]))} (^java.time.Instant [^java.time.Instant this14072 ^java.time.temporal.TemporalAmount java-time-temporal-TemporalAmount14073] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.plus this14072 java-time-temporal-TemporalAmount14073))) (^java.time.Instant [^java.time.Instant this14074 ^long long14075 ^java.time.temporal.ChronoUnit java-time-temporal-TemporalUnit14076] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.plus this14074 long14075 java-time-temporal-TemporalUnit14076))))
-(clojure.core/defn query {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^java.time.Instant this14077 ^java.time.temporal.TemporalQuery java-time-temporal-TemporalQuery14078] (.query this14077 java-time-temporal-TemporalQuery14078)))
-(clojure.core/defn to-string {:arglists (quote (["java.time.Instant"]))} (^java.lang.String [^java.time.Instant this14079] (.toString this14079)))
-(clojure.core/defn is-before {:arglists (quote (["java.time.Instant" "java.time.Instant"]))} (^java.lang.Boolean [^java.time.Instant this14080 ^java.time.Instant java-time-Instant14081] (.isBefore this14080 java-time-Instant14081)))
-(clojure.core/defn minus {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalAmount"] ["java.time.Instant" "long" "java.time.temporal.TemporalUnit"]))} (^java.time.Instant [^java.time.Instant this14082 ^java.time.temporal.TemporalAmount java-time-temporal-TemporalAmount14083] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.minus this14082 java-time-temporal-TemporalAmount14083))) (^java.time.Instant [^java.time.Instant this14084 ^long long14085 ^java.time.temporal.ChronoUnit java-time-temporal-TemporalUnit14086] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.minus this14084 long14085 java-time-temporal-TemporalUnit14086))))
-(clojure.core/defn at-zone {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))} (^java.time.ZonedDateTime [^java.time.Instant this14087 ^java.time.ZoneId java-time-ZoneId14088] (.atZone this14087 java-time-ZoneId14088)))
-(clojure.core/defn of-epoch-milli {:arglists (quote (["long"]))} (^java.time.Instant [^long long14089] (java.time.Instant/ofEpochMilli long14089)))
-(clojure.core/defn get-long {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField"]))} (^long [^java.time.Instant this14090 ^java.time.temporal.TemporalField java-time-temporal-TemporalField14091] (.getLong this14090 java-time-temporal-TemporalField14091)))
-(clojure.core/defn until {:arglists (quote (["java.time.Instant" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^java.time.Instant this14092 ^java.time.temporal.Temporal java-time-temporal-Temporal14093 ^java.time.temporal.ChronoUnit java-time-temporal-TemporalUnit14094] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.until this14092 java-time-temporal-Temporal14093 java-time-temporal-TemporalUnit14094))))
-(clojure.core/defn from {:arglists (quote (["java.time.temporal.TemporalAccessor"]))} (^java.time.Instant [^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor14095] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (java.time.Instant/from java-time-temporal-TemporalAccessor14095))))
-(clojure.core/defn is-after {:arglists (quote (["java.time.Instant" "java.time.Instant"]))} (^java.lang.Boolean [^java.time.Instant this14096 ^java.time.Instant java-time-Instant14097] (.isAfter this14096 java-time-Instant14097)))
-(clojure.core/defn minus-nanos {:arglists (quote (["java.time.Instant" "long"]))} (^java.time.Instant [^java.time.Instant this14098 ^long long14099] (.minusNanos this14098 long14099)))
-(clojure.core/defn is-supported {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField"] ["java.time.Instant" "java.time.temporal.TemporalUnit"]))} (^java.lang.Boolean [this14100 G__14101] (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalField G__14101)) (clojure.core/let [G__14101 ^"java.time.temporal.TemporalField" G__14101] (.isSupported ^java.time.Instant this14100 G__14101)) (clojure.core/and (clojure.core/instance? java.time.temporal.ChronoUnit G__14101)) (clojure.core/let [G__14101 ^"java.time.temporal.ChronoUnit" G__14101] (.isSupported ^java.time.Instant this14100 G__14101)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
-(clojure.core/defn parse {:arglists (quote (["java.lang.CharSequence"]))} (^java.time.Instant [^java.lang.CharSequence java-lang-CharSequence14102] (java.time.Instant/parse java-lang-CharSequence14102)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.Instant"]))} (^java.lang.Integer [^java.time.Instant this14103] (.hashCode this14103)))
-(clojure.core/defn adjust-into {:arglists (quote (["java.time.Instant" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.Instant this14104 ^java.time.temporal.Temporal java-time-temporal-Temporal14105] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.adjustInto this14104 java-time-temporal-Temporal14105))))
-(clojure.core/defn with {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField" "long"] ["java.time.Instant" "java.time.temporal.TemporalAdjuster"]))} (^java.time.Instant [^java.time.Instant this14106 ^java.time.temporal.TemporalField java-time-temporal-TemporalField14107 ^long long14108] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.with this14106 java-time-temporal-TemporalField14107 long14108))) (^java.time.Instant [^java.time.Instant this14109 ^java.time.temporal.TemporalAdjuster java-time-temporal-TemporalAdjuster14110] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.with this14109 java-time-temporal-TemporalAdjuster14110))))
-(clojure.core/defn now {:arglists (quote ([] ["java.time.Clock"]))} (^java.time.Instant [] (java.time.Instant/now)) (^java.time.Instant [^java.time.Clock java-time-Clock14111] (java.time.Instant/now java-time-Clock14111)))
-(clojure.core/defn to-epoch-milli {:arglists (quote (["java.time.Instant"]))} (^long [^java.time.Instant this14112] (.toEpochMilli this14112)))
-(clojure.core/defn get-epoch-second {:arglists (quote (["java.time.Instant"]))} (^long [^java.time.Instant this14113] (.getEpochSecond this14113)))
-(clojure.core/defn compare-to {:arglists (quote (["java.time.Instant" "java.time.Instant"]))} (^java.lang.Integer [^java.time.Instant this14114 ^java.time.Instant java-time-Instant14115] (.compareTo this14114 java-time-Instant14115)))
-(clojure.core/defn plus-seconds {:arglists (quote (["java.time.Instant" "long"]))} (^java.time.Instant [^java.time.Instant this14116 ^long long14117] (.plusSeconds this14116 long14117)))
-(clojure.core/defn get {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField"]))} (^java.lang.Integer [^java.time.Instant this14118 ^java.time.temporal.TemporalField java-time-temporal-TemporalField14119] (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.get this14118 java-time-temporal-TemporalField14119))))
-(clojure.core/defn equals {:arglists (quote (["java.time.Instant" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.Instant this14120 ^java.lang.Object java-lang-Object14121] (.equals this14120 java-lang-Object14121)))
+
+(clojure.core/defn truncated-to
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalUnit"]))}
+  (^java.time.Instant [^java.time.Instant this ^java.time.temporal.ChronoUnit arg0]
+   (.truncatedTo this arg0)))
+
+(clojure.core/defn range
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField"]))}
+  (^java.time.temporal.ValueRange [^java.time.Instant this ^java.time.temporal.TemporalField arg0]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.range this arg0))))
+
+(clojure.core/defn of-epoch-second
+  {:arglists (quote (["long"] ["long" "long"]))}
+  (^java.time.Instant [^long arg0]
+   (java.time.Instant/ofEpochSecond arg0))
+  (^java.time.Instant [^long arg0 ^long arg1]
+   (java.time.Instant/ofEpochSecond arg0 arg1)))
+
+(clojure.core/defn at-offset
+  {:arglists (quote (["java.time.Instant" "java.time.ZoneOffset"]))}
+  (^java.time.OffsetDateTime [^java.time.Instant this ^java.time.ZoneOffset arg0]
+   (.atOffset this arg0)))
+
+(clojure.core/defn minus-millis
+  {:arglists (quote (["java.time.Instant" "long"]))}
+  (^java.time.Instant [^java.time.Instant this ^long arg0]
+   (.minusMillis this arg0)))
+
+(clojure.core/defn get-nano
+  {:arglists (quote (["java.time.Instant"]))}
+  (^java.lang.Integer [^java.time.Instant this]
+   (.getNano this)))
+
+(clojure.core/defn plus-millis
+  {:arglists (quote (["java.time.Instant" "long"]))}
+  (^java.time.Instant [^java.time.Instant this ^long arg0]
+   (.plusMillis this arg0)))
+
+(clojure.core/defn minus-seconds
+  {:arglists (quote (["java.time.Instant" "long"]))}
+  (^java.time.Instant [^java.time.Instant this ^long arg0]
+   (.minusSeconds this arg0)))
+
+(clojure.core/defn plus-nanos
+  {:arglists (quote (["java.time.Instant" "long"]))}
+  (^java.time.Instant [^java.time.Instant this ^long arg0]
+   (.plusNanos this arg0)))
+
+(clojure.core/defn plus
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalAmount"]
+                     ["java.time.Instant" "long" "java.time.temporal.TemporalUnit"]))}
+  (^java.time.Instant [^java.time.Instant this ^java.time.temporal.TemporalAmount arg0]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.plus this arg0)))
+  (^java.time.Instant [^java.time.Instant this ^long arg0 ^java.time.temporal.ChronoUnit arg1]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.plus this arg0 arg1))))
+
+(clojure.core/defn query
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalQuery"]))}
+  (^java.lang.Object [^java.time.Instant this ^java.time.temporal.TemporalQuery arg0]
+   (.query this arg0)))
+
+(clojure.core/defn to-string
+  {:arglists (quote (["java.time.Instant"]))}
+  (^java.lang.String [^java.time.Instant this]
+   (.toString this)))
+
+(clojure.core/defn is-before
+  {:arglists (quote (["java.time.Instant" "java.time.Instant"]))}
+  (^java.lang.Boolean [^java.time.Instant this ^java.time.Instant arg0]
+   (.isBefore this arg0)))
+
+(clojure.core/defn minus
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalAmount"]
+                     ["java.time.Instant" "long" "java.time.temporal.TemporalUnit"]))}
+  (^java.time.Instant [^java.time.Instant this ^java.time.temporal.TemporalAmount arg0]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.minus this arg0)))
+  (^java.time.Instant [^java.time.Instant this ^long arg0 ^java.time.temporal.ChronoUnit arg1]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.minus this arg0 arg1))))
+
+(clojure.core/defn at-zone
+  {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))}
+  (^java.time.ZonedDateTime [^java.time.Instant this ^java.time.ZoneId arg0]
+   (.atZone this arg0)))
+
+(clojure.core/defn of-epoch-milli
+  {:arglists (quote (["long"]))}
+  (^java.time.Instant [^long arg0]
+   (java.time.Instant/ofEpochMilli arg0)))
+
+(clojure.core/defn get-long
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField"]))}
+  (^long [^java.time.Instant this ^java.time.temporal.TemporalField arg0]
+   (.getLong this arg0)))
+
+(clojure.core/defn until
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
+  (^long [^java.time.Instant this ^java.time.temporal.Temporal arg0 ^java.time.temporal.ChronoUnit arg1]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.until this arg0 arg1))))
+
+(clojure.core/defn from
+  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+  (^java.time.Instant [^java.time.temporal.TemporalAccessor arg0]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (java.time.Instant/from arg0))))
+
+(clojure.core/defn is-after
+  {:arglists (quote (["java.time.Instant" "java.time.Instant"]))}
+  (^java.lang.Boolean [^java.time.Instant this ^java.time.Instant arg0]
+   (.isAfter this arg0)))
+
+(clojure.core/defn minus-nanos
+  {:arglists (quote (["java.time.Instant" "long"]))}
+  (^java.time.Instant [^java.time.Instant this ^long arg0]
+   (.minusNanos this arg0)))
+
+(clojure.core/defn is-supported
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField"]
+                     ["java.time.Instant" "java.time.temporal.TemporalUnit"]))}
+  (^java.lang.Boolean [this arg0]
+   (clojure.core/cond
+     (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalField arg0))
+       (clojure.core/let [arg0 ^"java.time.temporal.TemporalField" arg0] (.isSupported ^java.time.Instant this arg0))
+     (clojure.core/and (clojure.core/instance? java.time.temporal.ChronoUnit arg0))
+       (clojure.core/let [arg0 ^"java.time.temporal.ChronoUnit" arg0] (.isSupported ^java.time.Instant this arg0))
+     :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
+
+(clojure.core/defn parse
+  {:arglists (quote (["java.lang.CharSequence"]))}
+  (^java.time.Instant [^java.lang.CharSequence arg0]
+   (java.time.Instant/parse arg0)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.Instant"]))}
+  (^java.lang.Integer [^java.time.Instant this]
+   (.hashCode this)))
+
+(clojure.core/defn adjust-into
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.Temporal"]))}
+  (^java.time.temporal.Temporal [^java.time.Instant this ^java.time.temporal.Temporal arg0]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.adjustInto this arg0))))
+
+(clojure.core/defn with
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalAdjuster"]
+                     ["java.time.Instant" "java.time.temporal.TemporalField" "long"]))}
+  (^java.time.Instant [^java.time.Instant this ^java.time.temporal.TemporalAdjuster arg0]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.with this arg0)))
+  (^java.time.Instant [^java.time.Instant this ^java.time.temporal.TemporalField arg0 ^long arg1]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.with this arg0 arg1))))
+
+(clojure.core/defn now
+  {:arglists (quote ([] ["java.time.Clock"]))}
+  (^java.time.Instant []
+   (java.time.Instant/now))
+  (^java.time.Instant [^java.time.Clock arg0]
+   (java.time.Instant/now arg0)))
+
+(clojure.core/defn to-epoch-milli
+  {:arglists (quote (["java.time.Instant"]))}
+  (^long [^java.time.Instant this]
+   (.toEpochMilli this)))
+
+(clojure.core/defn get-epoch-second
+  {:arglists (quote (["java.time.Instant"]))}
+  (^long [^java.time.Instant this]
+   (.getEpochSecond this)))
+
+(clojure.core/defn compare-to
+  {:arglists (quote (["java.time.Instant" "java.time.Instant"]))}
+  (^java.lang.Integer [^java.time.Instant this ^java.time.Instant arg0]
+   (.compareTo this arg0)))
+
+(clojure.core/defn plus-seconds
+  {:arglists (quote (["java.time.Instant" "long"]))}
+  (^java.time.Instant [^java.time.Instant this ^long arg0]
+   (.plusSeconds this arg0)))
+
+(clojure.core/defn get
+  {:arglists (quote (["java.time.Instant" "java.time.temporal.TemporalField"]))}
+  (^java.lang.Integer [^java.time.Instant this ^java.time.temporal.TemporalField arg0]
+   (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.get this arg0))))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.Instant" "java.lang.Object"]))}
+  (^java.lang.Boolean [^java.time.Instant this ^java.lang.Object arg0]
+   (.equals this arg0)))
