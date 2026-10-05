@@ -9,7 +9,7 @@
                                      camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.0"}
                                      org.clojure/tools.namespace         {:mvn/version "0.2.11"}
                                      org.clojure/clojure                 {:mvn/version "1.11.1"}
-                                     }}
+                                     zprint/zprint                       {:mvn/version "1.3.0"}}}
            :bb        {:extra-deps  {tubular/tubular {:mvn/version "1.3.0"}}
                        :extra-paths ["dev" "test"]}
            :test      {:extra-paths ["test"]
