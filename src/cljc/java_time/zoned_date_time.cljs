@@ -271,8 +271,8 @@
 (defn is-supported
   {:arglists '(["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]
                ["java.time.ZonedDateTime" "java.time.temporal.TemporalUnit"])}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.ZonedDateTime this arg0)))
+  (^boolean [^js/JSJoda.ZonedDateTime this arg0]
+   (.isSupported this arg0)))
 
 (defn minus-years
   {:arglists '(["java.time.ZonedDateTime" "long"])}

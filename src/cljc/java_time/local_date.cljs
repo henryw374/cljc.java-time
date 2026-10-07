@@ -170,8 +170,8 @@
 (defn is-supported
   {:arglists '(["java.time.LocalDate" "java.time.temporal.TemporalField"]
                ["java.time.LocalDate" "java.time.temporal.TemporalUnit"])}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.LocalDate this arg0)))
+  (^boolean [^js/JSJoda.LocalDate this arg0]
+   (.isSupported this arg0)))
 
 (defn minus-years
   {:arglists '(["java.time.LocalDate" "long"])}
@@ -263,8 +263,8 @@
                ["java.time.LocalDate" "int" "int"]
                ["java.time.LocalDate" "int" "int" "int"]
                ["java.time.LocalDate" "int" "int" "int" "int"])}
-  (^java.lang.Object [this arg0]
-   (.atTime ^js/JSJoda.LocalDate this arg0))
+  (^java.lang.Object [^js/JSJoda.LocalDate this arg0]
+   (.atTime this arg0))
   (^js/JSJoda.LocalDateTime [^js/JSJoda.LocalDate this ^int hour ^int minute]
    (.atTime this hour minute))
   (^js/JSJoda.LocalDateTime [^js/JSJoda.LocalDate this ^int hour ^int minute ^int second]

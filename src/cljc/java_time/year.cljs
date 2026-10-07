@@ -81,8 +81,8 @@
 
 (defn at-month
   {:arglists '(["java.time.Year" "int"] ["java.time.Year" "java.time.Month"])}
-  (^js/JSJoda.YearMonth [this arg0]
-   (.atMonth ^js/JSJoda.Year this arg0)))
+  (^js/JSJoda.YearMonth [^js/JSJoda.Year this arg0]
+   (.atMonth this arg0)))
 
 (defn until
   {:arglists '(["java.time.Year" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"])}
@@ -107,8 +107,8 @@
 (defn is-supported
   {:arglists '(["java.time.Year" "java.time.temporal.TemporalField"]
                ["java.time.Year" "java.time.temporal.TemporalUnit"])}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.Year this arg0)))
+  (^boolean [^js/JSJoda.Year this arg0]
+   (.isSupported this arg0)))
 
 (defn minus-years
   {:arglists '(["java.time.Year" "long"])}

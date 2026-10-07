@@ -155,7 +155,7 @@
         method-call (method-call static? klazz nam ext)
         bod (if (= :cljs ext)
              `(~@method-call
-                ~@(when-not static? [(tagged this klazz ext)])
+                ~@(when-not static? [this])
                 ~@arg-vec)
              `(~'cond
                 ~@(mapcat
@@ -180,7 +180,7 @@
                                           arg-vec
                                           (parameter-types method))]
                          (~@method-call
-                          ~@(when-not static? [(tagged this klazz ext)])
+                          ~@(when-not static? [this])
                           ~@param-names))]))
                   methods)
                 :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
@@ -189,7 +189,7 @@
                                   'cljc.java-time.extn.calendar-awareness/calendar-aware-cljs)
                  ~bod)
               bod)]
-    `(~(tagged `[~@(when-not static? [this]) ~@arg-vec] ret ext)
+    `(~(tagged `[~@(when-not static? [(tagged this klazz ext)]) ~@arg-vec] ret ext)
        ~bod)))
 
 (defn wrapper-tail [klazz method ext helpful?]

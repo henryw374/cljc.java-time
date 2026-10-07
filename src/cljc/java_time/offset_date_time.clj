@@ -270,11 +270,11 @@
 (defn is-supported
   {:arglists '(["java.time.OffsetDateTime" "java.time.temporal.TemporalField"]
                ["java.time.OffsetDateTime" "java.time.temporal.TemporalUnit"])}
-  (^java.lang.Boolean [this arg0]
+  (^java.lang.Boolean [^java.time.OffsetDateTime this arg0]
    (cond (instance? java.time.temporal.TemporalField arg0) (let [field ^"java.time.temporal.TemporalField" arg0]
-                                                             (.isSupported ^java.time.OffsetDateTime this field))
+                                                             (.isSupported this field))
          (instance? java.time.temporal.ChronoUnit arg0) (let [unit ^"java.time.temporal.ChronoUnit" arg0]
-                                                          (.isSupported ^java.time.OffsetDateTime this unit))
+                                                          (.isSupported this unit))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn minus-years

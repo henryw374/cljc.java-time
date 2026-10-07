@@ -125,8 +125,8 @@
                ["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "java.time.temporal.TemporalQuery"])}
   (^js/JSJoda.TemporalAccessor [^js/JSJoda.DateTimeFormatter this ^java.lang.CharSequence text]
    (.parse this text))
-  (^java.lang.Object [this arg0 arg1]
-   (.parse ^js/JSJoda.DateTimeFormatter this arg0 arg1)))
+  (^java.lang.Object [^js/JSJoda.DateTimeFormatter this arg0 arg1]
+   (.parse this arg0 arg1)))
 
 (defn with-locale
   {:arglists '(["java.time.format.DateTimeFormatter" "java.util.Locale"])}
@@ -136,8 +136,8 @@
 (defn with-resolver-fields
   {:arglists '(["java.time.format.DateTimeFormatter" "[Ljava.time.temporal.TemporalField;"]
                ["java.time.format.DateTimeFormatter" "java.util.Set"])}
-  (^js/JSJoda.DateTimeFormatter [this arg0]
-   (.withResolverFields ^js/JSJoda.DateTimeFormatter this arg0)))
+  (^js/JSJoda.DateTimeFormatter [^js/JSJoda.DateTimeFormatter this arg0]
+   (.withResolverFields this arg0)))
 
 (defn parse-unresolved
   {:arglists '(["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "java.text.ParsePosition"])}

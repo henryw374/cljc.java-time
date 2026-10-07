@@ -249,8 +249,8 @@
 (defn is-supported
   {:arglists '(["java.time.LocalDateTime" "java.time.temporal.TemporalField"]
                ["java.time.LocalDateTime" "java.time.temporal.TemporalUnit"])}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.LocalDateTime this arg0)))
+  (^boolean [^js/JSJoda.LocalDateTime this arg0]
+   (.isSupported this arg0)))
 
 (defn minus-years
   {:arglists '(["java.time.LocalDateTime" "long"])}

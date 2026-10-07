@@ -123,8 +123,8 @@
 (defn is-supported
   {:arglists '(["java.time.YearMonth" "java.time.temporal.TemporalField"]
                ["java.time.YearMonth" "java.time.temporal.TemporalUnit"])}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.YearMonth this arg0)))
+  (^boolean [^js/JSJoda.YearMonth this arg0]
+   (.isSupported this arg0)))
 
 (defn minus-years
   {:arglists '(["java.time.YearMonth" "long"])}

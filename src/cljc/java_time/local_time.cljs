@@ -170,8 +170,8 @@
 (defn is-supported
   {:arglists '(["java.time.LocalTime" "java.time.temporal.TemporalField"]
                ["java.time.LocalTime" "java.time.temporal.TemporalUnit"])}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.LocalTime this arg0)))
+  (^boolean [^js/JSJoda.LocalTime this arg0]
+   (.isSupported this arg0)))
 
 (defn parse
   {:arglists '(["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"])}

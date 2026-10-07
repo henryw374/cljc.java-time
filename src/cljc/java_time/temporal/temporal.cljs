@@ -43,8 +43,8 @@
 (defn is-supported
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]
                ["java.time.temporal.Temporal" "java.time.temporal.TemporalField"])}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.Temporal this arg0)))
+  (^boolean [^js/JSJoda.Temporal this arg0]
+   (.isSupported this arg0)))
 
 (defn with
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalAdjuster"]

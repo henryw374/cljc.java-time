@@ -49,12 +49,11 @@
 (defn append-literal
   {:arglists '(["java.time.format.DateTimeFormatterBuilder" "char"]
                ["java.time.format.DateTimeFormatterBuilder" "java.lang.String"])}
-  (^java.time.format.DateTimeFormatterBuilder [this arg0]
+  (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this arg0]
    (cond (instance? java.lang.Character arg0) (let [literal ^"java.lang.Character" arg0]
-                                                (.appendLiteral ^java.time.format.DateTimeFormatterBuilder this
-                                                                literal))
+                                                (.appendLiteral this literal))
          (instance? java.lang.String arg0) (let [literal ^"java.lang.String" arg0]
-                                             (.appendLiteral ^java.time.format.DateTimeFormatterBuilder this literal))
+                                             (.appendLiteral this literal))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn optional-start
@@ -175,17 +174,17 @@
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field]
    (.appendText this field))
-  (^java.time.format.DateTimeFormatterBuilder [this arg0 arg1]
+  (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this arg0 arg1]
    (cond (and (instance? java.time.temporal.TemporalField arg0)
               (instance? java.time.format.TextStyle arg1))
            (let [field ^"java.time.temporal.TemporalField" arg0
                  text-style ^"java.time.format.TextStyle" arg1]
-             (.appendText ^java.time.format.DateTimeFormatterBuilder this field text-style))
+             (.appendText this field text-style))
          (and (instance? java.time.temporal.TemporalField arg0)
               (instance? java.util.Map arg1))
            (let [field ^"java.time.temporal.TemporalField" arg0
                  text-lookup ^"java.util.Map" arg1]
-             (.appendText ^java.time.format.DateTimeFormatterBuilder this field text-lookup))
+             (.appendText this field text-lookup))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn append-localized
@@ -206,7 +205,7 @@
   {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int" "int"]
                ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
                 "java.time.chrono.ChronoLocalDate"])}
-  (^java.time.format.DateTimeFormatterBuilder [this arg0 arg1 arg2 arg3]
+  (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this arg0 arg1 arg2 arg3]
    (cond (and (instance? java.time.temporal.TemporalField arg0)
               (instance? java.lang.Number arg1)
               (instance? java.lang.Number arg2)
@@ -215,7 +214,7 @@
                  width (int arg1)
                  max-width (int arg2)
                  base-value (int arg3)]
-             (.appendValueReduced ^java.time.format.DateTimeFormatterBuilder this field width max-width base-value))
+             (.appendValueReduced this field width max-width base-value))
          (and (instance? java.time.temporal.TemporalField arg0)
               (instance? java.lang.Number arg1)
               (instance? java.lang.Number arg2)
@@ -224,7 +223,7 @@
                  width (int arg1)
                  max-width (int arg2)
                  base-date ^"java.time.chrono.ChronoLocalDate" arg3]
-             (.appendValueReduced ^java.time.format.DateTimeFormatterBuilder this field width max-width base-date))
+             (.appendValueReduced this field width max-width base-date))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn append-zone-text

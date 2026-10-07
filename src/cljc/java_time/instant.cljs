@@ -126,8 +126,8 @@
 (defn is-supported
   {:arglists '(["java.time.Instant" "java.time.temporal.TemporalField"]
                ["java.time.Instant" "java.time.temporal.TemporalUnit"])}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.Instant this arg0)))
+  (^boolean [^js/JSJoda.Instant this arg0]
+   (.isSupported this arg0)))
 
 (defn parse
   {:arglists '(["java.lang.CharSequence"])}
