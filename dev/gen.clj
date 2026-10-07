@@ -105,7 +105,9 @@
                                                                                ;; multi arity fn
                                                                                (when (and (vector? (first exprs))
                                                                                           (not (every? vector? exprs)))
-                                                                                 {:fn-style :force-nl-body}))}}}]}
+                                                                                 {:fn-style :force-nl-body}))}}}]
+                                                "quote" [:replace-w-string
+                                                         {:list {:replacement-string "'"}}]}
                                        :parse {:interpose "\n\n"}
                                        :width 120})))
 

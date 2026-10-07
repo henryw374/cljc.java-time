@@ -19,108 +19,108 @@
 (def tuesday (goog.object/get java.time.DayOfWeek "TUESDAY"))
 
 (clojure.core/defn range
-  {:arglists (quote (["java.time.DayOfWeek" "java.time.temporal.TemporalField"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalField"])}
   (^js/JSJoda.ValueRange [^js/JSJoda.DayOfWeek this ^js/JSJoda.TemporalField field]
    (.range this field)))
 
 (clojure.core/defn values
-  {:arglists (quote ([]))}
+  {:arglists '([])}
   (^"java.lang.Class" []
    (js-invoke java.time.DayOfWeek "values")))
 
 (clojure.core/defn value-of
-  {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
+  {:arglists '(["java.lang.String"] ["java.lang.Class" "java.lang.String"])}
   (^js/JSJoda.DayOfWeek [^java.lang.String name]
    (js-invoke java.time.DayOfWeek "valueOf" name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (js-invoke java.time.DayOfWeek "valueOf" enum-type name)))
 
 (clojure.core/defn of
-  {:arglists (quote (["int"]))}
+  {:arglists '(["int"])}
   (^js/JSJoda.DayOfWeek [^int day-of-week]
    (js-invoke java.time.DayOfWeek "of" day-of-week)))
 
 (clojure.core/defn ordinal
-  {:arglists (quote (["java.time.DayOfWeek"]))}
+  {:arglists '(["java.time.DayOfWeek"])}
   (^int [^js/JSJoda.DayOfWeek this]
    (.ordinal this)))
 
 (clojure.core/defn plus
-  {:arglists (quote (["java.time.DayOfWeek" "long"]))}
+  {:arglists '(["java.time.DayOfWeek" "long"])}
   (^js/JSJoda.DayOfWeek [^js/JSJoda.DayOfWeek this ^long days]
    (.plus this days)))
 
 (clojure.core/defn query
-  {:arglists (quote (["java.time.DayOfWeek" "java.time.temporal.TemporalQuery"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalQuery"])}
   (^java.lang.Object [^js/JSJoda.DayOfWeek this ^js/JSJoda.TemporalQuery query]
    (.query this query)))
 
 (clojure.core/defn to-string
-  {:arglists (quote (["java.time.DayOfWeek"]))}
+  {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.String [^js/JSJoda.DayOfWeek this]
    (.toString this)))
 
 (clojure.core/defn minus
-  {:arglists (quote (["java.time.DayOfWeek" "long"]))}
+  {:arglists '(["java.time.DayOfWeek" "long"])}
   (^js/JSJoda.DayOfWeek [^js/JSJoda.DayOfWeek this ^long days]
    (.minus this days)))
 
 (clojure.core/defn get-display-name
-  {:arglists (quote (["java.time.DayOfWeek" "java.time.format.TextStyle" "java.util.Locale"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.time.format.TextStyle" "java.util.Locale"])}
   (^java.lang.String [^js/JSJoda.DayOfWeek this ^js/JSJoda.TextStyle style ^java.util.Locale locale]
    (.displayName this style locale)))
 
 (clojure.core/defn get-value
-  {:arglists (quote (["java.time.DayOfWeek"]))}
+  {:arglists '(["java.time.DayOfWeek"])}
   (^int [^js/JSJoda.DayOfWeek this]
    (.value this)))
 
 (clojure.core/defn name
-  {:arglists (quote (["java.time.DayOfWeek"]))}
+  {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.String [^js/JSJoda.DayOfWeek this]
    (.name this)))
 
 (clojure.core/defn get-long
-  {:arglists (quote (["java.time.DayOfWeek" "java.time.temporal.TemporalField"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalField"])}
   (^long [^js/JSJoda.DayOfWeek this ^js/JSJoda.TemporalField field]
    (.getLong this field)))
 
 (clojure.core/defn get-declaring-class
-  {:arglists (quote (["java.time.DayOfWeek"]))}
+  {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.Class [^js/JSJoda.DayOfWeek this]
    (.declaringClass this)))
 
 (clojure.core/defn from
-  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+  {:arglists '(["java.time.temporal.TemporalAccessor"])}
   (^js/JSJoda.DayOfWeek [^js/JSJoda.TemporalAccessor temporal]
    (js-invoke java.time.DayOfWeek "from" temporal)))
 
 (clojure.core/defn is-supported
-  {:arglists (quote (["java.time.DayOfWeek" "java.time.temporal.TemporalField"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalField"])}
   (^boolean [^js/JSJoda.DayOfWeek this ^js/JSJoda.TemporalField field]
    (.isSupported this field)))
 
 (clojure.core/defn hash-code
-  {:arglists (quote (["java.time.DayOfWeek"]))}
+  {:arglists '(["java.time.DayOfWeek"])}
   (^int [^js/JSJoda.DayOfWeek this]
    (.hashCode this)))
 
 (clojure.core/defn adjust-into
-  {:arglists (quote (["java.time.DayOfWeek" "java.time.temporal.Temporal"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.time.temporal.Temporal"])}
   (^js/JSJoda.Temporal [^js/JSJoda.DayOfWeek this ^js/JSJoda.Temporal temporal]
    (.adjustInto this temporal)))
 
 (clojure.core/defn compare-to
-  {:arglists (quote (["java.time.DayOfWeek" "java.lang.Enum"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.lang.Enum"])}
   (^int [^js/JSJoda.DayOfWeek this ^java.lang.Enum o]
    (.compareTo this o)))
 
 (clojure.core/defn get
-  {:arglists (quote (["java.time.DayOfWeek" "java.time.temporal.TemporalField"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalField"])}
   (^int [^js/JSJoda.DayOfWeek this ^js/JSJoda.TemporalField field]
    (.get this field)))
 
 (clojure.core/defn equals
-  {:arglists (quote (["java.time.DayOfWeek" "java.lang.Object"]))}
+  {:arglists '(["java.time.DayOfWeek" "java.lang.Object"])}
   (^boolean [^js/JSJoda.DayOfWeek this ^java.lang.Object other]
    (.equals this other)))

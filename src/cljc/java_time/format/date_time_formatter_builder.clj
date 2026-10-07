@@ -5,30 +5,30 @@
 
 ^{:column 11, :line 84}
 (clojure.core/defn new
-  {:arglists ^{:line 84, :column 45} (quote ^{:line 84, :column 52} ([]))}
+  {:arglists ^{:line 84, :column 45} '^{:line 84, :column 52} ([])}
   ^{:line 85, :column 13}
   (^java.time.format.DateTimeFormatterBuilder []
    ^{:line 85, :column 60} (java.time.format.DateTimeFormatterBuilder.)))
 
 (clojure.core/defn to-formatter
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]
-                     ["java.time.format.DateTimeFormatterBuilder" "java.util.Locale"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"]
+               ["java.time.format.DateTimeFormatterBuilder" "java.util.Locale"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatterBuilder this]
    (.toFormatter this))
   (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatterBuilder this ^java.util.Locale locale]
    (.toFormatter this locale)))
 
 (clojure.core/defn append-pattern
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.lang.String"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.lang.String"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.lang.String pattern]
    (.appendPattern this pattern)))
 
 (clojure.core/defn append-value
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"]
-                     ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int"]
-                     ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
-                      "java.time.format.SignStyle"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"]
+               ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int"]
+               ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
+                "java.time.format.SignStyle"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field]
    (.appendValue this field))
@@ -41,8 +41,7 @@
    (.appendValue this field min-width max-width sign-style)))
 
 (clojure.core/defn append-instant
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]
-                     ["java.time.format.DateTimeFormatterBuilder" "int"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"] ["java.time.format.DateTimeFormatterBuilder" "int"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendInstant this))
   (^java.time.format.DateTimeFormatterBuilder
@@ -50,8 +49,8 @@
    (.appendInstant this fractional-digits)))
 
 (clojure.core/defn append-literal
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "char"]
-                     ["java.time.format.DateTimeFormatterBuilder" "java.lang.String"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "char"]
+               ["java.time.format.DateTimeFormatterBuilder" "java.lang.String"])}
   (^java.time.format.DateTimeFormatterBuilder [this arg0]
    (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.Character arg0))
                         (clojure.core/let [literal ^"java.lang.Character" arg0]
@@ -63,37 +62,36 @@
                                      "no corresponding java.time method with these args")))))
 
 (clojure.core/defn optional-start
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.optionalStart this)))
 
 (clojure.core/defn append-fraction
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
-                      "boolean"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int" "boolean"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field ^java.lang.Integer min-width
     ^java.lang.Integer max-width ^java.lang.Boolean decimal-point]
    (.appendFraction this field min-width max-width decimal-point)))
 
 (clojure.core/defn append-optional
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.DateTimeFormatter"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.DateTimeFormatter"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.DateTimeFormatter formatter]
    (.appendOptional this formatter)))
 
 (clojure.core/defn optional-end
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.optionalEnd this)))
 
 (clojure.core/defn parse-lenient
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.parseLenient this)))
 
 (clojure.core/defn pad-next
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "int"]
-                     ["java.time.format.DateTimeFormatterBuilder" "int" "char"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "int"]
+               ["java.time.format.DateTimeFormatterBuilder" "int" "char"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.lang.Integer pad-width]
    (.padNext this pad-width))
@@ -102,82 +100,82 @@
    (.padNext this pad-width pad-char)))
 
 (clojure.core/defn append-chronology-id
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendChronologyId this)))
 
 (clojure.core/defn append-zone-or-offset-id
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendZoneOrOffsetId this)))
 
 (clojure.core/defn parse-case-sensitive
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.parseCaseSensitive this)))
 
 (clojure.core/defn parse-strict
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.parseStrict this)))
 
 (clojure.core/defn append-chronology-text
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.TextStyle text-style]
    (.appendChronologyText this text-style)))
 
 (clojure.core/defn append-offset-id
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendOffsetId this)))
 
 (clojure.core/defn append-zone-region-id
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendZoneRegionId this)))
 
 (clojure.core/defn parse-defaulting
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "long"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "long"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field ^long value]
    (.parseDefaulting this field value)))
 
 (clojure.core/defn append-zone-id
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendZoneId this)))
 
 (clojure.core/defn get-localized-date-time-pattern
-  {:arglists (quote (["java.time.format.FormatStyle" "java.time.format.FormatStyle" "java.time.chrono.Chronology"
-                      "java.util.Locale"]))}
+  {:arglists '(["java.time.format.FormatStyle" "java.time.format.FormatStyle" "java.time.chrono.Chronology"
+                "java.util.Locale"])}
   (^java.lang.String
    [^java.time.format.FormatStyle date-style ^java.time.format.FormatStyle time-style
     ^java.time.chrono.Chronology chrono ^java.util.Locale locale]
    (java.time.format.DateTimeFormatterBuilder/getLocalizedDateTimePattern date-style time-style chrono locale)))
 
 (clojure.core/defn parse-case-insensitive
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.parseCaseInsensitive this)))
 
 (clojure.core/defn append-localized-offset
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.TextStyle style]
    (.appendLocalizedOffset this style)))
 
 (clojure.core/defn append
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.DateTimeFormatter"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.DateTimeFormatter"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.DateTimeFormatter formatter]
    (.append this formatter)))
 
 (clojure.core/defn append-text
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"]
-                     ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"
-                      "java.time.format.TextStyle"]
-                     ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "java.util.Map"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"]
+               ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"
+                "java.time.format.TextStyle"]
+               ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "java.util.Map"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field]
    (.appendText this field))
@@ -196,23 +194,23 @@
                                      "no corresponding java.time method with these args")))))
 
 (clojure.core/defn append-localized
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.FormatStyle"
-                      "java.time.format.FormatStyle"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.FormatStyle"
+                "java.time.format.FormatStyle"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.FormatStyle date-style
     ^java.time.format.FormatStyle time-style]
    (.appendLocalized this date-style time-style)))
 
 (clojure.core/defn append-offset
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.lang.String" "java.lang.String"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.lang.String" "java.lang.String"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.lang.String pattern ^java.lang.String no-offset-text]
    (.appendOffset this pattern no-offset-text)))
 
 (clojure.core/defn append-value-reduced
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int" "int"]
-                     ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
-                      "java.time.chrono.ChronoLocalDate"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int" "int"]
+               ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
+                "java.time.chrono.ChronoLocalDate"])}
   (^java.time.format.DateTimeFormatterBuilder [this arg0 arg1 arg2 arg3]
    (clojure.core/cond
      (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalField arg0)
@@ -236,8 +234,8 @@
      :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (clojure.core/defn append-zone-text
-  {:arglists (quote (["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"]
-                     ["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle" "java.util.Set"]))}
+  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"]
+               ["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle" "java.util.Set"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.TextStyle text-style]
    (.appendZoneText this text-style))

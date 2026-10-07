@@ -4,6 +4,6 @@
   (:import [java.time.temporal TemporalAdjuster]))
 
 (clojure.core/defn adjust-into
-  {:arglists (quote (["java.time.temporal.TemporalAdjuster" "java.time.temporal.Temporal"]))}
+  {:arglists '(["java.time.temporal.TemporalAdjuster" "java.time.temporal.Temporal"])}
   (^java.time.temporal.Temporal [^java.time.temporal.TemporalAdjuster this ^java.time.temporal.Temporal temporal]
    (.adjustInto this temporal)))

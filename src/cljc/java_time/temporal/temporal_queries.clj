@@ -4,36 +4,36 @@
   (:import [java.time.temporal TemporalQueries]))
 
 (clojure.core/defn chronology
-  {:arglists (quote ([]))}
+  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/chronology)))
 
 (clojure.core/defn local-date
-  {:arglists (quote ([]))}
+  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/localDate)))
 
 (clojure.core/defn local-time
-  {:arglists (quote ([]))}
+  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/localTime)))
 
 (clojure.core/defn offset
-  {:arglists (quote ([]))}
+  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/offset)))
 
 (clojure.core/defn precision
-  {:arglists (quote ([]))}
+  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/precision)))
 
 (clojure.core/defn zone
-  {:arglists (quote ([]))}
+  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/zone)))
 
 (clojure.core/defn zone-id
-  {:arglists (quote ([]))}
+  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/zoneId)))
