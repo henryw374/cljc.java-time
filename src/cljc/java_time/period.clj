@@ -1,7 +1,7 @@
 (ns cljc.java-time.period
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time Period]))
+  (:import (java.time Period)))
 
 (def zero java.time.Period/ZERO)
 

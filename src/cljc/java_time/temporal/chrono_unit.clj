@@ -1,7 +1,7 @@
 (ns cljc.java-time.temporal.chrono-unit
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal ChronoUnit]))
+  (:import (java.time.temporal ChronoUnit)))
 
 (def millis java.time.temporal.ChronoUnit/MILLIS)
 

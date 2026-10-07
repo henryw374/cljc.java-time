@@ -1,7 +1,7 @@
 (ns cljc.java-time.zoned-date-time
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time ZonedDateTime]))
+  (:import (java.time ZonedDateTime)))
 
 (defn minus-minutes
   {:arglists '(["java.time.ZonedDateTime" "long"])}

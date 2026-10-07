@@ -1,7 +1,7 @@
 (ns cljc.java-time.instant
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time Instant]))
+  (:import (java.time Instant)))
 
 (def min java.time.Instant/MIN)
 

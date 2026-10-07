@@ -1,7 +1,7 @@
 (ns cljc.java-time.local-date
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time LocalDate]))
+  (:import (java.time LocalDate)))
 
 (def max java.time.LocalDate/MAX)
 

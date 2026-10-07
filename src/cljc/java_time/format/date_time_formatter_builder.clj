@@ -1,7 +1,7 @@
 (ns cljc.java-time.format.date-time-formatter-builder
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.format DateTimeFormatterBuilder]))
+  (:import (java.time.format DateTimeFormatterBuilder)))
 
 (defn new
   {:arglists '([])}

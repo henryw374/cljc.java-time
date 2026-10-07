@@ -1,7 +1,7 @@
 (ns cljc.java-time.temporal.temporal-adjuster
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal TemporalAdjuster]))
+  (:import (java.time.temporal TemporalAdjuster)))
 
 (defn adjust-into
   {:arglists '(["java.time.temporal.TemporalAdjuster" "java.time.temporal.Temporal"])}

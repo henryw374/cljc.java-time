@@ -1,7 +1,7 @@
 (ns cljc.java-time.format.date-time-formatter
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.format DateTimeFormatter]))
+  (:import (java.time.format DateTimeFormatter)))
 
 (def iso-local-time java.time.format.DateTimeFormatter/ISO_LOCAL_TIME)
 

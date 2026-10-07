@@ -1,7 +1,7 @@
 (ns cljc.java-time.clock
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time Clock]))
+  (:import (java.time Clock)))
 
 (defn tick
   {:arglists '(["java.time.Clock" "java.time.Duration"])}

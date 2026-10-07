@@ -1,7 +1,7 @@
 (ns cljc.java-time.temporal.value-range
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal ValueRange]))
+  (:import (java.time.temporal ValueRange)))
 
 (defn get-minimum
   {:arglists '(["java.time.temporal.ValueRange"])}

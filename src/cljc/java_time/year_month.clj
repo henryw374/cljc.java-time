@@ -1,7 +1,7 @@
 (ns cljc.java-time.year-month
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time YearMonth]))
+  (:import (java.time YearMonth)))
 
 (defn length-of-year
   {:arglists '(["java.time.YearMonth"])}

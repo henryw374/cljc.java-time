@@ -1,7 +1,7 @@
 (ns cljc.java-time.year
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time Year]))
+  (:import (java.time Year)))
 
 (def min-value java.time.Year/MIN_VALUE)
 

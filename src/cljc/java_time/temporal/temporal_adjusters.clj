@@ -1,7 +1,7 @@
 (ns cljc.java-time.temporal.temporal-adjusters
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal TemporalAdjusters]))
+  (:import (java.time.temporal TemporalAdjusters)))
 
 (defn next
   {:arglists '(["java.time.DayOfWeek"])}

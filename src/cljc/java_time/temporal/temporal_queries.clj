@@ -1,7 +1,7 @@
 (ns cljc.java-time.temporal.temporal-queries
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal TemporalQueries]))
+  (:import (java.time.temporal TemporalQueries)))
 
 (defn chronology
   {:arglists '([])}

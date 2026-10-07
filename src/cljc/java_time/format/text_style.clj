@@ -1,7 +1,7 @@
 (ns cljc.java-time.format.text-style
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.format TextStyle]))
+  (:import (java.time.format TextStyle)))
 
 (def short java.time.format.TextStyle/SHORT)
 

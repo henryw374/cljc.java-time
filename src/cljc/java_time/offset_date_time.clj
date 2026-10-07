@@ -1,7 +1,7 @@
 (ns cljc.java-time.offset-date-time
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time OffsetDateTime]))
+  (:import (java.time OffsetDateTime)))
 
 (def min java.time.OffsetDateTime/MIN)
 

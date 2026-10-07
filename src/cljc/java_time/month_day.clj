@@ -1,7 +1,7 @@
 (ns cljc.java-time.month-day
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time MonthDay]))
+  (:import (java.time MonthDay)))
 
 (defn at-year
   {:arglists '(["java.time.MonthDay" "int"])}

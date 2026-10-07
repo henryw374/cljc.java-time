@@ -1,7 +1,7 @@
 (ns cljc.java-time.zone-id
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time ZoneId]))
+  (:import (java.time ZoneId)))
 
 (def short-ids java.time.ZoneId/SHORT_IDS)
 

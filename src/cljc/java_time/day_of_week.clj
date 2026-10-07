@@ -1,7 +1,7 @@
 (ns cljc.java-time.day-of-week
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time DayOfWeek]))
+  (:import (java.time DayOfWeek)))
 
 (def saturday java.time.DayOfWeek/SATURDAY)
 

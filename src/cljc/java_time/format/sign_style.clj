@@ -1,7 +1,7 @@
 (ns cljc.java-time.format.sign-style
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.format SignStyle]))
+  (:import (java.time.format SignStyle)))
 
 (def exceeds-pad java.time.format.SignStyle/EXCEEDS_PAD)
 

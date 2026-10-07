@@ -1,7 +1,7 @@
 (ns cljc.java-time.month
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time Month]))
+  (:import (java.time Month)))
 
 (def may java.time.Month/MAY)
 

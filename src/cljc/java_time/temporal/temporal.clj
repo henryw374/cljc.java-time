@@ -1,7 +1,7 @@
 (ns cljc.java-time.temporal.temporal
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal Temporal]))
+  (:import (java.time.temporal Temporal)))
 
 (defn range
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalField"])}
