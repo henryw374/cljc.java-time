@@ -148,12 +148,12 @@
   {:arglists '(["java.time.format.DateTimeFormatter" "[Ljava.time.temporal.TemporalField;"]
                ["java.time.format.DateTimeFormatter" "java.util.Set"])}
   (^java.time.format.DateTimeFormatter [this arg0]
-   (cond (and (= java.time.temporal.TemporalField (.getComponentType (class arg0))))
+   (cond (= java.time.temporal.TemporalField (.getComponentType (class arg0)))
            (let [resolver-fields ^"[Ljava.time.temporal.TemporalField;" arg0]
              (.withResolverFields ^java.time.format.DateTimeFormatter this resolver-fields))
-         (and (instance? java.util.Set arg0)) (let [resolver-fields ^"java.util.Set" arg0]
-                                                (.withResolverFields ^java.time.format.DateTimeFormatter this
-                                                                     resolver-fields))
+         (instance? java.util.Set arg0) (let [resolver-fields ^"java.util.Set" arg0]
+                                          (.withResolverFields ^java.time.format.DateTimeFormatter this
+                                                               resolver-fields))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn parse-unresolved

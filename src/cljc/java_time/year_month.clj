@@ -127,10 +127,10 @@
   {:arglists '(["java.time.YearMonth" "java.time.temporal.TemporalField"]
                ["java.time.YearMonth" "java.time.temporal.TemporalUnit"])}
   (^java.lang.Boolean [this arg0]
-   (cond (and (instance? java.time.temporal.TemporalField arg0)) (let [field ^"java.time.temporal.TemporalField" arg0]
-                                                                   (.isSupported ^java.time.YearMonth this field))
-         (and (instance? java.time.temporal.ChronoUnit arg0)) (let [unit ^"java.time.temporal.ChronoUnit" arg0]
-                                                                (.isSupported ^java.time.YearMonth this unit))
+   (cond (instance? java.time.temporal.TemporalField arg0) (let [field ^"java.time.temporal.TemporalField" arg0]
+                                                             (.isSupported ^java.time.YearMonth this field))
+         (instance? java.time.temporal.ChronoUnit arg0) (let [unit ^"java.time.temporal.ChronoUnit" arg0]
+                                                          (.isSupported ^java.time.YearMonth this unit))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn minus-years
@@ -168,8 +168,8 @@
   (^java.time.YearMonth []
    (java.time.YearMonth/now))
   (^java.time.YearMonth [arg0]
-   (cond (and (instance? java.time.Clock arg0)) (let [clock ^"java.time.Clock" arg0] (java.time.YearMonth/now clock))
-         (and (instance? java.time.ZoneId arg0)) (let [zone ^"java.time.ZoneId" arg0] (java.time.YearMonth/now zone))
+   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0] (java.time.YearMonth/now clock))
+         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0] (java.time.YearMonth/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn get-month-value

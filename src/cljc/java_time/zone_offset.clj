@@ -27,10 +27,9 @@
 (defn of
   {:arglists '(["java.lang.String"] ["java.lang.String"] ["java.lang.String" "java.util.Map"])}
   (^java.lang.Object [arg0]
-   (cond (and (instance? java.lang.String arg0)) (let [zone-id ^"java.lang.String" arg0]
-                                                   (java.time.ZoneOffset/of zone-id))
-         (and (instance? java.lang.String arg0)) (let [offset-id ^"java.lang.String" arg0]
-                                                   (java.time.ZoneOffset/of offset-id))
+   (cond (instance? java.lang.String arg0) (let [zone-id ^"java.lang.String" arg0] (java.time.ZoneOffset/of zone-id))
+         (instance? java.lang.String arg0) (let [offset-id ^"java.lang.String" arg0]
+                                             (java.time.ZoneOffset/of offset-id))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))
   (^java.time.ZoneId [^java.lang.String zone-id ^java.util.Map alias-map]
    (java.time.ZoneOffset/of zone-id alias-map)))
@@ -88,9 +87,9 @@
 (defn from
   {:arglists '(["java.time.temporal.TemporalAccessor"] ["java.time.temporal.TemporalAccessor"])}
   (^java.lang.Object [arg0]
-   (cond (and (instance? java.time.temporal.TemporalAccessor arg0))
+   (cond (instance? java.time.temporal.TemporalAccessor arg0)
            (let [temporal ^"java.time.temporal.TemporalAccessor" arg0] (java.time.ZoneOffset/from temporal))
-         (and (instance? java.time.temporal.TemporalAccessor arg0))
+         (instance? java.time.temporal.TemporalAccessor arg0)
            (let [temporal ^"java.time.temporal.TemporalAccessor" arg0] (java.time.ZoneOffset/from temporal))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 

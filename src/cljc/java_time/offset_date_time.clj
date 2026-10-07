@@ -271,10 +271,10 @@
   {:arglists '(["java.time.OffsetDateTime" "java.time.temporal.TemporalField"]
                ["java.time.OffsetDateTime" "java.time.temporal.TemporalUnit"])}
   (^java.lang.Boolean [this arg0]
-   (cond (and (instance? java.time.temporal.TemporalField arg0)) (let [field ^"java.time.temporal.TemporalField" arg0]
-                                                                   (.isSupported ^java.time.OffsetDateTime this field))
-         (and (instance? java.time.temporal.ChronoUnit arg0)) (let [unit ^"java.time.temporal.ChronoUnit" arg0]
-                                                                (.isSupported ^java.time.OffsetDateTime this unit))
+   (cond (instance? java.time.temporal.TemporalField arg0) (let [field ^"java.time.temporal.TemporalField" arg0]
+                                                             (.isSupported ^java.time.OffsetDateTime this field))
+         (instance? java.time.temporal.ChronoUnit arg0) (let [unit ^"java.time.temporal.ChronoUnit" arg0]
+                                                          (.isSupported ^java.time.OffsetDateTime this unit))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn minus-years
@@ -327,10 +327,8 @@
   (^java.time.OffsetDateTime []
    (java.time.OffsetDateTime/now))
   (^java.time.OffsetDateTime [arg0]
-   (cond (and (instance? java.time.Clock arg0)) (let [clock ^"java.time.Clock" arg0]
-                                                  (java.time.OffsetDateTime/now clock))
-         (and (instance? java.time.ZoneId arg0)) (let [zone ^"java.time.ZoneId" arg0]
-                                                   (java.time.OffsetDateTime/now zone))
+   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0] (java.time.OffsetDateTime/now clock))
+         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0] (java.time.OffsetDateTime/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn to-local-date-time

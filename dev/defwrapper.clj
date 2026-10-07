@@ -162,15 +162,18 @@
                   (fn [^Method method]
                     (let [param-names (->> (method-fqn method)
                                            (get fqn->param-names)
-                                           (mapv (comp symbol camel->kebab)))]
-                      (assert (= (count arg-vec) (count param-names)) (method-fqn method))
-                      `[(~'and ~@(map (fn [sym ^Class klz]
-                                        (if (.isArray klz)
-                                          `(~'= ~(.getComponentType klz)
-                                            (.getComponentType (~'class ~sym)))
-                                          `(~'instance? ~(ensure-boxed (class-name klz)) ~sym)))
-                                      arg-vec
-                                      (parameter-types method)))
+                                           (mapv (comp symbol camel->kebab)))
+                          _ (assert (= (count arg-vec) (count param-names)) (method-fqn method))
+                          conds (map (fn [sym ^Class klz]
+                                       (if (.isArray klz)
+                                         `(~'= ~(.getComponentType klz)
+                                           (.getComponentType (~'class ~sym)))
+                                         `(~'instance? ~(ensure-boxed (class-name klz)) ~sym)))
+                                     arg-vec
+                                     (parameter-types method))]
+                      `[~@(if (= 1 (count conds))
+                            conds
+                            [(apply list 'and conds)])
                         (~'let [~@(mapcat (fn [pn sym ^Class klz]
                                             [pn (tagged-local sym klz)])
                                           param-names

@@ -104,8 +104,8 @@
   (^java.time.MonthDay []
    (java.time.MonthDay/now))
   (^java.time.MonthDay [arg0]
-   (cond (and (instance? java.time.Clock arg0)) (let [clock ^"java.time.Clock" arg0] (java.time.MonthDay/now clock))
-         (and (instance? java.time.ZoneId arg0)) (let [zone ^"java.time.ZoneId" arg0] (java.time.MonthDay/now zone))
+   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0] (java.time.MonthDay/now clock))
+         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0] (java.time.MonthDay/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn get-month-value
