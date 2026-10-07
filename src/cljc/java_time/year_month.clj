@@ -23,10 +23,14 @@
   (^java.time.YearMonth [arg0 arg1]
    (cond (and (instance? java.lang.Number arg0)
               (instance? java.lang.Number arg1))
-           (let [year (int arg0) month (int arg1)] (java.time.YearMonth/of year month))
+           (let [year (int arg0)
+                 month (int arg1)]
+             (java.time.YearMonth/of year month))
          (and (instance? java.lang.Number arg0)
               (instance? java.time.Month arg1))
-           (let [year (int arg0) month ^"java.time.Month" arg1] (java.time.YearMonth/of year month))
+           (let [year (int arg0)
+                 month ^"java.time.Month" arg1]
+             (java.time.YearMonth/of year month))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn with-month
@@ -170,8 +174,10 @@
   (^java.time.YearMonth []
    (java.time.YearMonth/now))
   (^java.time.YearMonth [arg0]
-   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0] (java.time.YearMonth/now clock))
-         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0] (java.time.YearMonth/now zone))
+   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0]
+                                            (java.time.YearMonth/now clock))
+         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0]
+                                             (java.time.YearMonth/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn get-month-value

@@ -328,8 +328,10 @@
   (^java.time.ZonedDateTime []
    (java.time.ZonedDateTime/now))
   (^java.time.ZonedDateTime [arg0]
-   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0] (java.time.ZonedDateTime/now clock))
-         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0] (java.time.ZonedDateTime/now zone))
+   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0]
+                                            (java.time.ZonedDateTime/now clock))
+         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0]
+                                             (java.time.ZonedDateTime/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn to-local-date-time

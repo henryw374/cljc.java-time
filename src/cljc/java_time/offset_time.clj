@@ -222,8 +222,10 @@
   (^java.time.OffsetTime []
    (java.time.OffsetTime/now))
   (^java.time.OffsetTime [arg0]
-   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0] (java.time.OffsetTime/now clock))
-         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0] (java.time.OffsetTime/now zone))
+   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0]
+                                            (java.time.OffsetTime/now clock))
+         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0]
+                                             (java.time.OffsetTime/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn compare-to

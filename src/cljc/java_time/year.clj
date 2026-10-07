@@ -81,8 +81,10 @@
 (defn at-month
   {:arglists '(["java.time.Year" "int"] ["java.time.Year" "java.time.Month"])}
   (^java.time.YearMonth [this arg0]
-   (cond (instance? java.lang.Number arg0) (let [month (int arg0)] (.atMonth ^java.time.Year this month))
-         (instance? java.time.Month arg0) (let [month ^"java.time.Month" arg0] (.atMonth ^java.time.Year this month))
+   (cond (instance? java.lang.Number arg0) (let [month (int arg0)]
+                                             (.atMonth ^java.time.Year this month))
+         (instance? java.time.Month arg0) (let [month ^"java.time.Month" arg0]
+                                            (.atMonth ^java.time.Year this month))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn until
@@ -150,8 +152,10 @@
   (^java.time.Year []
    (java.time.Year/now))
   (^java.time.Year [arg0]
-   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0] (java.time.Year/now clock))
-         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0] (java.time.Year/now zone))
+   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0]
+                                            (java.time.Year/now clock))
+         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0]
+                                             (java.time.Year/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn compare-to

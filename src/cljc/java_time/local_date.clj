@@ -35,19 +35,21 @@
 (defn of
   {:arglists '(["int" "int" "int"] ["int" "java.time.Month" "int"])}
   (^java.time.LocalDate [arg0 arg1 arg2]
-   (cond
-     (and (instance? java.lang.Number arg0)
-          (instance? java.lang.Number arg1)
-          (instance? java.lang.Number arg2))
-       (let [year (int arg0) month (int arg1) day-of-month (int arg2)] (java.time.LocalDate/of year month day-of-month))
-     (and (instance? java.lang.Number arg0)
-          (instance? java.time.Month arg1)
-          (instance? java.lang.Number arg2))
-       (let [year (int arg0)
-             month ^"java.time.Month" arg1
-             day-of-month (int arg2)]
-         (java.time.LocalDate/of year month day-of-month))
-     :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
+   (cond (and (instance? java.lang.Number arg0)
+              (instance? java.lang.Number arg1)
+              (instance? java.lang.Number arg2))
+           (let [year (int arg0)
+                 month (int arg1)
+                 day-of-month (int arg2)]
+             (java.time.LocalDate/of year month day-of-month))
+         (and (instance? java.lang.Number arg0)
+              (instance? java.time.Month arg1)
+              (instance? java.lang.Number arg2))
+           (let [year (int arg0)
+                 month ^"java.time.Month" arg1
+                 day-of-month (int arg2)]
+             (java.time.LocalDate/of year month day-of-month))
+         :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn with-month
   {:arglists '(["java.time.LocalDate" "int"])}
@@ -228,8 +230,10 @@
   (^java.time.LocalDate []
    (java.time.LocalDate/now))
   (^java.time.LocalDate [arg0]
-   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0] (java.time.LocalDate/now clock))
-         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0] (java.time.LocalDate/now zone))
+   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0]
+                                            (java.time.LocalDate/now clock))
+         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0]
+                                             (java.time.LocalDate/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn at-start-of-day
