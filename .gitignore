@@ -1,10 +1,13 @@
 .cpcache
 .idea
 .shadow-cljs
+.clj-kondo
 node_modules
+.lsp
 web-target/public/*
 .nrepl-port
 package.json
 package-lock.json
 *.jar
+*.iml
 
