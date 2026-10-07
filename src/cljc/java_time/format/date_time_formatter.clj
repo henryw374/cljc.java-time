@@ -129,11 +129,13 @@
   (^java.time.temporal.TemporalAccessor [^java.time.format.DateTimeFormatter this ^java.lang.CharSequence text]
    (.parse this text))
   (^java.lang.Object [this arg0 arg1]
-   (cond (and (instance? java.lang.CharSequence arg0) (instance? java.text.ParsePosition arg1))
+   (cond (and (instance? java.lang.CharSequence arg0)
+              (instance? java.text.ParsePosition arg1))
            (let [text ^"java.lang.CharSequence" arg0
                  position ^"java.text.ParsePosition" arg1]
              (.parse ^java.time.format.DateTimeFormatter this text position))
-         (and (instance? java.lang.CharSequence arg0) (instance? java.time.temporal.TemporalQuery arg1))
+         (and (instance? java.lang.CharSequence arg0)
+              (instance? java.time.temporal.TemporalQuery arg1))
            (let [text ^"java.lang.CharSequence" arg0
                  query ^"java.time.temporal.TemporalQuery" arg1]
              (.parse ^java.time.format.DateTimeFormatter this text query))

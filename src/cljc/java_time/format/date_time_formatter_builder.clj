@@ -176,11 +176,13 @@
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field]
    (.appendText this field))
   (^java.time.format.DateTimeFormatterBuilder [this arg0 arg1]
-   (cond (and (instance? java.time.temporal.TemporalField arg0) (instance? java.time.format.TextStyle arg1))
+   (cond (and (instance? java.time.temporal.TemporalField arg0)
+              (instance? java.time.format.TextStyle arg1))
            (let [field ^"java.time.temporal.TemporalField" arg0
                  text-style ^"java.time.format.TextStyle" arg1]
              (.appendText ^java.time.format.DateTimeFormatterBuilder this field text-style))
-         (and (instance? java.time.temporal.TemporalField arg0) (instance? java.util.Map arg1))
+         (and (instance? java.time.temporal.TemporalField arg0)
+              (instance? java.util.Map arg1))
            (let [field ^"java.time.temporal.TemporalField" arg0
                  text-lookup ^"java.util.Map" arg1]
              (.appendText ^java.time.format.DateTimeFormatterBuilder this field text-lookup))

@@ -36,9 +36,13 @@
   {:arglists '(["int" "int" "int"] ["int" "java.time.Month" "int"])}
   (^java.time.LocalDate [arg0 arg1 arg2]
    (cond
-     (and (instance? java.lang.Number arg0) (instance? java.lang.Number arg1) (instance? java.lang.Number arg2))
+     (and (instance? java.lang.Number arg0)
+          (instance? java.lang.Number arg1)
+          (instance? java.lang.Number arg2))
        (let [year (int arg0) month (int arg1) day-of-month (int arg2)] (java.time.LocalDate/of year month day-of-month))
-     (and (instance? java.lang.Number arg0) (instance? java.time.Month arg1) (instance? java.lang.Number arg2))
+     (and (instance? java.lang.Number arg0)
+          (instance? java.time.Month arg1)
+          (instance? java.lang.Number arg2))
        (let [year (int arg0)
              month ^"java.time.Month" arg1
              day-of-month (int arg2)]

@@ -118,6 +118,7 @@
                                                                                (when (and (vector? (first exprs))
                                                                                           (not (every? vector? exprs)))
                                                                                  {:fn-style :force-nl-body}))}}}]
+                                                "and" :force-nl
                                                 "quote" [:replace-w-string
                                                          {:list {:replacement-string "'"}}]}
                                        :parse {:interpose "\n\n"}

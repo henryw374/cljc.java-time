@@ -16,9 +16,11 @@
 (defn of
   {:arglists '(["int" "int"] ["java.time.Month" "int"])}
   (^java.time.MonthDay [arg0 arg1]
-   (cond (and (instance? java.lang.Number arg0) (instance? java.lang.Number arg1))
+   (cond (and (instance? java.lang.Number arg0)
+              (instance? java.lang.Number arg1))
            (let [month (int arg0) day-of-month (int arg1)] (java.time.MonthDay/of month day-of-month))
-         (and (instance? java.time.Month arg0) (instance? java.lang.Number arg1))
+         (and (instance? java.time.Month arg0)
+              (instance? java.lang.Number arg1))
            (let [month ^"java.time.Month" arg0 day-of-month (int arg1)] (java.time.MonthDay/of month day-of-month))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
