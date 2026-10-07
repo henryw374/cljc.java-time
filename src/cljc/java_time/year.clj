@@ -40,12 +40,10 @@
   (^java.lang.Object [^java.time.Year this ^java.time.temporal.TemporalQuery query]
    (.query this query)))
 
-^{:column 16, :line 89}
 (defn is-leap
-  {:arglists ^{:line 89, :column 41} '^{:line 89, :column 48} (["long"])}
-  ^{:line 90, :column 18}
+  {:arglists '(["long"])}
   (^java.lang.Boolean [^long year]
-   ^{:line 90, :column 51} (. java.time.Year isLeap year)))
+   (. java.time.Year isLeap year)))
 
 (defn to-string
   {:arglists '(["java.time.Year"])}

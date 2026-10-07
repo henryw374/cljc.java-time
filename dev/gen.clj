@@ -1,6 +1,7 @@
 (ns gen
   (:require [clojure.reflect :as rf]
             [clojure.set :as set]
+            [clojure.walk :as walk]
             [defwrapper :as df]
             [clojure.string :as string]
             [camel-snake-kebab.core :as csk]
@@ -67,6 +68,15 @@
             )
       (symbol (str "^" x)))))
 
+(defn remove-line-column-meta
+  [form]
+  (walk/postwalk
+   (fn [x]
+     (if (meta x)
+       (vary-meta x dissoc :line :column)
+       x))
+   form))
+
 (defn gen-for-class [c sub-p ext]
   ;; header
   (println (header (.getSimpleName c) (csk/->kebab-case (.getSimpleName c))
@@ -81,13 +91,15 @@
             (list 'goog.object/get c (str "\"" (:name m) "\"")))))))
   ;; constructors
   (when (= java.time.format.DateTimeFormatterBuilder c)
-    (prn '(defn new {:arglists (quote ([]))}
-            (^java.time.format.DateTimeFormatterBuilder [] (java.time.format.DateTimeFormatterBuilder.)))))
+    (prn (remove-line-column-meta
+          '(defn new {:arglists (quote ([]))}
+             (^java.time.format.DateTimeFormatterBuilder [] (java.time.format.DateTimeFormatterBuilder.))))))
   ;; methods
   (doseq [f (df/defwrapper c ext)]
     (let [f (if (= 'is-leap (second f))
-              '(defn is-leap {:arglists (quote (["long"]))}
-                 (^java.lang.Boolean [^long year] (. java.time.Year isLeap year)))
+              (remove-line-column-meta
+               '(defn is-leap {:arglists (quote (["long"]))}
+                  (^java.lang.Boolean [^long year] (. java.time.Year isLeap year))))
               f)]
       (pr f))
     (println)))

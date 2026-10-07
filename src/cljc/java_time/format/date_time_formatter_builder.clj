@@ -3,12 +3,10 @@
   (:require [cljc.java-time.extn.calendar-awareness])
   (:import [java.time.format DateTimeFormatterBuilder]))
 
-^{:column 11, :line 84}
 (defn new
-  {:arglists ^{:line 84, :column 32} '^{:line 84, :column 39} ([])}
-  ^{:line 85, :column 13}
+  {:arglists '([])}
   (^java.time.format.DateTimeFormatterBuilder []
-   ^{:line 85, :column 60} (java.time.format.DateTimeFormatterBuilder.)))
+   (java.time.format.DateTimeFormatterBuilder.)))
 
 (defn to-formatter
   {:arglists '(["java.time.format.DateTimeFormatterBuilder"]
