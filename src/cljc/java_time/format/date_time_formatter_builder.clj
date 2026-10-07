@@ -50,7 +50,7 @@
   {:arglists '(["java.time.format.DateTimeFormatterBuilder" "char"]
                ["java.time.format.DateTimeFormatterBuilder" "java.lang.String"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this arg0]
-   (cond (instance? java.lang.Character arg0) (let [literal ^"java.lang.Character" arg0]
+   (cond (instance? java.lang.Character arg0) (let [literal (char arg0)]
                                                 (.appendLiteral this literal))
          (instance? java.lang.String arg0) (let [literal ^"java.lang.String" arg0]
                                              (.appendLiteral this literal))

@@ -133,6 +133,9 @@
       (= 'java.lang.Integer tag)
       [param-name `(~'int ~value)]
 
+      (= 'java.lang.Character tag)
+      [param-name `(~'char ~value)]
+
       :else
       [param-name (vary-meta value assoc :tag (.getName tag))])))
 
