@@ -121,20 +121,20 @@
             (symbol (apply str "." (string/lower-case f) r))))
     (list (symbol (str "." nm)))))
 
-(defn tagged-local [value tag]
-  (let [tag (ensure-boxed-long-double tag)]
+(defn tagged-local [param-name value ^Class klazz]
+  (let [tag (ensure-boxed-long-double klazz)]
     (cond
       (= 'long tag)
-      `(~'long ~value)
+      [param-name `(~'long ~value)]
 
       (= 'double tag)
-      `(~'double ~value)
+      [param-name `(~'double ~value)]
 
       (= 'java.lang.Integer tag)
-      `(~'int ~value)
+      [param-name `(~'int ~value)]
 
       :else
-      (vary-meta value assoc :tag (.getName tag)))))
+      [param-name (vary-meta value assoc :tag (.getName tag))])))
 
 (defn method-call [static? klazz nam ext]
   (if static?
@@ -175,7 +175,7 @@
                             conds
                             [(apply list 'and conds)])
                         (~'let [~@(mapcat (fn [pn sym ^Class klz]
-                                            [pn (tagged-local sym klz)])
+                                            (tagged-local pn sym klz))
                                           param-names
                                           arg-vec
                                           (parameter-types method))]
