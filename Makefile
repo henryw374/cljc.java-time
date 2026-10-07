@@ -1,5 +1,7 @@
 test-clj:
 			clojure -Atest -e deprecated
+generate-library-code:
+			clojure -Adev -e "(do (require 'gen) (gen/generate-library-code!))"
 test-cljs-shadow:
 			clojure -Atest-cljs -X com.widdindustries.tiado-cljs2/tests-ci-shadow :compile-mode :release
 test-cljs-cljsjs:
