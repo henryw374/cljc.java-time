@@ -3,12 +3,12 @@
   (:require [cljc.java-time.extn.calendar-awareness])
   (:import [java.time.temporal Temporal]))
 
-(clojure.core/defn range
+(defn range
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalField"])}
   (^java.time.temporal.ValueRange [^java.time.temporal.Temporal this ^java.time.temporal.TemporalField field]
    (.range this field)))
 
-(clojure.core/defn plus
+(defn plus
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalAmount"]
                ["java.time.temporal.Temporal" "long" "java.time.temporal.TemporalUnit"])}
   (^java.time.temporal.Temporal [^java.time.temporal.Temporal this ^java.time.temporal.TemporalAmount amount]
@@ -17,12 +17,12 @@
    [^java.time.temporal.Temporal this ^long amount-to-add ^java.time.temporal.ChronoUnit unit]
    (.plus this amount-to-add unit)))
 
-(clojure.core/defn query
+(defn query
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalQuery"])}
   (^java.lang.Object [^java.time.temporal.Temporal this ^java.time.temporal.TemporalQuery query]
    (.query this query)))
 
-(clojure.core/defn minus
+(defn minus
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalAmount"]
                ["java.time.temporal.Temporal" "long" "java.time.temporal.TemporalUnit"])}
   (^java.time.temporal.Temporal [^java.time.temporal.Temporal this ^java.time.temporal.TemporalAmount amount]
@@ -31,31 +31,28 @@
    [^java.time.temporal.Temporal this ^long amount-to-subtract ^java.time.temporal.ChronoUnit unit]
    (.minus this amount-to-subtract unit)))
 
-(clojure.core/defn get-long
+(defn get-long
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalField"])}
   (^long [^java.time.temporal.Temporal this ^java.time.temporal.TemporalField field]
    (.getLong this field)))
 
-(clojure.core/defn until
+(defn until
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"])}
   (^long
    [^java.time.temporal.Temporal this ^java.time.temporal.Temporal end-exclusive ^java.time.temporal.ChronoUnit unit]
    (.until this end-exclusive unit)))
 
-(clojure.core/defn is-supported
+(defn is-supported
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]
                ["java.time.temporal.Temporal" "java.time.temporal.TemporalField"])}
   (^java.lang.Boolean [this arg0]
-   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.temporal.ChronoUnit arg0))
-                        (clojure.core/let [unit ^"java.time.temporal.ChronoUnit" arg0]
-                          (.isSupported ^java.time.temporal.Temporal this unit))
-                      (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalField arg0))
-                        (clojure.core/let [field ^"java.time.temporal.TemporalField" arg0]
-                          (.isSupported ^java.time.temporal.Temporal this field))
-                      :else (throw (java.lang.IllegalArgumentException.
-                                     "no corresponding java.time method with these args")))))
+   (cond (and (instance? java.time.temporal.ChronoUnit arg0)) (let [unit ^"java.time.temporal.ChronoUnit" arg0]
+                                                                (.isSupported ^java.time.temporal.Temporal this unit))
+         (and (instance? java.time.temporal.TemporalField arg0))
+           (let [field ^"java.time.temporal.TemporalField" arg0] (.isSupported ^java.time.temporal.Temporal this field))
+         :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
-(clojure.core/defn with
+(defn with
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalAdjuster"]
                ["java.time.temporal.Temporal" "java.time.temporal.TemporalField" "long"])}
   (^java.time.temporal.Temporal [^java.time.temporal.Temporal this ^java.time.temporal.TemporalAdjuster adjuster]
@@ -64,7 +61,7 @@
    [^java.time.temporal.Temporal this ^java.time.temporal.TemporalField field ^long new-value]
    (.with this field new-value)))
 
-(clojure.core/defn get
+(defn get
   {:arglists '(["java.time.temporal.Temporal" "java.time.temporal.TemporalField"])}
   (^java.lang.Integer [^java.time.temporal.Temporal this ^java.time.temporal.TemporalField field]
    (.get this field)))

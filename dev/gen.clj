@@ -81,12 +81,12 @@
             (list 'goog.object/get c (str "\"" (:name m) "\"")))))))
   ;; constructors
   (when (= java.time.format.DateTimeFormatterBuilder c)
-    (prn '(clojure.core/defn new {:arglists (quote ([]))}
+    (prn '(defn new {:arglists (quote ([]))}
             (^java.time.format.DateTimeFormatterBuilder [] (java.time.format.DateTimeFormatterBuilder.)))))
   ;; methods
   (doseq [f (df/defwrapper c ext)]
     (let [f (if (= 'is-leap (second f))
-              '(clojure.core/defn is-leap {:arglists (quote (["long"]))}
+              '(defn is-leap {:arglists (quote (["long"]))}
                  (^java.lang.Boolean [^long year] (. java.time.Year isLeap year)))
               f)]
       (pr f))

@@ -10,124 +10,124 @@
 
 (def utc (goog.object/get java.time.ZoneOffset "UTC"))
 
-(clojure.core/defn get-available-zone-ids
+(defn get-available-zone-ids
   {:arglists '([])}
   (^java.util.Set []
    (js-invoke java.time.ZoneOffset "getAvailableZoneIds")))
 
-(clojure.core/defn range
+(defn range
   {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalField"])}
   (^js/JSJoda.ValueRange [^js/JSJoda.ZoneOffset this ^js/JSJoda.TemporalField field]
    (.range this field)))
 
-(clojure.core/defn of-total-seconds
+(defn of-total-seconds
   {:arglists '(["int"])}
   (^js/JSJoda.ZoneOffset [^int total-seconds]
    (js-invoke java.time.ZoneOffset "ofTotalSeconds" total-seconds)))
 
-(clojure.core/defn of
+(defn of
   {:arglists '(["java.lang.String"] ["java.lang.String"] ["java.lang.String" "java.util.Map"])}
   (^java.lang.Object [arg0]
    (js-invoke java.time.ZoneOffset "of" arg0))
   (^js/JSJoda.ZoneId [^java.lang.String zone-id ^java.util.Map alias-map]
    (js-invoke java.time.ZoneOffset "of" zone-id alias-map)))
 
-(clojure.core/defn of-offset
+(defn of-offset
   {:arglists '(["java.lang.String" "java.time.ZoneOffset"])}
   (^js/JSJoda.ZoneId [^java.lang.String prefix ^js/JSJoda.ZoneOffset offset]
    (js-invoke java.time.ZoneOffset "ofOffset" prefix offset)))
 
-(clojure.core/defn query
+(defn query
   {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalQuery"])}
   (^java.lang.Object [^js/JSJoda.ZoneOffset this ^js/JSJoda.TemporalQuery query]
    (.query this query)))
 
-(clojure.core/defn to-string
+(defn to-string
   {:arglists '(["java.time.ZoneOffset"])}
   (^java.lang.String [^js/JSJoda.ZoneOffset this]
    (.toString this)))
 
-(clojure.core/defn get-display-name
+(defn get-display-name
   {:arglists '(["java.time.ZoneOffset" "java.time.format.TextStyle" "java.util.Locale"])}
   (^java.lang.String [^js/JSJoda.ZoneOffset this ^js/JSJoda.TextStyle style ^java.util.Locale locale]
    (.displayName this style locale)))
 
-(clojure.core/defn get-long
+(defn get-long
   {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalField"])}
   (^long [^js/JSJoda.ZoneOffset this ^js/JSJoda.TemporalField field]
    (.getLong this field)))
 
-(clojure.core/defn get-rules
+(defn get-rules
   {:arglists '(["java.time.ZoneOffset"])}
   (^js/JSJoda.ZoneRules [^js/JSJoda.ZoneOffset this]
    (.rules this)))
 
-(clojure.core/defn of-hours
+(defn of-hours
   {:arglists '(["int"])}
   (^js/JSJoda.ZoneOffset [^int hours]
    (js-invoke java.time.ZoneOffset "ofHours" hours)))
 
-(clojure.core/defn get-id
+(defn get-id
   {:arglists '(["java.time.ZoneOffset"])}
   (^java.lang.String [^js/JSJoda.ZoneOffset this]
    (.id this)))
 
-(clojure.core/defn normalized
+(defn normalized
   {:arglists '(["java.time.ZoneOffset"])}
   (^js/JSJoda.ZoneId [^js/JSJoda.ZoneOffset this]
    (.normalized this)))
 
-(clojure.core/defn system-default
+(defn system-default
   {:arglists '([])}
   (^js/JSJoda.ZoneId []
    (js-invoke java.time.ZoneOffset "systemDefault")))
 
-(clojure.core/defn from
+(defn from
   {:arglists '(["java.time.temporal.TemporalAccessor"] ["java.time.temporal.TemporalAccessor"])}
   (^java.lang.Object [arg0]
    (js-invoke java.time.ZoneOffset "from" arg0)))
 
-(clojure.core/defn of-hours-minutes-seconds
+(defn of-hours-minutes-seconds
   {:arglists '(["int" "int" "int"])}
   (^js/JSJoda.ZoneOffset [^int hours ^int minutes ^int seconds]
    (js-invoke java.time.ZoneOffset "ofHoursMinutesSeconds" hours minutes seconds)))
 
-(clojure.core/defn is-supported
+(defn is-supported
   {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalField"])}
   (^boolean [^js/JSJoda.ZoneOffset this ^js/JSJoda.TemporalField field]
    (.isSupported this field)))
 
-(clojure.core/defn hash-code
+(defn hash-code
   {:arglists '(["java.time.ZoneOffset"])}
   (^int [^js/JSJoda.ZoneOffset this]
    (.hashCode this)))
 
-(clojure.core/defn get-total-seconds
+(defn get-total-seconds
   {:arglists '(["java.time.ZoneOffset"])}
   (^int [^js/JSJoda.ZoneOffset this]
    (.totalSeconds this)))
 
-(clojure.core/defn adjust-into
+(defn adjust-into
   {:arglists '(["java.time.ZoneOffset" "java.time.temporal.Temporal"])}
   (^js/JSJoda.Temporal [^js/JSJoda.ZoneOffset this ^js/JSJoda.Temporal temporal]
    (.adjustInto this temporal)))
 
-(clojure.core/defn of-hours-minutes
+(defn of-hours-minutes
   {:arglists '(["int" "int"])}
   (^js/JSJoda.ZoneOffset [^int hours ^int minutes]
    (js-invoke java.time.ZoneOffset "ofHoursMinutes" hours minutes)))
 
-(clojure.core/defn compare-to
+(defn compare-to
   {:arglists '(["java.time.ZoneOffset" "java.time.ZoneOffset"])}
   (^int [^js/JSJoda.ZoneOffset this ^js/JSJoda.ZoneOffset other]
    (.compareTo this other)))
 
-(clojure.core/defn get
+(defn get
   {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalField"])}
   (^int [^js/JSJoda.ZoneOffset this ^js/JSJoda.TemporalField field]
    (.get this field)))
 
-(clojure.core/defn equals
+(defn equals
   {:arglists '(["java.time.ZoneOffset" "java.lang.Object"])}
   (^boolean [^js/JSJoda.ZoneOffset this ^java.lang.Object obj]
    (.equals this obj)))

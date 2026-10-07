@@ -125,13 +125,13 @@
   (let [tag (ensure-boxed-long-double tag)]
     (cond
       (= 'long tag)
-      `(long ~value)
+      `(~'long ~value)
 
       (= 'double tag)
-      `(double ~value)
+      `(~'double ~value)
 
       (= 'java.lang.Integer tag)
-      `(int ~value)
+      `(~'int ~value)
 
       :else
       (vary-meta value assoc :tag (.getName tag)))))
@@ -157,28 +157,28 @@
              `(~@method-call
                 ~@(when-not static? [(tagged this klazz ext)])
                 ~@arg-vec)
-             `(cond
+             `(~'cond
                 ~@(mapcat
                   (fn [^Method method]
                     (let [param-names (->> (method-fqn method)
                                            (get fqn->param-names)
                                            (mapv (comp symbol camel->kebab)))]
                       (assert (= (count arg-vec) (count param-names)) (method-fqn method))
-                      `[(and ~@(map (fn [sym ^Class klz]
-                                      (if (.isArray klz)
-                                        `(= ~(.getComponentType klz)
-                                            (.getComponentType (class ~sym)))
-                                        `(instance? ~(ensure-boxed (class-name klz)) ~sym)))
-                                    arg-vec
-                                    (parameter-types method)))
-                        (let [~@(mapcat (fn [pn sym ^Class klz]
-                                          [pn (tagged-local sym klz)])
-                                        param-names
-                                        arg-vec
-                                        (parameter-types method))]
-                          (~@method-call
-                           ~@(when-not static? [(tagged this klazz ext)])
-                           ~@param-names))]))
+                      `[(~'and ~@(map (fn [sym ^Class klz]
+                                        (if (.isArray klz)
+                                          `(~'= ~(.getComponentType klz)
+                                            (.getComponentType (~'class ~sym)))
+                                          `(~'instance? ~(ensure-boxed (class-name klz)) ~sym)))
+                                      arg-vec
+                                      (parameter-types method)))
+                        (~'let [~@(mapcat (fn [pn sym ^Class klz]
+                                            [pn (tagged-local sym klz)])
+                                          param-names
+                                          arg-vec
+                                          (parameter-types method))]
+                         (~@method-call
+                          ~@(when-not static? [(tagged this klazz ext)])
+                          ~@param-names))]))
                   methods)
                 :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
         bod (if helpful?
@@ -215,7 +215,7 @@
 (defn method-wrapper-form [fname klazz methods ext helpful?]
   (let [arities (into (sorted-map) (group-by parameter-count methods))
         static? (method-static? (first methods))]
-    `(defn ~fname
+    `(~'defn ~fname
        {:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
                            #(map (fn [x] (.getName x)) %)
                            parameter-types)

@@ -6,182 +6,182 @@
 
 (def zero (goog.object/get java.time.Period "ZERO"))
 
-(clojure.core/defn get-months
+(defn get-months
   {:arglists '(["java.time.Period"])}
   (^int [^js/JSJoda.Period this]
    (.months this)))
 
-(clojure.core/defn of-weeks
+(defn of-weeks
   {:arglists '(["int"])}
   (^js/JSJoda.Period [^int weeks]
    (js-invoke java.time.Period "ofWeeks" weeks)))
 
-(clojure.core/defn of-days
+(defn of-days
   {:arglists '(["int"])}
   (^js/JSJoda.Period [^int days]
    (js-invoke java.time.Period "ofDays" days)))
 
-(clojure.core/defn is-negative
+(defn is-negative
   {:arglists '(["java.time.Period"])}
   (^boolean [^js/JSJoda.Period this]
    (.isNegative this)))
 
-(clojure.core/defn of
+(defn of
   {:arglists '(["int" "int" "int"])}
   (^js/JSJoda.Period [^int years ^int months ^int days]
    (js-invoke java.time.Period "of" years months days)))
 
-(clojure.core/defn is-zero
+(defn is-zero
   {:arglists '(["java.time.Period"])}
   (^boolean [^js/JSJoda.Period this]
    (.isZero this)))
 
-(clojure.core/defn multiplied-by
+(defn multiplied-by
   {:arglists '(["java.time.Period" "int"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^int scalar]
    (.multipliedBy this scalar)))
 
-(clojure.core/defn get-units
+(defn get-units
   {:arglists '(["java.time.Period"])}
   (^java.util.List [^js/JSJoda.Period this]
    (.units this)))
 
-(clojure.core/defn with-days
+(defn with-days
   {:arglists '(["java.time.Period" "int"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^int days]
    (.withDays this days)))
 
-(clojure.core/defn plus
+(defn plus
   {:arglists '(["java.time.Period" "java.time.temporal.TemporalAmount"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^js/JSJoda.TemporalAmount amount-to-add]
    (.plus this amount-to-add)))
 
-(clojure.core/defn of-months
+(defn of-months
   {:arglists '(["int"])}
   (^js/JSJoda.Period [^int months]
    (js-invoke java.time.Period "ofMonths" months)))
 
-(clojure.core/defn to-string
+(defn to-string
   {:arglists '(["java.time.Period"])}
   (^java.lang.String [^js/JSJoda.Period this]
    (.toString this)))
 
-(clojure.core/defn plus-months
+(defn plus-months
   {:arglists '(["java.time.Period" "long"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^long months-to-add]
    (.plusMonths this months-to-add)))
 
-(clojure.core/defn minus-months
+(defn minus-months
   {:arglists '(["java.time.Period" "long"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^long months-to-subtract]
    (.minusMonths this months-to-subtract)))
 
-(clojure.core/defn minus
+(defn minus
   {:arglists '(["java.time.Period" "java.time.temporal.TemporalAmount"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^js/JSJoda.TemporalAmount amount-to-subtract]
    (.minus this amount-to-subtract)))
 
-(clojure.core/defn add-to
+(defn add-to
   {:arglists '(["java.time.Period" "java.time.temporal.Temporal"])}
   (^js/JSJoda.Temporal [^js/JSJoda.Period this ^js/JSJoda.Temporal temporal]
    (.addTo this temporal)))
 
-(clojure.core/defn to-total-months
+(defn to-total-months
   {:arglists '(["java.time.Period"])}
   (^long [^js/JSJoda.Period this]
    (.toTotalMonths this)))
 
-(clojure.core/defn plus-days
+(defn plus-days
   {:arglists '(["java.time.Period" "long"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^long days-to-add]
    (.plusDays this days-to-add)))
 
-(clojure.core/defn of-years
+(defn of-years
   {:arglists '(["int"])}
   (^js/JSJoda.Period [^int years]
    (js-invoke java.time.Period "ofYears" years)))
 
-(clojure.core/defn get-days
+(defn get-days
   {:arglists '(["java.time.Period"])}
   (^int [^js/JSJoda.Period this]
    (.days this)))
 
-(clojure.core/defn negated
+(defn negated
   {:arglists '(["java.time.Period"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this]
    (.negated this)))
 
-(clojure.core/defn get-years
+(defn get-years
   {:arglists '(["java.time.Period"])}
   (^int [^js/JSJoda.Period this]
    (.years this)))
 
-(clojure.core/defn with-years
+(defn with-years
   {:arglists '(["java.time.Period" "int"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^int years]
    (.withYears this years)))
 
-(clojure.core/defn normalized
+(defn normalized
   {:arglists '(["java.time.Period"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this]
    (.normalized this)))
 
-(clojure.core/defn with-months
+(defn with-months
   {:arglists '(["java.time.Period" "int"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^int months]
    (.withMonths this months)))
 
-(clojure.core/defn between
+(defn between
   {:arglists '(["java.time.LocalDate" "java.time.LocalDate"])}
   (^js/JSJoda.Period [^js/JSJoda.LocalDate start-date-inclusive ^js/JSJoda.LocalDate end-date-exclusive]
    (js-invoke java.time.Period "between" start-date-inclusive end-date-exclusive)))
 
-(clojure.core/defn from
+(defn from
   {:arglists '(["java.time.temporal.TemporalAmount"])}
   (^js/JSJoda.Period [^js/JSJoda.TemporalAmount amount]
    (js-invoke java.time.Period "from" amount)))
 
-(clojure.core/defn minus-years
+(defn minus-years
   {:arglists '(["java.time.Period" "long"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^long years-to-subtract]
    (.minusYears this years-to-subtract)))
 
-(clojure.core/defn get-chronology
+(defn get-chronology
   {:arglists '(["java.time.Period"])}
   (^js/JSJoda.IsoChronology [^js/JSJoda.Period this]
    (.chronology this)))
 
-(clojure.core/defn parse
+(defn parse
   {:arglists '(["java.lang.CharSequence"])}
   (^js/JSJoda.Period [^java.lang.CharSequence text]
    (js-invoke java.time.Period "parse" text)))
 
-(clojure.core/defn hash-code
+(defn hash-code
   {:arglists '(["java.time.Period"])}
   (^int [^js/JSJoda.Period this]
    (.hashCode this)))
 
-(clojure.core/defn subtract-from
+(defn subtract-from
   {:arglists '(["java.time.Period" "java.time.temporal.Temporal"])}
   (^js/JSJoda.Temporal [^js/JSJoda.Period this ^js/JSJoda.Temporal temporal]
    (.subtractFrom this temporal)))
 
-(clojure.core/defn get
+(defn get
   {:arglists '(["java.time.Period" "java.time.temporal.TemporalUnit"])}
   (^long [^js/JSJoda.Period this ^js/JSJoda.TemporalUnit unit]
    (.get this unit)))
 
-(clojure.core/defn equals
+(defn equals
   {:arglists '(["java.time.Period" "java.lang.Object"])}
   (^boolean [^js/JSJoda.Period this ^java.lang.Object obj]
    (.equals this obj)))
 
-(clojure.core/defn plus-years
+(defn plus-years
   {:arglists '(["java.time.Period" "long"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^long years-to-add]
    (.plusYears this years-to-add)))
 
-(clojure.core/defn minus-days
+(defn minus-days
   {:arglists '(["java.time.Period" "long"])}
   (^js/JSJoda.Period [^js/JSJoda.Period this ^long days-to-subtract]
    (.minusDays this days-to-subtract)))

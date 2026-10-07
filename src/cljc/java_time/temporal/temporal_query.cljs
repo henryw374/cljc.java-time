@@ -4,7 +4,7 @@
             [goog.object]
             [java.time.temporal :refer [TemporalQuery]]))
 
-(clojure.core/defn query-from
+(defn query-from
   {:arglists '(["java.time.temporal.TemporalQuery" "java.time.temporal.TemporalAccessor"])}
   (^java.lang.Object [^js/JSJoda.TemporalQuery this ^js/JSJoda.TemporalAccessor temporal]
    (.queryFrom this temporal)))

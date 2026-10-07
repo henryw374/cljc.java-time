@@ -3,7 +3,7 @@
   (:require [cljc.java-time.extn.calendar-awareness])
   (:import [java.time.temporal TemporalQuery]))
 
-(clojure.core/defn query-from
+(defn query-from
   {:arglists '(["java.time.temporal.TemporalQuery" "java.time.temporal.TemporalAccessor"])}
   (^java.lang.Object [^java.time.temporal.TemporalQuery this ^java.time.temporal.TemporalAccessor temporal]
    (.queryFrom this temporal)))

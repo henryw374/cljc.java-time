@@ -15,64 +15,64 @@
 
 (def narrow-standalone java.time.format.TextStyle/NARROW_STANDALONE)
 
-(clojure.core/defn values
+(defn values
   {:arglists '([])}
   (^"java.lang.Class" []
    (java.time.format.TextStyle/values)))
 
-(clojure.core/defn value-of
+(defn value-of
   {:arglists '(["java.lang.String"] ["java.lang.Class" "java.lang.String"])}
   (^java.time.format.TextStyle [^java.lang.String name]
    (java.time.format.TextStyle/valueOf name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (java.time.format.TextStyle/valueOf enum-type name)))
 
-(clojure.core/defn ordinal
+(defn ordinal
   {:arglists '(["java.time.format.TextStyle"])}
   (^java.lang.Integer [^java.time.format.TextStyle this]
    (.ordinal this)))
 
-(clojure.core/defn as-standalone
+(defn as-standalone
   {:arglists '(["java.time.format.TextStyle"])}
   (^java.time.format.TextStyle [^java.time.format.TextStyle this]
    (.asStandalone this)))
 
-(clojure.core/defn to-string
+(defn to-string
   {:arglists '(["java.time.format.TextStyle"])}
   (^java.lang.String [^java.time.format.TextStyle this]
    (.toString this)))
 
-(clojure.core/defn name
+(defn name
   {:arglists '(["java.time.format.TextStyle"])}
   (^java.lang.String [^java.time.format.TextStyle this]
    (.name this)))
 
-(clojure.core/defn get-declaring-class
+(defn get-declaring-class
   {:arglists '(["java.time.format.TextStyle"])}
   (^java.lang.Class [^java.time.format.TextStyle this]
    (.getDeclaringClass this)))
 
-(clojure.core/defn as-normal
+(defn as-normal
   {:arglists '(["java.time.format.TextStyle"])}
   (^java.time.format.TextStyle [^java.time.format.TextStyle this]
    (.asNormal this)))
 
-(clojure.core/defn hash-code
+(defn hash-code
   {:arglists '(["java.time.format.TextStyle"])}
   (^java.lang.Integer [^java.time.format.TextStyle this]
    (.hashCode this)))
 
-(clojure.core/defn compare-to
+(defn compare-to
   {:arglists '(["java.time.format.TextStyle" "java.lang.Enum"])}
   (^java.lang.Integer [^java.time.format.TextStyle this ^java.lang.Enum o]
    (.compareTo this o)))
 
-(clojure.core/defn is-standalone
+(defn is-standalone
   {:arglists '(["java.time.format.TextStyle"])}
   (^java.lang.Boolean [^java.time.format.TextStyle this]
    (.isStandalone this)))
 
-(clojure.core/defn equals
+(defn equals
   {:arglists '(["java.time.format.TextStyle" "java.lang.Object"])}
   (^java.lang.Boolean [^java.time.format.TextStyle this ^java.lang.Object other]
    (.equals this other)))

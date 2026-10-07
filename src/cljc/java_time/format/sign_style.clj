@@ -13,49 +13,49 @@
 
 (def not-negative java.time.format.SignStyle/NOT_NEGATIVE)
 
-(clojure.core/defn values
+(defn values
   {:arglists '([])}
   (^"java.lang.Class" []
    (java.time.format.SignStyle/values)))
 
-(clojure.core/defn value-of
+(defn value-of
   {:arglists '(["java.lang.String"] ["java.lang.Class" "java.lang.String"])}
   (^java.time.format.SignStyle [^java.lang.String name]
    (java.time.format.SignStyle/valueOf name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (java.time.format.SignStyle/valueOf enum-type name)))
 
-(clojure.core/defn ordinal
+(defn ordinal
   {:arglists '(["java.time.format.SignStyle"])}
   (^java.lang.Integer [^java.time.format.SignStyle this]
    (.ordinal this)))
 
-(clojure.core/defn to-string
+(defn to-string
   {:arglists '(["java.time.format.SignStyle"])}
   (^java.lang.String [^java.time.format.SignStyle this]
    (.toString this)))
 
-(clojure.core/defn name
+(defn name
   {:arglists '(["java.time.format.SignStyle"])}
   (^java.lang.String [^java.time.format.SignStyle this]
    (.name this)))
 
-(clojure.core/defn get-declaring-class
+(defn get-declaring-class
   {:arglists '(["java.time.format.SignStyle"])}
   (^java.lang.Class [^java.time.format.SignStyle this]
    (.getDeclaringClass this)))
 
-(clojure.core/defn hash-code
+(defn hash-code
   {:arglists '(["java.time.format.SignStyle"])}
   (^java.lang.Integer [^java.time.format.SignStyle this]
    (.hashCode this)))
 
-(clojure.core/defn compare-to
+(defn compare-to
   {:arglists '(["java.time.format.SignStyle" "java.lang.Enum"])}
   (^java.lang.Integer [^java.time.format.SignStyle this ^java.lang.Enum o]
    (.compareTo this o)))
 
-(clojure.core/defn equals
+(defn equals
   {:arglists '(["java.time.format.SignStyle" "java.lang.Object"])}
   (^java.lang.Boolean [^java.time.format.SignStyle this ^java.lang.Object other]
    (.equals this other)))

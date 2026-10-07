@@ -17,109 +17,109 @@
 
 (def tuesday java.time.DayOfWeek/TUESDAY)
 
-(clojure.core/defn range
+(defn range
   {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalField"])}
   (^java.time.temporal.ValueRange [^java.time.DayOfWeek this ^java.time.temporal.TemporalField field]
    (.range this field)))
 
-(clojure.core/defn values
+(defn values
   {:arglists '([])}
   (^"java.lang.Class" []
    (java.time.DayOfWeek/values)))
 
-(clojure.core/defn value-of
+(defn value-of
   {:arglists '(["java.lang.String"] ["java.lang.Class" "java.lang.String"])}
   (^java.time.DayOfWeek [^java.lang.String name]
    (java.time.DayOfWeek/valueOf name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (java.time.DayOfWeek/valueOf enum-type name)))
 
-(clojure.core/defn of
+(defn of
   {:arglists '(["int"])}
   (^java.time.DayOfWeek [^java.lang.Integer day-of-week]
    (java.time.DayOfWeek/of day-of-week)))
 
-(clojure.core/defn ordinal
+(defn ordinal
   {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.Integer [^java.time.DayOfWeek this]
    (.ordinal this)))
 
-(clojure.core/defn plus
+(defn plus
   {:arglists '(["java.time.DayOfWeek" "long"])}
   (^java.time.DayOfWeek [^java.time.DayOfWeek this ^long days]
    (.plus this days)))
 
-(clojure.core/defn query
+(defn query
   {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalQuery"])}
   (^java.lang.Object [^java.time.DayOfWeek this ^java.time.temporal.TemporalQuery query]
    (.query this query)))
 
-(clojure.core/defn to-string
+(defn to-string
   {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.String [^java.time.DayOfWeek this]
    (.toString this)))
 
-(clojure.core/defn minus
+(defn minus
   {:arglists '(["java.time.DayOfWeek" "long"])}
   (^java.time.DayOfWeek [^java.time.DayOfWeek this ^long days]
    (.minus this days)))
 
-(clojure.core/defn get-display-name
+(defn get-display-name
   {:arglists '(["java.time.DayOfWeek" "java.time.format.TextStyle" "java.util.Locale"])}
   (^java.lang.String [^java.time.DayOfWeek this ^java.time.format.TextStyle style ^java.util.Locale locale]
    (.getDisplayName this style locale)))
 
-(clojure.core/defn get-value
+(defn get-value
   {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.Integer [^java.time.DayOfWeek this]
    (.getValue this)))
 
-(clojure.core/defn name
+(defn name
   {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.String [^java.time.DayOfWeek this]
    (.name this)))
 
-(clojure.core/defn get-long
+(defn get-long
   {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalField"])}
   (^long [^java.time.DayOfWeek this ^java.time.temporal.TemporalField field]
    (.getLong this field)))
 
-(clojure.core/defn get-declaring-class
+(defn get-declaring-class
   {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.Class [^java.time.DayOfWeek this]
    (.getDeclaringClass this)))
 
-(clojure.core/defn from
+(defn from
   {:arglists '(["java.time.temporal.TemporalAccessor"])}
   (^java.time.DayOfWeek [^java.time.temporal.TemporalAccessor temporal]
    (java.time.DayOfWeek/from temporal)))
 
-(clojure.core/defn is-supported
+(defn is-supported
   {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalField"])}
   (^java.lang.Boolean [^java.time.DayOfWeek this ^java.time.temporal.TemporalField field]
    (.isSupported this field)))
 
-(clojure.core/defn hash-code
+(defn hash-code
   {:arglists '(["java.time.DayOfWeek"])}
   (^java.lang.Integer [^java.time.DayOfWeek this]
    (.hashCode this)))
 
-(clojure.core/defn adjust-into
+(defn adjust-into
   {:arglists '(["java.time.DayOfWeek" "java.time.temporal.Temporal"])}
   (^java.time.temporal.Temporal [^java.time.DayOfWeek this ^java.time.temporal.Temporal temporal]
    (.adjustInto this temporal)))
 
-(clojure.core/defn compare-to
+(defn compare-to
   {:arglists '(["java.time.DayOfWeek" "java.lang.Enum"])}
   (^java.lang.Integer [^java.time.DayOfWeek this ^java.lang.Enum o]
    (.compareTo this o)))
 
-(clojure.core/defn get
+(defn get
   {:arglists '(["java.time.DayOfWeek" "java.time.temporal.TemporalField"])}
   (^java.lang.Integer [^java.time.DayOfWeek this ^java.time.temporal.TemporalField field]
    (.get this field)))
 
-(clojure.core/defn equals
+(defn equals
   {:arglists '(["java.time.DayOfWeek" "java.lang.Object"])}
   (^java.lang.Boolean [^java.time.DayOfWeek this ^java.lang.Object other]
    (.equals this other)))

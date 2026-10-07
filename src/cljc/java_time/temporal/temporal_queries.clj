@@ -3,37 +3,37 @@
   (:require [cljc.java-time.extn.calendar-awareness])
   (:import [java.time.temporal TemporalQueries]))
 
-(clojure.core/defn chronology
+(defn chronology
   {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/chronology)))
 
-(clojure.core/defn local-date
+(defn local-date
   {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/localDate)))
 
-(clojure.core/defn local-time
+(defn local-time
   {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/localTime)))
 
-(clojure.core/defn offset
+(defn offset
   {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/offset)))
 
-(clojure.core/defn precision
+(defn precision
   {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/precision)))
 
-(clojure.core/defn zone
+(defn zone
   {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/zone)))
 
-(clojure.core/defn zone-id
+(defn zone-id
   {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/zoneId)))
