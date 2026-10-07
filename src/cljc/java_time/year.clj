@@ -83,7 +83,7 @@
   (^java.time.YearMonth [^java.time.Year this arg0]
    (cond (instance? java.lang.Number arg0) (let [month (int arg0)]
                                              (.atMonth this month))
-         (instance? java.time.Month arg0) (let [month ^"java.time.Month" arg0]
+         (instance? java.time.Month arg0) (let [^java.time.Month month arg0]
                                             (.atMonth this month))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
@@ -111,9 +111,9 @@
   {:arglists '(["java.time.Year" "java.time.temporal.TemporalField"]
                ["java.time.Year" "java.time.temporal.TemporalUnit"])}
   (^java.lang.Boolean [^java.time.Year this arg0]
-   (cond (instance? java.time.temporal.TemporalField arg0) (let [field ^"java.time.temporal.TemporalField" arg0]
+   (cond (instance? java.time.temporal.TemporalField arg0) (let [^java.time.temporal.TemporalField field arg0]
                                                              (.isSupported this field))
-         (instance? java.time.temporal.ChronoUnit arg0) (let [unit ^"java.time.temporal.ChronoUnit" arg0]
+         (instance? java.time.temporal.ChronoUnit arg0) (let [^java.time.temporal.ChronoUnit unit arg0]
                                                           (.isSupported this unit))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
@@ -152,9 +152,9 @@
   (^java.time.Year []
    (java.time.Year/now))
   (^java.time.Year [arg0]
-   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0]
+   (cond (instance? java.time.Clock arg0) (let [^java.time.Clock clock arg0]
                                             (java.time.Year/now clock))
-         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0]
+         (instance? java.time.ZoneId arg0) (let [^java.time.ZoneId zone arg0]
                                              (java.time.Year/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 

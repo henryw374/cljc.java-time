@@ -131,13 +131,13 @@
   (^java.lang.Object [^java.time.format.DateTimeFormatter this arg0 arg1]
    (cond (and (instance? java.lang.CharSequence arg0)
               (instance? java.text.ParsePosition arg1))
-           (let [text ^"java.lang.CharSequence" arg0
-                 position ^"java.text.ParsePosition" arg1]
+           (let [^java.lang.CharSequence text arg0
+                 ^java.text.ParsePosition position arg1]
              (.parse this text position))
          (and (instance? java.lang.CharSequence arg0)
               (instance? java.time.temporal.TemporalQuery arg1))
-           (let [text ^"java.lang.CharSequence" arg0
-                 query ^"java.time.temporal.TemporalQuery" arg1]
+           (let [^java.lang.CharSequence text arg0
+                 ^java.time.temporal.TemporalQuery query arg1]
              (.parse this text query))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
@@ -151,9 +151,9 @@
                ["java.time.format.DateTimeFormatter" "java.util.Set"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this arg0]
    (cond (= java.time.temporal.TemporalField (.getComponentType (class arg0)))
-           (let [resolver-fields ^"[Ljava.time.temporal.TemporalField;" arg0]
+           (let [^"[Ljava.time.temporal.TemporalField;" resolver-fields arg0]
              (.withResolverFields this resolver-fields))
-         (instance? java.util.Set arg0) (let [resolver-fields ^"java.util.Set" arg0]
+         (instance? java.util.Set arg0) (let [^java.util.Set resolver-fields arg0]
                                           (.withResolverFields this resolver-fields))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 

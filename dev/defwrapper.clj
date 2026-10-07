@@ -137,7 +137,13 @@
       [param-name `(~'char ~value)]
 
       :else
-      [param-name (vary-meta value assoc :tag (.getName tag))])))
+      [(vary-meta param-name assoc :tag (if (.isArray klazz)
+                                          ;; Clojure 1.12:
+                                          ;; klazz would lead to ^java.time.temporal.TemporalField/1
+                                          ;; Clojure 1.11
+                                          ;; (.getName tag) leads to ^"[Ljava.time.temporal.TemporalField;"
+                                          (.getName tag)
+                                          tag)) value])))
 
 (defn method-call [static? klazz nam ext]
   (if static?

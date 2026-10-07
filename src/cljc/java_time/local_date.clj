@@ -46,7 +46,7 @@
               (instance? java.time.Month arg1)
               (instance? java.lang.Number arg2))
            (let [year (int arg0)
-                 month ^"java.time.Month" arg1
+                 ^java.time.Month month arg1
                  day-of-month (int arg2)]
              (java.time.LocalDate/of year month day-of-month))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
@@ -184,9 +184,9 @@
   {:arglists '(["java.time.LocalDate" "java.time.temporal.TemporalField"]
                ["java.time.LocalDate" "java.time.temporal.TemporalUnit"])}
   (^java.lang.Boolean [^java.time.LocalDate this arg0]
-   (cond (instance? java.time.temporal.TemporalField arg0) (let [field ^"java.time.temporal.TemporalField" arg0]
+   (cond (instance? java.time.temporal.TemporalField arg0) (let [^java.time.temporal.TemporalField field arg0]
                                                              (.isSupported this field))
-         (instance? java.time.temporal.ChronoUnit arg0) (let [unit ^"java.time.temporal.ChronoUnit" arg0]
+         (instance? java.time.temporal.ChronoUnit arg0) (let [^java.time.temporal.ChronoUnit unit arg0]
                                                           (.isSupported this unit))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
@@ -230,9 +230,9 @@
   (^java.time.LocalDate []
    (java.time.LocalDate/now))
   (^java.time.LocalDate [arg0]
-   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0]
+   (cond (instance? java.time.Clock arg0) (let [^java.time.Clock clock arg0]
                                             (java.time.LocalDate/now clock))
-         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0]
+         (instance? java.time.ZoneId arg0) (let [^java.time.ZoneId zone arg0]
                                              (java.time.LocalDate/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
@@ -285,9 +285,9 @@
                ["java.time.LocalDate" "int" "int" "int"]
                ["java.time.LocalDate" "int" "int" "int" "int"])}
   (^java.lang.Object [^java.time.LocalDate this arg0]
-   (cond (instance? java.time.LocalTime arg0) (let [time ^"java.time.LocalTime" arg0]
+   (cond (instance? java.time.LocalTime arg0) (let [^java.time.LocalTime time arg0]
                                                 (.atTime this time))
-         (instance? java.time.OffsetTime arg0) (let [time ^"java.time.OffsetTime" arg0]
+         (instance? java.time.OffsetTime arg0) (let [^java.time.OffsetTime time arg0]
                                                  (.atTime this time))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))
   (^java.time.LocalDateTime [^java.time.LocalDate this ^java.lang.Integer hour ^java.lang.Integer minute]

@@ -23,7 +23,7 @@
              (java.time.MonthDay/of month day-of-month))
          (and (instance? java.time.Month arg0)
               (instance? java.lang.Number arg1))
-           (let [month ^"java.time.Month" arg0
+           (let [^java.time.Month month arg0
                  day-of-month (int arg1)]
              (java.time.MonthDay/of month day-of-month))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
@@ -110,9 +110,9 @@
   (^java.time.MonthDay []
    (java.time.MonthDay/now))
   (^java.time.MonthDay [arg0]
-   (cond (instance? java.time.Clock arg0) (let [clock ^"java.time.Clock" arg0]
+   (cond (instance? java.time.Clock arg0) (let [^java.time.Clock clock arg0]
                                             (java.time.MonthDay/now clock))
-         (instance? java.time.ZoneId arg0) (let [zone ^"java.time.ZoneId" arg0]
+         (instance? java.time.ZoneId arg0) (let [^java.time.ZoneId zone arg0]
                                              (java.time.MonthDay/now zone))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 

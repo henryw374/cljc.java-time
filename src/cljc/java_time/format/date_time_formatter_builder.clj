@@ -52,7 +52,7 @@
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this arg0]
    (cond (instance? java.lang.Character arg0) (let [literal (char arg0)]
                                                 (.appendLiteral this literal))
-         (instance? java.lang.String arg0) (let [literal ^"java.lang.String" arg0]
+         (instance? java.lang.String arg0) (let [^java.lang.String literal arg0]
                                              (.appendLiteral this literal))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
@@ -177,13 +177,13 @@
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this arg0 arg1]
    (cond (and (instance? java.time.temporal.TemporalField arg0)
               (instance? java.time.format.TextStyle arg1))
-           (let [field ^"java.time.temporal.TemporalField" arg0
-                 text-style ^"java.time.format.TextStyle" arg1]
+           (let [^java.time.temporal.TemporalField field arg0
+                 ^java.time.format.TextStyle text-style arg1]
              (.appendText this field text-style))
          (and (instance? java.time.temporal.TemporalField arg0)
               (instance? java.util.Map arg1))
-           (let [field ^"java.time.temporal.TemporalField" arg0
-                 text-lookup ^"java.util.Map" arg1]
+           (let [^java.time.temporal.TemporalField field arg0
+                 ^java.util.Map text-lookup arg1]
              (.appendText this field text-lookup))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
@@ -210,7 +210,7 @@
               (instance? java.lang.Number arg1)
               (instance? java.lang.Number arg2)
               (instance? java.lang.Number arg3))
-           (let [field ^"java.time.temporal.TemporalField" arg0
+           (let [^java.time.temporal.TemporalField field arg0
                  width (int arg1)
                  max-width (int arg2)
                  base-value (int arg3)]
@@ -219,10 +219,10 @@
               (instance? java.lang.Number arg1)
               (instance? java.lang.Number arg2)
               (instance? java.time.chrono.ChronoLocalDate arg3))
-           (let [field ^"java.time.temporal.TemporalField" arg0
+           (let [^java.time.temporal.TemporalField field arg0
                  width (int arg1)
                  max-width (int arg2)
-                 base-date ^"java.time.chrono.ChronoLocalDate" arg3]
+                 ^java.time.chrono.ChronoLocalDate base-date arg3]
              (.appendValueReduced this field width max-width base-date))
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
