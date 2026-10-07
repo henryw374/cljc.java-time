@@ -4,7 +4,8 @@
             [defwrapper :as df]
             [clojure.string :as string]
             [camel-snake-kebab.core :as csk]
-            [clojure.java.io :as io])
+            [clojure.java.io :as io]
+            [zprint.core :as zprint])
   (:import [java.time Period
                       LocalDate
                       LocalTime
@@ -86,17 +87,27 @@
   (doseq [f (df/defwrapper c ext)]
     (let [f (if (= 'is-leap (second f))
               '(clojure.core/defn is-leap {:arglists (quote (["long"]))}
-                 (^java.lang.Boolean [^long long57050] (. java.time.Year isLeap long57050)))
+                 (^java.lang.Boolean [^long year] (. java.time.Year isLeap year)))
               f)]
       (pr f))
     (println)))
 
 (defn get-and-write [c ext sub-p]
-  (let [f (str "./src/cljc/java_time/" (when sub-p (str sub-p "/")) (csk/->snake_case (.getSimpleName c)) "." (name ext))
-        _ (io/make-parents f)
-        w (io/writer f)]
-    (binding [*out* w]
-      (gen-for-class c sub-p ext))))
+  (let [file-name (str (csk/->snake_case (.getSimpleName c)) "." (name ext))
+        f (str "./src/cljc/java_time/" (when sub-p (str sub-p "/")) file-name)]
+    (io/make-parents f)
+    (with-open [w (io/writer f)]
+      (binding [*out* w]
+        (gen-for-class c sub-p ext)))
+    (zprint/zprint-file f file-name f {:fn-map {"defn" [:arg1-force-nl-body
+                                                        {:next-inner {:list {:option-fn
+                                                                             (fn [_opts _n exprs]
+                                                                               ;; multi arity fn
+                                                                               (when (and (vector? (first exprs))
+                                                                                          (not (every? vector? exprs)))
+                                                                                 {:fn-style :force-nl-body}))}}}]}
+                                       :parse {:interpose "\n\n"}
+                                       :width 120})))
 
 (defn generate-library-code! []
   ;todo - chrono and zone packages. needs cljs.java-time also

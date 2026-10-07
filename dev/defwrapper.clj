@@ -1,12 +1,16 @@
 (ns defwrapper
   "based on gist by @plexus"
-  (:require [clojure.string :as string])
+  (:require [clojure.edn :as edn]
+            [clojure.string :as string])
   (:import (java.time.format DateTimeFormatter)
            (java.time Instant)
            (java.lang.reflect Modifier Method)))
 
 (set! *warn-on-reflection* true)
 (set! *print-meta* true)
+
+(def fqn->param-names
+  (edn/read-string (slurp "dev/param-names.edn")))
 
 (defn class-methods [^Class class]
   (seq (.getMethods class)))
@@ -29,6 +33,11 @@
 (defn method-name [^java.lang.reflect.Method method]
   (.getName method))
 
+(defn method-fqn [^Method method]
+  (-> (str method)
+      (string/split #" ")
+      (peek)))
+
 (defn class-name [^Class klazz]
   (let [original-name (.getName klazz)]
     (symbol (if (= "java.time.temporal.TemporalUnit" (.getName klazz))
@@ -41,13 +50,6 @@
       (clojure.string/replace #"(.)([A-Z][a-z]+)" "$1-$2")
       (clojure.string/replace #"([a-z0-9])([A-Z])" "$1-$2")
       (clojure.string/lower-case)))
-
-(defn class->name [^Class class]
-  (->
-    (if (.isArray class)
-      (str (.getName (.getComponentType class)) "-array")
-      (.getName class))
-    (string/replace "." "-")))
 
 (defn method-public? [^java.lang.reflect.Method method]
   (java.lang.reflect.Modifier/isPublic (.getModifiers method)))
@@ -145,8 +147,8 @@
 (defn wrapper-multi-tail [klazz methods ext helpful?]
   (let [static? (method-static? (first methods))
         nam (method-name (first methods))
-        this (gensym "this")
-        arg-vec (take (parameter-count (first methods)) (repeatedly gensym))
+        this 'this
+        arg-vec (take (parameter-count (first methods)) (map #(symbol (str "arg" %)) (range)))
         ret (if (apply = (map return-type methods))
               (return-type (first methods))
               java.lang.Object)
@@ -157,21 +159,26 @@
                 ~@arg-vec)
              `(cond
                 ~@(mapcat
-                  (fn [method]
-                    `[(and ~@(map (fn [sym ^Class klz]
-                                    (if (.isArray klz)
-                                       `(= ~(.getComponentType klz)
-                                          (.getComponentType (class ~sym)))
-                                       `(instance? ~(ensure-boxed (class-name klz)) ~sym)))
-                               arg-vec
-                               (parameter-types method)))
-                      (let [~@(mapcat (fn [sym ^Class klz]
-                                        [sym (tagged-local sym klz)])
-                                arg-vec
-                                (parameter-types method))]
-                        (~@method-call
-                          ~@(when-not static? [(tagged this klazz ext)])
-                          ~@arg-vec))])
+                  (fn [^Method method]
+                    (let [param-names (->> (method-fqn method)
+                                           (get fqn->param-names)
+                                           (mapv (comp symbol camel->kebab)))]
+                      (assert (= (count arg-vec) (count param-names)) (method-fqn method))
+                      `[(and ~@(map (fn [sym ^Class klz]
+                                      (if (.isArray klz)
+                                        `(= ~(.getComponentType klz)
+                                            (.getComponentType (class ~sym)))
+                                        `(instance? ~(ensure-boxed (class-name klz)) ~sym)))
+                                    arg-vec
+                                    (parameter-types method)))
+                        (let [~@(mapcat (fn [pn sym ^Class klz]
+                                          [pn (tagged-local sym klz)])
+                                        param-names
+                                        arg-vec
+                                        (parameter-types method))]
+                          (~@method-call
+                           ~@(when-not static? [(tagged this klazz ext)])
+                           ~@param-names))]))
                   methods)
                 :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
         bod (if helpful?
@@ -187,9 +194,14 @@
         ret (return-type method)
         par (parameter-types method)
         static? (method-static? method)
-        arg-vec (into (if static? [] [(tagged (gensym "this") klazz ext)])
-                  (map #(tagged (gensym (class->name %)) % ext))
-                  par)
+        param-names (->> (method-fqn method)
+                         (get fqn->param-names)
+                         (mapv (comp symbol camel->kebab)))
+        _ (assert (= (count par) (count param-names)) (method-fqn method))
+        arg-vec (into (if static? [] [(tagged 'this klazz ext)])
+                      (map #(tagged %1 %2 ext)
+                           param-names
+                           par))
         method-call (method-call static? klazz nam ext)
         bod `(~@method-call ~@(map #(vary-meta % dissoc :tag) arg-vec))
         bod (if helpful?
@@ -201,12 +213,13 @@
        ~bod)))
 
 (defn method-wrapper-form [fname klazz methods ext helpful?]
-  (let [arities (group-by parameter-count methods)
+  (let [arities (into (sorted-map) (group-by parameter-count methods))
         static? (method-static? (first methods))]
     `(defn ~fname
        {:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
                            #(map (fn [x] (.getName x)) %)
-                           parameter-types) methods)}
+                           parameter-types)
+                         (mapcat val arities))}
        ~@(map (fn [[cnt meths]]
                 (if (= 1 (count meths))
                   (wrapper-tail klazz (first meths) ext helpful?)
@@ -223,6 +236,7 @@
        (filter method-public?)
        (filter concrete?)
        (remove (set (class-methods Object)))
+       (sort-by method-fqn)
        (group-by method-name)))
 
 (def helpful-exceptions

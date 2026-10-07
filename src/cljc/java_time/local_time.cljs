@@ -1,49 +1,251 @@
-(ns cljc.java-time.local-time (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness] [goog.object] [java.time :refer [LocalTime]]))
+(ns cljc.java-time.local-time
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness]
+            [goog.object]
+            [java.time :refer [LocalTime]]))
+
 (def max (goog.object/get java.time.LocalTime "MAX"))
+
 (def noon (goog.object/get java.time.LocalTime "NOON"))
+
 (def midnight (goog.object/get java.time.LocalTime "MIDNIGHT"))
+
 (def min (goog.object/get java.time.LocalTime "MIN"))
-(clojure.core/defn minus-minutes {:arglists (quote (["java.time.LocalTime" "long"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14667 ^long long14668] (.minusMinutes this14667 long14668)))
-(clojure.core/defn truncated-to {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalUnit"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14669 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit14670] (.truncatedTo this14669 java-time-temporal-TemporalUnit14670)))
-(clojure.core/defn range {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalField"]))} (^js/JSJoda.ValueRange [^js/JSJoda.LocalTime this14671 ^js/JSJoda.TemporalField java-time-temporal-TemporalField14672] (.range this14671 java-time-temporal-TemporalField14672)))
-(clojure.core/defn get-hour {:arglists (quote (["java.time.LocalTime"]))} (^int [^js/JSJoda.LocalTime this14673] (.hour this14673)))
-(clojure.core/defn at-offset {:arglists (quote (["java.time.LocalTime" "java.time.ZoneOffset"]))} (^js/JSJoda.OffsetTime [^js/JSJoda.LocalTime this14674 ^js/JSJoda.ZoneOffset java-time-ZoneOffset14675] (.atOffset this14674 java-time-ZoneOffset14675)))
-(clojure.core/defn minus-hours {:arglists (quote (["java.time.LocalTime" "long"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14676 ^long long14677] (.minusHours this14676 long14677)))
-(clojure.core/defn of {:arglists (quote (["int" "int" "int"] ["int" "int"] ["int" "int" "int" "int"]))} (^js/JSJoda.LocalTime [^int int14678 ^int int14679 ^int int14680] (js-invoke java.time.LocalTime "of" int14678 int14679 int14680)) (^js/JSJoda.LocalTime [^int int14681 ^int int14682] (js-invoke java.time.LocalTime "of" int14681 int14682)) (^js/JSJoda.LocalTime [^int int14683 ^int int14684 ^int int14685 ^int int14686] (js-invoke java.time.LocalTime "of" int14683 int14684 int14685 int14686)))
-(clojure.core/defn get-nano {:arglists (quote (["java.time.LocalTime"]))} (^int [^js/JSJoda.LocalTime this14687] (.nano this14687)))
-(clojure.core/defn minus-seconds {:arglists (quote (["java.time.LocalTime" "long"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14688 ^long long14689] (.minusSeconds this14688 long14689)))
-(clojure.core/defn get-second {:arglists (quote (["java.time.LocalTime"]))} (^int [^js/JSJoda.LocalTime this14690] (.second this14690)))
-(clojure.core/defn plus-nanos {:arglists (quote (["java.time.LocalTime" "long"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14691 ^long long14692] (.plusNanos this14691 long14692)))
-(clojure.core/defn plus {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalAmount"] ["java.time.LocalTime" "long" "java.time.temporal.TemporalUnit"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14693 ^js/JSJoda.TemporalAmount java-time-temporal-TemporalAmount14694] (.plus this14693 java-time-temporal-TemporalAmount14694)) (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14695 ^long long14696 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit14697] (.plus this14695 long14696 java-time-temporal-TemporalUnit14697)))
-(clojure.core/defn with-hour {:arglists (quote (["java.time.LocalTime" "int"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14698 ^int int14699] (.withHour this14698 int14699)))
-(clojure.core/defn with-minute {:arglists (quote (["java.time.LocalTime" "int"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14700 ^int int14701] (.withMinute this14700 int14701)))
-(clojure.core/defn plus-minutes {:arglists (quote (["java.time.LocalTime" "long"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14702 ^long long14703] (.plusMinutes this14702 long14703)))
-(clojure.core/defn query {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^js/JSJoda.LocalTime this14704 ^js/JSJoda.TemporalQuery java-time-temporal-TemporalQuery14705] (.query this14704 java-time-temporal-TemporalQuery14705)))
-(clojure.core/defn at-date {:arglists (quote (["java.time.LocalTime" "java.time.LocalDate"]))} (^js/JSJoda.LocalDateTime [^js/JSJoda.LocalTime this14706 ^js/JSJoda.LocalDate java-time-LocalDate14707] (.atDate this14706 java-time-LocalDate14707)))
-(clojure.core/defn to-string {:arglists (quote (["java.time.LocalTime"]))} (^java.lang.String [^js/JSJoda.LocalTime this14708] (.toString this14708)))
-(clojure.core/defn is-before {:arglists (quote (["java.time.LocalTime" "java.time.LocalTime"]))} (^boolean [^js/JSJoda.LocalTime this14709 ^js/JSJoda.LocalTime java-time-LocalTime14710] (.isBefore this14709 java-time-LocalTime14710)))
-(clojure.core/defn minus {:arglists (quote (["java.time.LocalTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalTime" "java.time.temporal.TemporalAmount"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14711 ^long long14712 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit14713] (.minus this14711 long14712 java-time-temporal-TemporalUnit14713)) (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14714 ^js/JSJoda.TemporalAmount java-time-temporal-TemporalAmount14715] (.minus this14714 java-time-temporal-TemporalAmount14715)))
-(clojure.core/defn plus-hours {:arglists (quote (["java.time.LocalTime" "long"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14716 ^long long14717] (.plusHours this14716 long14717)))
-(clojure.core/defn to-second-of-day {:arglists (quote (["java.time.LocalTime"]))} (^int [^js/JSJoda.LocalTime this14718] (.toSecondOfDay this14718)))
-(clojure.core/defn get-long {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalField"]))} (^long [^js/JSJoda.LocalTime this14719 ^js/JSJoda.TemporalField java-time-temporal-TemporalField14720] (.getLong this14719 java-time-temporal-TemporalField14720)))
-(clojure.core/defn with-nano {:arglists (quote (["java.time.LocalTime" "int"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14721 ^int int14722] (.withNano this14721 int14722)))
-(clojure.core/defn until {:arglists (quote (["java.time.LocalTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^js/JSJoda.LocalTime this14723 ^js/JSJoda.Temporal java-time-temporal-Temporal14724 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit14725] (.until this14723 java-time-temporal-Temporal14724 java-time-temporal-TemporalUnit14725)))
-(clojure.core/defn of-nano-of-day {:arglists (quote (["long"]))} (^js/JSJoda.LocalTime [^long long14726] (js-invoke java.time.LocalTime "ofNanoOfDay" long14726)))
-(clojure.core/defn from {:arglists (quote (["java.time.temporal.TemporalAccessor"]))} (^js/JSJoda.LocalTime [^js/JSJoda.TemporalAccessor java-time-temporal-TemporalAccessor14727] (js-invoke java.time.LocalTime "from" java-time-temporal-TemporalAccessor14727)))
-(clojure.core/defn is-after {:arglists (quote (["java.time.LocalTime" "java.time.LocalTime"]))} (^boolean [^js/JSJoda.LocalTime this14728 ^js/JSJoda.LocalTime java-time-LocalTime14729] (.isAfter this14728 java-time-LocalTime14729)))
-(clojure.core/defn minus-nanos {:arglists (quote (["java.time.LocalTime" "long"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14730 ^long long14731] (.minusNanos this14730 long14731)))
-(clojure.core/defn is-supported {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalUnit"] ["java.time.LocalTime" "java.time.temporal.TemporalField"]))} (^boolean [this14732 G__14733] (.isSupported ^js/JSJoda.LocalTime this14732 G__14733)))
-(clojure.core/defn parse {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))} (^js/JSJoda.LocalTime [^java.lang.CharSequence java-lang-CharSequence14734] (js-invoke java.time.LocalTime "parse" java-lang-CharSequence14734)) (^js/JSJoda.LocalTime [^java.lang.CharSequence java-lang-CharSequence14735 ^js/JSJoda.DateTimeFormatter java-time-format-DateTimeFormatter14736] (js-invoke java.time.LocalTime "parse" java-lang-CharSequence14735 java-time-format-DateTimeFormatter14736)))
-(clojure.core/defn with-second {:arglists (quote (["java.time.LocalTime" "int"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14737 ^int int14738] (.withSecond this14737 int14738)))
-(clojure.core/defn get-minute {:arglists (quote (["java.time.LocalTime"]))} (^int [^js/JSJoda.LocalTime this14739] (.minute this14739)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.LocalTime"]))} (^int [^js/JSJoda.LocalTime this14740] (.hashCode this14740)))
-(clojure.core/defn adjust-into {:arglists (quote (["java.time.LocalTime" "java.time.temporal.Temporal"]))} (^js/JSJoda.Temporal [^js/JSJoda.LocalTime this14741 ^js/JSJoda.Temporal java-time-temporal-Temporal14742] (.adjustInto this14741 java-time-temporal-Temporal14742)))
-(clojure.core/defn with {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalField" "long"] ["java.time.LocalTime" "java.time.temporal.TemporalAdjuster"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14743 ^js/JSJoda.TemporalField java-time-temporal-TemporalField14744 ^long long14745] (.with this14743 java-time-temporal-TemporalField14744 long14745)) (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14746 ^js/JSJoda.TemporalAdjuster java-time-temporal-TemporalAdjuster14747] (.with this14746 java-time-temporal-TemporalAdjuster14747)))
-(clojure.core/defn now {:arglists (quote ([] ["java.time.ZoneId"] ["java.time.Clock"]))} (^js/JSJoda.LocalTime [] (js-invoke java.time.LocalTime "now")) (^js/JSJoda.LocalTime [G__14749] (js-invoke java.time.LocalTime "now" G__14749)))
-(clojure.core/defn compare-to {:arglists (quote (["java.time.LocalTime" "java.time.LocalTime"]))} (^int [^js/JSJoda.LocalTime this14750 ^js/JSJoda.LocalTime java-time-LocalTime14751] (.compareTo this14750 java-time-LocalTime14751)))
-(clojure.core/defn to-nano-of-day {:arglists (quote (["java.time.LocalTime"]))} (^long [^js/JSJoda.LocalTime this14752] (.toNanoOfDay this14752)))
-(clojure.core/defn plus-seconds {:arglists (quote (["java.time.LocalTime" "long"]))} (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this14753 ^long long14754] (.plusSeconds this14753 long14754)))
-(clojure.core/defn get {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalField"]))} (^int [^js/JSJoda.LocalTime this14755 ^js/JSJoda.TemporalField java-time-temporal-TemporalField14756] (.get this14755 java-time-temporal-TemporalField14756)))
-(clojure.core/defn of-second-of-day {:arglists (quote (["long"]))} (^js/JSJoda.LocalTime [^long long14757] (js-invoke java.time.LocalTime "ofSecondOfDay" long14757)))
-(clojure.core/defn equals {:arglists (quote (["java.time.LocalTime" "java.lang.Object"]))} (^boolean [^js/JSJoda.LocalTime this14758 ^java.lang.Object java-lang-Object14759] (.equals this14758 java-lang-Object14759)))
-(clojure.core/defn format {:arglists (quote (["java.time.LocalTime" "java.time.format.DateTimeFormatter"]))} (^java.lang.String [^js/JSJoda.LocalTime this14760 ^js/JSJoda.DateTimeFormatter java-time-format-DateTimeFormatter14761] (.format this14760 java-time-format-DateTimeFormatter14761)))
+
+(clojure.core/defn minus-minutes
+  {:arglists (quote (["java.time.LocalTime" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long minutes-to-subtract]
+   (.minusMinutes this minutes-to-subtract)))
+
+(clojure.core/defn truncated-to
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalUnit unit]
+   (.truncatedTo this unit)))
+
+(clojure.core/defn range
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalField"]))}
+  (^js/JSJoda.ValueRange [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalField field]
+   (.range this field)))
+
+(clojure.core/defn get-hour
+  {:arglists (quote (["java.time.LocalTime"]))}
+  (^int [^js/JSJoda.LocalTime this]
+   (.hour this)))
+
+(clojure.core/defn at-offset
+  {:arglists (quote (["java.time.LocalTime" "java.time.ZoneOffset"]))}
+  (^js/JSJoda.OffsetTime [^js/JSJoda.LocalTime this ^js/JSJoda.ZoneOffset offset]
+   (.atOffset this offset)))
+
+(clojure.core/defn minus-hours
+  {:arglists (quote (["java.time.LocalTime" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long hours-to-subtract]
+   (.minusHours this hours-to-subtract)))
+
+(clojure.core/defn of
+  {:arglists (quote (["int" "int"] ["int" "int" "int"] ["int" "int" "int" "int"]))}
+  (^js/JSJoda.LocalTime [^int hour ^int minute]
+   (js-invoke java.time.LocalTime "of" hour minute))
+  (^js/JSJoda.LocalTime [^int hour ^int minute ^int second]
+   (js-invoke java.time.LocalTime "of" hour minute second))
+  (^js/JSJoda.LocalTime [^int hour ^int minute ^int second ^int nano-of-second]
+   (js-invoke java.time.LocalTime "of" hour minute second nano-of-second)))
+
+(clojure.core/defn get-nano
+  {:arglists (quote (["java.time.LocalTime"]))}
+  (^int [^js/JSJoda.LocalTime this]
+   (.nano this)))
+
+(clojure.core/defn minus-seconds
+  {:arglists (quote (["java.time.LocalTime" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long seconds-to-subtract]
+   (.minusSeconds this seconds-to-subtract)))
+
+(clojure.core/defn get-second
+  {:arglists (quote (["java.time.LocalTime"]))}
+  (^int [^js/JSJoda.LocalTime this]
+   (.second this)))
+
+(clojure.core/defn plus-nanos
+  {:arglists (quote (["java.time.LocalTime" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long nanos-to-add]
+   (.plusNanos this nanos-to-add)))
+
+(clojure.core/defn plus
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalAmount"]
+                     ["java.time.LocalTime" "long" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalAmount amount-to-add]
+   (.plus this amount-to-add))
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long amount-to-add ^js/JSJoda.TemporalUnit unit]
+   (.plus this amount-to-add unit)))
+
+(clojure.core/defn with-hour
+  {:arglists (quote (["java.time.LocalTime" "int"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^int hour]
+   (.withHour this hour)))
+
+(clojure.core/defn with-minute
+  {:arglists (quote (["java.time.LocalTime" "int"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^int minute]
+   (.withMinute this minute)))
+
+(clojure.core/defn plus-minutes
+  {:arglists (quote (["java.time.LocalTime" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long minutes-to-add]
+   (.plusMinutes this minutes-to-add)))
+
+(clojure.core/defn query
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalQuery"]))}
+  (^java.lang.Object [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalQuery query]
+   (.query this query)))
+
+(clojure.core/defn at-date
+  {:arglists (quote (["java.time.LocalTime" "java.time.LocalDate"]))}
+  (^js/JSJoda.LocalDateTime [^js/JSJoda.LocalTime this ^js/JSJoda.LocalDate date]
+   (.atDate this date)))
+
+(clojure.core/defn to-string
+  {:arglists (quote (["java.time.LocalTime"]))}
+  (^java.lang.String [^js/JSJoda.LocalTime this]
+   (.toString this)))
+
+(clojure.core/defn is-before
+  {:arglists (quote (["java.time.LocalTime" "java.time.LocalTime"]))}
+  (^boolean [^js/JSJoda.LocalTime this ^js/JSJoda.LocalTime other]
+   (.isBefore this other)))
+
+(clojure.core/defn minus
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalAmount"]
+                     ["java.time.LocalTime" "long" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalAmount amount-to-subtract]
+   (.minus this amount-to-subtract))
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long amount-to-subtract ^js/JSJoda.TemporalUnit unit]
+   (.minus this amount-to-subtract unit)))
+
+(clojure.core/defn plus-hours
+  {:arglists (quote (["java.time.LocalTime" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long hours-to-add]
+   (.plusHours this hours-to-add)))
+
+(clojure.core/defn to-second-of-day
+  {:arglists (quote (["java.time.LocalTime"]))}
+  (^int [^js/JSJoda.LocalTime this]
+   (.toSecondOfDay this)))
+
+(clojure.core/defn get-long
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalField"]))}
+  (^long [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalField field]
+   (.getLong this field)))
+
+(clojure.core/defn with-nano
+  {:arglists (quote (["java.time.LocalTime" "int"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^int nano-of-second]
+   (.withNano this nano-of-second)))
+
+(clojure.core/defn until
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
+  (^long [^js/JSJoda.LocalTime this ^js/JSJoda.Temporal end-exclusive ^js/JSJoda.TemporalUnit unit]
+   (.until this end-exclusive unit)))
+
+(clojure.core/defn of-nano-of-day
+  {:arglists (quote (["long"]))}
+  (^js/JSJoda.LocalTime [^long nano-of-day]
+   (js-invoke java.time.LocalTime "ofNanoOfDay" nano-of-day)))
+
+(clojure.core/defn from
+  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.TemporalAccessor temporal]
+   (js-invoke java.time.LocalTime "from" temporal)))
+
+(clojure.core/defn is-after
+  {:arglists (quote (["java.time.LocalTime" "java.time.LocalTime"]))}
+  (^boolean [^js/JSJoda.LocalTime this ^js/JSJoda.LocalTime other]
+   (.isAfter this other)))
+
+(clojure.core/defn minus-nanos
+  {:arglists (quote (["java.time.LocalTime" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long nanos-to-subtract]
+   (.minusNanos this nanos-to-subtract)))
+
+(clojure.core/defn is-supported
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalField"]
+                     ["java.time.LocalTime" "java.time.temporal.TemporalUnit"]))}
+  (^boolean [this arg0]
+   (.isSupported ^js/JSJoda.LocalTime this arg0)))
+
+(clojure.core/defn parse
+  {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
+  (^js/JSJoda.LocalTime [^java.lang.CharSequence text]
+   (js-invoke java.time.LocalTime "parse" text))
+  (^js/JSJoda.LocalTime [^java.lang.CharSequence text ^js/JSJoda.DateTimeFormatter formatter]
+   (js-invoke java.time.LocalTime "parse" text formatter)))
+
+(clojure.core/defn with-second
+  {:arglists (quote (["java.time.LocalTime" "int"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^int second]
+   (.withSecond this second)))
+
+(clojure.core/defn get-minute
+  {:arglists (quote (["java.time.LocalTime"]))}
+  (^int [^js/JSJoda.LocalTime this]
+   (.minute this)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.LocalTime"]))}
+  (^int [^js/JSJoda.LocalTime this]
+   (.hashCode this)))
+
+(clojure.core/defn adjust-into
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.Temporal"]))}
+  (^js/JSJoda.Temporal [^js/JSJoda.LocalTime this ^js/JSJoda.Temporal temporal]
+   (.adjustInto this temporal)))
+
+(clojure.core/defn with
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalAdjuster"]
+                     ["java.time.LocalTime" "java.time.temporal.TemporalField" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalAdjuster adjuster]
+   (.with this adjuster))
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalField field ^long new-value]
+   (.with this field new-value)))
+
+(clojure.core/defn now
+  {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
+  (^js/JSJoda.LocalTime []
+   (js-invoke java.time.LocalTime "now"))
+  (^js/JSJoda.LocalTime [arg0]
+   (js-invoke java.time.LocalTime "now" arg0)))
+
+(clojure.core/defn compare-to
+  {:arglists (quote (["java.time.LocalTime" "java.time.LocalTime"]))}
+  (^int [^js/JSJoda.LocalTime this ^js/JSJoda.LocalTime other]
+   (.compareTo this other)))
+
+(clojure.core/defn to-nano-of-day
+  {:arglists (quote (["java.time.LocalTime"]))}
+  (^long [^js/JSJoda.LocalTime this]
+   (.toNanoOfDay this)))
+
+(clojure.core/defn plus-seconds
+  {:arglists (quote (["java.time.LocalTime" "long"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.LocalTime this ^long secondsto-add]
+   (.plusSeconds this secondsto-add)))
+
+(clojure.core/defn get
+  {:arglists (quote (["java.time.LocalTime" "java.time.temporal.TemporalField"]))}
+  (^int [^js/JSJoda.LocalTime this ^js/JSJoda.TemporalField field]
+   (.get this field)))
+
+(clojure.core/defn of-second-of-day
+  {:arglists (quote (["long"]))}
+  (^js/JSJoda.LocalTime [^long second-of-day]
+   (js-invoke java.time.LocalTime "ofSecondOfDay" second-of-day)))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.LocalTime" "java.lang.Object"]))}
+  (^boolean [^js/JSJoda.LocalTime this ^java.lang.Object obj]
+   (.equals this obj)))
+
+(clojure.core/defn format
+  {:arglists (quote (["java.time.LocalTime" "java.time.format.DateTimeFormatter"]))}
+  (^java.lang.String [^js/JSJoda.LocalTime this ^js/JSJoda.DateTimeFormatter formatter]
+   (.format this formatter)))

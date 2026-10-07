@@ -1,74 +1,397 @@
-(ns cljc.java-time.zoned-date-time (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness] [goog.object] [java.time :refer [ZonedDateTime]]))
-(clojure.core/defn minus-minutes {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13712 ^long long13713] (.minusMinutes this13712 long13713)))
-(clojure.core/defn truncated-to {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalUnit"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13714 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit13715] (.truncatedTo this13714 java-time-temporal-TemporalUnit13715)))
-(clojure.core/defn minus-weeks {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13716 ^long long13717] (.minusWeeks this13716 long13717)))
-(clojure.core/defn to-instant {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.Instant [^js/JSJoda.ZonedDateTime this13718] (.toInstant this13718)))
-(clojure.core/defn plus-weeks {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13719 ^long long13720] (.plusWeeks this13719 long13720)))
-(clojure.core/defn range {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))} (^js/JSJoda.ValueRange [^js/JSJoda.ZonedDateTime this13721 ^js/JSJoda.TemporalField java-time-temporal-TemporalField13722] (.range this13721 java-time-temporal-TemporalField13722)))
-(clojure.core/defn with-earlier-offset-at-overlap {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13723] (.withEarlierOffsetAtOverlap this13723)))
-(clojure.core/defn get-hour {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13724] (.hour this13724)))
-(clojure.core/defn minus-hours {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13725 ^long long13726] (.minusHours this13725 long13726)))
-(clojure.core/defn of {:arglists (quote (["int" "int" "int" "int" "int" "int" "int" "java.time.ZoneId"] ["java.time.LocalDate" "java.time.LocalTime" "java.time.ZoneId"] ["java.time.LocalDateTime" "java.time.ZoneId"]))} (^js/JSJoda.ZonedDateTime [^int int13727 ^int int13728 ^int int13729 ^int int13730 ^int int13731 ^int int13732 ^int int13733 ^js/JSJoda.ZoneId java-time-ZoneId13734] (js-invoke java.time.ZonedDateTime "of" int13727 int13728 int13729 int13730 int13731 int13732 int13733 java-time-ZoneId13734)) (^js/JSJoda.ZonedDateTime [^js/JSJoda.LocalDate java-time-LocalDate13735 ^js/JSJoda.LocalTime java-time-LocalTime13736 ^js/JSJoda.ZoneId java-time-ZoneId13737] (js-invoke java.time.ZonedDateTime "of" java-time-LocalDate13735 java-time-LocalTime13736 java-time-ZoneId13737)) (^js/JSJoda.ZonedDateTime [^js/JSJoda.LocalDateTime java-time-LocalDateTime13738 ^js/JSJoda.ZoneId java-time-ZoneId13739] (js-invoke java.time.ZonedDateTime "of" java-time-LocalDateTime13738 java-time-ZoneId13739)))
-(clojure.core/defn with-month {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13740 ^int int13741] (.withMonth this13740 int13741)))
-(clojure.core/defn is-equal {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))} (^boolean [^js/JSJoda.ZonedDateTime this13742 ^js/JSJoda.ChronoZonedDateTime java-time-chrono-ChronoZonedDateTime13743] (.isEqual this13742 java-time-chrono-ChronoZonedDateTime13743)))
-(clojure.core/defn get-nano {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13744] (.nano this13744)))
-(clojure.core/defn of-local {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneId" "java.time.ZoneOffset"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.LocalDateTime java-time-LocalDateTime13745 ^js/JSJoda.ZoneId java-time-ZoneId13746 ^js/JSJoda.ZoneOffset java-time-ZoneOffset13747] (js-invoke java.time.ZonedDateTime "ofLocal" java-time-LocalDateTime13745 java-time-ZoneId13746 java-time-ZoneOffset13747)))
-(clojure.core/defn get-year {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13748] (.year this13748)))
-(clojure.core/defn minus-seconds {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13749 ^long long13750] (.minusSeconds this13749 long13750)))
-(clojure.core/defn get-second {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13751] (.second this13751)))
-(clojure.core/defn plus-nanos {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13752 ^long long13753] (.plusNanos this13752 long13753)))
-(clojure.core/defn get-day-of-year {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13754] (.dayOfYear this13754)))
-(clojure.core/defn plus {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"] ["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13755 ^js/JSJoda.TemporalAmount java-time-temporal-TemporalAmount13756] (.plus this13755 java-time-temporal-TemporalAmount13756)) (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13757 ^long long13758 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit13759] (.plus this13757 long13758 java-time-temporal-TemporalUnit13759)))
-(clojure.core/defn with-hour {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13760 ^int int13761] (.withHour this13760 int13761)))
-(clojure.core/defn with-minute {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13762 ^int int13763] (.withMinute this13762 int13763)))
-(clojure.core/defn plus-minutes {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13764 ^long long13765] (.plusMinutes this13764 long13765)))
-(clojure.core/defn query {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^js/JSJoda.ZonedDateTime this13766 ^js/JSJoda.TemporalQuery java-time-temporal-TemporalQuery13767] (.query this13766 java-time-temporal-TemporalQuery13767)))
-(clojure.core/defn get-day-of-week {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.DayOfWeek [^js/JSJoda.ZonedDateTime this13768] (.dayOfWeek this13768)))
-(clojure.core/defn to-string {:arglists (quote (["java.time.ZonedDateTime"]))} (^java.lang.String [^js/JSJoda.ZonedDateTime this13769] (.toString this13769)))
-(clojure.core/defn plus-months {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13770 ^long long13771] (.plusMonths this13770 long13771)))
-(clojure.core/defn is-before {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))} (^boolean [^js/JSJoda.ZonedDateTime this13772 ^js/JSJoda.ChronoZonedDateTime java-time-chrono-ChronoZonedDateTime13773] (.isBefore this13772 java-time-chrono-ChronoZonedDateTime13773)))
-(clojure.core/defn minus-months {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13774 ^long long13775] (.minusMonths this13774 long13775)))
-(clojure.core/defn minus {:arglists (quote (["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13776 ^long long13777 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit13778] (.minus this13776 long13777 java-time-temporal-TemporalUnit13778)) (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13779 ^js/JSJoda.TemporalAmount java-time-temporal-TemporalAmount13780] (.minus this13779 java-time-temporal-TemporalAmount13780)))
-(clojure.core/defn with-fixed-offset-zone {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13781] (.withFixedOffsetZone this13781)))
-(clojure.core/defn plus-hours {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13782 ^long long13783] (.plusHours this13782 long13783)))
-(clojure.core/defn with-zone-same-local {:arglists (quote (["java.time.ZonedDateTime" "java.time.ZoneId"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13784 ^js/JSJoda.ZoneId java-time-ZoneId13785] (.withZoneSameLocal this13784 java-time-ZoneId13785)))
-(clojure.core/defn with-zone-same-instant {:arglists (quote (["java.time.ZonedDateTime" "java.time.ZoneId"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13786 ^js/JSJoda.ZoneId java-time-ZoneId13787] (.withZoneSameInstant this13786 java-time-ZoneId13787)))
-(clojure.core/defn plus-days {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13788 ^long long13789] (.plusDays this13788 long13789)))
-(clojure.core/defn to-local-time {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.LocalTime [^js/JSJoda.ZonedDateTime this13790] (.toLocalTime this13790)))
-(clojure.core/defn get-long {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))} (^long [^js/JSJoda.ZonedDateTime this13791 ^js/JSJoda.TemporalField java-time-temporal-TemporalField13792] (.getLong this13791 java-time-temporal-TemporalField13792)))
-(clojure.core/defn get-offset {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.ZoneOffset [^js/JSJoda.ZonedDateTime this13793] (.offset this13793)))
-(clojure.core/defn with-year {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13794 ^int int13795] (.withYear this13794 int13795)))
-(clojure.core/defn with-nano {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13796 ^int int13797] (.withNano this13796 int13797)))
-(clojure.core/defn to-epoch-second {:arglists (quote (["java.time.ZonedDateTime"]))} (^long [^js/JSJoda.ZonedDateTime this13798] (.toEpochSecond this13798)))
-(clojure.core/defn to-offset-date-time {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.OffsetDateTime [^js/JSJoda.ZonedDateTime this13799] (.toOffsetDateTime this13799)))
-(clojure.core/defn with-later-offset-at-overlap {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13800] (.withLaterOffsetAtOverlap this13800)))
-(clojure.core/defn until {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^js/JSJoda.ZonedDateTime this13801 ^js/JSJoda.Temporal java-time-temporal-Temporal13802 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit13803] (.until this13801 java-time-temporal-Temporal13802 java-time-temporal-TemporalUnit13803)))
-(clojure.core/defn get-zone {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.ZoneId [^js/JSJoda.ZonedDateTime this13804] (.zone this13804)))
-(clojure.core/defn with-day-of-month {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13805 ^int int13806] (.withDayOfMonth this13805 int13806)))
-(clojure.core/defn get-day-of-month {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13807] (.dayOfMonth this13807)))
-(clojure.core/defn from {:arglists (quote (["java.time.temporal.TemporalAccessor"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.TemporalAccessor java-time-temporal-TemporalAccessor13808] (js-invoke java.time.ZonedDateTime "from" java-time-temporal-TemporalAccessor13808)))
-(clojure.core/defn is-after {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))} (^boolean [^js/JSJoda.ZonedDateTime this13809 ^js/JSJoda.ChronoZonedDateTime java-time-chrono-ChronoZonedDateTime13810] (.isAfter this13809 java-time-chrono-ChronoZonedDateTime13810)))
-(clojure.core/defn minus-nanos {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13811 ^long long13812] (.minusNanos this13811 long13812)))
-(clojure.core/defn is-supported {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalUnit"]))} (^boolean [this13813 G__13814] (.isSupported ^js/JSJoda.ZonedDateTime this13813 G__13814)))
-(clojure.core/defn minus-years {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13815 ^long long13816] (.minusYears this13815 long13816)))
-(clojure.core/defn get-chronology {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.Chronology [^js/JSJoda.ZonedDateTime this13817] (.chronology this13817)))
-(clojure.core/defn parse {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))} (^js/JSJoda.ZonedDateTime [^java.lang.CharSequence java-lang-CharSequence13818] (js-invoke java.time.ZonedDateTime "parse" java-lang-CharSequence13818)) (^js/JSJoda.ZonedDateTime [^java.lang.CharSequence java-lang-CharSequence13819 ^js/JSJoda.DateTimeFormatter java-time-format-DateTimeFormatter13820] (js-invoke java.time.ZonedDateTime "parse" java-lang-CharSequence13819 java-time-format-DateTimeFormatter13820)))
-(clojure.core/defn with-second {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13821 ^int int13822] (.withSecond this13821 int13822)))
-(clojure.core/defn to-local-date {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.LocalDate [^js/JSJoda.ZonedDateTime this13823] (.toLocalDate this13823)))
-(clojure.core/defn get-minute {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13824] (.minute this13824)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13825] (.hashCode this13825)))
-(clojure.core/defn with {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField" "long"] ["java.time.ZonedDateTime" "java.time.temporal.TemporalAdjuster"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13826 ^js/JSJoda.TemporalField java-time-temporal-TemporalField13827 ^long long13828] (.with this13826 java-time-temporal-TemporalField13827 long13828)) (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13829 ^js/JSJoda.TemporalAdjuster java-time-temporal-TemporalAdjuster13830] (.with this13829 java-time-temporal-TemporalAdjuster13830)))
-(clojure.core/defn now {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))} (^js/JSJoda.ZonedDateTime [] (js-invoke java.time.ZonedDateTime "now")) (^js/JSJoda.ZonedDateTime [G__13832] (js-invoke java.time.ZonedDateTime "now" G__13832)))
-(clojure.core/defn to-local-date-time {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.LocalDateTime [^js/JSJoda.ZonedDateTime this13833] (.toLocalDateTime this13833)))
-(clojure.core/defn get-month-value {:arglists (quote (["java.time.ZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13834] (.monthValue this13834)))
-(clojure.core/defn with-day-of-year {:arglists (quote (["java.time.ZonedDateTime" "int"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13835 ^int int13836] (.withDayOfYear this13835 int13836)))
-(clojure.core/defn compare-to {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))} (^int [^js/JSJoda.ZonedDateTime this13837 ^js/JSJoda.ChronoZonedDateTime java-time-chrono-ChronoZonedDateTime13838] (.compareTo this13837 java-time-chrono-ChronoZonedDateTime13838)))
-(clojure.core/defn of-strict {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneOffset" "java.time.ZoneId"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.LocalDateTime java-time-LocalDateTime13839 ^js/JSJoda.ZoneOffset java-time-ZoneOffset13840 ^js/JSJoda.ZoneId java-time-ZoneId13841] (js-invoke java.time.ZonedDateTime "ofStrict" java-time-LocalDateTime13839 java-time-ZoneOffset13840 java-time-ZoneId13841)))
-(clojure.core/defn get-month {:arglists (quote (["java.time.ZonedDateTime"]))} (^js/JSJoda.Month [^js/JSJoda.ZonedDateTime this13842] (.month this13842)))
-(clojure.core/defn of-instant {:arglists (quote (["java.time.Instant" "java.time.ZoneId"] ["java.time.LocalDateTime" "java.time.ZoneOffset" "java.time.ZoneId"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.Instant java-time-Instant13843 ^js/JSJoda.ZoneId java-time-ZoneId13844] (js-invoke java.time.ZonedDateTime "ofInstant" java-time-Instant13843 java-time-ZoneId13844)) (^js/JSJoda.ZonedDateTime [^js/JSJoda.LocalDateTime java-time-LocalDateTime13845 ^js/JSJoda.ZoneOffset java-time-ZoneOffset13846 ^js/JSJoda.ZoneId java-time-ZoneId13847] (js-invoke java.time.ZonedDateTime "ofInstant" java-time-LocalDateTime13845 java-time-ZoneOffset13846 java-time-ZoneId13847)))
-(clojure.core/defn plus-seconds {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13848 ^long long13849] (.plusSeconds this13848 long13849)))
-(clojure.core/defn get {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))} (^int [^js/JSJoda.ZonedDateTime this13850 ^js/JSJoda.TemporalField java-time-temporal-TemporalField13851] (.get this13850 java-time-temporal-TemporalField13851)))
-(clojure.core/defn equals {:arglists (quote (["java.time.ZonedDateTime" "java.lang.Object"]))} (^boolean [^js/JSJoda.ZonedDateTime this13852 ^java.lang.Object java-lang-Object13853] (.equals this13852 java-lang-Object13853)))
-(clojure.core/defn format {:arglists (quote (["java.time.ZonedDateTime" "java.time.format.DateTimeFormatter"]))} (^java.lang.String [^js/JSJoda.ZonedDateTime this13854 ^js/JSJoda.DateTimeFormatter java-time-format-DateTimeFormatter13855] (.format this13854 java-time-format-DateTimeFormatter13855)))
-(clojure.core/defn plus-years {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13856 ^long long13857] (.plusYears this13856 long13857)))
-(clojure.core/defn minus-days {:arglists (quote (["java.time.ZonedDateTime" "long"]))} (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this13858 ^long long13859] (.minusDays this13858 long13859)))
+(ns cljc.java-time.zoned-date-time
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness]
+            [goog.object]
+            [java.time :refer [ZonedDateTime]]))
+
+(clojure.core/defn minus-minutes
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long minutes]
+   (.minusMinutes this minutes)))
+
+(clojure.core/defn truncated-to
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalUnit unit]
+   (.truncatedTo this unit)))
+
+(clojure.core/defn minus-weeks
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long weeks]
+   (.minusWeeks this weeks)))
+
+(clojure.core/defn to-instant
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.Instant [^js/JSJoda.ZonedDateTime this]
+   (.toInstant this)))
+
+(clojure.core/defn plus-weeks
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long weeks]
+   (.plusWeeks this weeks)))
+
+(clojure.core/defn range
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))}
+  (^js/JSJoda.ValueRange [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalField field]
+   (.range this field)))
+
+(clojure.core/defn with-earlier-offset-at-overlap
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this]
+   (.withEarlierOffsetAtOverlap this)))
+
+(clojure.core/defn get-hour
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.hour this)))
+
+(clojure.core/defn minus-hours
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long hours]
+   (.minusHours this hours)))
+
+(clojure.core/defn of
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneId"]
+                     ["java.time.LocalDate" "java.time.LocalTime" "java.time.ZoneId"]
+                     ["int" "int" "int" "int" "int" "int" "int" "java.time.ZoneId"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.LocalDateTime local-date-time ^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.ZonedDateTime "of" local-date-time zone))
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.LocalDate date ^js/JSJoda.LocalTime time ^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.ZonedDateTime "of" date time zone))
+  (^js/JSJoda.ZonedDateTime
+   [^int year ^int month ^int day-of-month ^int hour ^int minute ^int second ^int nano-of-second ^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.ZonedDateTime "of" year month day-of-month hour minute second nano-of-second zone)))
+
+(clojure.core/defn with-month
+  {:arglists (quote (["java.time.ZonedDateTime" "int"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^int month]
+   (.withMonth this month)))
+
+(clojure.core/defn is-equal
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))}
+  (^boolean [^js/JSJoda.ZonedDateTime this ^js/JSJoda.ChronoZonedDateTime other]
+   (.isEqual this other)))
+
+(clojure.core/defn get-nano
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.nano this)))
+
+(clojure.core/defn of-local
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneId" "java.time.ZoneOffset"]))}
+  (^js/JSJoda.ZonedDateTime
+   [^js/JSJoda.LocalDateTime local-date-time ^js/JSJoda.ZoneId zone ^js/JSJoda.ZoneOffset preferred-offset]
+   (js-invoke java.time.ZonedDateTime "ofLocal" local-date-time zone preferred-offset)))
+
+(clojure.core/defn get-year
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.year this)))
+
+(clojure.core/defn minus-seconds
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long seconds]
+   (.minusSeconds this seconds)))
+
+(clojure.core/defn get-second
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.second this)))
+
+(clojure.core/defn plus-nanos
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long nanos]
+   (.plusNanos this nanos)))
+
+(clojure.core/defn get-day-of-year
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.dayOfYear this)))
+
+(clojure.core/defn plus
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"]
+                     ["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalAmount amount-to-add]
+   (.plus this amount-to-add))
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long amount-to-add ^js/JSJoda.TemporalUnit unit]
+   (.plus this amount-to-add unit)))
+
+(clojure.core/defn with-hour
+  {:arglists (quote (["java.time.ZonedDateTime" "int"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^int hour]
+   (.withHour this hour)))
+
+(clojure.core/defn with-minute
+  {:arglists (quote (["java.time.ZonedDateTime" "int"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^int minute]
+   (.withMinute this minute)))
+
+(clojure.core/defn plus-minutes
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long minutes]
+   (.plusMinutes this minutes)))
+
+(clojure.core/defn query
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalQuery"]))}
+  (^java.lang.Object [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalQuery query]
+   (.query this query)))
+
+(clojure.core/defn get-day-of-week
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.DayOfWeek [^js/JSJoda.ZonedDateTime this]
+   (.dayOfWeek this)))
+
+(clojure.core/defn to-string
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^java.lang.String [^js/JSJoda.ZonedDateTime this]
+   (.toString this)))
+
+(clojure.core/defn plus-months
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long months]
+   (.plusMonths this months)))
+
+(clojure.core/defn is-before
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))}
+  (^boolean [^js/JSJoda.ZonedDateTime this ^js/JSJoda.ChronoZonedDateTime other]
+   (.isBefore this other)))
+
+(clojure.core/defn minus-months
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long months]
+   (.minusMonths this months)))
+
+(clojure.core/defn minus
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalAmount"]
+                     ["java.time.ZonedDateTime" "long" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalAmount amount-to-subtract]
+   (.minus this amount-to-subtract))
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long amount-to-subtract ^js/JSJoda.TemporalUnit unit]
+   (.minus this amount-to-subtract unit)))
+
+(clojure.core/defn with-fixed-offset-zone
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this]
+   (.withFixedOffsetZone this)))
+
+(clojure.core/defn plus-hours
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long hours]
+   (.plusHours this hours)))
+
+(clojure.core/defn with-zone-same-local
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.ZoneId"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^js/JSJoda.ZoneId zone]
+   (.withZoneSameLocal this zone)))
+
+(clojure.core/defn with-zone-same-instant
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.ZoneId"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^js/JSJoda.ZoneId zone]
+   (.withZoneSameInstant this zone)))
+
+(clojure.core/defn plus-days
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long days]
+   (.plusDays this days)))
+
+(clojure.core/defn to-local-time
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.LocalTime [^js/JSJoda.ZonedDateTime this]
+   (.toLocalTime this)))
+
+(clojure.core/defn get-long
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))}
+  (^long [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalField field]
+   (.getLong this field)))
+
+(clojure.core/defn get-offset
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.ZoneOffset [^js/JSJoda.ZonedDateTime this]
+   (.offset this)))
+
+(clojure.core/defn with-year
+  {:arglists (quote (["java.time.ZonedDateTime" "int"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^int year]
+   (.withYear this year)))
+
+(clojure.core/defn with-nano
+  {:arglists (quote (["java.time.ZonedDateTime" "int"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^int nano-of-second]
+   (.withNano this nano-of-second)))
+
+(clojure.core/defn to-epoch-second
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^long [^js/JSJoda.ZonedDateTime this]
+   (.toEpochSecond this)))
+
+(clojure.core/defn to-offset-date-time
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.OffsetDateTime [^js/JSJoda.ZonedDateTime this]
+   (.toOffsetDateTime this)))
+
+(clojure.core/defn with-later-offset-at-overlap
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this]
+   (.withLaterOffsetAtOverlap this)))
+
+(clojure.core/defn until
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
+  (^long [^js/JSJoda.ZonedDateTime this ^js/JSJoda.Temporal end-exclusive ^js/JSJoda.TemporalUnit unit]
+   (.until this end-exclusive unit)))
+
+(clojure.core/defn get-zone
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.ZoneId [^js/JSJoda.ZonedDateTime this]
+   (.zone this)))
+
+(clojure.core/defn with-day-of-month
+  {:arglists (quote (["java.time.ZonedDateTime" "int"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^int day-of-month]
+   (.withDayOfMonth this day-of-month)))
+
+(clojure.core/defn get-day-of-month
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.dayOfMonth this)))
+
+(clojure.core/defn from
+  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.TemporalAccessor temporal]
+   (js-invoke java.time.ZonedDateTime "from" temporal)))
+
+(clojure.core/defn is-after
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))}
+  (^boolean [^js/JSJoda.ZonedDateTime this ^js/JSJoda.ChronoZonedDateTime other]
+   (.isAfter this other)))
+
+(clojure.core/defn minus-nanos
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long nanos]
+   (.minusNanos this nanos)))
+
+(clojure.core/defn is-supported
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]
+                     ["java.time.ZonedDateTime" "java.time.temporal.TemporalUnit"]))}
+  (^boolean [this arg0]
+   (.isSupported ^js/JSJoda.ZonedDateTime this arg0)))
+
+(clojure.core/defn minus-years
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long years]
+   (.minusYears this years)))
+
+(clojure.core/defn get-chronology
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.Chronology [^js/JSJoda.ZonedDateTime this]
+   (.chronology this)))
+
+(clojure.core/defn parse
+  {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
+  (^js/JSJoda.ZonedDateTime [^java.lang.CharSequence text]
+   (js-invoke java.time.ZonedDateTime "parse" text))
+  (^js/JSJoda.ZonedDateTime [^java.lang.CharSequence text ^js/JSJoda.DateTimeFormatter formatter]
+   (js-invoke java.time.ZonedDateTime "parse" text formatter)))
+
+(clojure.core/defn with-second
+  {:arglists (quote (["java.time.ZonedDateTime" "int"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^int second]
+   (.withSecond this second)))
+
+(clojure.core/defn to-local-date
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.LocalDate [^js/JSJoda.ZonedDateTime this]
+   (.toLocalDate this)))
+
+(clojure.core/defn get-minute
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.minute this)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.hashCode this)))
+
+(clojure.core/defn with
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalAdjuster"]
+                     ["java.time.ZonedDateTime" "java.time.temporal.TemporalField" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalAdjuster adjuster]
+   (.with this adjuster))
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalField field ^long new-value]
+   (.with this field new-value)))
+
+(clojure.core/defn now
+  {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
+  (^js/JSJoda.ZonedDateTime []
+   (js-invoke java.time.ZonedDateTime "now"))
+  (^js/JSJoda.ZonedDateTime [arg0]
+   (js-invoke java.time.ZonedDateTime "now" arg0)))
+
+(clojure.core/defn to-local-date-time
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.LocalDateTime [^js/JSJoda.ZonedDateTime this]
+   (.toLocalDateTime this)))
+
+(clojure.core/defn get-month-value
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this]
+   (.monthValue this)))
+
+(clojure.core/defn with-day-of-year
+  {:arglists (quote (["java.time.ZonedDateTime" "int"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^int day-of-year]
+   (.withDayOfYear this day-of-year)))
+
+(clojure.core/defn compare-to
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.chrono.ChronoZonedDateTime"]))}
+  (^int [^js/JSJoda.ZonedDateTime this ^js/JSJoda.ChronoZonedDateTime other]
+   (.compareTo this other)))
+
+(clojure.core/defn of-strict
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneOffset" "java.time.ZoneId"]))}
+  (^js/JSJoda.ZonedDateTime
+   [^js/JSJoda.LocalDateTime local-date-time ^js/JSJoda.ZoneOffset offset ^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.ZonedDateTime "ofStrict" local-date-time offset zone)))
+
+(clojure.core/defn get-month
+  {:arglists (quote (["java.time.ZonedDateTime"]))}
+  (^js/JSJoda.Month [^js/JSJoda.ZonedDateTime this]
+   (.month this)))
+
+(clojure.core/defn of-instant
+  {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]
+                     ["java.time.LocalDateTime" "java.time.ZoneOffset" "java.time.ZoneId"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.Instant instant ^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.ZonedDateTime "ofInstant" instant zone))
+  (^js/JSJoda.ZonedDateTime
+   [^js/JSJoda.LocalDateTime local-date-time ^js/JSJoda.ZoneOffset offset ^js/JSJoda.ZoneId zone]
+   (js-invoke java.time.ZonedDateTime "ofInstant" local-date-time offset zone)))
+
+(clojure.core/defn plus-seconds
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long seconds]
+   (.plusSeconds this seconds)))
+
+(clojure.core/defn get
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.temporal.TemporalField"]))}
+  (^int [^js/JSJoda.ZonedDateTime this ^js/JSJoda.TemporalField field]
+   (.get this field)))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.ZonedDateTime" "java.lang.Object"]))}
+  (^boolean [^js/JSJoda.ZonedDateTime this ^java.lang.Object obj]
+   (.equals this obj)))
+
+(clojure.core/defn format
+  {:arglists (quote (["java.time.ZonedDateTime" "java.time.format.DateTimeFormatter"]))}
+  (^java.lang.String [^js/JSJoda.ZonedDateTime this ^js/JSJoda.DateTimeFormatter formatter]
+   (.format this formatter)))
+
+(clojure.core/defn plus-years
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long years]
+   (.plusYears this years)))
+
+(clojure.core/defn minus-days
+  {:arglists (quote (["java.time.ZonedDateTime" "long"]))}
+  (^js/JSJoda.ZonedDateTime [^js/JSJoda.ZonedDateTime this ^long days]
+   (.minusDays this days)))

@@ -1,37 +1,199 @@
-(ns cljc.java-time.year-month (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness] [goog.object] [java.time :refer [YearMonth]]))
-(clojure.core/defn length-of-year {:arglists (quote (["java.time.YearMonth"]))} (^int [^js/JSJoda.YearMonth this15296] (.lengthOfYear this15296)))
-(clojure.core/defn range {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField"]))} (^js/JSJoda.ValueRange [^js/JSJoda.YearMonth this15297 ^js/JSJoda.TemporalField java-time-temporal-TemporalField15298] (.range this15297 java-time-temporal-TemporalField15298)))
-(clojure.core/defn is-valid-day {:arglists (quote (["java.time.YearMonth" "int"]))} (^boolean [^js/JSJoda.YearMonth this15299 ^int int15300] (.isValidDay this15299 int15300)))
-(clojure.core/defn of {:arglists (quote (["int" "int"] ["int" "java.time.Month"]))} (^js/JSJoda.YearMonth [G__15302 G__15303] (js-invoke java.time.YearMonth "of" G__15302 G__15303)))
-(clojure.core/defn with-month {:arglists (quote (["java.time.YearMonth" "int"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15304 ^int int15305] (.withMonth this15304 int15305)))
-(clojure.core/defn at-day {:arglists (quote (["java.time.YearMonth" "int"]))} (^js/JSJoda.LocalDate [^js/JSJoda.YearMonth this15306 ^int int15307] (.atDay this15306 int15307)))
-(clojure.core/defn get-year {:arglists (quote (["java.time.YearMonth"]))} (^int [^js/JSJoda.YearMonth this15308] (.year this15308)))
-(clojure.core/defn plus {:arglists (quote (["java.time.YearMonth" "long" "java.time.temporal.TemporalUnit"] ["java.time.YearMonth" "java.time.temporal.TemporalAmount"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15309 ^long long15310 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit15311] (.plus this15309 long15310 java-time-temporal-TemporalUnit15311)) (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15312 ^js/JSJoda.TemporalAmount java-time-temporal-TemporalAmount15313] (.plus this15312 java-time-temporal-TemporalAmount15313)))
-(clojure.core/defn is-leap-year {:arglists (quote (["java.time.YearMonth"]))} (^boolean [^js/JSJoda.YearMonth this15314] (.isLeapYear this15314)))
-(clojure.core/defn query {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^js/JSJoda.YearMonth this15315 ^js/JSJoda.TemporalQuery java-time-temporal-TemporalQuery15316] (.query this15315 java-time-temporal-TemporalQuery15316)))
-(clojure.core/defn to-string {:arglists (quote (["java.time.YearMonth"]))} (^java.lang.String [^js/JSJoda.YearMonth this15317] (.toString this15317)))
-(clojure.core/defn plus-months {:arglists (quote (["java.time.YearMonth" "long"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15318 ^long long15319] (.plusMonths this15318 long15319)))
-(clojure.core/defn is-before {:arglists (quote (["java.time.YearMonth" "java.time.YearMonth"]))} (^boolean [^js/JSJoda.YearMonth this15320 ^js/JSJoda.YearMonth java-time-YearMonth15321] (.isBefore this15320 java-time-YearMonth15321)))
-(clojure.core/defn minus-months {:arglists (quote (["java.time.YearMonth" "long"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15322 ^long long15323] (.minusMonths this15322 long15323)))
-(clojure.core/defn minus {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalAmount"] ["java.time.YearMonth" "long" "java.time.temporal.TemporalUnit"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15324 ^js/JSJoda.TemporalAmount java-time-temporal-TemporalAmount15325] (.minus this15324 java-time-temporal-TemporalAmount15325)) (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15326 ^long long15327 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit15328] (.minus this15326 long15327 java-time-temporal-TemporalUnit15328)))
-(clojure.core/defn get-long {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField"]))} (^long [^js/JSJoda.YearMonth this15329 ^js/JSJoda.TemporalField java-time-temporal-TemporalField15330] (.getLong this15329 java-time-temporal-TemporalField15330)))
-(clojure.core/defn with-year {:arglists (quote (["java.time.YearMonth" "int"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15331 ^int int15332] (.withYear this15331 int15332)))
-(clojure.core/defn at-end-of-month {:arglists (quote (["java.time.YearMonth"]))} (^js/JSJoda.LocalDate [^js/JSJoda.YearMonth this15333] (.atEndOfMonth this15333)))
-(clojure.core/defn length-of-month {:arglists (quote (["java.time.YearMonth"]))} (^int [^js/JSJoda.YearMonth this15334] (.lengthOfMonth this15334)))
-(clojure.core/defn until {:arglists (quote (["java.time.YearMonth" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^js/JSJoda.YearMonth this15335 ^js/JSJoda.Temporal java-time-temporal-Temporal15336 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit15337] (.until this15335 java-time-temporal-Temporal15336 java-time-temporal-TemporalUnit15337)))
-(clojure.core/defn from {:arglists (quote (["java.time.temporal.TemporalAccessor"]))} (^js/JSJoda.YearMonth [^js/JSJoda.TemporalAccessor java-time-temporal-TemporalAccessor15338] (js-invoke java.time.YearMonth "from" java-time-temporal-TemporalAccessor15338)))
-(clojure.core/defn is-after {:arglists (quote (["java.time.YearMonth" "java.time.YearMonth"]))} (^boolean [^js/JSJoda.YearMonth this15339 ^js/JSJoda.YearMonth java-time-YearMonth15340] (.isAfter this15339 java-time-YearMonth15340)))
-(clojure.core/defn is-supported {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField"] ["java.time.YearMonth" "java.time.temporal.TemporalUnit"]))} (^boolean [this15341 G__15342] (.isSupported ^js/JSJoda.YearMonth this15341 G__15342)))
-(clojure.core/defn minus-years {:arglists (quote (["java.time.YearMonth" "long"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15343 ^long long15344] (.minusYears this15343 long15344)))
-(clojure.core/defn parse {:arglists (quote (["java.lang.CharSequence" "java.time.format.DateTimeFormatter"] ["java.lang.CharSequence"]))} (^js/JSJoda.YearMonth [^java.lang.CharSequence java-lang-CharSequence15345 ^js/JSJoda.DateTimeFormatter java-time-format-DateTimeFormatter15346] (js-invoke java.time.YearMonth "parse" java-lang-CharSequence15345 java-time-format-DateTimeFormatter15346)) (^js/JSJoda.YearMonth [^java.lang.CharSequence java-lang-CharSequence15347] (js-invoke java.time.YearMonth "parse" java-lang-CharSequence15347)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.YearMonth"]))} (^int [^js/JSJoda.YearMonth this15348] (.hashCode this15348)))
-(clojure.core/defn adjust-into {:arglists (quote (["java.time.YearMonth" "java.time.temporal.Temporal"]))} (^js/JSJoda.Temporal [^js/JSJoda.YearMonth this15349 ^js/JSJoda.Temporal java-time-temporal-Temporal15350] (.adjustInto this15349 java-time-temporal-Temporal15350)))
-(clojure.core/defn with {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField" "long"] ["java.time.YearMonth" "java.time.temporal.TemporalAdjuster"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15351 ^js/JSJoda.TemporalField java-time-temporal-TemporalField15352 ^long long15353] (.with this15351 java-time-temporal-TemporalField15352 long15353)) (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15354 ^js/JSJoda.TemporalAdjuster java-time-temporal-TemporalAdjuster15355] (.with this15354 java-time-temporal-TemporalAdjuster15355)))
-(clojure.core/defn now {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))} (^js/JSJoda.YearMonth [] (js-invoke java.time.YearMonth "now")) (^js/JSJoda.YearMonth [G__15357] (js-invoke java.time.YearMonth "now" G__15357)))
-(clojure.core/defn get-month-value {:arglists (quote (["java.time.YearMonth"]))} (^int [^js/JSJoda.YearMonth this15358] (.monthValue this15358)))
-(clojure.core/defn compare-to {:arglists (quote (["java.time.YearMonth" "java.time.YearMonth"]))} (^int [^js/JSJoda.YearMonth this15359 ^js/JSJoda.YearMonth java-time-YearMonth15360] (.compareTo this15359 java-time-YearMonth15360)))
-(clojure.core/defn get-month {:arglists (quote (["java.time.YearMonth"]))} (^js/JSJoda.Month [^js/JSJoda.YearMonth this15361] (.month this15361)))
-(clojure.core/defn get {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField"]))} (^int [^js/JSJoda.YearMonth this15362 ^js/JSJoda.TemporalField java-time-temporal-TemporalField15363] (.get this15362 java-time-temporal-TemporalField15363)))
-(clojure.core/defn equals {:arglists (quote (["java.time.YearMonth" "java.lang.Object"]))} (^boolean [^js/JSJoda.YearMonth this15364 ^java.lang.Object java-lang-Object15365] (.equals this15364 java-lang-Object15365)))
-(clojure.core/defn format {:arglists (quote (["java.time.YearMonth" "java.time.format.DateTimeFormatter"]))} (^java.lang.String [^js/JSJoda.YearMonth this15366 ^js/JSJoda.DateTimeFormatter java-time-format-DateTimeFormatter15367] (.format this15366 java-time-format-DateTimeFormatter15367)))
-(clojure.core/defn plus-years {:arglists (quote (["java.time.YearMonth" "long"]))} (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this15368 ^long long15369] (.plusYears this15368 long15369)))
+(ns cljc.java-time.year-month
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness]
+            [goog.object]
+            [java.time :refer [YearMonth]]))
+
+(clojure.core/defn length-of-year
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^int [^js/JSJoda.YearMonth this]
+   (.lengthOfYear this)))
+
+(clojure.core/defn range
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField"]))}
+  (^js/JSJoda.ValueRange [^js/JSJoda.YearMonth this ^js/JSJoda.TemporalField field]
+   (.range this field)))
+
+(clojure.core/defn is-valid-day
+  {:arglists (quote (["java.time.YearMonth" "int"]))}
+  (^boolean [^js/JSJoda.YearMonth this ^int day-of-month]
+   (.isValidDay this day-of-month)))
+
+(clojure.core/defn of
+  {:arglists (quote (["int" "int"] ["int" "java.time.Month"]))}
+  (^js/JSJoda.YearMonth [arg0 arg1]
+   (js-invoke java.time.YearMonth "of" arg0 arg1)))
+
+(clojure.core/defn with-month
+  {:arglists (quote (["java.time.YearMonth" "int"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^int month]
+   (.withMonth this month)))
+
+(clojure.core/defn at-day
+  {:arglists (quote (["java.time.YearMonth" "int"]))}
+  (^js/JSJoda.LocalDate [^js/JSJoda.YearMonth this ^int day-of-month]
+   (.atDay this day-of-month)))
+
+(clojure.core/defn get-year
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^int [^js/JSJoda.YearMonth this]
+   (.year this)))
+
+(clojure.core/defn plus
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalAmount"]
+                     ["java.time.YearMonth" "long" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^js/JSJoda.TemporalAmount amount-to-add]
+   (.plus this amount-to-add))
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^long amount-to-add ^js/JSJoda.TemporalUnit unit]
+   (.plus this amount-to-add unit)))
+
+(clojure.core/defn is-leap-year
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^boolean [^js/JSJoda.YearMonth this]
+   (.isLeapYear this)))
+
+(clojure.core/defn query
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalQuery"]))}
+  (^java.lang.Object [^js/JSJoda.YearMonth this ^js/JSJoda.TemporalQuery query]
+   (.query this query)))
+
+(clojure.core/defn to-string
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^java.lang.String [^js/JSJoda.YearMonth this]
+   (.toString this)))
+
+(clojure.core/defn plus-months
+  {:arglists (quote (["java.time.YearMonth" "long"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^long months-to-add]
+   (.plusMonths this months-to-add)))
+
+(clojure.core/defn is-before
+  {:arglists (quote (["java.time.YearMonth" "java.time.YearMonth"]))}
+  (^boolean [^js/JSJoda.YearMonth this ^js/JSJoda.YearMonth other]
+   (.isBefore this other)))
+
+(clojure.core/defn minus-months
+  {:arglists (quote (["java.time.YearMonth" "long"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^long months-to-subtract]
+   (.minusMonths this months-to-subtract)))
+
+(clojure.core/defn minus
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalAmount"]
+                     ["java.time.YearMonth" "long" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^js/JSJoda.TemporalAmount amount-to-subtract]
+   (.minus this amount-to-subtract))
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^long amount-to-subtract ^js/JSJoda.TemporalUnit unit]
+   (.minus this amount-to-subtract unit)))
+
+(clojure.core/defn get-long
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField"]))}
+  (^long [^js/JSJoda.YearMonth this ^js/JSJoda.TemporalField field]
+   (.getLong this field)))
+
+(clojure.core/defn with-year
+  {:arglists (quote (["java.time.YearMonth" "int"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^int year]
+   (.withYear this year)))
+
+(clojure.core/defn at-end-of-month
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^js/JSJoda.LocalDate [^js/JSJoda.YearMonth this]
+   (.atEndOfMonth this)))
+
+(clojure.core/defn length-of-month
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^int [^js/JSJoda.YearMonth this]
+   (.lengthOfMonth this)))
+
+(clojure.core/defn until
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
+  (^long [^js/JSJoda.YearMonth this ^js/JSJoda.Temporal end-exclusive ^js/JSJoda.TemporalUnit unit]
+   (.until this end-exclusive unit)))
+
+(clojure.core/defn from
+  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.TemporalAccessor temporal]
+   (js-invoke java.time.YearMonth "from" temporal)))
+
+(clojure.core/defn is-after
+  {:arglists (quote (["java.time.YearMonth" "java.time.YearMonth"]))}
+  (^boolean [^js/JSJoda.YearMonth this ^js/JSJoda.YearMonth other]
+   (.isAfter this other)))
+
+(clojure.core/defn is-supported
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField"]
+                     ["java.time.YearMonth" "java.time.temporal.TemporalUnit"]))}
+  (^boolean [this arg0]
+   (.isSupported ^js/JSJoda.YearMonth this arg0)))
+
+(clojure.core/defn minus-years
+  {:arglists (quote (["java.time.YearMonth" "long"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^long years-to-subtract]
+   (.minusYears this years-to-subtract)))
+
+(clojure.core/defn parse
+  {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
+  (^js/JSJoda.YearMonth [^java.lang.CharSequence text]
+   (js-invoke java.time.YearMonth "parse" text))
+  (^js/JSJoda.YearMonth [^java.lang.CharSequence text ^js/JSJoda.DateTimeFormatter formatter]
+   (js-invoke java.time.YearMonth "parse" text formatter)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^int [^js/JSJoda.YearMonth this]
+   (.hashCode this)))
+
+(clojure.core/defn adjust-into
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.Temporal"]))}
+  (^js/JSJoda.Temporal [^js/JSJoda.YearMonth this ^js/JSJoda.Temporal temporal]
+   (.adjustInto this temporal)))
+
+(clojure.core/defn with
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalAdjuster"]
+                     ["java.time.YearMonth" "java.time.temporal.TemporalField" "long"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^js/JSJoda.TemporalAdjuster adjuster]
+   (.with this adjuster))
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^js/JSJoda.TemporalField field ^long new-value]
+   (.with this field new-value)))
+
+(clojure.core/defn now
+  {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
+  (^js/JSJoda.YearMonth []
+   (js-invoke java.time.YearMonth "now"))
+  (^js/JSJoda.YearMonth [arg0]
+   (js-invoke java.time.YearMonth "now" arg0)))
+
+(clojure.core/defn get-month-value
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^int [^js/JSJoda.YearMonth this]
+   (.monthValue this)))
+
+(clojure.core/defn compare-to
+  {:arglists (quote (["java.time.YearMonth" "java.time.YearMonth"]))}
+  (^int [^js/JSJoda.YearMonth this ^js/JSJoda.YearMonth other]
+   (.compareTo this other)))
+
+(clojure.core/defn get-month
+  {:arglists (quote (["java.time.YearMonth"]))}
+  (^js/JSJoda.Month [^js/JSJoda.YearMonth this]
+   (.month this)))
+
+(clojure.core/defn get
+  {:arglists (quote (["java.time.YearMonth" "java.time.temporal.TemporalField"]))}
+  (^int [^js/JSJoda.YearMonth this ^js/JSJoda.TemporalField field]
+   (.get this field)))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.YearMonth" "java.lang.Object"]))}
+  (^boolean [^js/JSJoda.YearMonth this ^java.lang.Object obj]
+   (.equals this obj)))
+
+(clojure.core/defn format
+  {:arglists (quote (["java.time.YearMonth" "java.time.format.DateTimeFormatter"]))}
+  (^java.lang.String [^js/JSJoda.YearMonth this ^js/JSJoda.DateTimeFormatter formatter]
+   (.format this formatter)))
+
+(clojure.core/defn plus-years
+  {:arglists (quote (["java.time.YearMonth" "long"]))}
+  (^js/JSJoda.YearMonth [^js/JSJoda.YearMonth this ^long years-to-add]
+   (.plusYears this years-to-add)))

@@ -1,13 +1,57 @@
-(ns cljc.java-time.format.resolver-style (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness]) (:import [java.time.format ResolverStyle]))
+(ns cljc.java-time.format.resolver-style
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness])
+  (:import [java.time.format ResolverStyle]))
+
 (def smart java.time.format.ResolverStyle/SMART)
+
 (def strict java.time.format.ResolverStyle/STRICT)
+
 (def lenient java.time.format.ResolverStyle/LENIENT)
-(clojure.core/defn values {:arglists (quote ([]))} (^"java.lang.Class" [] (java.time.format.ResolverStyle/values)))
-(clojure.core/defn value-of {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))} (^java.time.format.ResolverStyle [^java.lang.String java-lang-String16120] (java.time.format.ResolverStyle/valueOf java-lang-String16120)) (^java.lang.Enum [^java.lang.Class java-lang-Class16121 ^java.lang.String java-lang-String16122] (java.time.format.ResolverStyle/valueOf java-lang-Class16121 java-lang-String16122)))
-(clojure.core/defn ordinal {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.Integer [^java.time.format.ResolverStyle this16123] (.ordinal this16123)))
-(clojure.core/defn to-string {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.String [^java.time.format.ResolverStyle this16124] (.toString this16124)))
-(clojure.core/defn name {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.String [^java.time.format.ResolverStyle this16125] (.name this16125)))
-(clojure.core/defn get-declaring-class {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.Class [^java.time.format.ResolverStyle this16126] (.getDeclaringClass this16126)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.format.ResolverStyle"]))} (^java.lang.Integer [^java.time.format.ResolverStyle this16127] (.hashCode this16127)))
-(clojure.core/defn compare-to {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Enum"]))} (^java.lang.Integer [^java.time.format.ResolverStyle this16128 ^java.lang.Enum java-lang-Enum16129] (.compareTo this16128 java-lang-Enum16129)))
-(clojure.core/defn equals {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.format.ResolverStyle this16130 ^java.lang.Object java-lang-Object16131] (.equals this16130 java-lang-Object16131)))
+
+(clojure.core/defn values
+  {:arglists (quote ([]))}
+  (^"java.lang.Class" []
+   (java.time.format.ResolverStyle/values)))
+
+(clojure.core/defn value-of
+  {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
+  (^java.time.format.ResolverStyle [^java.lang.String name]
+   (java.time.format.ResolverStyle/valueOf name))
+  (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
+   (java.time.format.ResolverStyle/valueOf enum-type name)))
+
+(clojure.core/defn ordinal
+  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+  (^java.lang.Integer [^java.time.format.ResolverStyle this]
+   (.ordinal this)))
+
+(clojure.core/defn to-string
+  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+  (^java.lang.String [^java.time.format.ResolverStyle this]
+   (.toString this)))
+
+(clojure.core/defn name
+  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+  (^java.lang.String [^java.time.format.ResolverStyle this]
+   (.name this)))
+
+(clojure.core/defn get-declaring-class
+  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+  (^java.lang.Class [^java.time.format.ResolverStyle this]
+   (.getDeclaringClass this)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+  (^java.lang.Integer [^java.time.format.ResolverStyle this]
+   (.hashCode this)))
+
+(clojure.core/defn compare-to
+  {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Enum"]))}
+  (^java.lang.Integer [^java.time.format.ResolverStyle this ^java.lang.Enum o]
+   (.compareTo this o)))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Object"]))}
+  (^java.lang.Boolean [^java.time.format.ResolverStyle this ^java.lang.Object other]
+   (.equals this other)))

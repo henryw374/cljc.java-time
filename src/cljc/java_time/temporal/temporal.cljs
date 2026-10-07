@@ -1,10 +1,60 @@
-(ns cljc.java-time.temporal.temporal (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness] [goog.object] [java.time.temporal :refer [Temporal]]))
-(clojure.core/defn range {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalField"]))} (^js/JSJoda.ValueRange [^js/JSJoda.Temporal this15530 ^js/JSJoda.TemporalField java-time-temporal-TemporalField15531] (.range this15530 java-time-temporal-TemporalField15531)))
-(clojure.core/defn plus {:arglists (quote (["java.time.temporal.Temporal" "long" "java.time.temporal.TemporalUnit"] ["java.time.temporal.Temporal" "java.time.temporal.TemporalAmount"]))} (^js/JSJoda.Temporal [^js/JSJoda.Temporal this15532 ^long long15533 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit15534] (.plus this15532 long15533 java-time-temporal-TemporalUnit15534)) (^js/JSJoda.Temporal [^js/JSJoda.Temporal this15535 ^js/JSJoda.TemporalAmount java-time-temporal-TemporalAmount15536] (.plus this15535 java-time-temporal-TemporalAmount15536)))
-(clojure.core/defn query {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^js/JSJoda.Temporal this15537 ^js/JSJoda.TemporalQuery java-time-temporal-TemporalQuery15538] (.query this15537 java-time-temporal-TemporalQuery15538)))
-(clojure.core/defn minus {:arglists (quote (["java.time.temporal.Temporal" "long" "java.time.temporal.TemporalUnit"] ["java.time.temporal.Temporal" "java.time.temporal.TemporalAmount"]))} (^js/JSJoda.Temporal [^js/JSJoda.Temporal this15539 ^long long15540 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit15541] (.minus this15539 long15540 java-time-temporal-TemporalUnit15541)) (^js/JSJoda.Temporal [^js/JSJoda.Temporal this15542 ^js/JSJoda.TemporalAmount java-time-temporal-TemporalAmount15543] (.minus this15542 java-time-temporal-TemporalAmount15543)))
-(clojure.core/defn get-long {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalField"]))} (^long [^js/JSJoda.Temporal this15544 ^js/JSJoda.TemporalField java-time-temporal-TemporalField15545] (.getLong this15544 java-time-temporal-TemporalField15545)))
-(clojure.core/defn until {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^js/JSJoda.Temporal this15546 ^js/JSJoda.Temporal java-time-temporal-Temporal15547 ^js/JSJoda.TemporalUnit java-time-temporal-TemporalUnit15548] (.until this15546 java-time-temporal-Temporal15547 java-time-temporal-TemporalUnit15548)))
-(clojure.core/defn is-supported {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"] ["java.time.temporal.Temporal" "java.time.temporal.TemporalField"]))} (^boolean [this15549 G__15550] (.isSupported ^js/JSJoda.Temporal this15549 G__15550)))
-(clojure.core/defn with {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalField" "long"] ["java.time.temporal.Temporal" "java.time.temporal.TemporalAdjuster"]))} (^js/JSJoda.Temporal [^js/JSJoda.Temporal this15551 ^js/JSJoda.TemporalField java-time-temporal-TemporalField15552 ^long long15553] (.with this15551 java-time-temporal-TemporalField15552 long15553)) (^js/JSJoda.Temporal [^js/JSJoda.Temporal this15554 ^js/JSJoda.TemporalAdjuster java-time-temporal-TemporalAdjuster15555] (.with this15554 java-time-temporal-TemporalAdjuster15555)))
-(clojure.core/defn get {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalField"]))} (^int [^js/JSJoda.Temporal this15556 ^js/JSJoda.TemporalField java-time-temporal-TemporalField15557] (.get this15556 java-time-temporal-TemporalField15557)))
+(ns cljc.java-time.temporal.temporal
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness]
+            [goog.object]
+            [java.time.temporal :refer [Temporal]]))
+
+(clojure.core/defn range
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalField"]))}
+  (^js/JSJoda.ValueRange [^js/JSJoda.Temporal this ^js/JSJoda.TemporalField field]
+   (.range this field)))
+
+(clojure.core/defn plus
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalAmount"]
+                     ["java.time.temporal.Temporal" "long" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.Temporal [^js/JSJoda.Temporal this ^js/JSJoda.TemporalAmount amount]
+   (.plus this amount))
+  (^js/JSJoda.Temporal [^js/JSJoda.Temporal this ^long amount-to-add ^js/JSJoda.TemporalUnit unit]
+   (.plus this amount-to-add unit)))
+
+(clojure.core/defn query
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalQuery"]))}
+  (^java.lang.Object [^js/JSJoda.Temporal this ^js/JSJoda.TemporalQuery query]
+   (.query this query)))
+
+(clojure.core/defn minus
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalAmount"]
+                     ["java.time.temporal.Temporal" "long" "java.time.temporal.TemporalUnit"]))}
+  (^js/JSJoda.Temporal [^js/JSJoda.Temporal this ^js/JSJoda.TemporalAmount amount]
+   (.minus this amount))
+  (^js/JSJoda.Temporal [^js/JSJoda.Temporal this ^long amount-to-subtract ^js/JSJoda.TemporalUnit unit]
+   (.minus this amount-to-subtract unit)))
+
+(clojure.core/defn get-long
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalField"]))}
+  (^long [^js/JSJoda.Temporal this ^js/JSJoda.TemporalField field]
+   (.getLong this field)))
+
+(clojure.core/defn until
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
+  (^long [^js/JSJoda.Temporal this ^js/JSJoda.Temporal end-exclusive ^js/JSJoda.TemporalUnit unit]
+   (.until this end-exclusive unit)))
+
+(clojure.core/defn is-supported
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]
+                     ["java.time.temporal.Temporal" "java.time.temporal.TemporalField"]))}
+  (^boolean [this arg0]
+   (.isSupported ^js/JSJoda.Temporal this arg0)))
+
+(clojure.core/defn with
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalAdjuster"]
+                     ["java.time.temporal.Temporal" "java.time.temporal.TemporalField" "long"]))}
+  (^js/JSJoda.Temporal [^js/JSJoda.Temporal this ^js/JSJoda.TemporalAdjuster adjuster]
+   (.with this adjuster))
+  (^js/JSJoda.Temporal [^js/JSJoda.Temporal this ^js/JSJoda.TemporalField field ^long new-value]
+   (.with this field new-value)))
+
+(clojure.core/defn get
+  {:arglists (quote (["java.time.temporal.Temporal" "java.time.temporal.TemporalField"]))}
+  (^int [^js/JSJoda.Temporal this ^js/JSJoda.TemporalField field]
+   (.get this field)))

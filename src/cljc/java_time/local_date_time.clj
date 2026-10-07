@@ -1,69 +1,457 @@
-(ns cljc.java-time.local-date-time (:refer-clojure :exclude [abs get range format min max next name resolve short]) (:require [cljc.java-time.extn.calendar-awareness]) (:import [java.time LocalDateTime]))
+(ns cljc.java-time.local-date-time
+  (:refer-clojure :exclude [abs get range format min max next name resolve short])
+  (:require [cljc.java-time.extn.calendar-awareness])
+  (:import [java.time LocalDateTime]))
+
 (def max java.time.LocalDateTime/MAX)
+
 (def min java.time.LocalDateTime/MIN)
-(clojure.core/defn minus-minutes {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13266 ^long long13267] (.minusMinutes this13266 long13267)))
-(clojure.core/defn truncated-to {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalUnit"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13268 ^java.time.temporal.ChronoUnit java-time-temporal-TemporalUnit13269] (.truncatedTo this13268 java-time-temporal-TemporalUnit13269)))
-(clojure.core/defn minus-weeks {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13270 ^long long13271] (.minusWeeks this13270 long13271)))
-(clojure.core/defn to-instant {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneOffset"]))} (^java.time.Instant [^java.time.LocalDateTime this13272 ^java.time.ZoneOffset java-time-ZoneOffset13273] (.toInstant this13272 java-time-ZoneOffset13273)))
-(clojure.core/defn plus-weeks {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13274 ^long long13275] (.plusWeeks this13274 long13275)))
-(clojure.core/defn range {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField"]))} (^java.time.temporal.ValueRange [^java.time.LocalDateTime this13276 ^java.time.temporal.TemporalField java-time-temporal-TemporalField13277] (.range this13276 java-time-temporal-TemporalField13277)))
-(clojure.core/defn of-epoch-second {:arglists (quote (["long" "int" "java.time.ZoneOffset"]))} (^java.time.LocalDateTime [^long long13278 ^java.lang.Integer int13279 ^java.time.ZoneOffset java-time-ZoneOffset13280] (java.time.LocalDateTime/ofEpochSecond long13278 int13279 java-time-ZoneOffset13280)))
-(clojure.core/defn get-hour {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13281] (.getHour this13281)))
-(clojure.core/defn at-offset {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneOffset"]))} (^java.time.OffsetDateTime [^java.time.LocalDateTime this13282 ^java.time.ZoneOffset java-time-ZoneOffset13283] (.atOffset this13282 java-time-ZoneOffset13283)))
-(clojure.core/defn minus-hours {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13284 ^long long13285] (.minusHours this13284 long13285)))
-(clojure.core/defn of {:arglists (quote (["int" "java.time.Month" "int" "int" "int" "int"] ["int" "java.time.Month" "int" "int" "int" "int" "int"] ["int" "java.time.Month" "int" "int" "int"] ["java.time.LocalDate" "java.time.LocalTime"] ["int" "int" "int" "int" "int"] ["int" "int" "int" "int" "int" "int"] ["int" "int" "int" "int" "int" "int" "int"]))} (^java.time.LocalDateTime [G__13287 G__13288 G__13289 G__13290 G__13291 G__13292] (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.Number G__13287) (clojure.core/instance? java.time.Month G__13288) (clojure.core/instance? java.lang.Number G__13289) (clojure.core/instance? java.lang.Number G__13290) (clojure.core/instance? java.lang.Number G__13291) (clojure.core/instance? java.lang.Number G__13292)) (clojure.core/let [G__13287 (clojure.core/int G__13287) G__13288 ^"java.time.Month" G__13288 G__13289 (clojure.core/int G__13289) G__13290 (clojure.core/int G__13290) G__13291 (clojure.core/int G__13291) G__13292 (clojure.core/int G__13292)] (java.time.LocalDateTime/of G__13287 G__13288 G__13289 G__13290 G__13291 G__13292)) (clojure.core/and (clojure.core/instance? java.lang.Number G__13287) (clojure.core/instance? java.lang.Number G__13288) (clojure.core/instance? java.lang.Number G__13289) (clojure.core/instance? java.lang.Number G__13290) (clojure.core/instance? java.lang.Number G__13291) (clojure.core/instance? java.lang.Number G__13292)) (clojure.core/let [G__13287 (clojure.core/int G__13287) G__13288 (clojure.core/int G__13288) G__13289 (clojure.core/int G__13289) G__13290 (clojure.core/int G__13290) G__13291 (clojure.core/int G__13291) G__13292 (clojure.core/int G__13292)] (java.time.LocalDateTime/of G__13287 G__13288 G__13289 G__13290 G__13291 G__13292)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))) (^java.time.LocalDateTime [G__13294 G__13295 G__13296 G__13297 G__13298 G__13299 G__13300] (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.Number G__13294) (clojure.core/instance? java.time.Month G__13295) (clojure.core/instance? java.lang.Number G__13296) (clojure.core/instance? java.lang.Number G__13297) (clojure.core/instance? java.lang.Number G__13298) (clojure.core/instance? java.lang.Number G__13299) (clojure.core/instance? java.lang.Number G__13300)) (clojure.core/let [G__13294 (clojure.core/int G__13294) G__13295 ^"java.time.Month" G__13295 G__13296 (clojure.core/int G__13296) G__13297 (clojure.core/int G__13297) G__13298 (clojure.core/int G__13298) G__13299 (clojure.core/int G__13299) G__13300 (clojure.core/int G__13300)] (java.time.LocalDateTime/of G__13294 G__13295 G__13296 G__13297 G__13298 G__13299 G__13300)) (clojure.core/and (clojure.core/instance? java.lang.Number G__13294) (clojure.core/instance? java.lang.Number G__13295) (clojure.core/instance? java.lang.Number G__13296) (clojure.core/instance? java.lang.Number G__13297) (clojure.core/instance? java.lang.Number G__13298) (clojure.core/instance? java.lang.Number G__13299) (clojure.core/instance? java.lang.Number G__13300)) (clojure.core/let [G__13294 (clojure.core/int G__13294) G__13295 (clojure.core/int G__13295) G__13296 (clojure.core/int G__13296) G__13297 (clojure.core/int G__13297) G__13298 (clojure.core/int G__13298) G__13299 (clojure.core/int G__13299) G__13300 (clojure.core/int G__13300)] (java.time.LocalDateTime/of G__13294 G__13295 G__13296 G__13297 G__13298 G__13299 G__13300)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))) (^java.time.LocalDateTime [G__13302 G__13303 G__13304 G__13305 G__13306] (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.Number G__13302) (clojure.core/instance? java.time.Month G__13303) (clojure.core/instance? java.lang.Number G__13304) (clojure.core/instance? java.lang.Number G__13305) (clojure.core/instance? java.lang.Number G__13306)) (clojure.core/let [G__13302 (clojure.core/int G__13302) G__13303 ^"java.time.Month" G__13303 G__13304 (clojure.core/int G__13304) G__13305 (clojure.core/int G__13305) G__13306 (clojure.core/int G__13306)] (java.time.LocalDateTime/of G__13302 G__13303 G__13304 G__13305 G__13306)) (clojure.core/and (clojure.core/instance? java.lang.Number G__13302) (clojure.core/instance? java.lang.Number G__13303) (clojure.core/instance? java.lang.Number G__13304) (clojure.core/instance? java.lang.Number G__13305) (clojure.core/instance? java.lang.Number G__13306)) (clojure.core/let [G__13302 (clojure.core/int G__13302) G__13303 (clojure.core/int G__13303) G__13304 (clojure.core/int G__13304) G__13305 (clojure.core/int G__13305) G__13306 (clojure.core/int G__13306)] (java.time.LocalDateTime/of G__13302 G__13303 G__13304 G__13305 G__13306)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))) (^java.time.LocalDateTime [^java.time.LocalDate java-time-LocalDate13307 ^java.time.LocalTime java-time-LocalTime13308] (java.time.LocalDateTime/of java-time-LocalDate13307 java-time-LocalTime13308)))
-(clojure.core/defn with-month {:arglists (quote (["java.time.LocalDateTime" "int"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13309 ^java.lang.Integer int13310] (.withMonth this13309 int13310)))
-(clojure.core/defn is-equal {:arglists (quote (["java.time.LocalDateTime" "java.time.chrono.ChronoLocalDateTime"]))} (^java.lang.Boolean [^java.time.LocalDateTime this13311 ^java.time.chrono.ChronoLocalDateTime java-time-chrono-ChronoLocalDateTime13312] (.isEqual this13311 java-time-chrono-ChronoLocalDateTime13312)))
-(clojure.core/defn get-nano {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13313] (.getNano this13313)))
-(clojure.core/defn get-year {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13314] (.getYear this13314)))
-(clojure.core/defn minus-seconds {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13315 ^long long13316] (.minusSeconds this13315 long13316)))
-(clojure.core/defn get-second {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13317] (.getSecond this13317)))
-(clojure.core/defn plus-nanos {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13318 ^long long13319] (.plusNanos this13318 long13319)))
-(clojure.core/defn get-day-of-year {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13320] (.getDayOfYear this13320)))
-(clojure.core/defn plus {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalAmount"] ["java.time.LocalDateTime" "long" "java.time.temporal.TemporalUnit"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13321 ^java.time.temporal.TemporalAmount java-time-temporal-TemporalAmount13322] (.plus this13321 java-time-temporal-TemporalAmount13322)) (^java.time.LocalDateTime [^java.time.LocalDateTime this13323 ^long long13324 ^java.time.temporal.ChronoUnit java-time-temporal-TemporalUnit13325] (.plus this13323 long13324 java-time-temporal-TemporalUnit13325)))
-(clojure.core/defn with-hour {:arglists (quote (["java.time.LocalDateTime" "int"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13326 ^java.lang.Integer int13327] (.withHour this13326 int13327)))
-(clojure.core/defn with-minute {:arglists (quote (["java.time.LocalDateTime" "int"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13328 ^java.lang.Integer int13329] (.withMinute this13328 int13329)))
-(clojure.core/defn plus-minutes {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13330 ^long long13331] (.plusMinutes this13330 long13331)))
-(clojure.core/defn query {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalQuery"]))} (^java.lang.Object [^java.time.LocalDateTime this13332 ^java.time.temporal.TemporalQuery java-time-temporal-TemporalQuery13333] (.query this13332 java-time-temporal-TemporalQuery13333)))
-(clojure.core/defn get-day-of-week {:arglists (quote (["java.time.LocalDateTime"]))} (^java.time.DayOfWeek [^java.time.LocalDateTime this13334] (.getDayOfWeek this13334)))
-(clojure.core/defn to-string {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.String [^java.time.LocalDateTime this13335] (.toString this13335)))
-(clojure.core/defn plus-months {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13336 ^long long13337] (.plusMonths this13336 long13337)))
-(clojure.core/defn is-before {:arglists (quote (["java.time.LocalDateTime" "java.time.chrono.ChronoLocalDateTime"]))} (^java.lang.Boolean [^java.time.LocalDateTime this13338 ^java.time.chrono.ChronoLocalDateTime java-time-chrono-ChronoLocalDateTime13339] (.isBefore this13338 java-time-chrono-ChronoLocalDateTime13339)))
-(clojure.core/defn minus-months {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13340 ^long long13341] (.minusMonths this13340 long13341)))
-(clojure.core/defn minus {:arglists (quote (["java.time.LocalDateTime" "long" "java.time.temporal.TemporalUnit"] ["java.time.LocalDateTime" "java.time.temporal.TemporalAmount"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13342 ^long long13343 ^java.time.temporal.ChronoUnit java-time-temporal-TemporalUnit13344] (.minus this13342 long13343 java-time-temporal-TemporalUnit13344)) (^java.time.LocalDateTime [^java.time.LocalDateTime this13345 ^java.time.temporal.TemporalAmount java-time-temporal-TemporalAmount13346] (.minus this13345 java-time-temporal-TemporalAmount13346)))
-(clojure.core/defn at-zone {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneId"]))} (^java.time.ZonedDateTime [^java.time.LocalDateTime this13347 ^java.time.ZoneId java-time-ZoneId13348] (.atZone this13347 java-time-ZoneId13348)))
-(clojure.core/defn plus-hours {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13349 ^long long13350] (.plusHours this13349 long13350)))
-(clojure.core/defn plus-days {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13351 ^long long13352] (.plusDays this13351 long13352)))
-(clojure.core/defn to-local-time {:arglists (quote (["java.time.LocalDateTime"]))} (^java.time.LocalTime [^java.time.LocalDateTime this13353] (.toLocalTime this13353)))
-(clojure.core/defn get-long {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField"]))} (^long [^java.time.LocalDateTime this13354 ^java.time.temporal.TemporalField java-time-temporal-TemporalField13355] (.getLong this13354 java-time-temporal-TemporalField13355)))
-(clojure.core/defn with-year {:arglists (quote (["java.time.LocalDateTime" "int"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13356 ^java.lang.Integer int13357] (.withYear this13356 int13357)))
-(clojure.core/defn with-nano {:arglists (quote (["java.time.LocalDateTime" "int"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13358 ^java.lang.Integer int13359] (.withNano this13358 int13359)))
-(clojure.core/defn to-epoch-second {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneOffset"]))} (^long [^java.time.LocalDateTime this13360 ^java.time.ZoneOffset java-time-ZoneOffset13361] (.toEpochSecond this13360 java-time-ZoneOffset13361)))
-(clojure.core/defn until {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))} (^long [^java.time.LocalDateTime this13362 ^java.time.temporal.Temporal java-time-temporal-Temporal13363 ^java.time.temporal.ChronoUnit java-time-temporal-TemporalUnit13364] (.until this13362 java-time-temporal-Temporal13363 java-time-temporal-TemporalUnit13364)))
-(clojure.core/defn with-day-of-month {:arglists (quote (["java.time.LocalDateTime" "int"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13365 ^java.lang.Integer int13366] (.withDayOfMonth this13365 int13366)))
-(clojure.core/defn get-day-of-month {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13367] (.getDayOfMonth this13367)))
-(clojure.core/defn from {:arglists (quote (["java.time.temporal.TemporalAccessor"]))} (^java.time.LocalDateTime [^java.time.temporal.TemporalAccessor java-time-temporal-TemporalAccessor13368] (java.time.LocalDateTime/from java-time-temporal-TemporalAccessor13368)))
-(clojure.core/defn is-after {:arglists (quote (["java.time.LocalDateTime" "java.time.chrono.ChronoLocalDateTime"]))} (^java.lang.Boolean [^java.time.LocalDateTime this13369 ^java.time.chrono.ChronoLocalDateTime java-time-chrono-ChronoLocalDateTime13370] (.isAfter this13369 java-time-chrono-ChronoLocalDateTime13370)))
-(clojure.core/defn minus-nanos {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13371 ^long long13372] (.minusNanos this13371 long13372)))
-(clojure.core/defn is-supported {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField"] ["java.time.LocalDateTime" "java.time.temporal.TemporalUnit"]))} (^java.lang.Boolean [this13373 G__13374] (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalField G__13374)) (clojure.core/let [G__13374 ^"java.time.temporal.TemporalField" G__13374] (.isSupported ^java.time.LocalDateTime this13373 G__13374)) (clojure.core/and (clojure.core/instance? java.time.temporal.ChronoUnit G__13374)) (clojure.core/let [G__13374 ^"java.time.temporal.ChronoUnit" G__13374] (.isSupported ^java.time.LocalDateTime this13373 G__13374)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
-(clojure.core/defn minus-years {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13375 ^long long13376] (.minusYears this13375 long13376)))
-(clojure.core/defn get-chronology {:arglists (quote (["java.time.LocalDateTime"]))} (^java.time.chrono.Chronology [^java.time.LocalDateTime this13377] (.getChronology this13377)))
-(clojure.core/defn parse {:arglists (quote (["java.lang.CharSequence" "java.time.format.DateTimeFormatter"] ["java.lang.CharSequence"]))} (^java.time.LocalDateTime [^java.lang.CharSequence java-lang-CharSequence13378 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter13379] (java.time.LocalDateTime/parse java-lang-CharSequence13378 java-time-format-DateTimeFormatter13379)) (^java.time.LocalDateTime [^java.lang.CharSequence java-lang-CharSequence13380] (java.time.LocalDateTime/parse java-lang-CharSequence13380)))
-(clojure.core/defn with-second {:arglists (quote (["java.time.LocalDateTime" "int"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13381 ^java.lang.Integer int13382] (.withSecond this13381 int13382)))
-(clojure.core/defn to-local-date {:arglists (quote (["java.time.LocalDateTime"]))} (^java.time.LocalDate [^java.time.LocalDateTime this13383] (.toLocalDate this13383)))
-(clojure.core/defn get-minute {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13384] (.getMinute this13384)))
-(clojure.core/defn hash-code {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13385] (.hashCode this13385)))
-(clojure.core/defn adjust-into {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.Temporal"]))} (^java.time.temporal.Temporal [^java.time.LocalDateTime this13386 ^java.time.temporal.Temporal java-time-temporal-Temporal13387] (.adjustInto this13386 java-time-temporal-Temporal13387)))
-(clojure.core/defn with {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField" "long"] ["java.time.LocalDateTime" "java.time.temporal.TemporalAdjuster"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13388 ^java.time.temporal.TemporalField java-time-temporal-TemporalField13389 ^long long13390] (.with this13388 java-time-temporal-TemporalField13389 long13390)) (^java.time.LocalDateTime [^java.time.LocalDateTime this13391 ^java.time.temporal.TemporalAdjuster java-time-temporal-TemporalAdjuster13392] (.with this13391 java-time-temporal-TemporalAdjuster13392)))
-(clojure.core/defn now {:arglists (quote ([] ["java.time.ZoneId"] ["java.time.Clock"]))} (^java.time.LocalDateTime [] (java.time.LocalDateTime/now)) (^java.time.LocalDateTime [G__13394] (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.ZoneId G__13394)) (clojure.core/let [G__13394 ^"java.time.ZoneId" G__13394] (java.time.LocalDateTime/now G__13394)) (clojure.core/and (clojure.core/instance? java.time.Clock G__13394)) (clojure.core/let [G__13394 ^"java.time.Clock" G__13394] (java.time.LocalDateTime/now G__13394)) :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
-(clojure.core/defn get-month-value {:arglists (quote (["java.time.LocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13395] (.getMonthValue this13395)))
-(clojure.core/defn with-day-of-year {:arglists (quote (["java.time.LocalDateTime" "int"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13396 ^java.lang.Integer int13397] (.withDayOfYear this13396 int13397)))
-(clojure.core/defn compare-to {:arglists (quote (["java.time.LocalDateTime" "java.time.chrono.ChronoLocalDateTime"]))} (^java.lang.Integer [^java.time.LocalDateTime this13398 ^java.time.chrono.ChronoLocalDateTime java-time-chrono-ChronoLocalDateTime13399] (.compareTo this13398 java-time-chrono-ChronoLocalDateTime13399)))
-(clojure.core/defn get-month {:arglists (quote (["java.time.LocalDateTime"]))} (^java.time.Month [^java.time.LocalDateTime this13400] (.getMonth this13400)))
-(clojure.core/defn of-instant {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))} (^java.time.LocalDateTime [^java.time.Instant java-time-Instant13401 ^java.time.ZoneId java-time-ZoneId13402] (java.time.LocalDateTime/ofInstant java-time-Instant13401 java-time-ZoneId13402)))
-(clojure.core/defn plus-seconds {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13403 ^long long13404] (.plusSeconds this13403 long13404)))
-(clojure.core/defn get {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField"]))} (^java.lang.Integer [^java.time.LocalDateTime this13405 ^java.time.temporal.TemporalField java-time-temporal-TemporalField13406] (.get this13405 java-time-temporal-TemporalField13406)))
-(clojure.core/defn equals {:arglists (quote (["java.time.LocalDateTime" "java.lang.Object"]))} (^java.lang.Boolean [^java.time.LocalDateTime this13407 ^java.lang.Object java-lang-Object13408] (.equals this13407 java-lang-Object13408)))
-(clojure.core/defn format {:arglists (quote (["java.time.LocalDateTime" "java.time.format.DateTimeFormatter"]))} (^java.lang.String [^java.time.LocalDateTime this13409 ^java.time.format.DateTimeFormatter java-time-format-DateTimeFormatter13410] (.format this13409 java-time-format-DateTimeFormatter13410)))
-(clojure.core/defn plus-years {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13411 ^long long13412] (.plusYears this13411 long13412)))
-(clojure.core/defn minus-days {:arglists (quote (["java.time.LocalDateTime" "long"]))} (^java.time.LocalDateTime [^java.time.LocalDateTime this13413 ^long long13414] (.minusDays this13413 long13414)))
+
+(clojure.core/defn minus-minutes
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long minutes]
+   (.minusMinutes this minutes)))
+
+(clojure.core/defn truncated-to
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalUnit"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.time.temporal.ChronoUnit unit]
+   (.truncatedTo this unit)))
+
+(clojure.core/defn minus-weeks
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long weeks]
+   (.minusWeeks this weeks)))
+
+(clojure.core/defn to-instant
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneOffset"]))}
+  (^java.time.Instant [^java.time.LocalDateTime this ^java.time.ZoneOffset offset]
+   (.toInstant this offset)))
+
+(clojure.core/defn plus-weeks
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long weeks]
+   (.plusWeeks this weeks)))
+
+(clojure.core/defn range
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField"]))}
+  (^java.time.temporal.ValueRange [^java.time.LocalDateTime this ^java.time.temporal.TemporalField field]
+   (.range this field)))
+
+(clojure.core/defn of-epoch-second
+  {:arglists (quote (["long" "int" "java.time.ZoneOffset"]))}
+  (^java.time.LocalDateTime [^long epoch-second ^java.lang.Integer nano-of-second ^java.time.ZoneOffset offset]
+   (java.time.LocalDateTime/ofEpochSecond epoch-second nano-of-second offset)))
+
+(clojure.core/defn get-hour
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.getHour this)))
+
+(clojure.core/defn at-offset
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneOffset"]))}
+  (^java.time.OffsetDateTime [^java.time.LocalDateTime this ^java.time.ZoneOffset offset]
+   (.atOffset this offset)))
+
+(clojure.core/defn minus-hours
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long hours]
+   (.minusHours this hours)))
+
+(clojure.core/defn of
+  {:arglists (quote (["java.time.LocalDate" "java.time.LocalTime"]
+                     ["int" "int" "int" "int" "int"]
+                     ["int" "java.time.Month" "int" "int" "int"]
+                     ["int" "int" "int" "int" "int" "int"]
+                     ["int" "java.time.Month" "int" "int" "int" "int"]
+                     ["int" "int" "int" "int" "int" "int" "int"]
+                     ["int" "java.time.Month" "int" "int" "int" "int" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDate date ^java.time.LocalTime time]
+   (java.time.LocalDateTime/of date time))
+  (^java.time.LocalDateTime [arg0 arg1 arg2 arg3 arg4]
+   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.Number arg0)
+                                        (clojure.core/instance? java.lang.Number arg1)
+                                        (clojure.core/instance? java.lang.Number arg2)
+                                        (clojure.core/instance? java.lang.Number arg3)
+                                        (clojure.core/instance? java.lang.Number arg4))
+                        (clojure.core/let [year (clojure.core/int arg0)
+                                           month (clojure.core/int arg1)
+                                           day-of-month (clojure.core/int arg2)
+                                           hour (clojure.core/int arg3)
+                                           minute (clojure.core/int arg4)]
+                          (java.time.LocalDateTime/of year month day-of-month hour minute))
+                      (clojure.core/and (clojure.core/instance? java.lang.Number arg0)
+                                        (clojure.core/instance? java.time.Month arg1)
+                                        (clojure.core/instance? java.lang.Number arg2)
+                                        (clojure.core/instance? java.lang.Number arg3)
+                                        (clojure.core/instance? java.lang.Number arg4))
+                        (clojure.core/let [year (clojure.core/int arg0)
+                                           month ^"java.time.Month" arg1
+                                           day-of-month (clojure.core/int arg2)
+                                           hour (clojure.core/int arg3)
+                                           minute (clojure.core/int arg4)]
+                          (java.time.LocalDateTime/of year month day-of-month hour minute))
+                      :else (throw (java.lang.IllegalArgumentException.
+                                     "no corresponding java.time method with these args"))))
+  (^java.time.LocalDateTime [arg0 arg1 arg2 arg3 arg4 arg5]
+   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.Number arg0)
+                                        (clojure.core/instance? java.lang.Number arg1)
+                                        (clojure.core/instance? java.lang.Number arg2)
+                                        (clojure.core/instance? java.lang.Number arg3)
+                                        (clojure.core/instance? java.lang.Number arg4)
+                                        (clojure.core/instance? java.lang.Number arg5))
+                        (clojure.core/let [year (clojure.core/int arg0)
+                                           month (clojure.core/int arg1)
+                                           day-of-month (clojure.core/int arg2)
+                                           hour (clojure.core/int arg3)
+                                           minute (clojure.core/int arg4)
+                                           second (clojure.core/int arg5)]
+                          (java.time.LocalDateTime/of year month day-of-month hour minute second))
+                      (clojure.core/and (clojure.core/instance? java.lang.Number arg0)
+                                        (clojure.core/instance? java.time.Month arg1)
+                                        (clojure.core/instance? java.lang.Number arg2)
+                                        (clojure.core/instance? java.lang.Number arg3)
+                                        (clojure.core/instance? java.lang.Number arg4)
+                                        (clojure.core/instance? java.lang.Number arg5))
+                        (clojure.core/let [year (clojure.core/int arg0)
+                                           month ^"java.time.Month" arg1
+                                           day-of-month (clojure.core/int arg2)
+                                           hour (clojure.core/int arg3)
+                                           minute (clojure.core/int arg4)
+                                           second (clojure.core/int arg5)]
+                          (java.time.LocalDateTime/of year month day-of-month hour minute second))
+                      :else (throw (java.lang.IllegalArgumentException.
+                                     "no corresponding java.time method with these args"))))
+  (^java.time.LocalDateTime [arg0 arg1 arg2 arg3 arg4 arg5 arg6]
+   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.Number arg0)
+                                        (clojure.core/instance? java.lang.Number arg1)
+                                        (clojure.core/instance? java.lang.Number arg2)
+                                        (clojure.core/instance? java.lang.Number arg3)
+                                        (clojure.core/instance? java.lang.Number arg4)
+                                        (clojure.core/instance? java.lang.Number arg5)
+                                        (clojure.core/instance? java.lang.Number arg6))
+                        (clojure.core/let [year (clojure.core/int arg0)
+                                           month (clojure.core/int arg1)
+                                           day-of-month (clojure.core/int arg2)
+                                           hour (clojure.core/int arg3)
+                                           minute (clojure.core/int arg4)
+                                           second (clojure.core/int arg5)
+                                           nano-of-second (clojure.core/int arg6)]
+                          (java.time.LocalDateTime/of year month day-of-month hour minute second nano-of-second))
+                      (clojure.core/and (clojure.core/instance? java.lang.Number arg0)
+                                        (clojure.core/instance? java.time.Month arg1)
+                                        (clojure.core/instance? java.lang.Number arg2)
+                                        (clojure.core/instance? java.lang.Number arg3)
+                                        (clojure.core/instance? java.lang.Number arg4)
+                                        (clojure.core/instance? java.lang.Number arg5)
+                                        (clojure.core/instance? java.lang.Number arg6))
+                        (clojure.core/let [year (clojure.core/int arg0)
+                                           month ^"java.time.Month" arg1
+                                           day-of-month (clojure.core/int arg2)
+                                           hour (clojure.core/int arg3)
+                                           minute (clojure.core/int arg4)
+                                           second (clojure.core/int arg5)
+                                           nano-of-second (clojure.core/int arg6)]
+                          (java.time.LocalDateTime/of year month day-of-month hour minute second nano-of-second))
+                      :else (throw (java.lang.IllegalArgumentException.
+                                     "no corresponding java.time method with these args")))))
+
+(clojure.core/defn with-month
+  {:arglists (quote (["java.time.LocalDateTime" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.lang.Integer month]
+   (.withMonth this month)))
+
+(clojure.core/defn is-equal
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.chrono.ChronoLocalDateTime"]))}
+  (^java.lang.Boolean [^java.time.LocalDateTime this ^java.time.chrono.ChronoLocalDateTime other]
+   (.isEqual this other)))
+
+(clojure.core/defn get-nano
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.getNano this)))
+
+(clojure.core/defn get-year
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.getYear this)))
+
+(clojure.core/defn minus-seconds
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long seconds]
+   (.minusSeconds this seconds)))
+
+(clojure.core/defn get-second
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.getSecond this)))
+
+(clojure.core/defn plus-nanos
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long nanos]
+   (.plusNanos this nanos)))
+
+(clojure.core/defn get-day-of-year
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.getDayOfYear this)))
+
+(clojure.core/defn plus
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalAmount"]
+                     ["java.time.LocalDateTime" "long" "java.time.temporal.TemporalUnit"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.time.temporal.TemporalAmount amount-to-add]
+   (.plus this amount-to-add))
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long amount-to-add ^java.time.temporal.ChronoUnit unit]
+   (.plus this amount-to-add unit)))
+
+(clojure.core/defn with-hour
+  {:arglists (quote (["java.time.LocalDateTime" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.lang.Integer hour]
+   (.withHour this hour)))
+
+(clojure.core/defn with-minute
+  {:arglists (quote (["java.time.LocalDateTime" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.lang.Integer minute]
+   (.withMinute this minute)))
+
+(clojure.core/defn plus-minutes
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long minutes]
+   (.plusMinutes this minutes)))
+
+(clojure.core/defn query
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalQuery"]))}
+  (^java.lang.Object [^java.time.LocalDateTime this ^java.time.temporal.TemporalQuery query]
+   (.query this query)))
+
+(clojure.core/defn get-day-of-week
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.time.DayOfWeek [^java.time.LocalDateTime this]
+   (.getDayOfWeek this)))
+
+(clojure.core/defn to-string
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.String [^java.time.LocalDateTime this]
+   (.toString this)))
+
+(clojure.core/defn plus-months
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long months]
+   (.plusMonths this months)))
+
+(clojure.core/defn is-before
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.chrono.ChronoLocalDateTime"]))}
+  (^java.lang.Boolean [^java.time.LocalDateTime this ^java.time.chrono.ChronoLocalDateTime other]
+   (.isBefore this other)))
+
+(clojure.core/defn minus-months
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long months]
+   (.minusMonths this months)))
+
+(clojure.core/defn minus
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalAmount"]
+                     ["java.time.LocalDateTime" "long" "java.time.temporal.TemporalUnit"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.time.temporal.TemporalAmount amount-to-subtract]
+   (.minus this amount-to-subtract))
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long amount-to-subtract ^java.time.temporal.ChronoUnit unit]
+   (.minus this amount-to-subtract unit)))
+
+(clojure.core/defn at-zone
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneId"]))}
+  (^java.time.ZonedDateTime [^java.time.LocalDateTime this ^java.time.ZoneId zone]
+   (.atZone this zone)))
+
+(clojure.core/defn plus-hours
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long hours]
+   (.plusHours this hours)))
+
+(clojure.core/defn plus-days
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long days]
+   (.plusDays this days)))
+
+(clojure.core/defn to-local-time
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.time.LocalTime [^java.time.LocalDateTime this]
+   (.toLocalTime this)))
+
+(clojure.core/defn get-long
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField"]))}
+  (^long [^java.time.LocalDateTime this ^java.time.temporal.TemporalField field]
+   (.getLong this field)))
+
+(clojure.core/defn with-year
+  {:arglists (quote (["java.time.LocalDateTime" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.lang.Integer year]
+   (.withYear this year)))
+
+(clojure.core/defn with-nano
+  {:arglists (quote (["java.time.LocalDateTime" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.lang.Integer nano-of-second]
+   (.withNano this nano-of-second)))
+
+(clojure.core/defn to-epoch-second
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.ZoneOffset"]))}
+  (^long [^java.time.LocalDateTime this ^java.time.ZoneOffset offset]
+   (.toEpochSecond this offset)))
+
+(clojure.core/defn until
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
+  (^long [^java.time.LocalDateTime this ^java.time.temporal.Temporal end-exclusive ^java.time.temporal.ChronoUnit unit]
+   (.until this end-exclusive unit)))
+
+(clojure.core/defn with-day-of-month
+  {:arglists (quote (["java.time.LocalDateTime" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.lang.Integer day-of-month]
+   (.withDayOfMonth this day-of-month)))
+
+(clojure.core/defn get-day-of-month
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.getDayOfMonth this)))
+
+(clojure.core/defn from
+  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+  (^java.time.LocalDateTime [^java.time.temporal.TemporalAccessor temporal]
+   (java.time.LocalDateTime/from temporal)))
+
+(clojure.core/defn is-after
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.chrono.ChronoLocalDateTime"]))}
+  (^java.lang.Boolean [^java.time.LocalDateTime this ^java.time.chrono.ChronoLocalDateTime other]
+   (.isAfter this other)))
+
+(clojure.core/defn minus-nanos
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long nanos]
+   (.minusNanos this nanos)))
+
+(clojure.core/defn is-supported
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField"]
+                     ["java.time.LocalDateTime" "java.time.temporal.TemporalUnit"]))}
+  (^java.lang.Boolean [this arg0]
+   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalField arg0))
+                        (clojure.core/let [field ^"java.time.temporal.TemporalField" arg0]
+                          (.isSupported ^java.time.LocalDateTime this field))
+                      (clojure.core/and (clojure.core/instance? java.time.temporal.ChronoUnit arg0))
+                        (clojure.core/let [unit ^"java.time.temporal.ChronoUnit" arg0]
+                          (.isSupported ^java.time.LocalDateTime this unit))
+                      :else (throw (java.lang.IllegalArgumentException.
+                                     "no corresponding java.time method with these args")))))
+
+(clojure.core/defn minus-years
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long years]
+   (.minusYears this years)))
+
+(clojure.core/defn get-chronology
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.time.chrono.Chronology [^java.time.LocalDateTime this]
+   (.getChronology this)))
+
+(clojure.core/defn parse
+  {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
+  (^java.time.LocalDateTime [^java.lang.CharSequence text]
+   (java.time.LocalDateTime/parse text))
+  (^java.time.LocalDateTime [^java.lang.CharSequence text ^java.time.format.DateTimeFormatter formatter]
+   (java.time.LocalDateTime/parse text formatter)))
+
+(clojure.core/defn with-second
+  {:arglists (quote (["java.time.LocalDateTime" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.lang.Integer second]
+   (.withSecond this second)))
+
+(clojure.core/defn to-local-date
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.time.LocalDate [^java.time.LocalDateTime this]
+   (.toLocalDate this)))
+
+(clojure.core/defn get-minute
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.getMinute this)))
+
+(clojure.core/defn hash-code
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.hashCode this)))
+
+(clojure.core/defn adjust-into
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.Temporal"]))}
+  (^java.time.temporal.Temporal [^java.time.LocalDateTime this ^java.time.temporal.Temporal temporal]
+   (.adjustInto this temporal)))
+
+(clojure.core/defn with
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalAdjuster"]
+                     ["java.time.LocalDateTime" "java.time.temporal.TemporalField" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.time.temporal.TemporalAdjuster adjuster]
+   (.with this adjuster))
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.time.temporal.TemporalField field ^long new-value]
+   (.with this field new-value)))
+
+(clojure.core/defn now
+  {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
+  (^java.time.LocalDateTime []
+   (java.time.LocalDateTime/now))
+  (^java.time.LocalDateTime [arg0]
+   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.time.Clock arg0))
+                        (clojure.core/let [clock ^"java.time.Clock" arg0] (java.time.LocalDateTime/now clock))
+                      (clojure.core/and (clojure.core/instance? java.time.ZoneId arg0))
+                        (clojure.core/let [zone ^"java.time.ZoneId" arg0] (java.time.LocalDateTime/now zone))
+                      :else (throw (java.lang.IllegalArgumentException.
+                                     "no corresponding java.time method with these args")))))
+
+(clojure.core/defn get-month-value
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this]
+   (.getMonthValue this)))
+
+(clojure.core/defn with-day-of-year
+  {:arglists (quote (["java.time.LocalDateTime" "int"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^java.lang.Integer day-of-year]
+   (.withDayOfYear this day-of-year)))
+
+(clojure.core/defn compare-to
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.chrono.ChronoLocalDateTime"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this ^java.time.chrono.ChronoLocalDateTime other]
+   (.compareTo this other)))
+
+(clojure.core/defn get-month
+  {:arglists (quote (["java.time.LocalDateTime"]))}
+  (^java.time.Month [^java.time.LocalDateTime this]
+   (.getMonth this)))
+
+(clojure.core/defn of-instant
+  {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))}
+  (^java.time.LocalDateTime [^java.time.Instant instant ^java.time.ZoneId zone]
+   (java.time.LocalDateTime/ofInstant instant zone)))
+
+(clojure.core/defn plus-seconds
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long seconds]
+   (.plusSeconds this seconds)))
+
+(clojure.core/defn get
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.temporal.TemporalField"]))}
+  (^java.lang.Integer [^java.time.LocalDateTime this ^java.time.temporal.TemporalField field]
+   (.get this field)))
+
+(clojure.core/defn equals
+  {:arglists (quote (["java.time.LocalDateTime" "java.lang.Object"]))}
+  (^java.lang.Boolean [^java.time.LocalDateTime this ^java.lang.Object obj]
+   (.equals this obj)))
+
+(clojure.core/defn format
+  {:arglists (quote (["java.time.LocalDateTime" "java.time.format.DateTimeFormatter"]))}
+  (^java.lang.String [^java.time.LocalDateTime this ^java.time.format.DateTimeFormatter formatter]
+   (.format this formatter)))
+
+(clojure.core/defn plus-years
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long years]
+   (.plusYears this years)))
+
+(clojure.core/defn minus-days
+  {:arglists (quote (["java.time.LocalDateTime" "long"]))}
+  (^java.time.LocalDateTime [^java.time.LocalDateTime this ^long days]
+   (.minusDays this days)))
