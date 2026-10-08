@@ -4,131 +4,108 @@
             [goog.object]
             [java.time :refer [MonthDay]]))
 
-(clojure.core/defn at-year
-  {:arglists (quote (["java.time.MonthDay" "int"]))}
+(defn at-year
   (^js/JSJoda.LocalDate [^js/JSJoda.MonthDay this ^int year]
    (.atYear this year)))
 
-(clojure.core/defn range
-  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))}
+(defn range
   (^js/JSJoda.ValueRange [^js/JSJoda.MonthDay this ^js/JSJoda.TemporalField field]
    (.range this field)))
 
-(clojure.core/defn of
-  {:arglists (quote (["int" "int"] ["java.time.Month" "int"]))}
+(defn of
+  {:arglists '(["int" "int"] ["java.time.Month" "int"])}
   (^js/JSJoda.MonthDay [arg0 arg1]
    (js-invoke java.time.MonthDay "of" arg0 arg1)))
 
-(clojure.core/defn with-month
-  {:arglists (quote (["java.time.MonthDay" "int"]))}
+(defn with-month
   (^js/JSJoda.MonthDay [^js/JSJoda.MonthDay this ^int month]
    (.withMonth this month)))
 
-(clojure.core/defn query
-  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalQuery"]))}
+(defn query
   (^java.lang.Object [^js/JSJoda.MonthDay this ^js/JSJoda.TemporalQuery query]
    (.query this query)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.MonthDay"]))}
+(defn to-string
   (^java.lang.String [^js/JSJoda.MonthDay this]
    (.toString this)))
 
-(clojure.core/defn is-before
-  {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))}
+(defn is-before
   (^boolean [^js/JSJoda.MonthDay this ^js/JSJoda.MonthDay other]
    (.isBefore this other)))
 
-(clojure.core/defn get-long
-  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))}
+(defn get-long
   (^long [^js/JSJoda.MonthDay this ^js/JSJoda.TemporalField field]
    (.getLong this field)))
 
-(clojure.core/defn with-day-of-month
-  {:arglists (quote (["java.time.MonthDay" "int"]))}
+(defn with-day-of-month
   (^js/JSJoda.MonthDay [^js/JSJoda.MonthDay this ^int day-of-month]
    (.withDayOfMonth this day-of-month)))
 
-(clojure.core/defn get-day-of-month
-  {:arglists (quote (["java.time.MonthDay"]))}
+(defn get-day-of-month
   (^int [^js/JSJoda.MonthDay this]
    (.dayOfMonth this)))
 
-(clojure.core/defn from
-  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+(defn from
   (^js/JSJoda.MonthDay [^js/JSJoda.TemporalAccessor temporal]
    (js-invoke java.time.MonthDay "from" temporal)))
 
-(clojure.core/defn is-after
-  {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))}
+(defn is-after
   (^boolean [^js/JSJoda.MonthDay this ^js/JSJoda.MonthDay other]
    (.isAfter this other)))
 
-(clojure.core/defn is-supported
-  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))}
+(defn is-supported
   (^boolean [^js/JSJoda.MonthDay this ^js/JSJoda.TemporalField field]
    (.isSupported this field)))
 
-(clojure.core/defn parse
-  {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
+(defn parse
   (^js/JSJoda.MonthDay [^java.lang.CharSequence text]
    (js-invoke java.time.MonthDay "parse" text))
   (^js/JSJoda.MonthDay [^java.lang.CharSequence text ^js/JSJoda.DateTimeFormatter formatter]
    (js-invoke java.time.MonthDay "parse" text formatter)))
 
-(clojure.core/defn is-valid-year
-  {:arglists (quote (["java.time.MonthDay" "int"]))}
+(defn is-valid-year
   (^boolean [^js/JSJoda.MonthDay this ^int year]
    (.isValidYear this year)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.MonthDay"]))}
+(defn hash-code
   (^int [^js/JSJoda.MonthDay this]
    (.hashCode this)))
 
-(clojure.core/defn adjust-into
-  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.Temporal"]))}
+(defn adjust-into
   (^js/JSJoda.Temporal [^js/JSJoda.MonthDay this ^js/JSJoda.Temporal temporal]
    (.adjustInto this temporal)))
 
-(clojure.core/defn with
-  {:arglists (quote (["java.time.MonthDay" "java.time.Month"]))}
+(defn with
   (^js/JSJoda.MonthDay [^js/JSJoda.MonthDay this ^js/JSJoda.Month month]
    (.with this month)))
 
-(clojure.core/defn now
-  {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
+(defn now
+  {:arglists '([] ["java.time.Clock"] ["java.time.ZoneId"])}
   (^js/JSJoda.MonthDay []
    (js-invoke java.time.MonthDay "now"))
   (^js/JSJoda.MonthDay [arg0]
    (js-invoke java.time.MonthDay "now" arg0)))
 
-(clojure.core/defn get-month-value
-  {:arglists (quote (["java.time.MonthDay"]))}
+(defn get-month-value
   (^int [^js/JSJoda.MonthDay this]
    (.monthValue this)))
 
-(clojure.core/defn compare-to
-  {:arglists (quote (["java.time.MonthDay" "java.time.MonthDay"]))}
+(defn compare-to
   (^int [^js/JSJoda.MonthDay this ^js/JSJoda.MonthDay other]
    (.compareTo this other)))
 
-(clojure.core/defn get-month
-  {:arglists (quote (["java.time.MonthDay"]))}
+(defn get-month
   (^js/JSJoda.Month [^js/JSJoda.MonthDay this]
    (.month this)))
 
-(clojure.core/defn get
-  {:arglists (quote (["java.time.MonthDay" "java.time.temporal.TemporalField"]))}
+(defn get
   (^int [^js/JSJoda.MonthDay this ^js/JSJoda.TemporalField field]
    (.get this field)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.MonthDay" "java.lang.Object"]))}
+(defn equals
   (^boolean [^js/JSJoda.MonthDay this ^java.lang.Object obj]
    (.equals this obj)))
 
-(clojure.core/defn format
-  {:arglists (quote (["java.time.MonthDay" "java.time.format.DateTimeFormatter"]))}
+(defn format
   (^java.lang.String [^js/JSJoda.MonthDay this ^js/JSJoda.DateTimeFormatter formatter]
    (.format this formatter)))

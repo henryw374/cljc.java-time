@@ -1,6 +1,7 @@
 (ns defwrapper
   "based on gist by @plexus"
-  (:require [clojure.edn :as edn]
+  (:require [camel-snake-kebab.core :as csk]
+            [clojure.edn :as edn]
             [clojure.string :as string])
   (:import (java.time.format DateTimeFormatter)
            (java.time Instant)
@@ -44,13 +45,6 @@
               "java.time.temporal.ChronoUnit"
               original-name))))
 
-(defn camel->kebab
-  [string]
-  (-> string
-      (clojure.string/replace #"(.)([A-Z][a-z]+)" "$1-$2")
-      (clojure.string/replace #"([a-z0-9])([A-Z])" "$1-$2")
-      (clojure.string/lower-case)))
-
 (defn method-public? [^java.lang.reflect.Method method]
   (java.lang.reflect.Modifier/isPublic (.getModifiers method)))
 
@@ -81,7 +75,7 @@
 
 (defn ensure-boxed-long-double
   "Allow long and double, box everything else."
-  [c]
+  ^clojure.lang.Symbol [c]
   (let [t (if (instance? Class c)
             (class-name c)
             c)]
@@ -94,19 +88,19 @@
            void    java.lang.Object}
       t t)))
 
-(defn joda-name [c]
+(defn joda-name [^Class c]
   (if (and
         (instance? Class c)
         (string/starts-with? (.getName c) "java.time"))
     (symbol (str "js/JSJoda." (.getSimpleName c)))
     (if (and (instance? Class c) (.isArray ^Class c))
-      (.getName (type c))
+      (.getName ^Class (type c))
       c)))
 
 (defn tagged [value tag ext]
   (if (= :clj ext)
     (let [tag (if (and (instance? Class tag) (.isArray ^Class tag))
-                (.getName (type tag))
+                (.getName ^Class (type tag))
                 tag)]
       (vary-meta value assoc :tag (ensure-boxed-long-double tag)))
     (vary-meta value assoc :tag (joda-name tag))))
@@ -121,22 +115,31 @@
             (symbol (apply str "." (string/lower-case f) r))))
     (list (symbol (str "." nm)))))
 
-(defn tagged-local [value tag]
-  (let [tag (ensure-boxed-long-double tag)]
+(defn tagged-local [param-name value ^Class klazz]
+  (let [tag (ensure-boxed-long-double klazz)]
     (cond
       (= 'long tag)
-      `(long ~value)
+      [param-name `(~'long ~value)]
 
       (= 'double tag)
-      `(double ~value)
+      [param-name `(~'double ~value)]
 
       (= 'java.lang.Integer tag)
-      `(int ~value)
+      [param-name `(~'int ~value)]
+
+      (= 'java.lang.Character tag)
+      [param-name `(~'char ~value)]
 
       :else
-      (vary-meta value assoc :tag (.getName tag)))))
+      [(vary-meta param-name assoc :tag (if (.isArray klazz)
+                                          ;; Clojure 1.12:
+                                          ;; klazz would lead to ^java.time.temporal.TemporalField/1
+                                          ;; Clojure 1.11
+                                          ;; (.getName tag) leads to ^"[Ljava.time.temporal.TemporalField;"
+                                          (.getName tag)
+                                          tag)) value])))
 
-(defn method-call [static? klazz nam ext]
+(defn method-call [static? ^Class klazz nam ext]
   (if static?
     (if (= :clj ext)
       (list (symbol (str (.getName klazz) "/" nam)))
@@ -155,30 +158,33 @@
         method-call (method-call static? klazz nam ext)
         bod (if (= :cljs ext)
              `(~@method-call
-                ~@(when-not static? [(tagged this klazz ext)])
+                ~@(when-not static? [this])
                 ~@arg-vec)
-             `(cond
+             `(~'cond
                 ~@(mapcat
                   (fn [^Method method]
                     (let [param-names (->> (method-fqn method)
                                            (get fqn->param-names)
-                                           (mapv (comp symbol camel->kebab)))]
-                      (assert (= (count arg-vec) (count param-names)) (method-fqn method))
-                      `[(and ~@(map (fn [sym ^Class klz]
-                                      (if (.isArray klz)
-                                        `(= ~(.getComponentType klz)
-                                            (.getComponentType (class ~sym)))
-                                        `(instance? ~(ensure-boxed (class-name klz)) ~sym)))
-                                    arg-vec
-                                    (parameter-types method)))
-                        (let [~@(mapcat (fn [pn sym ^Class klz]
-                                          [pn (tagged-local sym klz)])
-                                        param-names
-                                        arg-vec
-                                        (parameter-types method))]
-                          (~@method-call
-                           ~@(when-not static? [(tagged this klazz ext)])
-                           ~@param-names))]))
+                                           (mapv csk/->kebab-case-symbol))
+                          _ (assert (= (count arg-vec) (count param-names)) (method-fqn method))
+                          conds (map (fn [sym ^Class klz]
+                                       (if (.isArray klz)
+                                         `(~'= ~(.getComponentType klz)
+                                           (.getComponentType (~'class ~sym)))
+                                         `(~'instance? ~(ensure-boxed (class-name klz)) ~sym)))
+                                     arg-vec
+                                     (parameter-types method))]
+                      `[~@(if (= 1 (count conds))
+                            conds
+                            [(apply list 'and conds)])
+                        (~'let [~@(mapcat (fn [pn sym ^Class klz]
+                                            (tagged-local pn sym klz))
+                                          param-names
+                                          arg-vec
+                                          (parameter-types method))]
+                         (~@method-call
+                          ~@(when-not static? [this])
+                          ~@param-names))]))
                   methods)
                 :else (throw (IllegalArgumentException. "no corresponding java.time method with these args"))))
         bod (if helpful?
@@ -186,7 +192,7 @@
                                   'cljc.java-time.extn.calendar-awareness/calendar-aware-cljs)
                  ~bod)
               bod)]
-    `(~(tagged `[~@(when-not static? [this]) ~@arg-vec] ret ext)
+    `(~(tagged `[~@(when-not static? [(tagged this klazz ext)]) ~@arg-vec] ret ext)
        ~bod)))
 
 (defn wrapper-tail [klazz method ext helpful?]
@@ -196,7 +202,7 @@
         static? (method-static? method)
         param-names (->> (method-fqn method)
                          (get fqn->param-names)
-                         (mapv (comp symbol camel->kebab)))
+                         (mapv csk/->kebab-case-symbol))
         _ (assert (= (count par) (count param-names)) (method-fqn method))
         arg-vec (into (if static? [] [(tagged 'this klazz ext)])
                       (map #(tagged %1 %2 ext)
@@ -212,20 +218,22 @@
     `(~(tagged arg-vec ret ext)
        ~bod)))
 
-(defn method-wrapper-form [fname klazz methods ext helpful?]
+(defn method-wrapper-form [fname ^Class klazz methods ext helpful?]
   (let [arities (into (sorted-map) (group-by parameter-count methods))
         static? (method-static? (first methods))]
-    `(defn ~fname
-       {:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
-                           #(map (fn [x] (.getName x)) %)
-                           parameter-types)
-                         (mapcat val arities))}
-       ~@(map (fn [[cnt meths]]
-                (if (= 1 (count meths))
-                  (wrapper-tail klazz (first meths) ext helpful?)
-                  (wrapper-multi-tail klazz meths ext helpful?)))
-           arities))))
-
+    `(~'defn ~fname
+      ;; print arglists when multiple methods with same arity
+      ~@(when (some (fn [[_arity meths]] (< 1 (count meths))) arities)
+          `[{:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
+                                    ;; with Clojure 1.12 we could use x directly instead of (.getName x)
+                                    #(map (fn [^Class x] (.getName x)) %)
+                                    parameter-types)
+                              (mapcat val arities))}])
+      ~@(map (fn [[_arity meths]]
+               (if (= 1 (count meths))
+                 (wrapper-tail klazz (first meths) ext helpful?)
+                 (wrapper-multi-tail klazz meths ext helpful?)))
+             arities))))
 
 (defn concrete? [^Method m]
   (not (Modifier/isVolatile (.getModifiers m))))
@@ -255,7 +263,7 @@
         helpful-fns (get helpful-exceptions klazz)]
     (do
       (for [[mname meths] methods
-            :let [fname (symbol (str prefix (camel->kebab mname)))]]
+            :let [fname (symbol (str prefix (csk/->kebab-case mname)))]]
         (method-wrapper-form fname klazz meths ext (contains? helpful-fns fname))))))
 
 (comment

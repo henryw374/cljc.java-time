@@ -1,7 +1,7 @@
 (ns cljc.java-time.format.sign-style
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.format SignStyle]))
+  (:import (java.time.format SignStyle)))
 
 (def exceeds-pad java.time.format.SignStyle/EXCEEDS_PAD)
 
@@ -13,49 +13,40 @@
 
 (def not-negative java.time.format.SignStyle/NOT_NEGATIVE)
 
-(clojure.core/defn values
-  {:arglists (quote ([]))}
+(defn values
   (^"java.lang.Class" []
    (java.time.format.SignStyle/values)))
 
-(clojure.core/defn value-of
-  {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
+(defn value-of
   (^java.time.format.SignStyle [^java.lang.String name]
    (java.time.format.SignStyle/valueOf name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (java.time.format.SignStyle/valueOf enum-type name)))
 
-(clojure.core/defn ordinal
-  {:arglists (quote (["java.time.format.SignStyle"]))}
+(defn ordinal
   (^java.lang.Integer [^java.time.format.SignStyle this]
    (.ordinal this)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.format.SignStyle"]))}
+(defn to-string
   (^java.lang.String [^java.time.format.SignStyle this]
    (.toString this)))
 
-(clojure.core/defn name
-  {:arglists (quote (["java.time.format.SignStyle"]))}
+(defn name
   (^java.lang.String [^java.time.format.SignStyle this]
    (.name this)))
 
-(clojure.core/defn get-declaring-class
-  {:arglists (quote (["java.time.format.SignStyle"]))}
+(defn get-declaring-class
   (^java.lang.Class [^java.time.format.SignStyle this]
    (.getDeclaringClass this)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.format.SignStyle"]))}
+(defn hash-code
   (^java.lang.Integer [^java.time.format.SignStyle this]
    (.hashCode this)))
 
-(clojure.core/defn compare-to
-  {:arglists (quote (["java.time.format.SignStyle" "java.lang.Enum"]))}
+(defn compare-to
   (^java.lang.Integer [^java.time.format.SignStyle this ^java.lang.Enum o]
    (.compareTo this o)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.format.SignStyle" "java.lang.Object"]))}
+(defn equals
   (^java.lang.Boolean [^java.time.format.SignStyle this ^java.lang.Object other]
    (.equals this other)))

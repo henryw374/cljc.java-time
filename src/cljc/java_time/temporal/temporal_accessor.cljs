@@ -4,27 +4,22 @@
             [goog.object]
             [java.time.temporal :refer [TemporalAccessor]]))
 
-(clojure.core/defn get
-  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))}
+(defn get
   (^int [^js/JSJoda.TemporalAccessor this ^js/JSJoda.TemporalField field]
    (.get this field)))
 
-(clojure.core/defn get-long
-  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))}
+(defn get-long
   (^long [^js/JSJoda.TemporalAccessor this ^js/JSJoda.TemporalField field]
    (.getLong this field)))
 
-(clojure.core/defn is-supported
-  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))}
+(defn is-supported
   (^boolean [^js/JSJoda.TemporalAccessor this ^js/JSJoda.TemporalField field]
    (.isSupported this field)))
 
-(clojure.core/defn query
-  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalQuery"]))}
+(defn query
   (^java.lang.Object [^js/JSJoda.TemporalAccessor this ^js/JSJoda.TemporalQuery query]
    (.query this query)))
 
-(clojure.core/defn range
-  {:arglists (quote (["java.time.temporal.TemporalAccessor" "java.time.temporal.TemporalField"]))}
+(defn range
   (^js/JSJoda.ValueRange [^js/JSJoda.TemporalAccessor this ^js/JSJoda.TemporalField field]
    (.range this field)))
