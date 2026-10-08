@@ -90,9 +90,9 @@
 (defn between
   {:arglists '(["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "java.time.temporal.Temporal"])}
   (^long
-   [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal1-inclusive
-    ^java.time.temporal.Temporal temporal2-exclusive]
-   (.between this temporal1-inclusive temporal2-exclusive)))
+   [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal-1-inclusive
+    ^java.time.temporal.Temporal temporal-2-exclusive]
+   (.between this temporal-1-inclusive temporal-2-exclusive)))
 
 (defn hash-code
   {:arglists '(["java.time.temporal.ChronoUnit"])}

@@ -1,6 +1,7 @@
 (ns defwrapper
   "based on gist by @plexus"
-  (:require [clojure.edn :as edn]
+  (:require [camel-snake-kebab.core :as csk]
+            [clojure.edn :as edn]
             [clojure.string :as string])
   (:import (java.time.format DateTimeFormatter)
            (java.time Instant)
@@ -43,13 +44,6 @@
     (symbol (if (= "java.time.temporal.TemporalUnit" (.getName klazz))
               "java.time.temporal.ChronoUnit"
               original-name))))
-
-(defn camel->kebab
-  [string]
-  (-> string
-      (clojure.string/replace #"(.)([A-Z][a-z]+)" "$1-$2")
-      (clojure.string/replace #"([a-z0-9])([A-Z])" "$1-$2")
-      (clojure.string/lower-case)))
 
 (defn method-public? [^java.lang.reflect.Method method]
   (java.lang.reflect.Modifier/isPublic (.getModifiers method)))
@@ -171,7 +165,7 @@
                   (fn [^Method method]
                     (let [param-names (->> (method-fqn method)
                                            (get fqn->param-names)
-                                           (mapv (comp symbol camel->kebab)))
+                                           (mapv csk/->kebab-case-symbol))
                           _ (assert (= (count arg-vec) (count param-names)) (method-fqn method))
                           conds (map (fn [sym ^Class klz]
                                        (if (.isArray klz)
@@ -208,7 +202,7 @@
         static? (method-static? method)
         param-names (->> (method-fqn method)
                          (get fqn->param-names)
-                         (mapv (comp symbol camel->kebab)))
+                         (mapv csk/->kebab-case-symbol))
         _ (assert (= (count par) (count param-names)) (method-fqn method))
         arg-vec (into (if static? [] [(tagged 'this klazz ext)])
                       (map #(tagged %1 %2 ext)
@@ -267,7 +261,7 @@
         helpful-fns (get helpful-exceptions klazz)]
     (do
       (for [[mname meths] methods
-            :let [fname (symbol (str prefix (camel->kebab mname)))]]
+            :let [fname (symbol (str prefix (csk/->kebab-case mname)))]]
         (method-wrapper-form fname klazz meths ext (contains? helpful-fns fname))))))
 
 (comment

@@ -90,8 +90,8 @@
 
 (defn between
   {:arglists '(["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "java.time.temporal.Temporal"])}
-  (^long [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal1-inclusive ^js/JSJoda.Temporal temporal2-exclusive]
-   (.between this temporal1-inclusive temporal2-exclusive)))
+  (^long [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal-1-inclusive ^js/JSJoda.Temporal temporal-2-exclusive]
+   (.between this temporal-1-inclusive temporal-2-exclusive)))
 
 (defn hash-code
   {:arglists '(["java.time.temporal.ChronoUnit"])}
