@@ -34,78 +34,64 @@
 (def basic-iso-date java.time.format.DateTimeFormatter/BASIC_ISO_DATE)
 
 (defn of-pattern
-  {:arglists '(["java.lang.String"] ["java.lang.String" "java.util.Locale"])}
   (^java.time.format.DateTimeFormatter [^java.lang.String pattern]
    (java.time.format.DateTimeFormatter/ofPattern pattern))
   (^java.time.format.DateTimeFormatter [^java.lang.String pattern ^java.util.Locale locale]
    (java.time.format.DateTimeFormatter/ofPattern pattern locale)))
 
 (defn parse-best
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "[Ljava.time.temporal.TemporalQuery;"])}
   (^java.time.temporal.TemporalAccessor
    [^java.time.format.DateTimeFormatter this ^java.lang.CharSequence text ^"java.lang.Class" queries]
    (.parseBest this text queries)))
 
 (defn format-to
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalAccessor" "java.lang.Appendable"])}
   (^java.lang.Object
    [^java.time.format.DateTimeFormatter this ^java.time.temporal.TemporalAccessor temporal
     ^java.lang.Appendable appendable]
    (.formatTo this temporal appendable)))
 
 (defn get-decimal-style
-  {:arglists '(["java.time.format.DateTimeFormatter"])}
   (^java.time.format.DecimalStyle [^java.time.format.DateTimeFormatter this]
    (.getDecimalStyle this)))
 
 (defn with-chronology
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.time.chrono.Chronology"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this ^java.time.chrono.Chronology chrono]
    (.withChronology this chrono)))
 
 (defn get-resolver-style
-  {:arglists '(["java.time.format.DateTimeFormatter"])}
   (^java.time.format.ResolverStyle [^java.time.format.DateTimeFormatter this]
    (.getResolverStyle this)))
 
 (defn with-decimal-style
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.time.format.DecimalStyle"])}
   (^java.time.format.DateTimeFormatter
    [^java.time.format.DateTimeFormatter this ^java.time.format.DecimalStyle decimal-style]
    (.withDecimalStyle this decimal-style)))
 
 (defn get-locale
-  {:arglists '(["java.time.format.DateTimeFormatter"])}
   (^java.util.Locale [^java.time.format.DateTimeFormatter this]
    (.getLocale this)))
 
 (defn to-string
-  {:arglists '(["java.time.format.DateTimeFormatter"])}
   (^java.lang.String [^java.time.format.DateTimeFormatter this]
    (.toString this)))
 
 (defn parsed-leap-second
-  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.format.DateTimeFormatter/parsedLeapSecond)))
 
 (defn with-zone
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.time.ZoneId"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this ^java.time.ZoneId zone]
    (.withZone this zone)))
 
 (defn parsed-excess-days
-  {:arglists '([])}
   (^java.time.temporal.TemporalQuery []
    (java.time.format.DateTimeFormatter/parsedExcessDays)))
 
 (defn get-zone
-  {:arglists '(["java.time.format.DateTimeFormatter"])}
   (^java.time.ZoneId [^java.time.format.DateTimeFormatter this]
    (.getZone this)))
 
 (defn of-localized-date-time
-  {:arglists '(["java.time.format.FormatStyle"] ["java.time.format.FormatStyle" "java.time.format.FormatStyle"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.FormatStyle date-time-style]
    (java.time.format.DateTimeFormatter/ofLocalizedDateTime date-time-style))
   (^java.time.format.DateTimeFormatter
@@ -113,12 +99,10 @@
    (java.time.format.DateTimeFormatter/ofLocalizedDateTime date-style time-style)))
 
 (defn get-resolver-fields
-  {:arglists '(["java.time.format.DateTimeFormatter"])}
   (^java.util.Set [^java.time.format.DateTimeFormatter this]
    (.getResolverFields this)))
 
 (defn get-chronology
-  {:arglists '(["java.time.format.DateTimeFormatter"])}
   (^java.time.chrono.Chronology [^java.time.format.DateTimeFormatter this]
    (.getChronology this)))
 
@@ -142,7 +126,6 @@
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn with-locale
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.util.Locale"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatter this ^java.util.Locale locale]
    (.withLocale this locale)))
 
@@ -158,36 +141,29 @@
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn parse-unresolved
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.lang.CharSequence" "java.text.ParsePosition"])}
   (^java.time.temporal.TemporalAccessor
    [^java.time.format.DateTimeFormatter this ^java.lang.CharSequence text ^java.text.ParsePosition position]
    (.parseUnresolved this text position)))
 
 (defn of-localized-time
-  {:arglists '(["java.time.format.FormatStyle"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.FormatStyle time-style]
    (java.time.format.DateTimeFormatter/ofLocalizedTime time-style)))
 
 (defn of-localized-date
-  {:arglists '(["java.time.format.FormatStyle"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.FormatStyle date-style]
    (java.time.format.DateTimeFormatter/ofLocalizedDate date-style)))
 
 (defn format
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalAccessor"])}
   (^java.lang.String [^java.time.format.DateTimeFormatter this ^java.time.temporal.TemporalAccessor temporal]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.format this temporal))))
 
 (defn to-format
-  {:arglists '(["java.time.format.DateTimeFormatter"]
-               ["java.time.format.DateTimeFormatter" "java.time.temporal.TemporalQuery"])}
   (^java.text.Format [^java.time.format.DateTimeFormatter this]
    (.toFormat this))
   (^java.text.Format [^java.time.format.DateTimeFormatter this ^java.time.temporal.TemporalQuery parse-query]
    (.toFormat this parse-query)))
 
 (defn with-resolver-style
-  {:arglists '(["java.time.format.DateTimeFormatter" "java.time.format.ResolverStyle"])}
   (^java.time.format.DateTimeFormatter
    [^java.time.format.DateTimeFormatter this ^java.time.format.ResolverStyle resolver-style]
    (.withResolverStyle this resolver-style)))

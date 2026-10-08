@@ -10,17 +10,14 @@
 (def utc java.time.ZoneOffset/UTC)
 
 (defn get-available-zone-ids
-  {:arglists '([])}
   (^java.util.Set []
    (java.time.ZoneOffset/getAvailableZoneIds)))
 
 (defn range
-  {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalField"])}
   (^java.time.temporal.ValueRange [^java.time.ZoneOffset this ^java.time.temporal.TemporalField field]
    (.range this field)))
 
 (defn of-total-seconds
-  {:arglists '(["int"])}
   (^java.time.ZoneOffset [^java.lang.Integer total-seconds]
    (java.time.ZoneOffset/ofTotalSeconds total-seconds)))
 
@@ -36,52 +33,42 @@
    (java.time.ZoneOffset/of zone-id alias-map)))
 
 (defn of-offset
-  {:arglists '(["java.lang.String" "java.time.ZoneOffset"])}
   (^java.time.ZoneId [^java.lang.String prefix ^java.time.ZoneOffset offset]
    (java.time.ZoneOffset/ofOffset prefix offset)))
 
 (defn query
-  {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalQuery"])}
   (^java.lang.Object [^java.time.ZoneOffset this ^java.time.temporal.TemporalQuery query]
    (.query this query)))
 
 (defn to-string
-  {:arglists '(["java.time.ZoneOffset"])}
   (^java.lang.String [^java.time.ZoneOffset this]
    (.toString this)))
 
 (defn get-display-name
-  {:arglists '(["java.time.ZoneOffset" "java.time.format.TextStyle" "java.util.Locale"])}
   (^java.lang.String [^java.time.ZoneOffset this ^java.time.format.TextStyle style ^java.util.Locale locale]
    (.getDisplayName this style locale)))
 
 (defn get-long
-  {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalField"])}
   (^long [^java.time.ZoneOffset this ^java.time.temporal.TemporalField field]
    (.getLong this field)))
 
 (defn get-rules
-  {:arglists '(["java.time.ZoneOffset"])}
   (^java.time.zone.ZoneRules [^java.time.ZoneOffset this]
    (.getRules this)))
 
 (defn of-hours
-  {:arglists '(["int"])}
   (^java.time.ZoneOffset [^java.lang.Integer hours]
    (java.time.ZoneOffset/ofHours hours)))
 
 (defn get-id
-  {:arglists '(["java.time.ZoneOffset"])}
   (^java.lang.String [^java.time.ZoneOffset this]
    (.getId this)))
 
 (defn normalized
-  {:arglists '(["java.time.ZoneOffset"])}
   (^java.time.ZoneId [^java.time.ZoneOffset this]
    (.normalized this)))
 
 (defn system-default
-  {:arglists '([])}
   (^java.time.ZoneId []
    (java.time.ZoneOffset/systemDefault)))
 
@@ -95,46 +82,37 @@
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn of-hours-minutes-seconds
-  {:arglists '(["int" "int" "int"])}
   (^java.time.ZoneOffset [^java.lang.Integer hours ^java.lang.Integer minutes ^java.lang.Integer seconds]
    (java.time.ZoneOffset/ofHoursMinutesSeconds hours minutes seconds)))
 
 (defn is-supported
-  {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalField"])}
   (^java.lang.Boolean [^java.time.ZoneOffset this ^java.time.temporal.TemporalField field]
    (.isSupported this field)))
 
 (defn hash-code
-  {:arglists '(["java.time.ZoneOffset"])}
   (^java.lang.Integer [^java.time.ZoneOffset this]
    (.hashCode this)))
 
 (defn get-total-seconds
-  {:arglists '(["java.time.ZoneOffset"])}
   (^java.lang.Integer [^java.time.ZoneOffset this]
    (.getTotalSeconds this)))
 
 (defn adjust-into
-  {:arglists '(["java.time.ZoneOffset" "java.time.temporal.Temporal"])}
   (^java.time.temporal.Temporal [^java.time.ZoneOffset this ^java.time.temporal.Temporal temporal]
    (.adjustInto this temporal)))
 
 (defn of-hours-minutes
-  {:arglists '(["int" "int"])}
   (^java.time.ZoneOffset [^java.lang.Integer hours ^java.lang.Integer minutes]
    (java.time.ZoneOffset/ofHoursMinutes hours minutes)))
 
 (defn compare-to
-  {:arglists '(["java.time.ZoneOffset" "java.time.ZoneOffset"])}
   (^java.lang.Integer [^java.time.ZoneOffset this ^java.time.ZoneOffset other]
    (.compareTo this other)))
 
 (defn get
-  {:arglists '(["java.time.ZoneOffset" "java.time.temporal.TemporalField"])}
   (^java.lang.Integer [^java.time.ZoneOffset this ^java.time.temporal.TemporalField field]
    (.get this field)))
 
 (defn equals
-  {:arglists '(["java.time.ZoneOffset" "java.lang.Object"])}
   (^java.lang.Boolean [^java.time.ZoneOffset this ^java.lang.Object obj]
    (.equals this obj)))

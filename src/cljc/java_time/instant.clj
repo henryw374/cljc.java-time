@@ -10,115 +10,92 @@
 (def max java.time.Instant/MAX)
 
 (defn truncated-to
-  {:arglists '(["java.time.Instant" "java.time.temporal.TemporalUnit"])}
   (^java.time.Instant [^java.time.Instant this ^java.time.temporal.ChronoUnit unit]
    (.truncatedTo this unit)))
 
 (defn range
-  {:arglists '(["java.time.Instant" "java.time.temporal.TemporalField"])}
   (^java.time.temporal.ValueRange [^java.time.Instant this ^java.time.temporal.TemporalField field]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.range this field))))
 
 (defn of-epoch-second
-  {:arglists '(["long"] ["long" "long"])}
   (^java.time.Instant [^long epoch-second]
    (java.time.Instant/ofEpochSecond epoch-second))
   (^java.time.Instant [^long epoch-second ^long nano-adjustment]
    (java.time.Instant/ofEpochSecond epoch-second nano-adjustment)))
 
 (defn at-offset
-  {:arglists '(["java.time.Instant" "java.time.ZoneOffset"])}
   (^java.time.OffsetDateTime [^java.time.Instant this ^java.time.ZoneOffset offset]
    (.atOffset this offset)))
 
 (defn minus-millis
-  {:arglists '(["java.time.Instant" "long"])}
   (^java.time.Instant [^java.time.Instant this ^long millis-to-subtract]
    (.minusMillis this millis-to-subtract)))
 
 (defn get-nano
-  {:arglists '(["java.time.Instant"])}
   (^java.lang.Integer [^java.time.Instant this]
    (.getNano this)))
 
 (defn plus-millis
-  {:arglists '(["java.time.Instant" "long"])}
   (^java.time.Instant [^java.time.Instant this ^long millis-to-add]
    (.plusMillis this millis-to-add)))
 
 (defn minus-seconds
-  {:arglists '(["java.time.Instant" "long"])}
   (^java.time.Instant [^java.time.Instant this ^long seconds-to-subtract]
    (.minusSeconds this seconds-to-subtract)))
 
 (defn plus-nanos
-  {:arglists '(["java.time.Instant" "long"])}
   (^java.time.Instant [^java.time.Instant this ^long nanos-to-add]
    (.plusNanos this nanos-to-add)))
 
 (defn plus
-  {:arglists '(["java.time.Instant" "java.time.temporal.TemporalAmount"]
-               ["java.time.Instant" "long" "java.time.temporal.TemporalUnit"])}
   (^java.time.Instant [^java.time.Instant this ^java.time.temporal.TemporalAmount amount-to-add]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.plus this amount-to-add)))
   (^java.time.Instant [^java.time.Instant this ^long amount-to-add ^java.time.temporal.ChronoUnit unit]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.plus this amount-to-add unit))))
 
 (defn query
-  {:arglists '(["java.time.Instant" "java.time.temporal.TemporalQuery"])}
   (^java.lang.Object [^java.time.Instant this ^java.time.temporal.TemporalQuery query]
    (.query this query)))
 
 (defn to-string
-  {:arglists '(["java.time.Instant"])}
   (^java.lang.String [^java.time.Instant this]
    (.toString this)))
 
 (defn is-before
-  {:arglists '(["java.time.Instant" "java.time.Instant"])}
   (^java.lang.Boolean [^java.time.Instant this ^java.time.Instant other-instant]
    (.isBefore this other-instant)))
 
 (defn minus
-  {:arglists '(["java.time.Instant" "java.time.temporal.TemporalAmount"]
-               ["java.time.Instant" "long" "java.time.temporal.TemporalUnit"])}
   (^java.time.Instant [^java.time.Instant this ^java.time.temporal.TemporalAmount amount-to-subtract]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.minus this amount-to-subtract)))
   (^java.time.Instant [^java.time.Instant this ^long amount-to-subtract ^java.time.temporal.ChronoUnit unit]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.minus this amount-to-subtract unit))))
 
 (defn at-zone
-  {:arglists '(["java.time.Instant" "java.time.ZoneId"])}
   (^java.time.ZonedDateTime [^java.time.Instant this ^java.time.ZoneId zone]
    (.atZone this zone)))
 
 (defn of-epoch-milli
-  {:arglists '(["long"])}
   (^java.time.Instant [^long epoch-milli]
    (java.time.Instant/ofEpochMilli epoch-milli)))
 
 (defn get-long
-  {:arglists '(["java.time.Instant" "java.time.temporal.TemporalField"])}
   (^long [^java.time.Instant this ^java.time.temporal.TemporalField field]
    (.getLong this field)))
 
 (defn until
-  {:arglists '(["java.time.Instant" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"])}
   (^long [^java.time.Instant this ^java.time.temporal.Temporal end-exclusive ^java.time.temporal.ChronoUnit unit]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.until this end-exclusive unit))))
 
 (defn from
-  {:arglists '(["java.time.temporal.TemporalAccessor"])}
   (^java.time.Instant [^java.time.temporal.TemporalAccessor temporal]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (java.time.Instant/from temporal))))
 
 (defn is-after
-  {:arglists '(["java.time.Instant" "java.time.Instant"])}
   (^java.lang.Boolean [^java.time.Instant this ^java.time.Instant other-instant]
    (.isAfter this other-instant)))
 
 (defn minus-nanos
-  {:arglists '(["java.time.Instant" "long"])}
   (^java.time.Instant [^java.time.Instant this ^long nanos-to-subtract]
    (.minusNanos this nanos-to-subtract)))
 
@@ -133,61 +110,49 @@
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn parse
-  {:arglists '(["java.lang.CharSequence"])}
   (^java.time.Instant [^java.lang.CharSequence text]
    (java.time.Instant/parse text)))
 
 (defn hash-code
-  {:arglists '(["java.time.Instant"])}
   (^java.lang.Integer [^java.time.Instant this]
    (.hashCode this)))
 
 (defn adjust-into
-  {:arglists '(["java.time.Instant" "java.time.temporal.Temporal"])}
   (^java.time.temporal.Temporal [^java.time.Instant this ^java.time.temporal.Temporal temporal]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.adjustInto this temporal))))
 
 (defn with
-  {:arglists '(["java.time.Instant" "java.time.temporal.TemporalAdjuster"]
-               ["java.time.Instant" "java.time.temporal.TemporalField" "long"])}
   (^java.time.Instant [^java.time.Instant this ^java.time.temporal.TemporalAdjuster adjuster]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.with this adjuster)))
   (^java.time.Instant [^java.time.Instant this ^java.time.temporal.TemporalField field ^long new-value]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.with this field new-value))))
 
 (defn now
-  {:arglists '([] ["java.time.Clock"])}
   (^java.time.Instant []
    (java.time.Instant/now))
   (^java.time.Instant [^java.time.Clock clock]
    (java.time.Instant/now clock)))
 
 (defn to-epoch-milli
-  {:arglists '(["java.time.Instant"])}
   (^long [^java.time.Instant this]
    (.toEpochMilli this)))
 
 (defn get-epoch-second
-  {:arglists '(["java.time.Instant"])}
   (^long [^java.time.Instant this]
    (.getEpochSecond this)))
 
 (defn compare-to
-  {:arglists '(["java.time.Instant" "java.time.Instant"])}
   (^java.lang.Integer [^java.time.Instant this ^java.time.Instant other-instant]
    (.compareTo this other-instant)))
 
 (defn plus-seconds
-  {:arglists '(["java.time.Instant" "long"])}
   (^java.time.Instant [^java.time.Instant this ^long seconds-to-add]
    (.plusSeconds this seconds-to-add)))
 
 (defn get
-  {:arglists '(["java.time.Instant" "java.time.temporal.TemporalField"])}
   (^java.lang.Integer [^java.time.Instant this ^java.time.temporal.TemporalField field]
    (cljc.java-time.extn.calendar-awareness/calendar-aware-clj (.get this field))))
 
 (defn equals
-  {:arglists '(["java.time.Instant" "java.lang.Object"])}
   (^java.lang.Boolean [^java.time.Instant this ^java.lang.Object other-instant]
    (.equals this other-instant)))

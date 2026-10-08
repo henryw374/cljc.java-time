@@ -92,13 +92,13 @@
   ;; constructors
   (when (= java.time.format.DateTimeFormatterBuilder c)
     (prn (remove-line-column-meta
-          '(defn new {:arglists (quote ([]))}
+          '(defn new
              (^java.time.format.DateTimeFormatterBuilder [] (java.time.format.DateTimeFormatterBuilder.))))))
   ;; methods
   (doseq [f (df/defwrapper c ext)]
     (let [f (if (= 'is-leap (second f))
               (remove-line-column-meta
-               '(defn is-leap {:arglists (quote (["long"]))}
+               '(defn is-leap
                   (^java.lang.Boolean [^long year] (. java.time.Year isLeap year))))
               f)]
       (pr f))

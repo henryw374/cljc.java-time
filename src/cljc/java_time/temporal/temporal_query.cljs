@@ -5,6 +5,5 @@
             [java.time.temporal :refer [TemporalQuery]]))
 
 (defn query-from
-  {:arglists '(["java.time.temporal.TemporalQuery" "java.time.temporal.TemporalAccessor"])}
   (^java.lang.Object [^js/JSJoda.TemporalQuery this ^js/JSJoda.TemporalAccessor temporal]
    (.queryFrom this temporal)))

@@ -9,165 +9,132 @@
 (def max (goog.object/get java.time.OffsetTime "MAX"))
 
 (defn minus-minutes
-  {:arglists '(["java.time.OffsetTime" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long minutes]
    (.minusMinutes this minutes)))
 
 (defn truncated-to
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalUnit"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalUnit unit]
    (.truncatedTo this unit)))
 
 (defn range
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalField"])}
   (^js/JSJoda.ValueRange [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalField field]
    (.range this field)))
 
 (defn get-hour
-  {:arglists '(["java.time.OffsetTime"])}
   (^int [^js/JSJoda.OffsetTime this]
    (.hour this)))
 
 (defn minus-hours
-  {:arglists '(["java.time.OffsetTime" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long hours]
    (.minusHours this hours)))
 
 (defn of
-  {:arglists '(["java.time.LocalTime" "java.time.ZoneOffset"] ["int" "int" "int" "int" "java.time.ZoneOffset"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.LocalTime time ^js/JSJoda.ZoneOffset offset]
    (js-invoke java.time.OffsetTime "of" time offset))
   (^js/JSJoda.OffsetTime [^int hour ^int minute ^int second ^int nano-of-second ^js/JSJoda.ZoneOffset offset]
    (js-invoke java.time.OffsetTime "of" hour minute second nano-of-second offset)))
 
 (defn is-equal
-  {:arglists '(["java.time.OffsetTime" "java.time.OffsetTime"])}
   (^boolean [^js/JSJoda.OffsetTime this ^js/JSJoda.OffsetTime other]
    (.isEqual this other)))
 
 (defn get-nano
-  {:arglists '(["java.time.OffsetTime"])}
   (^int [^js/JSJoda.OffsetTime this]
    (.nano this)))
 
 (defn minus-seconds
-  {:arglists '(["java.time.OffsetTime" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long seconds]
    (.minusSeconds this seconds)))
 
 (defn get-second
-  {:arglists '(["java.time.OffsetTime"])}
   (^int [^js/JSJoda.OffsetTime this]
    (.second this)))
 
 (defn plus-nanos
-  {:arglists '(["java.time.OffsetTime" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long nanos]
    (.plusNanos this nanos)))
 
 (defn plus
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalAmount"]
-               ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalAmount amount-to-add]
    (.plus this amount-to-add))
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long amount-to-add ^js/JSJoda.TemporalUnit unit]
    (.plus this amount-to-add unit)))
 
 (defn with-hour
-  {:arglists '(["java.time.OffsetTime" "int"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^int hour]
    (.withHour this hour)))
 
 (defn with-minute
-  {:arglists '(["java.time.OffsetTime" "int"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^int minute]
    (.withMinute this minute)))
 
 (defn plus-minutes
-  {:arglists '(["java.time.OffsetTime" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long minutes]
    (.plusMinutes this minutes)))
 
 (defn query
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalQuery"])}
   (^java.lang.Object [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalQuery query]
    (.query this query)))
 
 (defn at-date
-  {:arglists '(["java.time.OffsetTime" "java.time.LocalDate"])}
   (^js/JSJoda.OffsetDateTime [^js/JSJoda.OffsetTime this ^js/JSJoda.LocalDate date]
    (.atDate this date)))
 
 (defn with-offset-same-instant
-  {:arglists '(["java.time.OffsetTime" "java.time.ZoneOffset"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.ZoneOffset offset]
    (.withOffsetSameInstant this offset)))
 
 (defn to-string
-  {:arglists '(["java.time.OffsetTime"])}
   (^java.lang.String [^js/JSJoda.OffsetTime this]
    (.toString this)))
 
 (defn is-before
-  {:arglists '(["java.time.OffsetTime" "java.time.OffsetTime"])}
   (^boolean [^js/JSJoda.OffsetTime this ^js/JSJoda.OffsetTime other]
    (.isBefore this other)))
 
 (defn minus
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalAmount"]
-               ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalAmount amount-to-subtract]
    (.minus this amount-to-subtract))
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long amount-to-subtract ^js/JSJoda.TemporalUnit unit]
    (.minus this amount-to-subtract unit)))
 
 (defn plus-hours
-  {:arglists '(["java.time.OffsetTime" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long hours]
    (.plusHours this hours)))
 
 (defn to-local-time
-  {:arglists '(["java.time.OffsetTime"])}
   (^js/JSJoda.LocalTime [^js/JSJoda.OffsetTime this]
    (.toLocalTime this)))
 
 (defn get-long
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalField"])}
   (^long [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalField field]
    (.getLong this field)))
 
 (defn get-offset
-  {:arglists '(["java.time.OffsetTime"])}
   (^js/JSJoda.ZoneOffset [^js/JSJoda.OffsetTime this]
    (.offset this)))
 
 (defn with-nano
-  {:arglists '(["java.time.OffsetTime" "int"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^int nano-of-second]
    (.withNano this nano-of-second)))
 
 (defn until
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"])}
   (^long [^js/JSJoda.OffsetTime this ^js/JSJoda.Temporal end-exclusive ^js/JSJoda.TemporalUnit unit]
    (.until this end-exclusive unit)))
 
 (defn with-offset-same-local
-  {:arglists '(["java.time.OffsetTime" "java.time.ZoneOffset"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.ZoneOffset offset]
    (.withOffsetSameLocal this offset)))
 
 (defn from
-  {:arglists '(["java.time.temporal.TemporalAccessor"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.TemporalAccessor temporal]
    (js-invoke java.time.OffsetTime "from" temporal)))
 
 (defn is-after
-  {:arglists '(["java.time.OffsetTime" "java.time.OffsetTime"])}
   (^boolean [^js/JSJoda.OffsetTime this ^js/JSJoda.OffsetTime other]
    (.isAfter this other)))
 
 (defn minus-nanos
-  {:arglists '(["java.time.OffsetTime" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long nanos]
    (.minusNanos this nanos)))
 
@@ -178,35 +145,28 @@
    (.isSupported this arg0)))
 
 (defn parse
-  {:arglists '(["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"])}
   (^js/JSJoda.OffsetTime [^java.lang.CharSequence text]
    (js-invoke java.time.OffsetTime "parse" text))
   (^js/JSJoda.OffsetTime [^java.lang.CharSequence text ^js/JSJoda.DateTimeFormatter formatter]
    (js-invoke java.time.OffsetTime "parse" text formatter)))
 
 (defn with-second
-  {:arglists '(["java.time.OffsetTime" "int"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^int second]
    (.withSecond this second)))
 
 (defn get-minute
-  {:arglists '(["java.time.OffsetTime"])}
   (^int [^js/JSJoda.OffsetTime this]
    (.minute this)))
 
 (defn hash-code
-  {:arglists '(["java.time.OffsetTime"])}
   (^int [^js/JSJoda.OffsetTime this]
    (.hashCode this)))
 
 (defn adjust-into
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.Temporal"])}
   (^js/JSJoda.Temporal [^js/JSJoda.OffsetTime this ^js/JSJoda.Temporal temporal]
    (.adjustInto this temporal)))
 
 (defn with
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalAdjuster"]
-               ["java.time.OffsetTime" "java.time.temporal.TemporalField" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalAdjuster adjuster]
    (.with this adjuster))
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalField field ^long new-value]
@@ -220,31 +180,25 @@
    (js-invoke java.time.OffsetTime "now" arg0)))
 
 (defn compare-to
-  {:arglists '(["java.time.OffsetTime" "java.time.OffsetTime"])}
   (^int [^js/JSJoda.OffsetTime this ^js/JSJoda.OffsetTime other]
    (.compareTo this other)))
 
 (defn of-instant
-  {:arglists '(["java.time.Instant" "java.time.ZoneId"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.Instant instant ^js/JSJoda.ZoneId zone]
    (js-invoke java.time.OffsetTime "ofInstant" instant zone)))
 
 (defn plus-seconds
-  {:arglists '(["java.time.OffsetTime" "long"])}
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long seconds]
    (.plusSeconds this seconds)))
 
 (defn get
-  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalField"])}
   (^int [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalField field]
    (.get this field)))
 
 (defn equals
-  {:arglists '(["java.time.OffsetTime" "java.lang.Object"])}
   (^boolean [^js/JSJoda.OffsetTime this ^java.lang.Object obj]
    (.equals this obj)))
 
 (defn format
-  {:arglists '(["java.time.OffsetTime" "java.time.format.DateTimeFormatter"])}
   (^java.lang.String [^js/JSJoda.OffsetTime this ^js/JSJoda.DateTimeFormatter formatter]
    (.format this formatter)))

@@ -222,16 +222,18 @@
   (let [arities (into (sorted-map) (group-by parameter-count methods))
         static? (method-static? (first methods))]
     `(~'defn ~fname
-       {:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
-                           #(map (fn [x] (.getName x)) %)
-                           parameter-types)
-                         (mapcat val arities))}
-       ~@(map (fn [[cnt meths]]
-                (if (= 1 (count meths))
-                  (wrapper-tail klazz (first meths) ext helpful?)
-                  (wrapper-multi-tail klazz meths ext helpful?)))
-           arities))))
-
+      ;; print arglists when multiple methods with same arity
+      ~@(when (some (fn [[_arity meths]] (< 1 (count meths))) arities)
+          `[{:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
+                                    ;; with Clojure 1.12 we could use x directly instead of (.getName x)
+                                    #(map (fn [x] (.getName x)) %)
+                                    parameter-types)
+                              (mapcat val arities))}])
+      ~@(map (fn [[_arity meths]]
+               (if (= 1 (count meths))
+                 (wrapper-tail klazz (first meths) ext helpful?)
+                 (wrapper-multi-tail klazz meths ext helpful?)))
+             arities))))
 
 (defn concrete? [^Method m]
   (not (Modifier/isVolatile (.getModifiers m))))

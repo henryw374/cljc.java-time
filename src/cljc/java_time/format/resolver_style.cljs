@@ -11,48 +11,39 @@
 (def lenient (goog.object/get java.time.format.ResolverStyle "LENIENT"))
 
 (defn values
-  {:arglists '([])}
   (^"java.lang.Class" []
    (js-invoke java.time.format.ResolverStyle "values")))
 
 (defn value-of
-  {:arglists '(["java.lang.String"] ["java.lang.Class" "java.lang.String"])}
   (^js/JSJoda.ResolverStyle [^java.lang.String name]
    (js-invoke java.time.format.ResolverStyle "valueOf" name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (js-invoke java.time.format.ResolverStyle "valueOf" enum-type name)))
 
 (defn ordinal
-  {:arglists '(["java.time.format.ResolverStyle"])}
   (^int [^js/JSJoda.ResolverStyle this]
    (.ordinal this)))
 
 (defn to-string
-  {:arglists '(["java.time.format.ResolverStyle"])}
   (^java.lang.String [^js/JSJoda.ResolverStyle this]
    (.toString this)))
 
 (defn name
-  {:arglists '(["java.time.format.ResolverStyle"])}
   (^java.lang.String [^js/JSJoda.ResolverStyle this]
    (.name this)))
 
 (defn get-declaring-class
-  {:arglists '(["java.time.format.ResolverStyle"])}
   (^java.lang.Class [^js/JSJoda.ResolverStyle this]
    (.declaringClass this)))
 
 (defn hash-code
-  {:arglists '(["java.time.format.ResolverStyle"])}
   (^int [^js/JSJoda.ResolverStyle this]
    (.hashCode this)))
 
 (defn compare-to
-  {:arglists '(["java.time.format.ResolverStyle" "java.lang.Enum"])}
   (^int [^js/JSJoda.ResolverStyle this ^java.lang.Enum o]
    (.compareTo this o)))
 
 (defn equals
-  {:arglists '(["java.time.format.ResolverStyle" "java.lang.Object"])}
   (^boolean [^js/JSJoda.ResolverStyle this ^java.lang.Object other]
    (.equals this other)))

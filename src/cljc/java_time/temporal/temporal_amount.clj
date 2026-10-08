@@ -4,21 +4,17 @@
   (:import (java.time.temporal TemporalAmount)))
 
 (defn add-to
-  {:arglists '(["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"])}
   (^java.time.temporal.Temporal [^java.time.temporal.TemporalAmount this ^java.time.temporal.Temporal temporal]
    (.addTo this temporal)))
 
 (defn get
-  {:arglists '(["java.time.temporal.TemporalAmount" "java.time.temporal.TemporalUnit"])}
   (^long [^java.time.temporal.TemporalAmount this ^java.time.temporal.ChronoUnit unit]
    (.get this unit)))
 
 (defn get-units
-  {:arglists '(["java.time.temporal.TemporalAmount"])}
   (^java.util.List [^java.time.temporal.TemporalAmount this]
    (.getUnits this)))
 
 (defn subtract-from
-  {:arglists '(["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"])}
   (^java.time.temporal.Temporal [^java.time.temporal.TemporalAmount this ^java.time.temporal.Temporal temporal]
    (.subtractFrom this temporal)))

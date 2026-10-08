@@ -37,83 +37,67 @@
 (def forever (goog.object/get java.time.temporal.ChronoUnit "FOREVER"))
 
 (defn values
-  {:arglists '([])}
   (^"java.lang.Class" []
    (js-invoke java.time.temporal.ChronoUnit "values")))
 
 (defn value-of
-  {:arglists '(["java.lang.String"] ["java.lang.Class" "java.lang.String"])}
   (^js/JSJoda.ChronoUnit [^java.lang.String name]
    (js-invoke java.time.temporal.ChronoUnit "valueOf" name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (js-invoke java.time.temporal.ChronoUnit "valueOf" enum-type name)))
 
 (defn ordinal
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^int [^js/JSJoda.ChronoUnit this]
    (.ordinal this)))
 
 (defn is-duration-estimated
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^boolean [^js/JSJoda.ChronoUnit this]
    (.isDurationEstimated this)))
 
 (defn to-string
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.String [^js/JSJoda.ChronoUnit this]
    (.toString this)))
 
 (defn is-date-based
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^boolean [^js/JSJoda.ChronoUnit this]
    (.isDateBased this)))
 
 (defn add-to
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "long"])}
   (^js/JSJoda.Temporal [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal ^long amount]
    (.addTo this temporal amount)))
 
 (defn name
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.String [^js/JSJoda.ChronoUnit this]
    (.name this)))
 
 (defn is-supported-by
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal"])}
   (^boolean [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal]
    (.isSupportedBy this temporal)))
 
 (defn get-declaring-class
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.Class [^js/JSJoda.ChronoUnit this]
    (.declaringClass this)))
 
 (defn between
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "java.time.temporal.Temporal"])}
   (^long [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal-1-inclusive ^js/JSJoda.Temporal temporal-2-exclusive]
    (.between this temporal-1-inclusive temporal-2-exclusive)))
 
 (defn hash-code
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^int [^js/JSJoda.ChronoUnit this]
    (.hashCode this)))
 
 (defn compare-to
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.lang.Enum"])}
   (^int [^js/JSJoda.ChronoUnit this ^java.lang.Enum o]
    (.compareTo this o)))
 
 (defn get-duration
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^js/JSJoda.Duration [^js/JSJoda.ChronoUnit this]
    (.duration this)))
 
 (defn equals
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.lang.Object"])}
   (^boolean [^js/JSJoda.ChronoUnit this ^java.lang.Object other]
    (.equals this other)))
 
 (defn is-time-based
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^boolean [^js/JSJoda.ChronoUnit this]
    (.isTimeBased this)))

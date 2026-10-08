@@ -36,85 +36,69 @@
 (def forever java.time.temporal.ChronoUnit/FOREVER)
 
 (defn values
-  {:arglists '([])}
   (^"java.lang.Class" []
    (java.time.temporal.ChronoUnit/values)))
 
 (defn value-of
-  {:arglists '(["java.lang.String"] ["java.lang.Class" "java.lang.String"])}
   (^java.time.temporal.ChronoUnit [^java.lang.String name]
    (java.time.temporal.ChronoUnit/valueOf name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (java.time.temporal.ChronoUnit/valueOf enum-type name)))
 
 (defn ordinal
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.Integer [^java.time.temporal.ChronoUnit this]
    (.ordinal this)))
 
 (defn is-duration-estimated
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoUnit this]
    (.isDurationEstimated this)))
 
 (defn to-string
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.String [^java.time.temporal.ChronoUnit this]
    (.toString this)))
 
 (defn is-date-based
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoUnit this]
    (.isDateBased this)))
 
 (defn add-to
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "long"])}
   (^java.time.temporal.Temporal [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal ^long amount]
    (.addTo this temporal amount)))
 
 (defn name
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.String [^java.time.temporal.ChronoUnit this]
    (.name this)))
 
 (defn is-supported-by
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal]
    (.isSupportedBy this temporal)))
 
 (defn get-declaring-class
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.Class [^java.time.temporal.ChronoUnit this]
    (.getDeclaringClass this)))
 
 (defn between
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "java.time.temporal.Temporal"])}
   (^long
    [^java.time.temporal.ChronoUnit this ^java.time.temporal.Temporal temporal-1-inclusive
     ^java.time.temporal.Temporal temporal-2-exclusive]
    (.between this temporal-1-inclusive temporal-2-exclusive)))
 
 (defn hash-code
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.Integer [^java.time.temporal.ChronoUnit this]
    (.hashCode this)))
 
 (defn compare-to
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.lang.Enum"])}
   (^java.lang.Integer [^java.time.temporal.ChronoUnit this ^java.lang.Enum o]
    (.compareTo this o)))
 
 (defn get-duration
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.time.Duration [^java.time.temporal.ChronoUnit this]
    (.getDuration this)))
 
 (defn equals
-  {:arglists '(["java.time.temporal.ChronoUnit" "java.lang.Object"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoUnit this ^java.lang.Object other]
    (.equals this other)))
 
 (defn is-time-based
-  {:arglists '(["java.time.temporal.ChronoUnit"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoUnit this]
    (.isTimeBased this)))

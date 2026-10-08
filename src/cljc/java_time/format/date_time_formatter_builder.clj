@@ -4,29 +4,21 @@
   (:import (java.time.format DateTimeFormatterBuilder)))
 
 (defn new
-  {:arglists '([])}
   (^java.time.format.DateTimeFormatterBuilder []
    (java.time.format.DateTimeFormatterBuilder.)))
 
 (defn to-formatter
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"]
-               ["java.time.format.DateTimeFormatterBuilder" "java.util.Locale"])}
   (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatterBuilder this]
    (.toFormatter this))
   (^java.time.format.DateTimeFormatter [^java.time.format.DateTimeFormatterBuilder this ^java.util.Locale locale]
    (.toFormatter this locale)))
 
 (defn append-pattern
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.lang.String"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.lang.String pattern]
    (.appendPattern this pattern)))
 
 (defn append-value
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField"]
-               ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int"]
-               ["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int"
-                "java.time.format.SignStyle"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field]
    (.appendValue this field))
@@ -39,7 +31,6 @@
    (.appendValue this field min-width max-width sign-style)))
 
 (defn append-instant
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"] ["java.time.format.DateTimeFormatterBuilder" "int"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendInstant this))
   (^java.time.format.DateTimeFormatterBuilder
@@ -57,36 +48,29 @@
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn optional-start
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.optionalStart this)))
 
 (defn append-fraction
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "int" "int" "boolean"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field ^java.lang.Integer min-width
     ^java.lang.Integer max-width ^java.lang.Boolean decimal-point]
    (.appendFraction this field min-width max-width decimal-point)))
 
 (defn append-optional
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.DateTimeFormatter"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.DateTimeFormatter formatter]
    (.appendOptional this formatter)))
 
 (defn optional-end
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.optionalEnd this)))
 
 (defn parse-lenient
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.parseLenient this)))
 
 (defn pad-next
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "int"]
-               ["java.time.format.DateTimeFormatterBuilder" "int" "char"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.lang.Integer pad-width]
    (.padNext this pad-width))
@@ -95,73 +79,59 @@
    (.padNext this pad-width pad-char)))
 
 (defn append-chronology-id
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendChronologyId this)))
 
 (defn append-zone-or-offset-id
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendZoneOrOffsetId this)))
 
 (defn parse-case-sensitive
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.parseCaseSensitive this)))
 
 (defn parse-strict
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.parseStrict this)))
 
 (defn append-chronology-text
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.TextStyle text-style]
    (.appendChronologyText this text-style)))
 
 (defn append-offset-id
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendOffsetId this)))
 
 (defn append-zone-region-id
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendZoneRegionId this)))
 
 (defn parse-defaulting
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.temporal.TemporalField" "long"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.temporal.TemporalField field ^long value]
    (.parseDefaulting this field value)))
 
 (defn append-zone-id
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.appendZoneId this)))
 
 (defn get-localized-date-time-pattern
-  {:arglists '(["java.time.format.FormatStyle" "java.time.format.FormatStyle" "java.time.chrono.Chronology"
-                "java.util.Locale"])}
   (^java.lang.String
    [^java.time.format.FormatStyle date-style ^java.time.format.FormatStyle time-style
     ^java.time.chrono.Chronology chrono ^java.util.Locale locale]
    (java.time.format.DateTimeFormatterBuilder/getLocalizedDateTimePattern date-style time-style chrono locale)))
 
 (defn parse-case-insensitive
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder"])}
   (^java.time.format.DateTimeFormatterBuilder [^java.time.format.DateTimeFormatterBuilder this]
    (.parseCaseInsensitive this)))
 
 (defn append-localized-offset
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.TextStyle style]
    (.appendLocalizedOffset this style)))
 
 (defn append
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.DateTimeFormatter"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.DateTimeFormatter formatter]
    (.append this formatter)))
@@ -188,15 +158,12 @@
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn append-localized
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.FormatStyle"
-                "java.time.format.FormatStyle"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.FormatStyle date-style
     ^java.time.format.FormatStyle time-style]
    (.appendLocalized this date-style time-style)))
 
 (defn append-offset
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.lang.String" "java.lang.String"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.lang.String pattern ^java.lang.String no-offset-text]
    (.appendOffset this pattern no-offset-text)))
@@ -227,8 +194,6 @@
          :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
 (defn append-zone-text
-  {:arglists '(["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle"]
-               ["java.time.format.DateTimeFormatterBuilder" "java.time.format.TextStyle" "java.util.Set"])}
   (^java.time.format.DateTimeFormatterBuilder
    [^java.time.format.DateTimeFormatterBuilder this ^java.time.format.TextStyle text-style]
    (.appendZoneText this text-style))

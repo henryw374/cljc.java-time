@@ -64,117 +64,94 @@
 (def micro-of-day java.time.temporal.ChronoField/MICRO_OF_DAY)
 
 (defn get-range-unit
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.time.temporal.ChronoUnit [^java.time.temporal.ChronoField this]
    (.getRangeUnit this)))
 
 (defn range
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.time.temporal.ValueRange [^java.time.temporal.ChronoField this]
    (.range this)))
 
 (defn values
-  {:arglists '([])}
   (^"java.lang.Class" []
    (java.time.temporal.ChronoField/values)))
 
 (defn value-of
-  {:arglists '(["java.lang.String"] ["java.lang.Class" "java.lang.String"])}
   (^java.time.temporal.ChronoField [^java.lang.String name]
    (java.time.temporal.ChronoField/valueOf name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (java.time.temporal.ChronoField/valueOf enum-type name)))
 
 (defn resolve
-  {:arglists '(["java.time.temporal.ChronoField" "java.util.Map" "java.time.temporal.TemporalAccessor"
-                "java.time.format.ResolverStyle"])}
   (^java.time.temporal.TemporalAccessor
    [^java.time.temporal.ChronoField this ^java.util.Map field-values
     ^java.time.temporal.TemporalAccessor partial-temporal ^java.time.format.ResolverStyle resolver-style]
    (.resolve this field-values partial-temporal resolver-style)))
 
 (defn ordinal
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.lang.Integer [^java.time.temporal.ChronoField this]
    (.ordinal this)))
 
 (defn check-valid-int-value
-  {:arglists '(["java.time.temporal.ChronoField" "long"])}
   (^java.lang.Integer [^java.time.temporal.ChronoField this ^long value]
    (.checkValidIntValue this value)))
 
 (defn get-base-unit
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.time.temporal.ChronoUnit [^java.time.temporal.ChronoField this]
    (.getBaseUnit this)))
 
 (defn to-string
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.lang.String [^java.time.temporal.ChronoField this]
    (.toString this)))
 
 (defn is-date-based
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoField this]
    (.isDateBased this)))
 
 (defn get-display-name
-  {:arglists '(["java.time.temporal.ChronoField" "java.util.Locale"])}
   (^java.lang.String [^java.time.temporal.ChronoField this ^java.util.Locale locale]
    (.getDisplayName this locale)))
 
 (defn name
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.lang.String [^java.time.temporal.ChronoField this]
    (.name this)))
 
 (defn is-supported-by
-  {:arglists '(["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor temporal]
    (.isSupportedBy this temporal)))
 
 (defn range-refined-by
-  {:arglists '(["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"])}
   (^java.time.temporal.ValueRange [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor temporal]
    (.rangeRefinedBy this temporal)))
 
 (defn get-declaring-class
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.lang.Class [^java.time.temporal.ChronoField this]
    (.getDeclaringClass this)))
 
 (defn hash-code
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.lang.Integer [^java.time.temporal.ChronoField this]
    (.hashCode this)))
 
 (defn adjust-into
-  {:arglists '(["java.time.temporal.ChronoField" "java.time.temporal.Temporal" "long"])}
   (^java.time.temporal.Temporal
    [^java.time.temporal.ChronoField this ^java.time.temporal.Temporal temporal ^long new-value]
    (.adjustInto this temporal new-value)))
 
 (defn get-from
-  {:arglists '(["java.time.temporal.ChronoField" "java.time.temporal.TemporalAccessor"])}
   (^long [^java.time.temporal.ChronoField this ^java.time.temporal.TemporalAccessor temporal]
    (.getFrom this temporal)))
 
 (defn compare-to
-  {:arglists '(["java.time.temporal.ChronoField" "java.lang.Enum"])}
   (^java.lang.Integer [^java.time.temporal.ChronoField this ^java.lang.Enum o]
    (.compareTo this o)))
 
 (defn equals
-  {:arglists '(["java.time.temporal.ChronoField" "java.lang.Object"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoField this ^java.lang.Object other]
    (.equals this other)))
 
 (defn is-time-based
-  {:arglists '(["java.time.temporal.ChronoField"])}
   (^java.lang.Boolean [^java.time.temporal.ChronoField this]
    (.isTimeBased this)))
 
 (defn check-valid-value
-  {:arglists '(["java.time.temporal.ChronoField" "long"])}
   (^long [^java.time.temporal.ChronoField this ^long value]
    (.checkValidValue this value)))

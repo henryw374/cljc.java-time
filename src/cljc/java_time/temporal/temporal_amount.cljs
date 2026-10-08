@@ -5,21 +5,17 @@
             [java.time.temporal :refer [TemporalAmount]]))
 
 (defn add-to
-  {:arglists '(["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"])}
   (^js/JSJoda.Temporal [^js/JSJoda.TemporalAmount this ^js/JSJoda.Temporal temporal]
    (.addTo this temporal)))
 
 (defn get
-  {:arglists '(["java.time.temporal.TemporalAmount" "java.time.temporal.TemporalUnit"])}
   (^long [^js/JSJoda.TemporalAmount this ^js/JSJoda.TemporalUnit unit]
    (.get this unit)))
 
 (defn get-units
-  {:arglists '(["java.time.temporal.TemporalAmount"])}
   (^java.util.List [^js/JSJoda.TemporalAmount this]
    (.units this)))
 
 (defn subtract-from
-  {:arglists '(["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"])}
   (^js/JSJoda.Temporal [^js/JSJoda.TemporalAmount this ^js/JSJoda.Temporal temporal]
    (.subtractFrom this temporal)))
