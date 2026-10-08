@@ -75,7 +75,7 @@
 
 (defn ensure-boxed-long-double
   "Allow long and double, box everything else."
-  [c]
+  ^clojure.lang.Symbol [c]
   (let [t (if (instance? Class c)
             (class-name c)
             c)]
@@ -88,19 +88,19 @@
            void    java.lang.Object}
       t t)))
 
-(defn joda-name [c]
+(defn joda-name [^Class c]
   (if (and
         (instance? Class c)
         (string/starts-with? (.getName c) "java.time"))
     (symbol (str "js/JSJoda." (.getSimpleName c)))
     (if (and (instance? Class c) (.isArray ^Class c))
-      (.getName (type c))
+      (.getName ^Class (type c))
       c)))
 
 (defn tagged [value tag ext]
   (if (= :clj ext)
     (let [tag (if (and (instance? Class tag) (.isArray ^Class tag))
-                (.getName (type tag))
+                (.getName ^Class (type tag))
                 tag)]
       (vary-meta value assoc :tag (ensure-boxed-long-double tag)))
     (vary-meta value assoc :tag (joda-name tag))))
@@ -139,7 +139,7 @@
                                           (.getName tag)
                                           tag)) value])))
 
-(defn method-call [static? klazz nam ext]
+(defn method-call [static? ^Class klazz nam ext]
   (if static?
     (if (= :clj ext)
       (list (symbol (str (.getName klazz) "/" nam)))
@@ -218,7 +218,7 @@
     `(~(tagged arg-vec ret ext)
        ~bod)))
 
-(defn method-wrapper-form [fname klazz methods ext helpful?]
+(defn method-wrapper-form [fname ^Class klazz methods ext helpful?]
   (let [arities (into (sorted-map) (group-by parameter-count methods))
         static? (method-static? (first methods))]
     `(~'defn ~fname
@@ -226,7 +226,7 @@
       ~@(when (some (fn [[_arity meths]] (< 1 (count meths))) arities)
           `[{:arglists '~(map (comp (partial into (if static? [] [(.getName klazz)]))
                                     ;; with Clojure 1.12 we could use x directly instead of (.getName x)
-                                    #(map (fn [x] (.getName x)) %)
+                                    #(map (fn [^Class x] (.getName x)) %)
                                     parameter-types)
                               (mapcat val arities))}])
       ~@(map (fn [[_arity meths]]
