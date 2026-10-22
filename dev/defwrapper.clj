@@ -135,8 +135,8 @@
                                           ;; Clojure 1.12:
                                           ;; klazz would lead to ^java.time.temporal.TemporalField/1
                                           ;; Clojure 1.11
-                                          ;; (.getName tag) leads to ^"[Ljava.time.temporal.TemporalField;"
-                                          (.getName tag)
+                                          ;; (.getName klazz) leads to ^"[Ljava.time.temporal.TemporalField;"
+                                          (.getName klazz)
                                           tag)) value])))
 
 (defn method-call [static? ^Class klazz nam ext]
