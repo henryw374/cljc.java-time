@@ -6,72 +6,58 @@
 
 (def standard (goog.object/get java.time.format.DecimalStyle "STANDARD"))
 
-(clojure.core/defn with-decimal-separator
-  {:arglists (quote (["java.time.format.DecimalStyle" "char"]))}
+(defn with-decimal-separator
   (^js/JSJoda.DecimalStyle [^js/JSJoda.DecimalStyle this ^char decimal-separator]
    (.withDecimalSeparator this decimal-separator)))
 
-(clojure.core/defn of
-  {:arglists (quote (["java.util.Locale"]))}
+(defn of
   (^js/JSJoda.DecimalStyle [^java.util.Locale locale]
    (js-invoke java.time.format.DecimalStyle "of" locale)))
 
-(clojure.core/defn with-positive-sign
-  {:arglists (quote (["java.time.format.DecimalStyle" "char"]))}
+(defn with-positive-sign
   (^js/JSJoda.DecimalStyle [^js/JSJoda.DecimalStyle this ^char positive-sign]
    (.withPositiveSign this positive-sign)))
 
-(clojure.core/defn get-decimal-separator
-  {:arglists (quote (["java.time.format.DecimalStyle"]))}
+(defn get-decimal-separator
   (^char [^js/JSJoda.DecimalStyle this]
    (.decimalSeparator this)))
 
-(clojure.core/defn of-default-locale
-  {:arglists (quote ([]))}
+(defn of-default-locale
   (^js/JSJoda.DecimalStyle []
    (js-invoke java.time.format.DecimalStyle "ofDefaultLocale")))
 
-(clojure.core/defn with-zero-digit
-  {:arglists (quote (["java.time.format.DecimalStyle" "char"]))}
+(defn with-zero-digit
   (^js/JSJoda.DecimalStyle [^js/JSJoda.DecimalStyle this ^char zero-digit]
    (.withZeroDigit this zero-digit)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.format.DecimalStyle"]))}
+(defn to-string
   (^java.lang.String [^js/JSJoda.DecimalStyle this]
    (.toString this)))
 
-(clojure.core/defn get-zero-digit
-  {:arglists (quote (["java.time.format.DecimalStyle"]))}
+(defn get-zero-digit
   (^char [^js/JSJoda.DecimalStyle this]
    (.zeroDigit this)))
 
-(clojure.core/defn with-negative-sign
-  {:arglists (quote (["java.time.format.DecimalStyle" "char"]))}
+(defn with-negative-sign
   (^js/JSJoda.DecimalStyle [^js/JSJoda.DecimalStyle this ^char negative-sign]
    (.withNegativeSign this negative-sign)))
 
-(clojure.core/defn get-available-locales
-  {:arglists (quote ([]))}
+(defn get-available-locales
   (^java.util.Set []
    (js-invoke java.time.format.DecimalStyle "getAvailableLocales")))
 
-(clojure.core/defn get-positive-sign
-  {:arglists (quote (["java.time.format.DecimalStyle"]))}
+(defn get-positive-sign
   (^char [^js/JSJoda.DecimalStyle this]
    (.positiveSign this)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.format.DecimalStyle"]))}
+(defn hash-code
   (^int [^js/JSJoda.DecimalStyle this]
    (.hashCode this)))
 
-(clojure.core/defn get-negative-sign
-  {:arglists (quote (["java.time.format.DecimalStyle"]))}
+(defn get-negative-sign
   (^char [^js/JSJoda.DecimalStyle this]
    (.negativeSign this)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.format.DecimalStyle" "java.lang.Object"]))}
+(defn equals
   (^boolean [^js/JSJoda.DecimalStyle this ^java.lang.Object obj]
    (.equals this obj)))

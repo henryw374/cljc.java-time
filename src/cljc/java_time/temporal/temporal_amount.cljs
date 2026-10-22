@@ -4,22 +4,18 @@
             [goog.object]
             [java.time.temporal :refer [TemporalAmount]]))
 
-(clojure.core/defn add-to
-  {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"]))}
+(defn add-to
   (^js/JSJoda.Temporal [^js/JSJoda.TemporalAmount this ^js/JSJoda.Temporal temporal]
    (.addTo this temporal)))
 
-(clojure.core/defn get
-  {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.TemporalUnit"]))}
+(defn get
   (^long [^js/JSJoda.TemporalAmount this ^js/JSJoda.TemporalUnit unit]
    (.get this unit)))
 
-(clojure.core/defn get-units
-  {:arglists (quote (["java.time.temporal.TemporalAmount"]))}
+(defn get-units
   (^java.util.List [^js/JSJoda.TemporalAmount this]
    (.units this)))
 
-(clojure.core/defn subtract-from
-  {:arglists (quote (["java.time.temporal.TemporalAmount" "java.time.temporal.Temporal"]))}
+(defn subtract-from
   (^js/JSJoda.Temporal [^js/JSJoda.TemporalAmount this ^js/JSJoda.Temporal temporal]
    (.subtractFrom this temporal)))

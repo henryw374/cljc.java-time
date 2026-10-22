@@ -1,39 +1,32 @@
 (ns cljc.java-time.temporal.temporal-queries
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal TemporalQueries]))
+  (:import (java.time.temporal TemporalQueries)))
 
-(clojure.core/defn chronology
-  {:arglists (quote ([]))}
+(defn chronology
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/chronology)))
 
-(clojure.core/defn local-date
-  {:arglists (quote ([]))}
+(defn local-date
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/localDate)))
 
-(clojure.core/defn local-time
-  {:arglists (quote ([]))}
+(defn local-time
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/localTime)))
 
-(clojure.core/defn offset
-  {:arglists (quote ([]))}
+(defn offset
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/offset)))
 
-(clojure.core/defn precision
-  {:arglists (quote ([]))}
+(defn precision
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/precision)))
 
-(clojure.core/defn zone
-  {:arglists (quote ([]))}
+(defn zone
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/zone)))
 
-(clojure.core/defn zone-id
-  {:arglists (quote ([]))}
+(defn zone-id
   (^java.time.temporal.TemporalQuery []
    (java.time.temporal.TemporalQueries/zoneId)))

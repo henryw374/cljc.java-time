@@ -1,7 +1,7 @@
 (ns cljc.java-time.temporal.iso-fields
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal IsoFields]))
+  (:import (java.time.temporal IsoFields)))
 
 (def week-based-year java.time.temporal.IsoFields/WEEK_BASED_YEAR)
 

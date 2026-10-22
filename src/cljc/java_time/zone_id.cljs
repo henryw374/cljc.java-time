@@ -6,64 +6,52 @@
 
 (def short-ids (goog.object/get java.time.ZoneId "SHORT_IDS"))
 
-(clojure.core/defn get-available-zone-ids
-  {:arglists (quote ([]))}
+(defn get-available-zone-ids
   (^java.util.Set []
    (js-invoke java.time.ZoneId "getAvailableZoneIds")))
 
-(clojure.core/defn of
-  {:arglists (quote (["java.lang.String"] ["java.lang.String" "java.util.Map"]))}
+(defn of
   (^js/JSJoda.ZoneId [^java.lang.String zone-id]
    (js-invoke java.time.ZoneId "of" zone-id))
   (^js/JSJoda.ZoneId [^java.lang.String zone-id ^java.util.Map alias-map]
    (js-invoke java.time.ZoneId "of" zone-id alias-map)))
 
-(clojure.core/defn of-offset
-  {:arglists (quote (["java.lang.String" "java.time.ZoneOffset"]))}
+(defn of-offset
   (^js/JSJoda.ZoneId [^java.lang.String prefix ^js/JSJoda.ZoneOffset offset]
    (js-invoke java.time.ZoneId "ofOffset" prefix offset)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.ZoneId"]))}
+(defn to-string
   (^java.lang.String [^js/JSJoda.ZoneId this]
    (.toString this)))
 
-(clojure.core/defn get-display-name
-  {:arglists (quote (["java.time.ZoneId" "java.time.format.TextStyle" "java.util.Locale"]))}
+(defn get-display-name
   (^java.lang.String [^js/JSJoda.ZoneId this ^js/JSJoda.TextStyle style ^java.util.Locale locale]
    (.displayName this style locale)))
 
-(clojure.core/defn get-rules
-  {:arglists (quote (["java.time.ZoneId"]))}
+(defn get-rules
   (^js/JSJoda.ZoneRules [^js/JSJoda.ZoneId this]
    (.rules this)))
 
-(clojure.core/defn get-id
-  {:arglists (quote (["java.time.ZoneId"]))}
+(defn get-id
   (^java.lang.String [^js/JSJoda.ZoneId this]
    (.id this)))
 
-(clojure.core/defn normalized
-  {:arglists (quote (["java.time.ZoneId"]))}
+(defn normalized
   (^js/JSJoda.ZoneId [^js/JSJoda.ZoneId this]
    (.normalized this)))
 
-(clojure.core/defn system-default
-  {:arglists (quote ([]))}
+(defn system-default
   (^js/JSJoda.ZoneId []
    (js-invoke java.time.ZoneId "systemDefault")))
 
-(clojure.core/defn from
-  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+(defn from
   (^js/JSJoda.ZoneId [^js/JSJoda.TemporalAccessor temporal]
    (js-invoke java.time.ZoneId "from" temporal)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.ZoneId"]))}
+(defn hash-code
   (^int [^js/JSJoda.ZoneId this]
    (.hashCode this)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.ZoneId" "java.lang.Object"]))}
+(defn equals
   (^boolean [^js/JSJoda.ZoneId this ^java.lang.Object obj]
    (.equals this obj)))

@@ -4,37 +4,30 @@
             [goog.object]
             [java.time.temporal :refer [TemporalQueries]]))
 
-(clojure.core/defn chronology
-  {:arglists (quote ([]))}
+(defn chronology
   (^js/JSJoda.TemporalQuery []
    (js-invoke java.time.temporal.TemporalQueries "chronology")))
 
-(clojure.core/defn local-date
-  {:arglists (quote ([]))}
+(defn local-date
   (^js/JSJoda.TemporalQuery []
    (js-invoke java.time.temporal.TemporalQueries "localDate")))
 
-(clojure.core/defn local-time
-  {:arglists (quote ([]))}
+(defn local-time
   (^js/JSJoda.TemporalQuery []
    (js-invoke java.time.temporal.TemporalQueries "localTime")))
 
-(clojure.core/defn offset
-  {:arglists (quote ([]))}
+(defn offset
   (^js/JSJoda.TemporalQuery []
    (js-invoke java.time.temporal.TemporalQueries "offset")))
 
-(clojure.core/defn precision
-  {:arglists (quote ([]))}
+(defn precision
   (^js/JSJoda.TemporalQuery []
    (js-invoke java.time.temporal.TemporalQueries "precision")))
 
-(clojure.core/defn zone
-  {:arglists (quote ([]))}
+(defn zone
   (^js/JSJoda.TemporalQuery []
    (js-invoke java.time.temporal.TemporalQueries "zone")))
 
-(clojure.core/defn zone-id
-  {:arglists (quote ([]))}
+(defn zone-id
   (^js/JSJoda.TemporalQuery []
    (js-invoke java.time.temporal.TemporalQueries "zoneId")))

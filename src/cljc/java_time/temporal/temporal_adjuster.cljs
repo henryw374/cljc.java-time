@@ -4,7 +4,6 @@
             [goog.object]
             [java.time.temporal :refer [TemporalAdjuster]]))
 
-(clojure.core/defn adjust-into
-  {:arglists (quote (["java.time.temporal.TemporalAdjuster" "java.time.temporal.Temporal"]))}
+(defn adjust-into
   (^js/JSJoda.Temporal [^js/JSJoda.TemporalAdjuster this ^js/JSJoda.Temporal temporal]
    (.adjustInto this temporal)))

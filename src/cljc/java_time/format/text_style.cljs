@@ -16,64 +16,52 @@
 
 (def narrow-standalone (goog.object/get java.time.format.TextStyle "NARROW_STANDALONE"))
 
-(clojure.core/defn values
-  {:arglists (quote ([]))}
+(defn values
   (^"java.lang.Class" []
    (js-invoke java.time.format.TextStyle "values")))
 
-(clojure.core/defn value-of
-  {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
+(defn value-of
   (^js/JSJoda.TextStyle [^java.lang.String name]
    (js-invoke java.time.format.TextStyle "valueOf" name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (js-invoke java.time.format.TextStyle "valueOf" enum-type name)))
 
-(clojure.core/defn ordinal
-  {:arglists (quote (["java.time.format.TextStyle"]))}
+(defn ordinal
   (^int [^js/JSJoda.TextStyle this]
    (.ordinal this)))
 
-(clojure.core/defn as-standalone
-  {:arglists (quote (["java.time.format.TextStyle"]))}
+(defn as-standalone
   (^js/JSJoda.TextStyle [^js/JSJoda.TextStyle this]
    (.asStandalone this)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.format.TextStyle"]))}
+(defn to-string
   (^java.lang.String [^js/JSJoda.TextStyle this]
    (.toString this)))
 
-(clojure.core/defn name
-  {:arglists (quote (["java.time.format.TextStyle"]))}
+(defn name
   (^java.lang.String [^js/JSJoda.TextStyle this]
    (.name this)))
 
-(clojure.core/defn get-declaring-class
-  {:arglists (quote (["java.time.format.TextStyle"]))}
+(defn get-declaring-class
   (^java.lang.Class [^js/JSJoda.TextStyle this]
    (.declaringClass this)))
 
-(clojure.core/defn as-normal
-  {:arglists (quote (["java.time.format.TextStyle"]))}
+(defn as-normal
   (^js/JSJoda.TextStyle [^js/JSJoda.TextStyle this]
    (.asNormal this)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.format.TextStyle"]))}
+(defn hash-code
   (^int [^js/JSJoda.TextStyle this]
    (.hashCode this)))
 
-(clojure.core/defn compare-to
-  {:arglists (quote (["java.time.format.TextStyle" "java.lang.Enum"]))}
+(defn compare-to
   (^int [^js/JSJoda.TextStyle this ^java.lang.Enum o]
    (.compareTo this o)))
 
-(clojure.core/defn is-standalone
-  {:arglists (quote (["java.time.format.TextStyle"]))}
+(defn is-standalone
   (^boolean [^js/JSJoda.TextStyle this]
    (.isStandalone this)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.format.TextStyle" "java.lang.Object"]))}
+(defn equals
   (^boolean [^js/JSJoda.TextStyle this ^java.lang.Object other]
    (.equals this other)))

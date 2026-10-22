@@ -36,84 +36,68 @@
 
 (def forever (goog.object/get java.time.temporal.ChronoUnit "FOREVER"))
 
-(clojure.core/defn values
-  {:arglists (quote ([]))}
+(defn values
   (^"java.lang.Class" []
    (js-invoke java.time.temporal.ChronoUnit "values")))
 
-(clojure.core/defn value-of
-  {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
+(defn value-of
   (^js/JSJoda.ChronoUnit [^java.lang.String name]
    (js-invoke java.time.temporal.ChronoUnit "valueOf" name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (js-invoke java.time.temporal.ChronoUnit "valueOf" enum-type name)))
 
-(clojure.core/defn ordinal
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn ordinal
   (^int [^js/JSJoda.ChronoUnit this]
    (.ordinal this)))
 
-(clojure.core/defn is-duration-estimated
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn is-duration-estimated
   (^boolean [^js/JSJoda.ChronoUnit this]
    (.isDurationEstimated this)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn to-string
   (^java.lang.String [^js/JSJoda.ChronoUnit this]
    (.toString this)))
 
-(clojure.core/defn is-date-based
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn is-date-based
   (^boolean [^js/JSJoda.ChronoUnit this]
    (.isDateBased this)))
 
-(clojure.core/defn add-to
-  {:arglists (quote (["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "long"]))}
+(defn add-to
   (^js/JSJoda.Temporal [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal ^long amount]
    (.addTo this temporal amount)))
 
-(clojure.core/defn name
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn name
   (^java.lang.String [^js/JSJoda.ChronoUnit this]
    (.name this)))
 
-(clojure.core/defn is-supported-by
-  {:arglists (quote (["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal"]))}
+(defn is-supported-by
   (^boolean [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal]
    (.isSupportedBy this temporal)))
 
-(clojure.core/defn get-declaring-class
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn get-declaring-class
   (^java.lang.Class [^js/JSJoda.ChronoUnit this]
    (.declaringClass this)))
 
-(clojure.core/defn between
-  {:arglists (quote (["java.time.temporal.ChronoUnit" "java.time.temporal.Temporal" "java.time.temporal.Temporal"]))}
-  (^long [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal1-inclusive ^js/JSJoda.Temporal temporal2-exclusive]
-   (.between this temporal1-inclusive temporal2-exclusive)))
+(defn between
+  (^long [^js/JSJoda.ChronoUnit this ^js/JSJoda.Temporal temporal-1-inclusive ^js/JSJoda.Temporal temporal-2-exclusive]
+   (.between this temporal-1-inclusive temporal-2-exclusive)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn hash-code
   (^int [^js/JSJoda.ChronoUnit this]
    (.hashCode this)))
 
-(clojure.core/defn compare-to
-  {:arglists (quote (["java.time.temporal.ChronoUnit" "java.lang.Enum"]))}
+(defn compare-to
   (^int [^js/JSJoda.ChronoUnit this ^java.lang.Enum o]
    (.compareTo this o)))
 
-(clojure.core/defn get-duration
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn get-duration
   (^js/JSJoda.Duration [^js/JSJoda.ChronoUnit this]
    (.duration this)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.temporal.ChronoUnit" "java.lang.Object"]))}
+(defn equals
   (^boolean [^js/JSJoda.ChronoUnit this ^java.lang.Object other]
    (.equals this other)))
 
-(clojure.core/defn is-time-based
-  {:arglists (quote (["java.time.temporal.ChronoUnit"]))}
+(defn is-time-based
   (^boolean [^js/JSJoda.ChronoUnit this]
    (.isTimeBased this)))

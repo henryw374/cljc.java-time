@@ -10,49 +10,40 @@
 
 (def lenient (goog.object/get java.time.format.ResolverStyle "LENIENT"))
 
-(clojure.core/defn values
-  {:arglists (quote ([]))}
+(defn values
   (^"java.lang.Class" []
    (js-invoke java.time.format.ResolverStyle "values")))
 
-(clojure.core/defn value-of
-  {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
+(defn value-of
   (^js/JSJoda.ResolverStyle [^java.lang.String name]
    (js-invoke java.time.format.ResolverStyle "valueOf" name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (js-invoke java.time.format.ResolverStyle "valueOf" enum-type name)))
 
-(clojure.core/defn ordinal
-  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+(defn ordinal
   (^int [^js/JSJoda.ResolverStyle this]
    (.ordinal this)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+(defn to-string
   (^java.lang.String [^js/JSJoda.ResolverStyle this]
    (.toString this)))
 
-(clojure.core/defn name
-  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+(defn name
   (^java.lang.String [^js/JSJoda.ResolverStyle this]
    (.name this)))
 
-(clojure.core/defn get-declaring-class
-  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+(defn get-declaring-class
   (^java.lang.Class [^js/JSJoda.ResolverStyle this]
    (.declaringClass this)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.format.ResolverStyle"]))}
+(defn hash-code
   (^int [^js/JSJoda.ResolverStyle this]
    (.hashCode this)))
 
-(clojure.core/defn compare-to
-  {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Enum"]))}
+(defn compare-to
   (^int [^js/JSJoda.ResolverStyle this ^java.lang.Enum o]
    (.compareTo this o)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.format.ResolverStyle" "java.lang.Object"]))}
+(defn equals
   (^boolean [^js/JSJoda.ResolverStyle this ^java.lang.Object other]
    (.equals this other)))

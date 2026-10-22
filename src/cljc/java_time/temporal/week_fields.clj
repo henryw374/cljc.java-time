@@ -1,7 +1,7 @@
 (ns cljc.java-time.temporal.week-fields
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time.temporal WeekFields]))
+  (:import (java.time.temporal WeekFields)))
 
 (def sunday-start java.time.temporal.WeekFields/SUNDAY_START)
 
@@ -9,59 +9,48 @@
 
 (def week-based-years java.time.temporal.WeekFields/WEEK_BASED_YEARS)
 
-(clojure.core/defn day-of-week
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn day-of-week
   (^java.time.temporal.TemporalField [^java.time.temporal.WeekFields this]
    (.dayOfWeek this)))
 
-(clojure.core/defn of
-  {:arglists (quote (["java.util.Locale"] ["java.time.DayOfWeek" "int"]))}
+(defn of
   (^java.time.temporal.WeekFields [^java.util.Locale locale]
    (java.time.temporal.WeekFields/of locale))
   (^java.time.temporal.WeekFields [^java.time.DayOfWeek first-day-of-week ^java.lang.Integer minimal-days-in-first-week]
    (java.time.temporal.WeekFields/of first-day-of-week minimal-days-in-first-week)))
 
-(clojure.core/defn get-first-day-of-week
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn get-first-day-of-week
   (^java.time.DayOfWeek [^java.time.temporal.WeekFields this]
    (.getFirstDayOfWeek this)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn to-string
   (^java.lang.String [^java.time.temporal.WeekFields this]
    (.toString this)))
 
-(clojure.core/defn week-based-year
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn week-based-year
   (^java.time.temporal.TemporalField [^java.time.temporal.WeekFields this]
    (.weekBasedYear this)))
 
-(clojure.core/defn week-of-year
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn week-of-year
   (^java.time.temporal.TemporalField [^java.time.temporal.WeekFields this]
    (.weekOfYear this)))
 
-(clojure.core/defn week-of-week-based-year
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn week-of-week-based-year
   (^java.time.temporal.TemporalField [^java.time.temporal.WeekFields this]
    (.weekOfWeekBasedYear this)))
 
-(clojure.core/defn week-of-month
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn week-of-month
   (^java.time.temporal.TemporalField [^java.time.temporal.WeekFields this]
    (.weekOfMonth this)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn hash-code
   (^java.lang.Integer [^java.time.temporal.WeekFields this]
    (.hashCode this)))
 
-(clojure.core/defn get-minimal-days-in-first-week
-  {:arglists (quote (["java.time.temporal.WeekFields"]))}
+(defn get-minimal-days-in-first-week
   (^java.lang.Integer [^java.time.temporal.WeekFields this]
    (.getMinimalDaysInFirstWeek this)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.temporal.WeekFields" "java.lang.Object"]))}
+(defn equals
   (^java.lang.Boolean [^java.time.temporal.WeekFields this ^java.lang.Object object]
    (.equals this object)))

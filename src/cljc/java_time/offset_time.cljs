@@ -8,243 +8,197 @@
 
 (def max (goog.object/get java.time.OffsetTime "MAX"))
 
-(clojure.core/defn minus-minutes
-  {:arglists (quote (["java.time.OffsetTime" "long"]))}
+(defn minus-minutes
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long minutes]
    (.minusMinutes this minutes)))
 
-(clojure.core/defn truncated-to
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalUnit"]))}
+(defn truncated-to
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalUnit unit]
    (.truncatedTo this unit)))
 
-(clojure.core/defn range
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))}
+(defn range
   (^js/JSJoda.ValueRange [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalField field]
    (.range this field)))
 
-(clojure.core/defn get-hour
-  {:arglists (quote (["java.time.OffsetTime"]))}
+(defn get-hour
   (^int [^js/JSJoda.OffsetTime this]
    (.hour this)))
 
-(clojure.core/defn minus-hours
-  {:arglists (quote (["java.time.OffsetTime" "long"]))}
+(defn minus-hours
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long hours]
    (.minusHours this hours)))
 
-(clojure.core/defn of
-  {:arglists (quote (["java.time.LocalTime" "java.time.ZoneOffset"] ["int" "int" "int" "int" "java.time.ZoneOffset"]))}
+(defn of
   (^js/JSJoda.OffsetTime [^js/JSJoda.LocalTime time ^js/JSJoda.ZoneOffset offset]
    (js-invoke java.time.OffsetTime "of" time offset))
   (^js/JSJoda.OffsetTime [^int hour ^int minute ^int second ^int nano-of-second ^js/JSJoda.ZoneOffset offset]
    (js-invoke java.time.OffsetTime "of" hour minute second nano-of-second offset)))
 
-(clojure.core/defn is-equal
-  {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))}
+(defn is-equal
   (^boolean [^js/JSJoda.OffsetTime this ^js/JSJoda.OffsetTime other]
    (.isEqual this other)))
 
-(clojure.core/defn get-nano
-  {:arglists (quote (["java.time.OffsetTime"]))}
+(defn get-nano
   (^int [^js/JSJoda.OffsetTime this]
    (.nano this)))
 
-(clojure.core/defn minus-seconds
-  {:arglists (quote (["java.time.OffsetTime" "long"]))}
+(defn minus-seconds
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long seconds]
    (.minusSeconds this seconds)))
 
-(clojure.core/defn get-second
-  {:arglists (quote (["java.time.OffsetTime"]))}
+(defn get-second
   (^int [^js/JSJoda.OffsetTime this]
    (.second this)))
 
-(clojure.core/defn plus-nanos
-  {:arglists (quote (["java.time.OffsetTime" "long"]))}
+(defn plus-nanos
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long nanos]
    (.plusNanos this nanos)))
 
-(clojure.core/defn plus
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAmount"]
-                     ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"]))}
+(defn plus
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalAmount amount-to-add]
    (.plus this amount-to-add))
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long amount-to-add ^js/JSJoda.TemporalUnit unit]
    (.plus this amount-to-add unit)))
 
-(clojure.core/defn with-hour
-  {:arglists (quote (["java.time.OffsetTime" "int"]))}
+(defn with-hour
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^int hour]
    (.withHour this hour)))
 
-(clojure.core/defn with-minute
-  {:arglists (quote (["java.time.OffsetTime" "int"]))}
+(defn with-minute
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^int minute]
    (.withMinute this minute)))
 
-(clojure.core/defn plus-minutes
-  {:arglists (quote (["java.time.OffsetTime" "long"]))}
+(defn plus-minutes
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long minutes]
    (.plusMinutes this minutes)))
 
-(clojure.core/defn query
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalQuery"]))}
+(defn query
   (^java.lang.Object [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalQuery query]
    (.query this query)))
 
-(clojure.core/defn at-date
-  {:arglists (quote (["java.time.OffsetTime" "java.time.LocalDate"]))}
+(defn at-date
   (^js/JSJoda.OffsetDateTime [^js/JSJoda.OffsetTime this ^js/JSJoda.LocalDate date]
    (.atDate this date)))
 
-(clojure.core/defn with-offset-same-instant
-  {:arglists (quote (["java.time.OffsetTime" "java.time.ZoneOffset"]))}
+(defn with-offset-same-instant
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.ZoneOffset offset]
    (.withOffsetSameInstant this offset)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.OffsetTime"]))}
+(defn to-string
   (^java.lang.String [^js/JSJoda.OffsetTime this]
    (.toString this)))
 
-(clojure.core/defn is-before
-  {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))}
+(defn is-before
   (^boolean [^js/JSJoda.OffsetTime this ^js/JSJoda.OffsetTime other]
    (.isBefore this other)))
 
-(clojure.core/defn minus
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAmount"]
-                     ["java.time.OffsetTime" "long" "java.time.temporal.TemporalUnit"]))}
+(defn minus
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalAmount amount-to-subtract]
    (.minus this amount-to-subtract))
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long amount-to-subtract ^js/JSJoda.TemporalUnit unit]
    (.minus this amount-to-subtract unit)))
 
-(clojure.core/defn plus-hours
-  {:arglists (quote (["java.time.OffsetTime" "long"]))}
+(defn plus-hours
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long hours]
    (.plusHours this hours)))
 
-(clojure.core/defn to-local-time
-  {:arglists (quote (["java.time.OffsetTime"]))}
+(defn to-local-time
   (^js/JSJoda.LocalTime [^js/JSJoda.OffsetTime this]
    (.toLocalTime this)))
 
-(clojure.core/defn get-long
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))}
+(defn get-long
   (^long [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalField field]
    (.getLong this field)))
 
-(clojure.core/defn get-offset
-  {:arglists (quote (["java.time.OffsetTime"]))}
+(defn get-offset
   (^js/JSJoda.ZoneOffset [^js/JSJoda.OffsetTime this]
    (.offset this)))
 
-(clojure.core/defn with-nano
-  {:arglists (quote (["java.time.OffsetTime" "int"]))}
+(defn with-nano
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^int nano-of-second]
    (.withNano this nano-of-second)))
 
-(clojure.core/defn until
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.Temporal" "java.time.temporal.TemporalUnit"]))}
+(defn until
   (^long [^js/JSJoda.OffsetTime this ^js/JSJoda.Temporal end-exclusive ^js/JSJoda.TemporalUnit unit]
    (.until this end-exclusive unit)))
 
-(clojure.core/defn with-offset-same-local
-  {:arglists (quote (["java.time.OffsetTime" "java.time.ZoneOffset"]))}
+(defn with-offset-same-local
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.ZoneOffset offset]
    (.withOffsetSameLocal this offset)))
 
-(clojure.core/defn from
-  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+(defn from
   (^js/JSJoda.OffsetTime [^js/JSJoda.TemporalAccessor temporal]
    (js-invoke java.time.OffsetTime "from" temporal)))
 
-(clojure.core/defn is-after
-  {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))}
+(defn is-after
   (^boolean [^js/JSJoda.OffsetTime this ^js/JSJoda.OffsetTime other]
    (.isAfter this other)))
 
-(clojure.core/defn minus-nanos
-  {:arglists (quote (["java.time.OffsetTime" "long"]))}
+(defn minus-nanos
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long nanos]
    (.minusNanos this nanos)))
 
-(clojure.core/defn is-supported
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]
-                     ["java.time.OffsetTime" "java.time.temporal.TemporalUnit"]))}
-  (^boolean [this arg0]
-   (.isSupported ^js/JSJoda.OffsetTime this arg0)))
+(defn is-supported
+  {:arglists '(["java.time.OffsetTime" "java.time.temporal.TemporalField"]
+               ["java.time.OffsetTime" "java.time.temporal.TemporalUnit"])}
+  (^boolean [^js/JSJoda.OffsetTime this arg0]
+   (.isSupported this arg0)))
 
-(clojure.core/defn parse
-  {:arglists (quote (["java.lang.CharSequence"] ["java.lang.CharSequence" "java.time.format.DateTimeFormatter"]))}
+(defn parse
   (^js/JSJoda.OffsetTime [^java.lang.CharSequence text]
    (js-invoke java.time.OffsetTime "parse" text))
   (^js/JSJoda.OffsetTime [^java.lang.CharSequence text ^js/JSJoda.DateTimeFormatter formatter]
    (js-invoke java.time.OffsetTime "parse" text formatter)))
 
-(clojure.core/defn with-second
-  {:arglists (quote (["java.time.OffsetTime" "int"]))}
+(defn with-second
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^int second]
    (.withSecond this second)))
 
-(clojure.core/defn get-minute
-  {:arglists (quote (["java.time.OffsetTime"]))}
+(defn get-minute
   (^int [^js/JSJoda.OffsetTime this]
    (.minute this)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.OffsetTime"]))}
+(defn hash-code
   (^int [^js/JSJoda.OffsetTime this]
    (.hashCode this)))
 
-(clojure.core/defn adjust-into
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.Temporal"]))}
+(defn adjust-into
   (^js/JSJoda.Temporal [^js/JSJoda.OffsetTime this ^js/JSJoda.Temporal temporal]
    (.adjustInto this temporal)))
 
-(clojure.core/defn with
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalAdjuster"]
-                     ["java.time.OffsetTime" "java.time.temporal.TemporalField" "long"]))}
+(defn with
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalAdjuster adjuster]
    (.with this adjuster))
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalField field ^long new-value]
    (.with this field new-value)))
 
-(clojure.core/defn now
-  {:arglists (quote ([] ["java.time.Clock"] ["java.time.ZoneId"]))}
+(defn now
+  {:arglists '([] ["java.time.Clock"] ["java.time.ZoneId"])}
   (^js/JSJoda.OffsetTime []
    (js-invoke java.time.OffsetTime "now"))
   (^js/JSJoda.OffsetTime [arg0]
    (js-invoke java.time.OffsetTime "now" arg0)))
 
-(clojure.core/defn compare-to
-  {:arglists (quote (["java.time.OffsetTime" "java.time.OffsetTime"]))}
+(defn compare-to
   (^int [^js/JSJoda.OffsetTime this ^js/JSJoda.OffsetTime other]
    (.compareTo this other)))
 
-(clojure.core/defn of-instant
-  {:arglists (quote (["java.time.Instant" "java.time.ZoneId"]))}
+(defn of-instant
   (^js/JSJoda.OffsetTime [^js/JSJoda.Instant instant ^js/JSJoda.ZoneId zone]
    (js-invoke java.time.OffsetTime "ofInstant" instant zone)))
 
-(clojure.core/defn plus-seconds
-  {:arglists (quote (["java.time.OffsetTime" "long"]))}
+(defn plus-seconds
   (^js/JSJoda.OffsetTime [^js/JSJoda.OffsetTime this ^long seconds]
    (.plusSeconds this seconds)))
 
-(clojure.core/defn get
-  {:arglists (quote (["java.time.OffsetTime" "java.time.temporal.TemporalField"]))}
+(defn get
   (^int [^js/JSJoda.OffsetTime this ^js/JSJoda.TemporalField field]
    (.get this field)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.OffsetTime" "java.lang.Object"]))}
+(defn equals
   (^boolean [^js/JSJoda.OffsetTime this ^java.lang.Object obj]
    (.equals this obj)))
 
-(clojure.core/defn format
-  {:arglists (quote (["java.time.OffsetTime" "java.time.format.DateTimeFormatter"]))}
+(defn format
   (^java.lang.String [^js/JSJoda.OffsetTime this ^js/JSJoda.DateTimeFormatter formatter]
    (.format this formatter)))

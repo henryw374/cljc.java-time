@@ -1,6 +1,7 @@
 (ns gen
   (:require [clojure.reflect :as rf]
             [clojure.set :as set]
+            [clojure.walk :as walk]
             [defwrapper :as df]
             [clojure.string :as string]
             [camel-snake-kebab.core :as csk]
@@ -55,7 +56,7 @@
     (cond-> (vector 'ns (symbol (str "cljc.java-time." (when sub-p (str sub-p ".")) ns-name))
               (list :refer-clojure :exclude ['abs 'get 'range 'format 'min 'max 'next 'name 'resolve 'short])
               req)
-      (= :clj ext) (conj (list :import [(symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name]))
+      (= :clj ext) (conj (list :import (list (symbol (str "java.time" (when sub-p (str "." sub-p)))) class-name)))
       :always seq)))
 
 ;(header 'Instant "foo" nil :cljs)
@@ -66,6 +67,15 @@
             ;(#{"long" "double"} x)
             )
       (symbol (str "^" x)))))
+
+(defn remove-line-column-meta
+  [form]
+  (walk/postwalk
+   (fn [x]
+     (if (meta x)
+       (vary-meta x dissoc :line :column)
+       x))
+   form))
 
 (defn gen-for-class [c sub-p ext]
   ;; header
@@ -81,13 +91,15 @@
             (list 'goog.object/get c (str "\"" (:name m) "\"")))))))
   ;; constructors
   (when (= java.time.format.DateTimeFormatterBuilder c)
-    (prn '(clojure.core/defn new {:arglists (quote ([]))}
-            (^java.time.format.DateTimeFormatterBuilder [] (java.time.format.DateTimeFormatterBuilder.)))))
+    (prn (remove-line-column-meta
+          '(defn new
+             (^java.time.format.DateTimeFormatterBuilder [] (java.time.format.DateTimeFormatterBuilder.))))))
   ;; methods
   (doseq [f (df/defwrapper c ext)]
     (let [f (if (= 'is-leap (second f))
-              '(clojure.core/defn is-leap {:arglists (quote (["long"]))}
-                 (^java.lang.Boolean [^long year] (. java.time.Year isLeap year)))
+              (remove-line-column-meta
+               '(defn is-leap
+                  (^java.lang.Boolean [^long year] (. java.time.Year isLeap year))))
               f)]
       (pr f))
     (println)))
@@ -105,7 +117,11 @@
                                                                                ;; multi arity fn
                                                                                (when (and (vector? (first exprs))
                                                                                           (not (every? vector? exprs)))
-                                                                                 {:fn-style :force-nl-body}))}}}]}
+                                                                                 {:fn-style :force-nl-body}))}}}]
+                                                "and" :force-nl
+                                                "let" [:binding {:binding {:force-nl? true}}]
+                                                "quote" [:replace-w-string
+                                                         {:list {:replacement-string "'"}}]}
                                        :parse {:interpose "\n\n"}
                                        :width 120})))
 

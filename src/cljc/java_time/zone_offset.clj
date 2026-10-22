@@ -1,7 +1,7 @@
 (ns cljc.java-time.zone-offset
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time ZoneOffset]))
+  (:import (java.time ZoneOffset)))
 
 (def max java.time.ZoneOffset/MAX)
 
@@ -9,134 +9,110 @@
 
 (def utc java.time.ZoneOffset/UTC)
 
-(clojure.core/defn get-available-zone-ids
-  {:arglists (quote ([]))}
+(defn get-available-zone-ids
   (^java.util.Set []
    (java.time.ZoneOffset/getAvailableZoneIds)))
 
-(clojure.core/defn range
-  {:arglists (quote (["java.time.ZoneOffset" "java.time.temporal.TemporalField"]))}
+(defn range
   (^java.time.temporal.ValueRange [^java.time.ZoneOffset this ^java.time.temporal.TemporalField field]
    (.range this field)))
 
-(clojure.core/defn of-total-seconds
-  {:arglists (quote (["int"]))}
+(defn of-total-seconds
   (^java.time.ZoneOffset [^java.lang.Integer total-seconds]
    (java.time.ZoneOffset/ofTotalSeconds total-seconds)))
 
-(clojure.core/defn of
-  {:arglists (quote (["java.lang.String"] ["java.lang.String"] ["java.lang.String" "java.util.Map"]))}
+(defn of
+  {:arglists '(["java.lang.String"] ["java.lang.String"] ["java.lang.String" "java.util.Map"])}
   (^java.lang.Object [arg0]
-   (clojure.core/cond (clojure.core/and (clojure.core/instance? java.lang.String arg0))
-                        (clojure.core/let [zone-id ^"java.lang.String" arg0] (java.time.ZoneOffset/of zone-id))
-                      (clojure.core/and (clojure.core/instance? java.lang.String arg0))
-                        (clojure.core/let [offset-id ^"java.lang.String" arg0] (java.time.ZoneOffset/of offset-id))
-                      :else (throw (java.lang.IllegalArgumentException.
-                                     "no corresponding java.time method with these args"))))
+   (cond (instance? java.lang.String arg0) (let [^java.lang.String zone-id arg0]
+                                             (java.time.ZoneOffset/of zone-id))
+         (instance? java.lang.String arg0) (let [^java.lang.String offset-id arg0]
+                                             (java.time.ZoneOffset/of offset-id))
+         :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args"))))
   (^java.time.ZoneId [^java.lang.String zone-id ^java.util.Map alias-map]
    (java.time.ZoneOffset/of zone-id alias-map)))
 
-(clojure.core/defn of-offset
-  {:arglists (quote (["java.lang.String" "java.time.ZoneOffset"]))}
+(defn of-offset
   (^java.time.ZoneId [^java.lang.String prefix ^java.time.ZoneOffset offset]
    (java.time.ZoneOffset/ofOffset prefix offset)))
 
-(clojure.core/defn query
-  {:arglists (quote (["java.time.ZoneOffset" "java.time.temporal.TemporalQuery"]))}
+(defn query
   (^java.lang.Object [^java.time.ZoneOffset this ^java.time.temporal.TemporalQuery query]
    (.query this query)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.ZoneOffset"]))}
+(defn to-string
   (^java.lang.String [^java.time.ZoneOffset this]
    (.toString this)))
 
-(clojure.core/defn get-display-name
-  {:arglists (quote (["java.time.ZoneOffset" "java.time.format.TextStyle" "java.util.Locale"]))}
+(defn get-display-name
   (^java.lang.String [^java.time.ZoneOffset this ^java.time.format.TextStyle style ^java.util.Locale locale]
    (.getDisplayName this style locale)))
 
-(clojure.core/defn get-long
-  {:arglists (quote (["java.time.ZoneOffset" "java.time.temporal.TemporalField"]))}
+(defn get-long
   (^long [^java.time.ZoneOffset this ^java.time.temporal.TemporalField field]
    (.getLong this field)))
 
-(clojure.core/defn get-rules
-  {:arglists (quote (["java.time.ZoneOffset"]))}
+(defn get-rules
   (^java.time.zone.ZoneRules [^java.time.ZoneOffset this]
    (.getRules this)))
 
-(clojure.core/defn of-hours
-  {:arglists (quote (["int"]))}
+(defn of-hours
   (^java.time.ZoneOffset [^java.lang.Integer hours]
    (java.time.ZoneOffset/ofHours hours)))
 
-(clojure.core/defn get-id
-  {:arglists (quote (["java.time.ZoneOffset"]))}
+(defn get-id
   (^java.lang.String [^java.time.ZoneOffset this]
    (.getId this)))
 
-(clojure.core/defn normalized
-  {:arglists (quote (["java.time.ZoneOffset"]))}
+(defn normalized
   (^java.time.ZoneId [^java.time.ZoneOffset this]
    (.normalized this)))
 
-(clojure.core/defn system-default
-  {:arglists (quote ([]))}
+(defn system-default
   (^java.time.ZoneId []
    (java.time.ZoneOffset/systemDefault)))
 
-(clojure.core/defn from
-  {:arglists (quote (["java.time.temporal.TemporalAccessor"] ["java.time.temporal.TemporalAccessor"]))}
+(defn from
+  {:arglists '(["java.time.temporal.TemporalAccessor"] ["java.time.temporal.TemporalAccessor"])}
   (^java.lang.Object [arg0]
-   (clojure.core/cond
-     (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalAccessor arg0))
-       (clojure.core/let [temporal ^"java.time.temporal.TemporalAccessor" arg0] (java.time.ZoneOffset/from temporal))
-     (clojure.core/and (clojure.core/instance? java.time.temporal.TemporalAccessor arg0))
-       (clojure.core/let [temporal ^"java.time.temporal.TemporalAccessor" arg0] (java.time.ZoneOffset/from temporal))
-     :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
+   (cond (instance? java.time.temporal.TemporalAccessor arg0) (let [^java.time.temporal.TemporalAccessor temporal arg0]
+                                                                (java.time.ZoneOffset/from temporal))
+         (instance? java.time.temporal.TemporalAccessor arg0) (let [^java.time.temporal.TemporalAccessor temporal arg0]
+                                                                (java.time.ZoneOffset/from temporal))
+         :else (throw (java.lang.IllegalArgumentException. "no corresponding java.time method with these args")))))
 
-(clojure.core/defn of-hours-minutes-seconds
-  {:arglists (quote (["int" "int" "int"]))}
+(defn of-hours-minutes-seconds
   (^java.time.ZoneOffset [^java.lang.Integer hours ^java.lang.Integer minutes ^java.lang.Integer seconds]
    (java.time.ZoneOffset/ofHoursMinutesSeconds hours minutes seconds)))
 
-(clojure.core/defn is-supported
-  {:arglists (quote (["java.time.ZoneOffset" "java.time.temporal.TemporalField"]))}
+(defn is-supported
   (^java.lang.Boolean [^java.time.ZoneOffset this ^java.time.temporal.TemporalField field]
    (.isSupported this field)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.ZoneOffset"]))}
+(defn hash-code
   (^java.lang.Integer [^java.time.ZoneOffset this]
    (.hashCode this)))
 
-(clojure.core/defn get-total-seconds
-  {:arglists (quote (["java.time.ZoneOffset"]))}
+(defn get-total-seconds
   (^java.lang.Integer [^java.time.ZoneOffset this]
    (.getTotalSeconds this)))
 
-(clojure.core/defn adjust-into
-  {:arglists (quote (["java.time.ZoneOffset" "java.time.temporal.Temporal"]))}
+(defn adjust-into
   (^java.time.temporal.Temporal [^java.time.ZoneOffset this ^java.time.temporal.Temporal temporal]
    (.adjustInto this temporal)))
 
-(clojure.core/defn of-hours-minutes
-  {:arglists (quote (["int" "int"]))}
+(defn of-hours-minutes
   (^java.time.ZoneOffset [^java.lang.Integer hours ^java.lang.Integer minutes]
    (java.time.ZoneOffset/ofHoursMinutes hours minutes)))
 
-(clojure.core/defn compare-to
-  {:arglists (quote (["java.time.ZoneOffset" "java.time.ZoneOffset"]))}
+(defn compare-to
   (^java.lang.Integer [^java.time.ZoneOffset this ^java.time.ZoneOffset other]
    (.compareTo this other)))
 
-(clojure.core/defn get
-  {:arglists (quote (["java.time.ZoneOffset" "java.time.temporal.TemporalField"]))}
+(defn get
   (^java.lang.Integer [^java.time.ZoneOffset this ^java.time.temporal.TemporalField field]
    (.get this field)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.ZoneOffset" "java.lang.Object"]))}
+(defn equals
   (^java.lang.Boolean [^java.time.ZoneOffset this ^java.lang.Object obj]
    (.equals this obj)))

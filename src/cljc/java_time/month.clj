@@ -1,7 +1,7 @@
 (ns cljc.java-time.month
   (:refer-clojure :exclude [abs get range format min max next name resolve short])
   (:require [cljc.java-time.extn.calendar-awareness])
-  (:import [java.time Month]))
+  (:import (java.time Month)))
 
 (def may java.time.Month/MAY)
 
@@ -27,134 +27,108 @@
 
 (def april java.time.Month/APRIL)
 
-(clojure.core/defn range
-  {:arglists (quote (["java.time.Month" "java.time.temporal.TemporalField"]))}
+(defn range
   (^java.time.temporal.ValueRange [^java.time.Month this ^java.time.temporal.TemporalField field]
    (.range this field)))
 
-(clojure.core/defn values
-  {:arglists (quote ([]))}
+(defn values
   (^"java.lang.Class" []
    (java.time.Month/values)))
 
-(clojure.core/defn value-of
-  {:arglists (quote (["java.lang.String"] ["java.lang.Class" "java.lang.String"]))}
+(defn value-of
   (^java.time.Month [^java.lang.String name]
    (java.time.Month/valueOf name))
   (^java.lang.Enum [^java.lang.Class enum-type ^java.lang.String name]
    (java.time.Month/valueOf enum-type name)))
 
-(clojure.core/defn of
-  {:arglists (quote (["int"]))}
+(defn of
   (^java.time.Month [^java.lang.Integer month]
    (java.time.Month/of month)))
 
-(clojure.core/defn ordinal
-  {:arglists (quote (["java.time.Month"]))}
+(defn ordinal
   (^java.lang.Integer [^java.time.Month this]
    (.ordinal this)))
 
-(clojure.core/defn first-month-of-quarter
-  {:arglists (quote (["java.time.Month"]))}
+(defn first-month-of-quarter
   (^java.time.Month [^java.time.Month this]
    (.firstMonthOfQuarter this)))
 
-(clojure.core/defn min-length
-  {:arglists (quote (["java.time.Month"]))}
+(defn min-length
   (^java.lang.Integer [^java.time.Month this]
    (.minLength this)))
 
-(clojure.core/defn plus
-  {:arglists (quote (["java.time.Month" "long"]))}
+(defn plus
   (^java.time.Month [^java.time.Month this ^long months]
    (.plus this months)))
 
-(clojure.core/defn query
-  {:arglists (quote (["java.time.Month" "java.time.temporal.TemporalQuery"]))}
+(defn query
   (^java.lang.Object [^java.time.Month this ^java.time.temporal.TemporalQuery query]
    (.query this query)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.Month"]))}
+(defn to-string
   (^java.lang.String [^java.time.Month this]
    (.toString this)))
 
-(clojure.core/defn first-day-of-year
-  {:arglists (quote (["java.time.Month" "boolean"]))}
+(defn first-day-of-year
   (^java.lang.Integer [^java.time.Month this ^java.lang.Boolean leap-year]
    (.firstDayOfYear this leap-year)))
 
-(clojure.core/defn minus
-  {:arglists (quote (["java.time.Month" "long"]))}
+(defn minus
   (^java.time.Month [^java.time.Month this ^long months]
    (.minus this months)))
 
-(clojure.core/defn get-display-name
-  {:arglists (quote (["java.time.Month" "java.time.format.TextStyle" "java.util.Locale"]))}
+(defn get-display-name
   (^java.lang.String [^java.time.Month this ^java.time.format.TextStyle style ^java.util.Locale locale]
    (.getDisplayName this style locale)))
 
-(clojure.core/defn get-value
-  {:arglists (quote (["java.time.Month"]))}
+(defn get-value
   (^java.lang.Integer [^java.time.Month this]
    (.getValue this)))
 
-(clojure.core/defn max-length
-  {:arglists (quote (["java.time.Month"]))}
+(defn max-length
   (^java.lang.Integer [^java.time.Month this]
    (.maxLength this)))
 
-(clojure.core/defn name
-  {:arglists (quote (["java.time.Month"]))}
+(defn name
   (^java.lang.String [^java.time.Month this]
    (.name this)))
 
-(clojure.core/defn get-long
-  {:arglists (quote (["java.time.Month" "java.time.temporal.TemporalField"]))}
+(defn get-long
   (^long [^java.time.Month this ^java.time.temporal.TemporalField field]
    (.getLong this field)))
 
-(clojure.core/defn length
-  {:arglists (quote (["java.time.Month" "boolean"]))}
+(defn length
   (^java.lang.Integer [^java.time.Month this ^java.lang.Boolean leap-year]
    (.length this leap-year)))
 
-(clojure.core/defn get-declaring-class
-  {:arglists (quote (["java.time.Month"]))}
+(defn get-declaring-class
   (^java.lang.Class [^java.time.Month this]
    (.getDeclaringClass this)))
 
-(clojure.core/defn from
-  {:arglists (quote (["java.time.temporal.TemporalAccessor"]))}
+(defn from
   (^java.time.Month [^java.time.temporal.TemporalAccessor temporal]
    (java.time.Month/from temporal)))
 
-(clojure.core/defn is-supported
-  {:arglists (quote (["java.time.Month" "java.time.temporal.TemporalField"]))}
+(defn is-supported
   (^java.lang.Boolean [^java.time.Month this ^java.time.temporal.TemporalField field]
    (.isSupported this field)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.Month"]))}
+(defn hash-code
   (^java.lang.Integer [^java.time.Month this]
    (.hashCode this)))
 
-(clojure.core/defn adjust-into
-  {:arglists (quote (["java.time.Month" "java.time.temporal.Temporal"]))}
+(defn adjust-into
   (^java.time.temporal.Temporal [^java.time.Month this ^java.time.temporal.Temporal temporal]
    (.adjustInto this temporal)))
 
-(clojure.core/defn compare-to
-  {:arglists (quote (["java.time.Month" "java.lang.Enum"]))}
+(defn compare-to
   (^java.lang.Integer [^java.time.Month this ^java.lang.Enum o]
    (.compareTo this o)))
 
-(clojure.core/defn get
-  {:arglists (quote (["java.time.Month" "java.time.temporal.TemporalField"]))}
+(defn get
   (^java.lang.Integer [^java.time.Month this ^java.time.temporal.TemporalField field]
    (.get this field)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.Month" "java.lang.Object"]))}
+(defn equals
   (^java.lang.Boolean [^java.time.Month this ^java.lang.Object other]
    (.equals this other)))

@@ -4,13 +4,11 @@
             [goog.object]
             [java.time.temporal :refer [ValueRange]]))
 
-(clojure.core/defn get-minimum
-  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+(defn get-minimum
   (^long [^js/JSJoda.ValueRange this]
    (.minimum this)))
 
-(clojure.core/defn of
-  {:arglists (quote (["long" "long"] ["long" "long" "long"] ["long" "long" "long" "long"]))}
+(defn of
   (^js/JSJoda.ValueRange [^long min ^long max]
    (js-invoke java.time.temporal.ValueRange "of" min max))
   (^js/JSJoda.ValueRange [^long min ^long max-smallest ^long max-largest]
@@ -18,62 +16,50 @@
   (^js/JSJoda.ValueRange [^long min-smallest ^long min-largest ^long max-smallest ^long max-largest]
    (js-invoke java.time.temporal.ValueRange "of" min-smallest min-largest max-smallest max-largest)))
 
-(clojure.core/defn is-valid-value
-  {:arglists (quote (["java.time.temporal.ValueRange" "long"]))}
+(defn is-valid-value
   (^boolean [^js/JSJoda.ValueRange this ^long value]
    (.isValidValue this value)))
 
-(clojure.core/defn check-valid-int-value
-  {:arglists (quote (["java.time.temporal.ValueRange" "long" "java.time.temporal.TemporalField"]))}
+(defn check-valid-int-value
   (^int [^js/JSJoda.ValueRange this ^long value ^js/JSJoda.TemporalField field]
    (.checkValidIntValue this value field)))
 
-(clojure.core/defn to-string
-  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+(defn to-string
   (^java.lang.String [^js/JSJoda.ValueRange this]
    (.toString this)))
 
-(clojure.core/defn is-int-value
-  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+(defn is-int-value
   (^boolean [^js/JSJoda.ValueRange this]
    (.isIntValue this)))
 
-(clojure.core/defn get-smallest-maximum
-  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+(defn get-smallest-maximum
   (^long [^js/JSJoda.ValueRange this]
    (.smallestMaximum this)))
 
-(clojure.core/defn is-valid-int-value
-  {:arglists (quote (["java.time.temporal.ValueRange" "long"]))}
+(defn is-valid-int-value
   (^boolean [^js/JSJoda.ValueRange this ^long value]
    (.isValidIntValue this value)))
 
-(clojure.core/defn hash-code
-  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+(defn hash-code
   (^int [^js/JSJoda.ValueRange this]
    (.hashCode this)))
 
-(clojure.core/defn is-fixed
-  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+(defn is-fixed
   (^boolean [^js/JSJoda.ValueRange this]
    (.isFixed this)))
 
-(clojure.core/defn get-maximum
-  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+(defn get-maximum
   (^long [^js/JSJoda.ValueRange this]
    (.maximum this)))
 
-(clojure.core/defn equals
-  {:arglists (quote (["java.time.temporal.ValueRange" "java.lang.Object"]))}
+(defn equals
   (^boolean [^js/JSJoda.ValueRange this ^java.lang.Object obj]
    (.equals this obj)))
 
-(clojure.core/defn get-largest-minimum
-  {:arglists (quote (["java.time.temporal.ValueRange"]))}
+(defn get-largest-minimum
   (^long [^js/JSJoda.ValueRange this]
    (.largestMinimum this)))
 
-(clojure.core/defn check-valid-value
-  {:arglists (quote (["java.time.temporal.ValueRange" "long" "java.time.temporal.TemporalField"]))}
+(defn check-valid-value
   (^long [^js/JSJoda.ValueRange this ^long value ^js/JSJoda.TemporalField field]
    (.checkValidValue this value field)))
